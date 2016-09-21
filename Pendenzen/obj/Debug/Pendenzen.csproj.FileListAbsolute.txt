@@ -1,1 +1,9 @@
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csprojResolveAssemblyReference.cache
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Form1.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Properties.Resources.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csproj.GenerateResource.Cache
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb

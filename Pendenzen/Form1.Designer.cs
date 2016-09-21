@@ -28,21 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.NameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.firmaComboBox = new System.Windows.Forms.ComboBox();
             this.firmaLabel = new System.Windows.Forms.Label();
+            this.referenzTextBox = new System.Windows.Forms.TextBox();
+            this.referenzLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // NameLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Name: Bob Meierhans";
+            this.NameLabel.AutoSize = true;
+            this.NameLabel.Location = new System.Drawing.Point(12, 74);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(112, 13);
+            this.NameLabel.TabIndex = 0;
+            this.NameLabel.Text = "Name: Bob Meierhans";
             // 
             // logoPictureBox
             // 
@@ -71,15 +73,33 @@
             this.firmaLabel.TabIndex = 3;
             this.firmaLabel.Text = "Firma";
             // 
+            // referenzTextBox
+            // 
+            this.referenzTextBox.Location = new System.Drawing.Point(141, 107);
+            this.referenzTextBox.Name = "referenzTextBox";
+            this.referenzTextBox.Size = new System.Drawing.Size(150, 20);
+            this.referenzTextBox.TabIndex = 4;
+            // 
+            // referenzLabel
+            // 
+            this.referenzLabel.AutoSize = true;
+            this.referenzLabel.Location = new System.Drawing.Point(141, 90);
+            this.referenzLabel.Name = "referenzLabel";
+            this.referenzLabel.Size = new System.Drawing.Size(67, 13);
+            this.referenzLabel.TabIndex = 5;
+            this.referenzLabel.Text = "Referenz-Nr.";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 593);
+            this.Controls.Add(this.referenzLabel);
+            this.Controls.Add(this.referenzTextBox);
             this.Controls.Add(this.firmaLabel);
             this.Controls.Add(this.firmaComboBox);
             this.Controls.Add(this.logoPictureBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.NameLabel);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
@@ -90,10 +110,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.ComboBox firmaComboBox;
         private System.Windows.Forms.Label firmaLabel;
+        private System.Windows.Forms.TextBox referenzTextBox;
+        private System.Windows.Forms.Label referenzLabel;
     }
 }
 
