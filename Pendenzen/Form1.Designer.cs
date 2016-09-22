@@ -34,6 +34,8 @@
             this.firmaLabel = new System.Windows.Forms.Label();
             this.referenzTextBox = new System.Windows.Forms.TextBox();
             this.referenzLabel = new System.Windows.Forms.Label();
+            this.btnInfo = new System.Windows.Forms.Button();
+            this.btnAddCompany = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,11 +91,33 @@
             this.referenzLabel.TabIndex = 5;
             this.referenzLabel.Text = "Referenz-Nr.";
             // 
+            // btnInfo
+            // 
+            this.btnInfo.Location = new System.Drawing.Point(893, 13);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(75, 23);
+            this.btnInfo.TabIndex = 6;
+            this.btnInfo.Text = "Info";
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // btnAddCompany
+            // 
+            this.btnAddCompany.Location = new System.Drawing.Point(13, 134);
+            this.btnAddCompany.Name = "btnAddCompany";
+            this.btnAddCompany.Size = new System.Drawing.Size(122, 23);
+            this.btnAddCompany.TabIndex = 7;
+            this.btnAddCompany.Text = "Firma hinzufügen";
+            this.btnAddCompany.UseVisualStyleBackColor = true;
+            this.btnAddCompany.Click += new System.EventHandler(this.btnAddCompany_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 593);
+            this.Controls.Add(this.btnAddCompany);
+            this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.referenzLabel);
             this.Controls.Add(this.referenzTextBox);
             this.Controls.Add(this.firmaLabel);
@@ -116,6 +140,8 @@
         private System.Windows.Forms.Label firmaLabel;
         private System.Windows.Forms.TextBox referenzTextBox;
         private System.Windows.Forms.Label referenzLabel;
+        private System.Windows.Forms.Button btnInfo;
+        private System.Windows.Forms.Button btnAddCompany;
     }
 }
 

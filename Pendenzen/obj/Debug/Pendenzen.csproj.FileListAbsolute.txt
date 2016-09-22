@@ -7,3 +7,4 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Properties.Resources.resourc
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csproj.GenerateResource.Cache
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addCompany.resources
