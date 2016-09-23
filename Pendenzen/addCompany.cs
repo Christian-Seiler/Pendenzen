@@ -19,9 +19,11 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string searchQuery = $"SELECT * FROM suplier WHERE suplier_id = {companyIDTextBox.Text}";
- //           string writeQuery = $"";
-            sql.connection(searchQuery);
+            string writeQuery = $"Insert INTO company (company_id, company_name) VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}')";
+            DBConnect db = new DBConnect();
+            db.Insert(writeQuery);
+
+            this.Close();
         }
     }
 }

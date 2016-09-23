@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Pendenzen
 {
     class DBConnect
     {
-        private SqlConnection connection;
+        private MySqlConnection connection;
         private string server;
         private string database;
         private string uid;
@@ -34,7 +29,7 @@ namespace Pendenzen
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
             database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
-            connection = new SqlConnection(connectionString);
+            connection = new MySqlConnection(connectionString);
         }
 
         //open connection to database
@@ -45,7 +40,7 @@ namespace Pendenzen
                 connection.Open();
                 return true;
             }
-            catch (SqlException ex)
+            catch (MySqlException ex)
             {
                 // When handling errors, you can your application's response based 
                 // on the error number.
@@ -74,7 +69,7 @@ namespace Pendenzen
                 connection.Close();
                 return true;
             }
-            catch (SqlException ex)
+            catch (MySqlException ex)
             {
                 MessageBox.Show(ex.Message);
                 return false;
@@ -82,13 +77,12 @@ namespace Pendenzen
         }
 
         //Insert statement
-        public void Insert()
+        public void Insert(string query)
         {
-            string query = "Insert INTO supplier (supplier_id, supplier_name) VALUES ('ID', 'Company')";
 
             if (this.OpenConnection() == true)
             {
-                SqlCommand cmd = new SqlCommand(query, connection);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
@@ -100,7 +94,7 @@ namespace Pendenzen
             string query = "UPDATE suplier SET supplier_name='Company' WHERE supplier_id='ID'";
             if (this.OpenConnection() == true)
             {
-                SqlCommand cmd = new SqlCommand();
+                MySqlCommand cmd = new MySqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
                 cmd.ExecuteNonQuery();
@@ -114,20 +108,61 @@ namespace Pendenzen
             string query = "DELETE FROM supplier WHERE supplier_id='ID'";
             if (this.OpenConnection() == true)
             {
-                SqlCommand cmd = new SqlCommand(query, connection);
+                MySqlCommand cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 this.CloseConnection();
             }
         }
 
         //Select statement
-        public List<string>[] Select()
+        public DataTable Select(string query)
         {
+            // Open connection
+            if(this.OpenConnection() == true)
+            {
+                // Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+                // Create a data reader and Execute the command
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                adapter.SelectCommand = cmd;
+                DataTable dTable = new DataTable();
+                adapter.Fill(dTable);
+
+                //close connection
+                this.CloseConnection();
+
+                //return DataTable to be displayed
+                return dTable;
+            } else
+            {
+                return null;
+            }
         }
 
         //Count statement
         public int Count()
         {
+            string query = "SELECT Count(*) FROM company";
+            int Count = -1;
+
+            //Open Connection
+            if (this.OpenConnection() == true)
+            {
+                // Create Command
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                //ExecuteScalar will return one Value
+                Count = int.Parse(cmd.ExecuteScalar() + "");
+                //close connection
+                this.CloseConnection();
+                //return List to be displayed
+
+                return Count;
+            }
+            else
+            {
+                return Count;
+            }
         }
 
         //Backup
