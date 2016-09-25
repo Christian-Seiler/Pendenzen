@@ -32,8 +32,6 @@ namespace Pendenzen
                     companyBox.Items.Add(row[column]);
                 }
             }
-
-
          }
 
         private void btnAddCompany_Click(object sender, EventArgs e)

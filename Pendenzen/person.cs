@@ -10,7 +10,7 @@ namespace Pendenzen
         {
             return System.Security.Principal.WindowsIdentity.GetCurrent().Name.Split('\\').Last();
         }
-
+        
         public static string getUserFullName()
         {
             RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Office\Common\UserInfo");

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Pendenzen
@@ -19,7 +17,12 @@ namespace Pendenzen
 
         private void btnInfo_Click(object sender, System.EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Copyright (c) 2016 Christian Seiler Services", "Info", MessageBoxButtons.OK);
+            // move to own window...
+            DialogResult result = MessageBox.Show($"{ProductName}\n" +
+            $"Version {ProductVersion} ({Assembly.GetExecutingAssembly().GetName().Version})\n" + 
+             "Copyright © 2016 Christian Seiler Services. Alle Rechte vorbehalten.",
+              "Info",
+               MessageBoxButtons.OK);
         }
 
         private void btnAddCompany_Click(object sender, EventArgs e)
