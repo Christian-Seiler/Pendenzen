@@ -37,6 +37,7 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.issueDataView = new System.Windows.Forms.DataGridView();
             this.refreshButton = new System.Windows.Forms.Button();
+            this.searchDropBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +45,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(12, 74);
+            this.nameLabel.Location = new System.Drawing.Point(13, 80);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(112, 13);
             this.nameLabel.TabIndex = 0;
@@ -55,14 +56,14 @@
             this.logoPictureBox.Image = global::Pendenzen.Properties.Resources.logo;
             this.logoPictureBox.Location = new System.Drawing.Point(13, 13);
             this.logoPictureBox.Name = "logoPictureBox";
-            this.logoPictureBox.Size = new System.Drawing.Size(187, 50);
+            this.logoPictureBox.Size = new System.Drawing.Size(180, 50);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 1;
             this.logoPictureBox.TabStop = false;
             // 
             // btnInfo
             // 
-            this.btnInfo.Location = new System.Drawing.Point(854, 13);
+            this.btnInfo.Location = new System.Drawing.Point(856, 13);
             this.btnInfo.Name = "btnInfo";
             this.btnInfo.Size = new System.Drawing.Size(75, 23);
             this.btnInfo.TabIndex = 6;
@@ -72,7 +73,7 @@
             // 
             // btnAddCompany
             // 
-            this.btnAddCompany.Location = new System.Drawing.Point(13, 90);
+            this.btnAddCompany.Location = new System.Drawing.Point(13, 128);
             this.btnAddCompany.Name = "btnAddCompany";
             this.btnAddCompany.Size = new System.Drawing.Size(120, 25);
             this.btnAddCompany.TabIndex = 7;
@@ -82,7 +83,7 @@
             // 
             // addIssue
             // 
-            this.addIssue.Location = new System.Drawing.Point(139, 90);
+            this.addIssue.Location = new System.Drawing.Point(139, 128);
             this.addIssue.Name = "addIssue";
             this.addIssue.Size = new System.Drawing.Size(120, 25);
             this.addIssue.TabIndex = 8;
@@ -92,16 +93,16 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(445, 95);
+            this.searchBox.Location = new System.Drawing.Point(550, 133);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(120, 20);
+            this.searchBox.Size = new System.Drawing.Size(108, 20);
             this.searchBox.TabIndex = 10;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(571, 90);
+            this.searchButton.Location = new System.Drawing.Point(761, 128);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(120, 25);
+            this.searchButton.Size = new System.Drawing.Size(70, 25);
             this.searchButton.TabIndex = 11;
             this.searchButton.Text = "Suchen";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -110,15 +111,17 @@
             // issueDataView
             // 
             this.issueDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.issueDataView.Location = new System.Drawing.Point(13, 121);
+            this.issueDataView.Location = new System.Drawing.Point(16, 159);
             this.issueDataView.Name = "issueDataView";
             this.issueDataView.ReadOnly = true;
-            this.issueDataView.Size = new System.Drawing.Size(916, 319);
+            this.issueDataView.ShowEditingIcon = false;
+            this.issueDataView.Size = new System.Drawing.Size(915, 319);
             this.issueDataView.TabIndex = 12;
+            this.issueDataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellContentClick);
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(854, 90);
+            this.refreshButton.Location = new System.Drawing.Point(856, 129);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 13;
@@ -126,11 +129,22 @@
             this.refreshButton.UseVisualStyleBackColor = true;
             this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
             // 
+            // searchDropBox
+            // 
+            this.searchDropBox.FormattingEnabled = true;
+            this.searchDropBox.Location = new System.Drawing.Point(664, 132);
+            this.searchDropBox.Name = "searchDropBox";
+            this.searchDropBox.Size = new System.Drawing.Size(91, 21);
+            this.searchDropBox.TabIndex = 14;
+            // 
             // issueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 452);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(944, 548);
+            this.Controls.Add(this.searchDropBox);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.issueDataView);
             this.Controls.Add(this.searchButton);
@@ -140,7 +154,9 @@
             this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.nameLabel);
+            this.HelpButton = true;
             this.Name = "issueForm";
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).EndInit();
@@ -160,6 +176,7 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView issueDataView;
         private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.ComboBox searchDropBox;
     }
 }
 

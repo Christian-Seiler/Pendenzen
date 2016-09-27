@@ -11,3 +11,5 @@ H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.dll
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.xml
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addIssue.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.issueForm.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.info.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyIssue.resources

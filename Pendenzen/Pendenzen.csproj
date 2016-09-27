@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="info.Designer.cs">
+      <DependentUpon>info.cs</DependentUpon>
+    </Compile>
     <Compile Include="issueForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,6 +71,12 @@
     <Compile Include="addIssue.Designer.cs">
       <DependentUpon>addIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="modifyIssue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="modifyIssue.Designer.cs">
+      <DependentUpon>modifyIssue.cs</DependentUpon>
+    </Compile>
     <Compile Include="person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,11 +84,17 @@
     <EmbeddedResource Include="addIssue.resx">
       <DependentUpon>addIssue.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="info.resx">
+      <DependentUpon>info.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="issueForm.resx">
       <DependentUpon>issueForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="addCompany.resx">
       <DependentUpon>addCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modifyIssue.resx">
+      <DependentUpon>modifyIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
