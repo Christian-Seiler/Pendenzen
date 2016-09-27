@@ -110,14 +110,13 @@
             // 
             // issueDataView
             // 
-            this.issueDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.issueDataView.Location = new System.Drawing.Point(16, 159);
             this.issueDataView.Name = "issueDataView";
             this.issueDataView.ReadOnly = true;
             this.issueDataView.ShowEditingIcon = false;
             this.issueDataView.Size = new System.Drawing.Size(915, 319);
             this.issueDataView.TabIndex = 12;
-            this.issueDataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellContentClick);
+            this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
             // 
             // refreshButton
             // 

@@ -55,9 +55,9 @@ namespace Pendenzen
 
             
             DBConnect db = new DBConnect();
-            string query = $"SELECT * FROM pendenz WHERE {searchKey} LIKE {searchBox.Text}";
-            issueDataView.DataSource = db.Select(query);
+            string query = $"SELECT * FROM pendenz WHERE {searchKey} LIKE '{searchBox.Text}'";
             Console.WriteLine(query);
+            issueDataView.DataSource = db.Select(query);
         }
 
         private void addIssue_Click(object sender, EventArgs e)
@@ -79,7 +79,7 @@ namespace Pendenzen
             reloadData();
         }
 
-        private void issueDataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void issueDataView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
 

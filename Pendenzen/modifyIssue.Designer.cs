@@ -47,6 +47,12 @@ namespace Pendenzen
             this.dueLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.companyBox = new System.Windows.Forms.ComboBox();
+            this.finalizedButton = new System.Windows.Forms.RadioButton();
+            this.cancelButton = new System.Windows.Forms.RadioButton();
+            this.historyLabel = new System.Windows.Forms.Label();
+            this.openButton = new System.Windows.Forms.RadioButton();
+            this.historyTextBox = new System.Windows.Forms.RichTextBox();
+            this.helpTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // changeIssueLabel
@@ -74,6 +80,7 @@ namespace Pendenzen
             this.referenceTextBox.Name = "referenceTextBox";
             this.referenceTextBox.Size = new System.Drawing.Size(100, 20);
             this.referenceTextBox.TabIndex = 4;
+            this.referenceTextBox.GotFocus += new System.EventHandler(this.referenceTextBox_Focused);
             // 
             // documentTextBox
             // 
@@ -81,13 +88,16 @@ namespace Pendenzen
             this.documentTextBox.Name = "documentTextBox";
             this.documentTextBox.Size = new System.Drawing.Size(100, 20);
             this.documentTextBox.TabIndex = 5;
+            this.documentTextBox.GotFocus += new System.EventHandler(this.documentTextBox_Focused);
             // 
             // responsibleTextBox
             // 
             this.responsibleTextBox.Location = new System.Drawing.Point(324, 121);
+            this.responsibleTextBox.MaxLength = 5;
             this.responsibleTextBox.Name = "responsibleTextBox";
             this.responsibleTextBox.Size = new System.Drawing.Size(100, 20);
             this.responsibleTextBox.TabIndex = 6;
+            this.responsibleTextBox.GotFocus += new System.EventHandler(this.responsibleTextBox_Focused);
             // 
             // detailsTextBox
             // 
@@ -95,6 +105,7 @@ namespace Pendenzen
             this.detailsTextBox.Name = "detailsTextBox";
             this.detailsTextBox.Size = new System.Drawing.Size(411, 20);
             this.detailsTextBox.TabIndex = 7;
+            this.detailsTextBox.GotFocus += new System.EventHandler(this.detailsTextBox_Focused);
             // 
             // creatorLabel
             // 
@@ -144,7 +155,7 @@ namespace Pendenzen
             // detailLabel
             // 
             this.detailLabel.AutoSize = true;
-            this.detailLabel.Location = new System.Drawing.Point(14, 205);
+            this.detailLabel.Location = new System.Drawing.Point(14, 217);
             this.detailLabel.Name = "detailLabel";
             this.detailLabel.Size = new System.Drawing.Size(39, 13);
             this.detailLabel.TabIndex = 13;
@@ -152,12 +163,13 @@ namespace Pendenzen
             // 
             // changeButton
             // 
-            this.changeButton.Location = new System.Drawing.Point(164, 410);
+            this.changeButton.Location = new System.Drawing.Point(349, 452);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(75, 23);
             this.changeButton.TabIndex = 14;
             this.changeButton.Text = "OK";
             this.changeButton.UseVisualStyleBackColor = true;
+            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
             // 
             // duePicker
             // 
@@ -166,6 +178,7 @@ namespace Pendenzen
             this.duePicker.Name = "duePicker";
             this.duePicker.Size = new System.Drawing.Size(93, 20);
             this.duePicker.TabIndex = 15;
+            this.duePicker.GotFocus += new System.EventHandler(this.duePicker_Focused);
             // 
             // dueLabel
             // 
@@ -181,7 +194,7 @@ namespace Pendenzen
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.errorLabel.Location = new System.Drawing.Point(26, 361);
+            this.errorLabel.Location = new System.Drawing.Point(206, 416);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(86, 13);
             this.errorLabel.TabIndex = 17;
@@ -197,6 +210,72 @@ namespace Pendenzen
             this.companyBox.Size = new System.Drawing.Size(93, 21);
             this.companyBox.Sorted = true;
             this.companyBox.TabIndex = 3;
+            this.companyBox.GotFocus += new System.EventHandler(this.companyBox_Focused);
+            // 
+            // finalizedButton
+            // 
+            this.finalizedButton.AutoSize = true;
+            this.finalizedButton.Location = new System.Drawing.Point(9, 435);
+            this.finalizedButton.Name = "finalizedButton";
+            this.finalizedButton.Size = new System.Drawing.Size(97, 17);
+            this.finalizedButton.TabIndex = 18;
+            this.finalizedButton.Text = "Abgeschlossen";
+            this.finalizedButton.UseVisualStyleBackColor = true;
+            this.finalizedButton.CheckedChanged += new System.EventHandler(this.finalizedButton_Checked);
+            // 
+            // cancelButton
+            // 
+            this.cancelButton.AutoSize = true;
+            this.cancelButton.Location = new System.Drawing.Point(10, 458);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(64, 17);
+            this.cancelButton.TabIndex = 19;
+            this.cancelButton.Text = "Storniert";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.CheckedChanged += new System.EventHandler(this.cancelButton_Checked);
+            // 
+            // historyLabel
+            // 
+            this.historyLabel.AutoSize = true;
+            this.historyLabel.Location = new System.Drawing.Point(13, 270);
+            this.historyLabel.Name = "historyLabel";
+            this.historyLabel.Size = new System.Drawing.Size(118, 13);
+            this.historyLabel.TabIndex = 20;
+            this.historyLabel.Text = "Unternommene Schritte";
+            // 
+            // openButton
+            // 
+            this.openButton.AutoSize = true;
+            this.openButton.Checked = true;
+            this.openButton.Location = new System.Drawing.Point(9, 412);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(51, 17);
+            this.openButton.TabIndex = 22;
+            this.openButton.TabStop = true;
+            this.openButton.Text = "Offen";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.CheckedChanged += new System.EventHandler(this.openButton_Checked);
+            // 
+            // historyTextBox
+            // 
+            this.historyTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.historyTextBox.Location = new System.Drawing.Point(13, 286);
+            this.historyTextBox.Name = "historyTextBox";
+            this.historyTextBox.ReadOnly = true;
+            this.historyTextBox.Size = new System.Drawing.Size(411, 120);
+            this.historyTextBox.TabIndex = 23;
+            this.historyTextBox.Text = "";
+            // 
+            // helpTextBox
+            // 
+            this.helpTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.helpTextBox.Location = new System.Drawing.Point(450, 105);
+            this.helpTextBox.Name = "helpTextBox";
+            this.helpTextBox.ReadOnly = true;
+            this.helpTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.helpTextBox.Size = new System.Drawing.Size(188, 301);
+            this.helpTextBox.TabIndex = 24;
+            this.helpTextBox.Text = "";
             // 
             // modifyIssue
             // 
@@ -204,6 +283,12 @@ namespace Pendenzen
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(645, 494);
+            this.Controls.Add(this.helpTextBox);
+            this.Controls.Add(this.historyTextBox);
+            this.Controls.Add(this.openButton);
+            this.Controls.Add(this.historyLabel);
+            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.finalizedButton);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.dueLabel);
             this.Controls.Add(this.duePicker);
@@ -248,5 +333,11 @@ namespace Pendenzen
         private Label dueLabel;
         private Label errorLabel;
         private ComboBox companyBox;
+        private RadioButton finalizedButton;
+        private RadioButton cancelButton;
+        private Label historyLabel;
+        private RadioButton openButton;
+        private RichTextBox historyTextBox;
+        private RichTextBox helpTextBox;
     }
 }

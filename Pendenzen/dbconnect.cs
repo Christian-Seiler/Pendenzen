@@ -89,9 +89,8 @@ namespace Pendenzen
         }
 
         //Update statement
-        public void Update()
+        public void Update(string query)
         {
-            string query = "UPDATE suplier SET supplier_name='Company' WHERE supplier_id='ID'";
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand();

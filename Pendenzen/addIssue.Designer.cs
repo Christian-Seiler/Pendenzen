@@ -77,14 +77,6 @@
             this.btnAddCompany.UseVisualStyleBackColor = true;
             this.btnAddCompany.Click += new System.EventHandler(this.btnAddCompany_Click);
             // 
-            // companyTextBox
-            // 
-            this.companyBox.Location = new System.Drawing.Point(17, 115);
-            this.companyBox.Name = "companyBox";
-            this.companyBox.Size = new System.Drawing.Size(93, 21);
-            this.companyBox.Sorted = true;
-            this.companyBox.TabIndex = 3;
-            // 
             // referenceTextBox
             // 
             this.referenceTextBox.Location = new System.Drawing.Point(116, 115);
@@ -102,6 +94,7 @@
             // responsibleTextBox
             // 
             this.responsibleTextBox.Location = new System.Drawing.Point(328, 115);
+            this.responsibleTextBox.MaxLength = 5;
             this.responsibleTextBox.Name = "responsibleTextBox";
             this.responsibleTextBox.Size = new System.Drawing.Size(100, 20);
             this.responsibleTextBox.TabIndex = 6;
@@ -207,6 +200,14 @@
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.errorLabel.UseMnemonic = false;
             this.errorLabel.Visible = false;
+            // 
+            // companyBox
+            // 
+            this.companyBox.Location = new System.Drawing.Point(17, 115);
+            this.companyBox.Name = "companyBox";
+            this.companyBox.Size = new System.Drawing.Size(93, 21);
+            this.companyBox.Sorted = true;
+            this.companyBox.TabIndex = 3;
             // 
             // addIssue
             // 
