@@ -221,7 +221,7 @@ namespace Pendenzen
             this.finalizedButton.TabIndex = 18;
             this.finalizedButton.Text = "Abgeschlossen";
             this.finalizedButton.UseVisualStyleBackColor = true;
-            this.finalizedButton.CheckedChanged += new System.EventHandler(this.finalizedButton_Checked);
+            this.finalizedButton.CheckedChanged += new System.EventHandler(this.stateButton);
             // 
             // cancelButton
             // 
@@ -232,7 +232,7 @@ namespace Pendenzen
             this.cancelButton.TabIndex = 19;
             this.cancelButton.Text = "Storniert";
             this.cancelButton.UseVisualStyleBackColor = true;
-            this.cancelButton.CheckedChanged += new System.EventHandler(this.cancelButton_Checked);
+            this.cancelButton.CheckedChanged += new System.EventHandler(this.stateButton);
             // 
             // historyLabel
             // 
@@ -254,7 +254,7 @@ namespace Pendenzen
             this.openButton.TabStop = true;
             this.openButton.Text = "Offen";
             this.openButton.UseVisualStyleBackColor = true;
-            this.openButton.CheckedChanged += new System.EventHandler(this.openButton_Checked);
+            this.openButton.CheckedChanged += new System.EventHandler(this.stateButton);
             // 
             // historyTextBox
             // 

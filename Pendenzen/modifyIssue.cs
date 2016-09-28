@@ -150,6 +150,25 @@ namespace Pendenzen
             Close();
         }
 
+        private void stateButton(object sender, EventArgs e)
+        {
+            if (finalizedButton.Checked)
+            {
+                cancelButton.Checked = false;
+                openButton.Checked = false;
+            }
+            if (cancelButton.Checked)
+            {
+                finalizedButton.Checked = false;
+                openButton.Checked = false;
+            }
+            if (openButton.Checked)
+            {
+                finalizedButton.Checked = false;
+                cancelButton.Checked = false;
+            }
+        }
+        /*
         private void cancelButton_Checked(object sender, EventArgs e)
         {
             finalizedButton.Checked = false;
@@ -170,7 +189,7 @@ namespace Pendenzen
             cancelButton.Checked = false;
             openButton.Checked = true;
         }
-
+        */
         private void companyBox_Focused(object sender, EventArgs e)
         {
             helpTextBox.Text = "Wählen Sie die, die Pendenz betreffende Firma.";
