@@ -168,28 +168,7 @@ namespace Pendenzen
                 cancelButton.Checked = false;
             }
         }
-        /*
-        private void cancelButton_Checked(object sender, EventArgs e)
-        {
-            finalizedButton.Checked = false;
-            cancelButton.Checked = true;
-            openButton.Checked = false;
-        }
 
-        private void finalizedButton_Checked(object sender, EventArgs e)
-        {
-            finalizedButton.Checked = true;
-            cancelButton.Checked = false;
-            openButton.Checked = false;
-        }
-
-        private void openButton_Checked(object sender, EventArgs e)
-        {
-            finalizedButton.Checked = false;
-            cancelButton.Checked = false;
-            openButton.Checked = true;
-        }
-        */
         private void companyBox_Focused(object sender, EventArgs e)
         {
             helpTextBox.Text = "Wählen Sie die, die Pendenz betreffende Firma.";

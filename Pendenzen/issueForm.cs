@@ -39,12 +39,6 @@ namespace Pendenzen
             info.ShowDialog();
         }
 
-        private void btnAddCompany_Click(object sender, EventArgs e)
-        {
-            addCompany add = new addCompany();
-            add.ShowDialog();
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             dictionary();
@@ -60,10 +54,18 @@ namespace Pendenzen
             issueDataView.DataSource = db.Select(query);
         }
 
-        private void addIssue_Click(object sender, EventArgs e)
+        private void addButton_Click(object sender, EventArgs e)
         {
-            addIssue add = new addIssue();
-            add.ShowDialog();
+            if (tabControl.SelectedIndex == 0)
+            {
+                addIssue issue = new addIssue();
+                issue.ShowDialog();
+            }
+            if (tabControl.SelectedIndex == 1)
+            {
+                addCompany company = new addCompany();
+                company.ShowDialog();
+            }
         }
 
         public void reloadData()
