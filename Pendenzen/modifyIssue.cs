@@ -103,9 +103,14 @@ namespace Pendenzen
                 changesText = "Änderungen: " + changesText + "\n";
             }
 
+            string newDetails = "";
+            if (detailsTextBox.Text != "")
+            {
+                newDetails = detailsTextBox.Text + "\n";
+            }
             
 
-            string detailsText = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{detailsTextBox.Text}\n{changesText}" + historyTextBox.Text;
+            string detailsText = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}{changesText}" + historyTextBox.Text;
 
 
 

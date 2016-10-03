@@ -30,7 +30,6 @@
         {
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
-            this.btnInfo = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
@@ -40,6 +39,10 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pendenzTab = new System.Windows.Forms.TabPage();
             this.companyTab = new System.Windows.Forms.TabPage();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.previousButton = new System.Windows.Forms.Button();
+            this.countLabel = new System.Windows.Forms.Label();
+            this.openLinkButton = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.kundeLabel = new System.Windows.Forms.Label();
             this.verkaufBusproLabel = new System.Windows.Forms.Label();
@@ -50,7 +53,7 @@
             this.kontaktLabel = new System.Windows.Forms.Label();
             this.emailVerkaufLabel = new System.Windows.Forms.Label();
             this.emailEinkaufLabel = new System.Windows.Forms.Label();
-            this.webLabel = new System.Windows.Forms.Label();
+            this.urlLabel = new System.Windows.Forms.Label();
             this.phoneLabel = new System.Windows.Forms.Label();
             this.countryLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
@@ -60,17 +63,26 @@
             this.streetLabel = new System.Windows.Forms.Label();
             this.companyLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schliessenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
             this.pendenzTab.SuspendLayout();
             this.companyTab.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(13, 80);
+            this.nameLabel.Location = new System.Drawing.Point(13, 103);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(112, 13);
             this.nameLabel.TabIndex = 0;
@@ -79,28 +91,18 @@
             // logoPictureBox
             // 
             this.logoPictureBox.Image = global::Pendenzen.Properties.Resources.logo;
-            this.logoPictureBox.Location = new System.Drawing.Point(13, 13);
+            this.logoPictureBox.Location = new System.Drawing.Point(17, 37);
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(180, 50);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPictureBox.TabIndex = 1;
             this.logoPictureBox.TabStop = false;
             // 
-            // btnInfo
-            // 
-            this.btnInfo.Location = new System.Drawing.Point(1014, 14);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(75, 23);
-            this.btnInfo.TabIndex = 6;
-            this.btnInfo.Text = "Info";
-            this.btnInfo.UseVisualStyleBackColor = true;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
             // addButton
             // 
-            this.addButton.Location = new System.Drawing.Point(13, 114);
+            this.addButton.Location = new System.Drawing.Point(13, 137);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(64, 25);
+            this.addButton.Size = new System.Drawing.Size(69, 25);
             this.addButton.TabIndex = 8;
             this.addButton.Text = "Neu";
             this.addButton.UseVisualStyleBackColor = true;
@@ -108,14 +110,16 @@
             // 
             // searchBox
             // 
-            this.searchBox.Location = new System.Drawing.Point(708, 134);
+            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchBox.Location = new System.Drawing.Point(708, 157);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(108, 20);
             this.searchBox.TabIndex = 10;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(919, 129);
+            this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchButton.Location = new System.Drawing.Point(919, 152);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(70, 25);
             this.searchButton.TabIndex = 11;
@@ -125,7 +129,11 @@
             // 
             // issueDataView
             // 
+            this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
             this.issueDataView.Name = "issueDataView";
             this.issueDataView.ReadOnly = true;
@@ -136,7 +144,8 @@
             // 
             // refreshButton
             // 
-            this.refreshButton.Location = new System.Drawing.Point(1014, 130);
+            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.Location = new System.Drawing.Point(1014, 153);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
             this.refreshButton.TabIndex = 13;
@@ -146,21 +155,26 @@
             // 
             // searchDropBox
             // 
+            this.searchDropBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchDropBox.FormattingEnabled = true;
-            this.searchDropBox.Location = new System.Drawing.Point(822, 133);
+            this.searchDropBox.Location = new System.Drawing.Point(822, 156);
             this.searchDropBox.Name = "searchDropBox";
             this.searchDropBox.Size = new System.Drawing.Size(91, 21);
             this.searchDropBox.TabIndex = 14;
             // 
             // tabControl
             // 
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.pendenzTab);
             this.tabControl.Controls.Add(this.companyTab);
-            this.tabControl.Location = new System.Drawing.Point(13, 160);
+            this.tabControl.Location = new System.Drawing.Point(13, 183);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1076, 462);
             this.tabControl.TabIndex = 15;
+            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // pendenzTab
             // 
@@ -175,6 +189,10 @@
             // 
             // companyTab
             // 
+            this.companyTab.Controls.Add(this.nextButton);
+            this.companyTab.Controls.Add(this.previousButton);
+            this.companyTab.Controls.Add(this.countLabel);
+            this.companyTab.Controls.Add(this.openLinkButton);
             this.companyTab.Controls.Add(this.richTextBox1);
             this.companyTab.Controls.Add(this.kundeLabel);
             this.companyTab.Controls.Add(this.verkaufBusproLabel);
@@ -185,7 +203,7 @@
             this.companyTab.Controls.Add(this.kontaktLabel);
             this.companyTab.Controls.Add(this.emailVerkaufLabel);
             this.companyTab.Controls.Add(this.emailEinkaufLabel);
-            this.companyTab.Controls.Add(this.webLabel);
+            this.companyTab.Controls.Add(this.urlLabel);
             this.companyTab.Controls.Add(this.phoneLabel);
             this.companyTab.Controls.Add(this.countryLabel);
             this.companyTab.Controls.Add(this.cityLabel);
@@ -203,8 +221,49 @@
             this.companyTab.Text = "Adressen";
             this.companyTab.UseVisualStyleBackColor = true;
             // 
+            // nextButton
+            // 
+            this.nextButton.Location = new System.Drawing.Point(400, 406);
+            this.nextButton.Name = "nextButton";
+            this.nextButton.Size = new System.Drawing.Size(23, 23);
+            this.nextButton.TabIndex = 25;
+            this.nextButton.Text = ">";
+            this.nextButton.UseVisualStyleBackColor = true;
+            // 
+            // previousButton
+            // 
+            this.previousButton.Location = new System.Drawing.Point(280, 406);
+            this.previousButton.Name = "previousButton";
+            this.previousButton.Size = new System.Drawing.Size(23, 23);
+            this.previousButton.TabIndex = 24;
+            this.previousButton.Text = "<";
+            this.previousButton.UseVisualStyleBackColor = true;
+            // 
+            // countLabel
+            // 
+            this.countLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.countLabel.AutoSize = true;
+            this.countLabel.Location = new System.Drawing.Point(331, 411);
+            this.countLabel.Name = "countLabel";
+            this.countLabel.Size = new System.Drawing.Size(43, 13);
+            this.countLabel.TabIndex = 23;
+            this.countLabel.Text = "1 von 1";
+            // 
+            // openLinkButton
+            // 
+            this.openLinkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.openLinkButton.Location = new System.Drawing.Point(134, 406);
+            this.openLinkButton.Name = "openLinkButton";
+            this.openLinkButton.Size = new System.Drawing.Size(75, 23);
+            this.openLinkButton.TabIndex = 22;
+            this.openLinkButton.Text = "Link öffnen";
+            this.openLinkButton.UseVisualStyleBackColor = true;
+            this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
+            // 
             // richTextBox1
             // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(691, 7);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(371, 423);
@@ -292,14 +351,14 @@
             this.emailEinkaufLabel.TabIndex = 10;
             this.emailEinkaufLabel.Text = "einkauf@email.ch";
             // 
-            // webLabel
+            // urlLabel
             // 
-            this.webLabel.AutoSize = true;
-            this.webLabel.Location = new System.Drawing.Point(243, 58);
-            this.webLabel.Name = "webLabel";
-            this.webLabel.Size = new System.Drawing.Size(116, 13);
-            this.webLabel.TabIndex = 9;
-            this.webLabel.Text = "http://www.website.ch";
+            this.urlLabel.AutoSize = true;
+            this.urlLabel.Location = new System.Drawing.Point(243, 58);
+            this.urlLabel.Name = "urlLabel";
+            this.urlLabel.Size = new System.Drawing.Size(116, 13);
+            this.urlLabel.TabIndex = 9;
+            this.urlLabel.Text = "http://www.website.ch";
             // 
             // phoneLabel
             // 
@@ -330,12 +389,14 @@
             // 
             // companyChangeLabel
             // 
+            this.companyChangeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.companyChangeLabel.Location = new System.Drawing.Point(6, 407);
             this.companyChangeLabel.Name = "companyChangeLabel";
             this.companyChangeLabel.Size = new System.Drawing.Size(75, 23);
             this.companyChangeLabel.TabIndex = 5;
             this.companyChangeLabel.Text = "Aktualisieren";
             this.companyChangeLabel.UseVisualStyleBackColor = true;
+            this.companyChangeLabel.Click += new System.EventHandler(this.companyChangeLabel_Click);
             // 
             // plzLabel
             // 
@@ -382,23 +443,87 @@
             this.idLabel.TabIndex = 0;
             this.idLabel.Text = "APW";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dateiToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(10, 10);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dateiToolStripMenuItem
+            // 
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.schliessenToolStripMenuItem1});
+            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // neuToolStripMenuItem
+            // 
+            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuePendenzToolStripMenuItem,
+            this.neueAdresseToolStripMenuItem});
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
+            // 
+            // neuePendenzToolStripMenuItem
+            // 
+            this.neuePendenzToolStripMenuItem.Name = "neuePendenzToolStripMenuItem";
+            this.neuePendenzToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.neuePendenzToolStripMenuItem.Text = "Neue Pendenz";
+            this.neuePendenzToolStripMenuItem.Click += new System.EventHandler(this.neuePendenzToolStripMenuItem_Click);
+            // 
+            // neueAdresseToolStripMenuItem
+            // 
+            this.neueAdresseToolStripMenuItem.Name = "neueAdresseToolStripMenuItem";
+            this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
+            this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
+            // 
+            // schliessenToolStripMenuItem1
+            // 
+            this.schliessenToolStripMenuItem1.Name = "schliessenToolStripMenuItem1";
+            this.schliessenToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
+            this.schliessenToolStripMenuItem1.Text = "Schliessen";
+            this.schliessenToolStripMenuItem1.Click += new System.EventHandler(this.schliessenToolStripMenuItem1_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // schliessenToolStripMenuItem
+            // 
+            this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
+            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.schliessenToolStripMenuItem.Text = "Schliessen";
+            // 
             // issueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1102, 635);
+            this.ClientSize = new System.Drawing.Size(1102, 659);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.addButton);
-            this.Controls.Add(this.btnInfo);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "issueForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
@@ -408,6 +533,8 @@
             this.pendenzTab.ResumeLayout(false);
             this.companyTab.ResumeLayout(false);
             this.companyTab.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,7 +544,6 @@
 
         private System.Windows.Forms.Label nameLabel;
         private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Button btnInfo;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button searchButton;
@@ -436,7 +562,7 @@
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label emailVerkaufLabel;
         private System.Windows.Forms.Label emailEinkaufLabel;
-        private System.Windows.Forms.Label webLabel;
+        private System.Windows.Forms.Label urlLabel;
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Label kundeLabel;
@@ -447,6 +573,18 @@
         private System.Windows.Forms.Label einkaufKontaktLabel;
         private System.Windows.Forms.Label kontaktLabel;
         private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neuePendenzToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem neueAdresseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem1;
+        private System.Windows.Forms.Button openLinkButton;
+        private System.Windows.Forms.Label countLabel;
+        private System.Windows.Forms.Button nextButton;
+        private System.Windows.Forms.Button previousButton;
     }
 }
 

@@ -13,3 +13,9 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addIssue.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.issueForm.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.info.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyIssue.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.TrustInfo.xml
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.manifest
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe.manifest
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyCompany.resources

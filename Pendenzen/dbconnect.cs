@@ -140,9 +140,8 @@ namespace Pendenzen
         }
 
         //Count statement
-        public int Count()
+        public int Count(string query)
         {
-            string query = "SELECT Count(*) FROM company";
             int Count = -1;
 
             //Open Connection
