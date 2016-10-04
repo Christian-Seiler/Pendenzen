@@ -15,9 +15,13 @@ namespace Pendenzen
     {
         DBConnect db = new DBConnect();
 
+        string _id;
+
         public modifyCompany(string id)
         {
             InitializeComponent();
+
+            _id = id;
 
             string query = $"SELECT * FROM company WHERE company_id = '{id}'";
 
@@ -42,11 +46,57 @@ namespace Pendenzen
             urlTextBox.Text = contact[8].ToString();
             emailVerkaufTextBox.Text = contact[9].ToString();
             emailEinkaufTextBox.Text = contact[10].ToString();
-            verkaufKontaktCheck.Checked = (bool)contact[11];
-            einkaufKontaktCheck.Checked = (bool)contact[12];
-            verkaufBusproCheck.Checked = (bool)contact[13];
-            einkaufBusproCheck.Checked = (bool)contact[14];
 
+            if (contact[11].ToString() == "Ja")
+            {
+                verkaufKontaktCheck.Checked = true;
+            }
+            if (contact[12].ToString() == "Ja")
+            {
+                einkaufKontaktCheck.Checked = true;
+            }
+            if (contact[13].ToString() == "Ja")
+            {
+                verkaufBusproCheck.Checked = true;
+            }
+            if (contact[14].ToString() == "Ja")
+            {
+                einkaufBusproCheck.Checked = true;
+            }
+        }
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            string verkaufKontakt = "Nein";
+            string einkaufKontakt = "Nein";
+            string verkaufBuspro = "Nein";
+            string einkaufBuspro = "Nein";
+
+            if (verkaufKontaktCheck.Checked)
+            {
+                verkaufKontakt = "Ja";
+                Console.WriteLine("verkaufKontakt Ja");
+            }
+            if (einkaufKontaktCheck.Checked)
+            {
+                einkaufKontakt = "Ja";
+                Console.WriteLine("einkaufKontakt Ja");
+            }
+            if (verkaufBusproCheck.Checked)
+            {
+                verkaufBuspro = "Ja";
+                Console.WriteLine("verkaufBuspro Ja");
+            }
+            if (einkaufBusproCheck.Checked)
+            {
+                einkaufBuspro = "Ja";
+                Console.WriteLine("einkaufBuspro Ja");
+            }
+
+            string query = $"UPDATE company SET company_name='{companyTextBox.Text}', company_street='{streetTextBox.Text}', company_pobox='{poBoxTextBox.Text}', company_plz='{plzTextBox.Text}', company_city='{cityTextBox.Text}', company_country='{countryTextBox.Text}', company_phone='{phoneTextBox.Text}', company_website='{urlTextBox.Text}', company_verkaufmail='{emailVerkaufTextBox.Text}', company_einkaufmail='{emailEinkaufTextBox.Text}', company_verkaufkontakt='{verkaufKontakt}', company_einkaufkontakt='{einkaufKontakt}', company_verkaufBuspro='{verkaufBuspro}', company_einkaufBuspro='{einkaufBuspro}' WHERE company_id = '{_id}'";
+            Console.WriteLine(query);
+            db.Update(query);
+            Close();
         }
     }
 }

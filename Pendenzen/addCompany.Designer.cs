@@ -34,33 +34,33 @@
             this.companyLabel = new System.Windows.Forms.Label();
             this.companyIDLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.streetTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.poBoxTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.plzTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.countryTextBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.emailEinkaufTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.emailVerkaufTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.urlTextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.verkaufKontaktCheck = new System.Windows.Forms.CheckBox();
+            this.einkaufKontaktCheck = new System.Windows.Forms.CheckBox();
+            this.verkaufBusproCheck = new System.Windows.Forms.CheckBox();
+            this.neukundeVerkaufCheck = new System.Windows.Forms.CheckBox();
+            this.neukundeEinkaufCheck = new System.Windows.Forms.CheckBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.einkaufBusproCheck = new System.Windows.Forms.CheckBox();
+            this.copyMailCheck = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // submitButton
@@ -86,7 +86,7 @@
             this.companyIDTextBox.Name = "companyIDTextBox";
             this.companyIDTextBox.Size = new System.Drawing.Size(100, 20);
             this.companyIDTextBox.TabIndex = 0;
-            this.companyIDTextBox.Leave += new System.EventHandler(this.getCounty);
+            this.companyIDTextBox.Leave += new System.EventHandler(this.getCountry);
             // 
             // companyLabel
             // 
@@ -115,12 +115,12 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Strasse";
             // 
-            // textBox1
+            // streetTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(200, 20);
-            this.textBox1.TabIndex = 4;
+            this.streetTextBox.Location = new System.Drawing.Point(13, 114);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(200, 20);
+            this.streetTextBox.TabIndex = 4;
             // 
             // label2
             // 
@@ -131,12 +131,12 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Postfach";
             // 
-            // textBox2
+            // poBoxTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(13, 153);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 20);
-            this.textBox2.TabIndex = 6;
+            this.poBoxTextBox.Location = new System.Drawing.Point(13, 153);
+            this.poBoxTextBox.Name = "poBoxTextBox";
+            this.poBoxTextBox.Size = new System.Drawing.Size(200, 20);
+            this.poBoxTextBox.TabIndex = 6;
             // 
             // label3
             // 
@@ -147,12 +147,12 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "PLZ";
             // 
-            // textBox3
+            // plzTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(13, 192);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(49, 20);
-            this.textBox3.TabIndex = 8;
+            this.plzTextBox.Location = new System.Drawing.Point(13, 192);
+            this.plzTextBox.Name = "plzTextBox";
+            this.plzTextBox.Size = new System.Drawing.Size(49, 20);
+            this.plzTextBox.TabIndex = 8;
             // 
             // label4
             // 
@@ -179,12 +179,12 @@
             this.label5.TabIndex = 11;
             this.label5.Text = "Telefon";
             // 
-            // textBox5
+            // phoneTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(252, 75);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(200, 20);
-            this.textBox5.TabIndex = 12;
+            this.phoneTextBox.Location = new System.Drawing.Point(252, 75);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(200, 20);
+            this.phoneTextBox.TabIndex = 12;
             // 
             // label6
             // 
@@ -195,12 +195,12 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Stadt";
             // 
-            // textBox6
+            // cityTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(68, 192);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(145, 20);
-            this.textBox6.TabIndex = 14;
+            this.cityTextBox.Location = new System.Drawing.Point(68, 192);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(145, 20);
+            this.cityTextBox.TabIndex = 14;
             // 
             // label7
             // 
@@ -211,12 +211,12 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Email Einkauf";
             // 
-            // textBox7
+            // emailEinkaufTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(252, 231);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 20);
-            this.textBox7.TabIndex = 16;
+            this.emailEinkaufTextBox.Location = new System.Drawing.Point(252, 231);
+            this.emailEinkaufTextBox.Name = "emailEinkaufTextBox";
+            this.emailEinkaufTextBox.Size = new System.Drawing.Size(200, 20);
+            this.emailEinkaufTextBox.TabIndex = 16;
             // 
             // label8
             // 
@@ -227,12 +227,12 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Email Verkauf";
             // 
-            // textBox8
+            // emailVerkaufTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(252, 153);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(200, 20);
-            this.textBox8.TabIndex = 18;
+            this.emailVerkaufTextBox.Location = new System.Drawing.Point(252, 153);
+            this.emailVerkaufTextBox.Name = "emailVerkaufTextBox";
+            this.emailVerkaufTextBox.Size = new System.Drawing.Size(200, 20);
+            this.emailVerkaufTextBox.TabIndex = 18;
             // 
             // label9
             // 
@@ -243,12 +243,12 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Website";
             // 
-            // textBox9
+            // urlTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(252, 114);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(200, 20);
-            this.textBox9.TabIndex = 20;
+            this.urlTextBox.Location = new System.Drawing.Point(252, 114);
+            this.urlTextBox.Name = "urlTextBox";
+            this.urlTextBox.Size = new System.Drawing.Size(200, 20);
+            this.urlTextBox.TabIndex = 20;
             // 
             // label10
             // 
@@ -259,55 +259,57 @@
             this.label10.TabIndex = 21;
             this.label10.Text = "In Kontakt";
             // 
-            // checkBox1
+            // verkaufKontaktCheck
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(493, 26);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(63, 17);
-            this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Verkauf";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.verkaufKontaktCheck.AutoSize = true;
+            this.verkaufKontaktCheck.Location = new System.Drawing.Point(493, 26);
+            this.verkaufKontaktCheck.Name = "verkaufKontaktCheck";
+            this.verkaufKontaktCheck.Size = new System.Drawing.Size(63, 17);
+            this.verkaufKontaktCheck.TabIndex = 22;
+            this.verkaufKontaktCheck.Text = "Verkauf";
+            this.verkaufKontaktCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // einkaufKontaktCheck
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(493, 49);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(62, 17);
-            this.checkBox2.TabIndex = 23;
-            this.checkBox2.Text = "Einkauf";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.einkaufKontaktCheck.AutoSize = true;
+            this.einkaufKontaktCheck.Location = new System.Drawing.Point(493, 49);
+            this.einkaufKontaktCheck.Name = "einkaufKontaktCheck";
+            this.einkaufKontaktCheck.Size = new System.Drawing.Size(62, 17);
+            this.einkaufKontaktCheck.TabIndex = 23;
+            this.einkaufKontaktCheck.Text = "Einkauf";
+            this.einkaufKontaktCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // verkaufBusproCheck
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(493, 114);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(63, 17);
-            this.checkBox3.TabIndex = 24;
-            this.checkBox3.Text = "Verkauf";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.verkaufBusproCheck.AutoSize = true;
+            this.verkaufBusproCheck.Location = new System.Drawing.Point(493, 114);
+            this.verkaufBusproCheck.Name = "verkaufBusproCheck";
+            this.verkaufBusproCheck.Size = new System.Drawing.Size(63, 17);
+            this.verkaufBusproCheck.TabIndex = 24;
+            this.verkaufBusproCheck.Text = "Verkauf";
+            this.verkaufBusproCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // neukundeVerkaufCheck
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(493, 192);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(63, 17);
-            this.checkBox4.TabIndex = 25;
-            this.checkBox4.Text = "Verkauf";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.neukundeVerkaufCheck.AutoSize = true;
+            this.neukundeVerkaufCheck.Location = new System.Drawing.Point(493, 192);
+            this.neukundeVerkaufCheck.Name = "neukundeVerkaufCheck";
+            this.neukundeVerkaufCheck.Size = new System.Drawing.Size(63, 17);
+            this.neukundeVerkaufCheck.TabIndex = 25;
+            this.neukundeVerkaufCheck.Text = "Verkauf";
+            this.neukundeVerkaufCheck.UseVisualStyleBackColor = true;
+            this.neukundeVerkaufCheck.CheckStateChanged += new System.EventHandler(this.neukundeVerkauf_Checked);
             // 
-            // checkBox5
+            // neukundeEinkaufCheck
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(493, 215);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(62, 17);
-            this.checkBox5.TabIndex = 26;
-            this.checkBox5.Text = "Einkauf";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.neukundeEinkaufCheck.AutoSize = true;
+            this.neukundeEinkaufCheck.Location = new System.Drawing.Point(493, 215);
+            this.neukundeEinkaufCheck.Name = "neukundeEinkaufCheck";
+            this.neukundeEinkaufCheck.Size = new System.Drawing.Size(62, 17);
+            this.neukundeEinkaufCheck.TabIndex = 26;
+            this.neukundeEinkaufCheck.Text = "Einkauf";
+            this.neukundeEinkaufCheck.UseVisualStyleBackColor = true;
+            this.neukundeEinkaufCheck.CheckStateChanged += new System.EventHandler(this.neukundeEinkauf_Checked);
             // 
             // label11
             // 
@@ -327,25 +329,26 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "Ist Neukunde";
             // 
-            // checkBox6
+            // einkaufBusproCheck
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(493, 137);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(62, 17);
-            this.checkBox6.TabIndex = 29;
-            this.checkBox6.Text = "Einkauf";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.einkaufBusproCheck.AutoSize = true;
+            this.einkaufBusproCheck.Location = new System.Drawing.Point(493, 137);
+            this.einkaufBusproCheck.Name = "einkaufBusproCheck";
+            this.einkaufBusproCheck.Size = new System.Drawing.Size(62, 17);
+            this.einkaufBusproCheck.TabIndex = 29;
+            this.einkaufBusproCheck.Text = "Einkauf";
+            this.einkaufBusproCheck.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // copyMailCheck
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(252, 195);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(80, 17);
-            this.checkBox7.TabIndex = 30;
-            this.checkBox7.Text = "checkBox7";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.copyMailCheck.AutoSize = true;
+            this.copyMailCheck.Location = new System.Drawing.Point(252, 195);
+            this.copyMailCheck.Name = "copyMailCheck";
+            this.copyMailCheck.Size = new System.Drawing.Size(96, 17);
+            this.copyMailCheck.TabIndex = 30;
+            this.copyMailCheck.Text = "Email Kopieren";
+            this.copyMailCheck.UseVisualStyleBackColor = true;
+            this.copyMailCheck.CheckStateChanged += new System.EventHandler(this.copyMailCheck_CheckStateChanged);
             // 
             // addCompany
             // 
@@ -354,34 +357,34 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(591, 287);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox6);
+            this.Controls.Add(this.copyMailCheck);
+            this.Controls.Add(this.einkaufBusproCheck);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.neukundeEinkaufCheck);
+            this.Controls.Add(this.neukundeVerkaufCheck);
+            this.Controls.Add(this.verkaufBusproCheck);
+            this.Controls.Add(this.einkaufKontaktCheck);
+            this.Controls.Add(this.verkaufKontaktCheck);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.urlTextBox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox8);
+            this.Controls.Add(this.emailVerkaufTextBox);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.emailEinkaufTextBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.countryTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.plzTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.poBoxTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.streetTextBox);
             this.Controls.Add(this.companyIDLabel);
             this.Controls.Add(this.companyLabel);
             this.Controls.Add(this.companyIDTextBox);
@@ -403,32 +406,32 @@
         private System.Windows.Forms.Label companyLabel;
         private System.Windows.Forms.Label companyIDLabel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox streetTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox poBoxTextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox plzTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox countryTextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox emailEinkaufTextBox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox emailVerkaufTextBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox urlTextBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox verkaufKontaktCheck;
+        private System.Windows.Forms.CheckBox einkaufKontaktCheck;
+        private System.Windows.Forms.CheckBox verkaufBusproCheck;
+        private System.Windows.Forms.CheckBox neukundeVerkaufCheck;
+        private System.Windows.Forms.CheckBox neukundeEinkaufCheck;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox einkaufBusproCheck;
+        private System.Windows.Forms.CheckBox copyMailCheck;
     }
 }

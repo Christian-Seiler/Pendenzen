@@ -12,12 +12,17 @@ namespace Pendenzen
 {
     public partial class addCompany : Form
     {
+        DBConnect db = new DBConnect();
+        string Date = DateTime.Now.ToShortDateString();
+        string neukundeVerkauf = "0000-00-00";
+        string neukundeEinkauf = "0000-00-00";
+
         public addCompany()
         {
             InitializeComponent();
         }
 
-        private void getCounty(object sender, EventArgs e)
+        private void getCountry(object sender, EventArgs e)
         {
             string companyID;
             int textLength;
@@ -32,8 +37,8 @@ namespace Pendenzen
                 companyID = companyIDTextBox.Text;
             }
 
-            string query = $"SELECT * FROM country WHERE idcountry='{companyID.Remove(textLength - 4)}'";
-            DBConnect db = new DBConnect();
+            string query = $"SELECT countryname FROM country WHERE idcountry='{companyID.Remove(textLength - 4)}'";
+            
 
 
             List<string> list = new List<string>();
@@ -48,34 +53,54 @@ namespace Pendenzen
                 }
             }
 
-            countryTextBox.Text = list[1];
+            countryTextBox.Text = list[0];
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        private void neukundeVerkauf_Checked(object sender, EventArgs e)
+        {
+            neukundeVerkauf = Date;
+            Console.WriteLine("verkauf: " + neukundeVerkauf);
+        }
+        private void neukundeEinkauf_Checked(object sender, EventArgs e)
+        {
+            neukundeEinkauf = Date;
+            Console.WriteLine("einkauf: " + neukundeEinkauf);
+        }
 
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string writeQuery = $"Insert INTO company (company_id, company_name) VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}')";
-            DBConnect db = new DBConnect();
-            db.Insert(writeQuery);
+            string verkaufKontakt = "Nein";
+            string einkaufKontakt = "Nein";
+            string verkaufBuspro = "Nein";
+            string einkaufBuspro = "Nein";
 
-            this.Close();
+            if (verkaufKontaktCheck.Checked)
+            {
+                verkaufKontakt = "Ja";
+            }
+            if (einkaufKontaktCheck.Checked)
+            {
+                einkaufKontakt = "Ja";
+            }
+            if (verkaufBusproCheck.Checked)
+            {
+                verkaufBuspro = "Ja";
+            }
+            if (einkaufBusproCheck.Checked)
+            {
+                einkaufBuspro = "Ja";
+            }
+
+            string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}')";
+            Console.WriteLine(query);
+            db.Update(query);
+            Close();
+        }
+
+        private void copyMailCheck_CheckStateChanged(object sender, EventArgs e)
+        {
+            emailEinkaufTextBox.Text = emailVerkaufTextBox.Text;
         }
     }
 }

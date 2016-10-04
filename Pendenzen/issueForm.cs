@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Data;
+using System.Text;
+using System.IO;
+using System.Threading;
 
 namespace Pendenzen
 {
@@ -12,6 +15,8 @@ namespace Pendenzen
         DBConnect db = new DBConnect();
         addIssue issue = new addIssue();
         addCompany company = new addCompany();
+        ArrayList _companies;
+        DataTable _table;
 
 
         public Dictionary<string, string> dictionary()
@@ -48,13 +53,32 @@ namespace Pendenzen
             
             DataTable table = db.Select("SELECT company_id FROM company");
 
-            ArrayList companies = new ArrayList(table.Rows.Count);
+            _companies = new ArrayList(table.Rows.Count);
             foreach (DataRow row in table.Rows)
             {
-                companies.Add(row.ItemArray[0]);
+                _companies.Add(row.ItemArray[0]);
             }
-            int currentID = companies.IndexOf(idLabel.Text) + 1;
-            countLabel.Text = $"{currentID} von {db.Count("SELECT Count(*) FROM company")}";
+            
+
+            int currentID = _companies.IndexOf(idLabel.Text) + 1;
+            countLabel.Text = $"{currentID} von {_companies.Count}";
+
+            if (currentID == 1)
+            {
+                previousButton.Enabled = false;
+            }
+            else
+            {
+                previousButton.Enabled = true;
+            }
+            if (currentID == _companies.Count) 
+            {
+                nextButton.Enabled = false;
+            }
+            else
+            {
+                nextButton.Enabled = true;
+            }
         }
 
         public issueForm()
@@ -63,7 +87,6 @@ namespace Pendenzen
             nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
 
             tabControl_Selected(null, null);
-            reloadData();
         }
 
         private void reloadData()
@@ -76,8 +99,19 @@ namespace Pendenzen
 
         private void loadContact(string id)
         {
-            DataTable table = db.Select($"SELECT * FROM company WHERE company_id = '{id}'");
+            _table = db.Select($"SELECT * FROM company WHERE company_id = '{id}'");
+            makeData(_table);
+        }
 
+        private void loadContact(string searchKey, string id)
+        {
+            _table = db.Select($"SELECT * FROM company WHERE {searchKey} = '{id}'");
+
+            makeData(_table);
+        }
+        
+        private void makeData(DataTable table)
+        {
             ArrayList contact = new ArrayList(table.Columns.Count);
             foreach (DataRow row in table.Rows)
             {
@@ -103,6 +137,44 @@ namespace Pendenzen
             verkaufBusproLabel.Text = $"Verkauf: {contact[13].ToString()}";
             einkaufBusproLabel.Text = $"Einkauf: {contact[14].ToString()}";
             kundeLabel.Text = $" Kunde seit: {contact[15].ToString()}";
+            getCompanyIndex();
+        }
+
+        private void WriteToCSV()
+        {
+
+            DataTable table = db.Select("SELECT * FROM company");
+            var result = new StringBuilder();
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                result.Append(table.Columns[i].ColumnName);
+                result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    result.Append(row[i].ToString());
+                    result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+                }
+            }
+            
+            SaveFileDialog saveFile = new SaveFileDialog();
+
+            saveFile.FileName = "export.csv";
+            saveFile.DefaultExt = "csv";
+            saveFile.InitialDirectory = Environment.GetEnvironmentVariable("USERPROFILE");
+            saveFile.Title = "Adressen exportieren unter";
+            saveFile.Filter = "Alle Dateien (*.*)|*.*";
+            saveFile.CheckPathExists = true;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveFile.FileName;
+                File.WriteAllText(path, result.ToString(), Encoding.Unicode);
+            }
         }
 
         #region UIControls
@@ -127,10 +199,8 @@ namespace Pendenzen
             }
             if (tabControl.SelectedIndex == 1)
             {
-
+                loadContact(searchKey, searchBox.Text);
             }
-
-
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -197,15 +267,40 @@ namespace Pendenzen
 
         private void openLinkButton_Click(object sender, EventArgs e)
         {
-            Process.Start(urlLabel.Text);
+            if (urlLabel.Text != "")
+            {
+                Process.Start(urlLabel.Text);
+            }
         }
 
         private void companyChangeLabel_Click(object sender, EventArgs e)
         {
             modifyCompany modifyCompany = new modifyCompany(idLabel.Text);
+
             modifyCompany.ShowDialog();
         }
-        #endregion
 
+        private void previousButton_Click(object sender, EventArgs e)
+        {
+            int id = _companies.IndexOf(idLabel.Text);
+            if (id > 0)
+            {
+                string previousID = _companies[id - 1].ToString();
+                loadContact(previousID);
+            }
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            int id = _companies.IndexOf(idLabel.Text) + 1;
+            string nextID = _companies[id].ToString();
+            loadContact(nextID);
+        }
+
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            WriteToCSV();
+        }
+        #endregion
     }
 }

@@ -39,6 +39,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pendenzTab = new System.Windows.Forms.TabPage();
             this.companyTab = new System.Windows.Forms.TabPage();
+            this.exportButton = new System.Windows.Forms.Button();
             this.nextButton = new System.Windows.Forms.Button();
             this.previousButton = new System.Windows.Forms.Button();
             this.countLabel = new System.Windows.Forms.Label();
@@ -189,6 +190,7 @@
             // 
             // companyTab
             // 
+            this.companyTab.Controls.Add(this.exportButton);
             this.companyTab.Controls.Add(this.nextButton);
             this.companyTab.Controls.Add(this.previousButton);
             this.companyTab.Controls.Add(this.countLabel);
@@ -221,23 +223,38 @@
             this.companyTab.Text = "Adressen";
             this.companyTab.UseVisualStyleBackColor = true;
             // 
+            // exportButton
+            // 
+            this.exportButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.exportButton.Location = new System.Drawing.Point(610, 405);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(75, 23);
+            this.exportButton.TabIndex = 26;
+            this.exportButton.Text = "Export";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
             // nextButton
             // 
+            this.nextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nextButton.Location = new System.Drawing.Point(400, 406);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(23, 23);
             this.nextButton.TabIndex = 25;
             this.nextButton.Text = ">";
             this.nextButton.UseVisualStyleBackColor = true;
+            this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
             // 
             // previousButton
             // 
+            this.previousButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.previousButton.Location = new System.Drawing.Point(280, 406);
             this.previousButton.Name = "previousButton";
             this.previousButton.Size = new System.Drawing.Size(23, 23);
             this.previousButton.TabIndex = 24;
             this.previousButton.Text = "<";
             this.previousButton.UseVisualStyleBackColor = true;
+            this.previousButton.Click += new System.EventHandler(this.previousButton_Click);
             // 
             // countLabel
             // 
@@ -394,7 +411,7 @@
             this.companyChangeLabel.Name = "companyChangeLabel";
             this.companyChangeLabel.Size = new System.Drawing.Size(75, 23);
             this.companyChangeLabel.TabIndex = 5;
-            this.companyChangeLabel.Text = "Aktualisieren";
+            this.companyChangeLabel.Text = "Bearbeiten";
             this.companyChangeLabel.UseVisualStyleBackColor = true;
             this.companyChangeLabel.Click += new System.EventHandler(this.companyChangeLabel_Click);
             // 
@@ -585,6 +602,7 @@
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Button nextButton;
         private System.Windows.Forms.Button previousButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }
 
