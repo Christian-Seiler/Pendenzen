@@ -14,8 +14,8 @@ namespace Pendenzen
     {
         DBConnect db = new DBConnect();
         string Date = DateTime.Now.ToShortDateString();
-        string neukundeVerkauf = "0000-00-00";
-        string neukundeEinkauf = "0000-00-00";
+        string neukundeVerkauf = "null";
+        string neukundeEinkauf = "null";
 
         public addCompany()
         {
@@ -59,17 +59,17 @@ namespace Pendenzen
         private void neukundeVerkauf_Checked(object sender, EventArgs e)
         {
             neukundeVerkauf = Date;
-            Console.WriteLine("verkauf: " + neukundeVerkauf);
         }
         private void neukundeEinkauf_Checked(object sender, EventArgs e)
         {
             neukundeEinkauf = Date;
-            Console.WriteLine("einkauf: " + neukundeEinkauf);
         }
-
 
         private void submitButton_Click(object sender, EventArgs e)
         {
+            string newDetails = $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
+            string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
+
             string verkaufKontakt = "Nein";
             string einkaufKontakt = "Nein";
             string verkaufBuspro = "Nein";
@@ -92,7 +92,7 @@ namespace Pendenzen
                 einkaufBuspro = "Ja";
             }
 
-            string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}')";
+            string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}', '{history}')";
             Console.WriteLine(query);
             db.Update(query);
             Close();

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
 
 namespace Pendenzen
 {
@@ -68,10 +70,9 @@ namespace Pendenzen
             historyTextBox.Text = list[8];
         }
 
+        #region UI
         private void changeButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(DateTime.Now.ToString("dd. MMM. yy HH:mm"));
-
             string newState;
             string finalizedDate;
 
@@ -108,13 +109,8 @@ namespace Pendenzen
             {
                 newDetails = detailsTextBox.Text + "\n";
             }
-            
 
             string detailsText = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}{changesText}" + historyTextBox.Text;
-
-
-
-
 
             if (finalizedButton.Checked)
             {
@@ -174,6 +170,37 @@ namespace Pendenzen
             }
         }
 
+        private void openFilesButton_Click(object sender, EventArgs e)
+        {
+            if (_company.Length == 3)
+            {
+                string path = @"K:\Einkauf\Lieferanten\Inland\" + _company + @"\Korrespondenz";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                Process.Start(path);
+            }
+            else
+            {
+                string path = @"K:\Einkauf\Lieferanten\Ausland\" + _company + @"\Korrespondenz";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                Process.Start(path);
+            }
+        }
+
+        private void detailsFirmaButton_Click(object sender, EventArgs e)
+        {
+            Firmendetails company = new Firmendetails(companyBox.Text);
+            company.ShowDialog();
+        }
+        #endregion
+
+        #region Helptext
+
         private void companyBox_Focused(object sender, EventArgs e)
         {
             helpTextBox.Text = "Wählen Sie die, die Pendenz betreffende Firma.";
@@ -203,5 +230,7 @@ namespace Pendenzen
         {
             helpTextBox.Text = "Jeder unternommene Schritt ist mit einem kurzen Satz zu dokumentieren.";
         }
+        #endregion
+
     }
 }

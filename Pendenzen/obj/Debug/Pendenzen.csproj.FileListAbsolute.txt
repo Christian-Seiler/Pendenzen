@@ -19,3 +19,4 @@ H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe.manifest
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyCompany.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Firmendetails.resources

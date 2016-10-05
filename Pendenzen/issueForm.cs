@@ -87,12 +87,13 @@ namespace Pendenzen
             nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
 
             tabControl_Selected(null, null);
+
+            reloadData();
         }
 
         private void reloadData()
         {
             //issueDataView.Enabled = true;
-            DBConnect db = new DBConnect();
             string query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             issueDataView.DataSource = db.Select(query);
         }
@@ -121,6 +122,24 @@ namespace Pendenzen
                 }
             }
 
+            kundeLabel.Text = "";
+            einkauferLabel.Text = "";
+
+            DateTime kundeDate;
+            if (contact[15].ToString() != "")
+            {
+                kundeDate = DateTime.Parse(contact[15].ToString());
+                string date = kundeDate.ToShortDateString();
+                kundeLabel.Text = $" Kunde seit: {date}";
+            }
+            DateTime einkaufDate;
+            if (contact[16].ToString() != "")
+            {
+                einkaufDate = DateTime.Parse(contact[16].ToString());
+                string date = einkaufDate.ToShortDateString();
+                einkauferLabel.Text = $" Verkauf seit: {date}";
+            }
+            
             idLabel.Text = contact[0].ToString();
             companyLabel.Text = contact[1].ToString();
             streetLabel.Text = contact[2].ToString();
@@ -136,8 +155,43 @@ namespace Pendenzen
             einkaufKontaktLabel.Text = $"Einkauf: {contact[12].ToString()}";
             verkaufBusproLabel.Text = $"Verkauf: {contact[13].ToString()}";
             einkaufBusproLabel.Text = $"Einkauf: {contact[14].ToString()}";
-            kundeLabel.Text = $" Kunde seit: {contact[15].ToString()}";
+            historyBox.Text = contact[17].ToString();
             getCompanyIndex();
+            manageButtons();
+        }
+
+        private void manageButtons()
+        {
+            if (urlLabel.Text == "")
+            {
+                openLinkButton.Visible = false;
+                webLabel.Visible = false;
+            } else
+            {
+                openLinkButton.Visible = true;
+                webLabel.Visible = true;
+            }
+            if (emailVerkaufLabel.Text == "")
+            {
+                verkaufEmailButton.Visible = false;
+                verkaufLabel.Visible = false;
+
+            }
+            else
+            {
+                verkaufEmailButton.Visible = true;
+                verkaufLabel.Visible = true;
+            }
+            if (emailEinkaufLabel.Text == "")
+            {
+                einkaufEmailButton.Visible = false;
+                einkaufLabel.Visible = false;
+            }
+            else
+            {
+                einkaufEmailButton.Visible = true;
+                einkaufLabel.Visible = true;
+            }
         }
 
         private void WriteToCSV()
@@ -254,7 +308,10 @@ namespace Pendenzen
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
 
-            if (tabControl.SelectedIndex == 1)
+            if (tabControl.SelectedIndex == 0)
+            {
+                reloadData();
+            } else if (tabControl.SelectedIndex == 1)
             {
                 loadContact(idLabel.Text);
             }
@@ -293,13 +350,25 @@ namespace Pendenzen
         private void nextButton_Click(object sender, EventArgs e)
         {
             int id = _companies.IndexOf(idLabel.Text) + 1;
+            Console.WriteLine(id);
             string nextID = _companies[id].ToString();
+            Console.WriteLine(nextID);
             loadContact(nextID);
         }
 
         private void exportButton_Click(object sender, EventArgs e)
         {
             WriteToCSV();
+        }
+
+        private void verkaufEmailButton_Click(object sender, EventArgs e)
+        {
+            Process.Start($"mailto:{emailVerkaufLabel.Text}");
+        }
+
+        private void einkaufEmailButton_Click(object sender, EventArgs e)
+        {
+            Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
         #endregion
     }

@@ -53,6 +53,8 @@ namespace Pendenzen
             this.openButton = new System.Windows.Forms.RadioButton();
             this.historyTextBox = new System.Windows.Forms.RichTextBox();
             this.helpTextBox = new System.Windows.Forms.RichTextBox();
+            this.openFilesButton = new System.Windows.Forms.Button();
+            this.detailsFirmaButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // changeIssueLabel
@@ -101,6 +103,8 @@ namespace Pendenzen
             // 
             // detailsTextBox
             // 
+            this.detailsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.detailsTextBox.Location = new System.Drawing.Point(13, 233);
             this.detailsTextBox.Name = "detailsTextBox";
             this.detailsTextBox.Size = new System.Drawing.Size(411, 20);
@@ -163,6 +167,7 @@ namespace Pendenzen
             // 
             // changeButton
             // 
+            this.changeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.changeButton.Location = new System.Drawing.Point(349, 452);
             this.changeButton.Name = "changeButton";
             this.changeButton.Size = new System.Drawing.Size(75, 23);
@@ -214,6 +219,7 @@ namespace Pendenzen
             // 
             // finalizedButton
             // 
+            this.finalizedButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.finalizedButton.AutoSize = true;
             this.finalizedButton.Location = new System.Drawing.Point(9, 435);
             this.finalizedButton.Name = "finalizedButton";
@@ -225,6 +231,7 @@ namespace Pendenzen
             // 
             // cancelButton
             // 
+            this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cancelButton.AutoSize = true;
             this.cancelButton.Location = new System.Drawing.Point(10, 458);
             this.cancelButton.Name = "cancelButton";
@@ -245,6 +252,7 @@ namespace Pendenzen
             // 
             // openButton
             // 
+            this.openButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.openButton.AutoSize = true;
             this.openButton.Checked = true;
             this.openButton.Location = new System.Drawing.Point(9, 412);
@@ -258,6 +266,9 @@ namespace Pendenzen
             // 
             // historyTextBox
             // 
+            this.historyTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.historyTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.historyTextBox.Location = new System.Drawing.Point(13, 286);
             this.historyTextBox.Name = "historyTextBox";
@@ -268,6 +279,8 @@ namespace Pendenzen
             // 
             // helpTextBox
             // 
+            this.helpTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.helpTextBox.BackColor = System.Drawing.SystemColors.Info;
             this.helpTextBox.Location = new System.Drawing.Point(450, 105);
             this.helpTextBox.Name = "helpTextBox";
@@ -277,12 +290,36 @@ namespace Pendenzen
             this.helpTextBox.TabIndex = 24;
             this.helpTextBox.Text = "";
             // 
+            // openFilesButton
+            // 
+            this.openFilesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.openFilesButton.Location = new System.Drawing.Point(268, 452);
+            this.openFilesButton.Name = "openFilesButton";
+            this.openFilesButton.Size = new System.Drawing.Size(75, 23);
+            this.openFilesButton.TabIndex = 25;
+            this.openFilesButton.Text = "Dateien";
+            this.openFilesButton.UseVisualStyleBackColor = true;
+            this.openFilesButton.Click += new System.EventHandler(this.openFilesButton_Click);
+            // 
+            // detailsFirmaButton
+            // 
+            this.detailsFirmaButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.detailsFirmaButton.Location = new System.Drawing.Point(187, 452);
+            this.detailsFirmaButton.Name = "detailsFirmaButton";
+            this.detailsFirmaButton.Size = new System.Drawing.Size(75, 23);
+            this.detailsFirmaButton.TabIndex = 26;
+            this.detailsFirmaButton.Text = "Details Firma";
+            this.detailsFirmaButton.UseVisualStyleBackColor = true;
+            this.detailsFirmaButton.Click += new System.EventHandler(this.detailsFirmaButton_Click);
+            // 
             // modifyIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(645, 494);
+            this.Controls.Add(this.detailsFirmaButton);
+            this.Controls.Add(this.openFilesButton);
             this.Controls.Add(this.helpTextBox);
             this.Controls.Add(this.historyTextBox);
             this.Controls.Add(this.openButton);
@@ -308,7 +345,7 @@ namespace Pendenzen
             this.Controls.Add(this.changeIssueLabel);
             this.Name = "modifyIssue";
             this.Padding = new System.Windows.Forms.Padding(10);
-            this.Text = "modifyIssue";
+            this.Text = "Pendenz bearbeiten";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,5 +376,7 @@ namespace Pendenzen
         private RadioButton openButton;
         private RichTextBox historyTextBox;
         private RichTextBox helpTextBox;
+        private Button openFilesButton;
+        private Button detailsFirmaButton;
     }
 }

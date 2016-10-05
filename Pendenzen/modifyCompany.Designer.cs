@@ -341,9 +341,9 @@
             this.checkBox7.AutoSize = true;
             this.checkBox7.Location = new System.Drawing.Point(252, 195);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(80, 17);
+            this.checkBox7.Size = new System.Drawing.Size(136, 17);
             this.checkBox7.TabIndex = 30;
-            this.checkBox7.Text = "checkBox7";
+            this.checkBox7.Text = "Email Adresse kopieren";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
             // modifyCompany
