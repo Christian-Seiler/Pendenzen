@@ -78,8 +78,8 @@
             // 
             // einkaufEmailButton
             // 
-            this.einkaufEmailButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.einkaufEmailButton.Location = new System.Drawing.Point(265, 103);
+            this.einkaufEmailButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.einkaufEmailButton.Location = new System.Drawing.Point(320, 147);
             this.einkaufEmailButton.Name = "einkaufEmailButton";
             this.einkaufEmailButton.Size = new System.Drawing.Size(90, 23);
             this.einkaufEmailButton.TabIndex = 47;
@@ -89,8 +89,8 @@
             // 
             // verkaufEmailButton
             // 
-            this.verkaufEmailButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.verkaufEmailButton.Location = new System.Drawing.Point(265, 132);
+            this.verkaufEmailButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.verkaufEmailButton.Location = new System.Drawing.Point(320, 176);
             this.verkaufEmailButton.Name = "verkaufEmailButton";
             this.verkaufEmailButton.Size = new System.Drawing.Size(90, 23);
             this.verkaufEmailButton.TabIndex = 46;
@@ -100,8 +100,8 @@
             // 
             // openLinkButton
             // 
-            this.openLinkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.openLinkButton.Location = new System.Drawing.Point(265, 74);
+            this.openLinkButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.openLinkButton.Location = new System.Drawing.Point(320, 118);
             this.openLinkButton.Name = "openLinkButton";
             this.openLinkButton.Size = new System.Drawing.Size(90, 23);
             this.openLinkButton.TabIndex = 45;
@@ -157,7 +157,7 @@
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(46, 130);
+            this.cityLabel.Location = new System.Drawing.Point(69, 130);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
             this.cityLabel.TabIndex = 39;
@@ -165,8 +165,8 @@
             // 
             // companyChangeLabel
             // 
-            this.companyChangeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.companyChangeLabel.Location = new System.Drawing.Point(265, 183);
+            this.companyChangeLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.companyChangeLabel.Location = new System.Drawing.Point(320, 227);
             this.companyChangeLabel.Name = "companyChangeLabel";
             this.companyChangeLabel.Size = new System.Drawing.Size(75, 23);
             this.companyChangeLabel.TabIndex = 38;
@@ -234,8 +234,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1039, 537);
+            this.ClientSize = new System.Drawing.Size(423, 263);
             this.Controls.Add(this.companyBigLabel);
             this.Controls.Add(this.verkaufLabel);
             this.Controls.Add(this.einkaufLabel);

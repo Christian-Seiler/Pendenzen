@@ -6,6 +6,9 @@ namespace Pendenzen
 {
     public partial class addIssue : Form
     {
+        DBConnect db = new DBConnect();
+        bool _error = false;
+
         public addIssue()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace Pendenzen
                     companyBox.Items.Add(row[column]);
                 }
             }
+
+            duePicker.Value = DateTime.Now.AddDays(7);
          }
 
         private void btnAddCompany_Click(object sender, EventArgs e)
@@ -45,11 +50,48 @@ namespace Pendenzen
             string sachbearbeiter = responsibleTextBox.Text.ToUpper();
             string due = duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             string details = detailsText;
+            
+            checkEntries();
+            if (_error == false)
+            {
+                string query = $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail) VALUES('{lieferant}', '{referenz}', '{document}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details}')";
+                db.Insert(query);
+                Close();
+            }
+        }
 
-            DBConnect db = new DBConnect();
-            string query = $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail) VALUES('{lieferant}', '{referenz}', '{document}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details}')";
-            db.Insert(query);
-            Close();
+        private void checkEntries()
+        {
+            errorLabel.Text = "";
+
+            if(companyBox.Text == "")
+            {
+                _error = true;
+                errorLabel.Text += "Firmenangabe";
+            }
+            if(referenceTextBox.Text == "" && documentTextBox.Text == "")
+            {
+                if(_error == true) { errorLabel.Text += ", "; }
+                _error = true;
+                errorLabel.Text += "Referenz oder Beleg";
+            }
+            if (responsibleTextBox.Text == "")
+            {
+                if (_error == true) { errorLabel.Text += ", "; }
+                _error = true;
+                errorLabel.Text += "Sachbearbeiter";
+            }
+            if (detailsTextBox.Text == "")
+            {
+                if (_error == true) { errorLabel.Text += ", "; }
+                _error = true;
+                errorLabel.Text += "Detailangabe";
+            }
+            if (_error)
+            {
+                errorLabel.Text += " ist zwingend einzugeben.";
+            }
+            errorLabel.Visible = true;
         }
     }
 }

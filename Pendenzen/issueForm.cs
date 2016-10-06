@@ -7,6 +7,8 @@ using System.Data;
 using System.Text;
 using System.IO;
 using System.Threading;
+using System.Drawing.Printing;
+using System.Drawing;
 
 namespace Pendenzen
 {
@@ -17,6 +19,12 @@ namespace Pendenzen
         addCompany company = new addCompany();
         ArrayList _companies;
         DataTable _table;
+        string query;
+        StringFormat strFormat;
+        int iCellHeight;
+        int iCount;
+        bool bFirstPage;
+        bool bNewPage;
 
 
         public Dictionary<string, string> dictionary()
@@ -50,7 +58,6 @@ namespace Pendenzen
 
         private void getCompanyIndex()
         {
-            
             DataTable table = db.Select("SELECT company_id FROM company");
 
             _companies = new ArrayList(table.Rows.Count);
@@ -59,7 +66,6 @@ namespace Pendenzen
                 _companies.Add(row.ItemArray[0]);
             }
             
-
             int currentID = _companies.IndexOf(idLabel.Text) + 1;
             countLabel.Text = $"{currentID} von {_companies.Count}";
 
@@ -87,14 +93,25 @@ namespace Pendenzen
             nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
 
             tabControl_Selected(null, null);
-
-            reloadData();
+            
+            threadStarter();
         }
 
-        private void reloadData()
+        private void reloadData(int tabIndex)
         {
-            //issueDataView.Enabled = true;
-            string query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            if (tabIndex == 0)
+            {
+                loadIssues();
+            }
+            else if (tabIndex == 1)
+            {
+                loadContact(idLabel.Text);
+            }
+        }
+
+        private void loadIssues()
+        {
+            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             issueDataView.DataSource = db.Select(query);
         }
 
@@ -175,9 +192,7 @@ namespace Pendenzen
             {
                 verkaufEmailButton.Visible = false;
                 verkaufLabel.Visible = false;
-
-            }
-            else
+            } else
             {
                 verkaufEmailButton.Visible = true;
                 verkaufLabel.Visible = true;
@@ -186,8 +201,7 @@ namespace Pendenzen
             {
                 einkaufEmailButton.Visible = false;
                 einkaufLabel.Visible = false;
-            }
-            else
+            } else
             {
                 einkaufEmailButton.Visible = true;
                 einkaufLabel.Visible = true;
@@ -196,8 +210,8 @@ namespace Pendenzen
 
         private void WriteToCSV()
         {
-
-            DataTable table = db.Select("SELECT * FROM company");
+            query = createQuery("company");
+            DataTable table = db.Select(query);
             var result = new StringBuilder();
             for (int i = 0; i < table.Columns.Count; i++)
             {
@@ -231,6 +245,21 @@ namespace Pendenzen
             }
         }
 
+        private string createQuery(string table)
+        {
+            return $"SELECT * FROM {table}";
+        }
+
+        private string createQuery(string table, string searchKey)
+        {
+            return $"SELECT * FROM {table} WHERE {searchKey} = ''";
+        }
+
+        private string createQuery(string table, string searchKey, string searchText)
+        {
+            return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
+        }
+
         #region UIControls
         private void btnInfo_Click(object sender, System.EventArgs e)
         {
@@ -248,8 +277,17 @@ namespace Pendenzen
 
             if (tabControl.SelectedIndex == 0)
             {
-                string query = $"SELECT * FROM pendenz WHERE {searchKey} LIKE '{searchBox.Text}'";
+
+                if (searchBox.Text != "")
+                {
+                    query = createQuery("pendenz", searchKey, searchBox.Text);
+                }
+                else if (searchBox.Text == "")
+                {
+                    query = createQuery("pendenz", searchKey);
+                }
                 issueDataView.DataSource = db.Select(query);
+
             }
             if (tabControl.SelectedIndex == 1)
             {
@@ -271,7 +309,7 @@ namespace Pendenzen
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            reloadData();
+            reloadData(tabControl.SelectedIndex);
         }
 
         private void issueDataView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -284,13 +322,11 @@ namespace Pendenzen
 
         private void neuePendenzToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addIssue issue = new addIssue();
             issue.ShowDialog();
         }
 
         private void neueAdresseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            addCompany company = new addCompany();
             company.ShowDialog();
         }
 
@@ -307,14 +343,8 @@ namespace Pendenzen
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
+            reloadData(tabControl.SelectedIndex);
 
-            if (tabControl.SelectedIndex == 0)
-            {
-                reloadData();
-            } else if (tabControl.SelectedIndex == 1)
-            {
-                loadContact(idLabel.Text);
-            }
             searchDropBox.Items.Clear();
             foreach (KeyValuePair<string, string> pair in dictionary())
             {
@@ -350,9 +380,7 @@ namespace Pendenzen
         private void nextButton_Click(object sender, EventArgs e)
         {
             int id = _companies.IndexOf(idLabel.Text) + 1;
-            Console.WriteLine(id);
             string nextID = _companies[id].ToString();
-            Console.WriteLine(nextID);
             loadContact(nextID);
         }
 
@@ -371,5 +399,88 @@ namespace Pendenzen
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
         #endregion
+
+        #region MultiThreading
+        private void threadStarter()
+        {
+            Thread thread = new Thread(new ThreadStart(this.threadTask));
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void threadTask()
+        {
+            while (true)
+            {
+                Thread.Sleep(1000);
+                this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
+            }
+        }
+        #endregion
+
+        private void druckenButton_Click(object sender, EventArgs e)
+        {
+            query = "SELECT * FROM pendenz GROUP BY sachbearbeiter;";
+            issueDataView.DataSource = db.Select(query);
+
+            PrintDialog printDialog = new PrintDialog();
+            printDialog.Document = printDocument1;
+            printDialog.UseEXDialog = true;
+
+            if (DialogResult.OK == printDialog.ShowDialog())
+            {
+                printDocument1.DocumentName = "Pendenzen";
+                printDocument1.Print();
+            }
+        }
+
+        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
+        {
+            try
+            {
+                strFormat = new StringFormat();
+                strFormat.Alignment = StringAlignment.Near;
+                strFormat.LineAlignment = StringAlignment.Center;
+                strFormat.Trimming = StringTrimming.EllipsisCharacter;
+
+                arrColumnLefts.Clear();
+                arrColumnWidth.Clear();
+                iCellHeight = 0;
+                iCount = 0;
+                bFirstPage = true;
+                bNewPage = true;
+
+                iTotalWidth = 0;
+                foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
+                {
+                    iTotalWidth += gridColumn.Width;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                int iLeftMargin = e.MarginBounds.Left;
+                int iTopMargin = e.MarginBounds.Top;
+                bool bMorePagesToPrint = false;
+                int iTmpWidth = 0;
+
+                if (bFirstPage)
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

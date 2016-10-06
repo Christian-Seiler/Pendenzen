@@ -78,6 +78,8 @@
             this.schliessenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckenButton = new System.Windows.Forms.Button();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -468,7 +470,7 @@
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(72, 98);
+            this.cityLabel.Location = new System.Drawing.Point(95, 98);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
             this.cityLabel.TabIndex = 6;
@@ -593,6 +595,17 @@
             this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.schliessenToolStripMenuItem.Text = "Schliessen";
             // 
+            // druckenButton
+            // 
+            this.druckenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.druckenButton.Location = new System.Drawing.Point(1009, 38);
+            this.druckenButton.Name = "druckenButton";
+            this.druckenButton.Size = new System.Drawing.Size(75, 23);
+            this.druckenButton.TabIndex = 17;
+            this.druckenButton.Text = "Drucken";
+            this.druckenButton.UseVisualStyleBackColor = true;
+            this.druckenButton.Click += new System.EventHandler(this.druckenButton_Click);
+            // 
             // issueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -600,6 +613,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 659);
+            this.Controls.Add(this.druckenButton);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
             this.Controls.Add(this.refreshButton);
@@ -679,6 +693,8 @@
         private System.Windows.Forms.Label verkaufLabel;
         private System.Windows.Forms.Label einkaufLabel;
         private System.Windows.Forms.Label webLabel;
+        private System.Windows.Forms.Button druckenButton;
+        private System.Drawing.Printing.PrintDocument printDocument1;
     }
 }
 

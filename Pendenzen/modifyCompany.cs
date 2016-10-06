@@ -75,57 +75,57 @@ namespace Pendenzen
             if (companyIDTextBox.Text != _contact[0].ToString())
             {
                 historyString += companyIDTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (companyTextBox.Text != _contact[1].ToString())
             {
                 historyString += companyTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (streetTextBox.Text != _contact[2].ToString())
             {
                 historyString += streetTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (poBoxTextBox.Text != _contact[3].ToString())
             {
                 historyString += poBoxTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (plzTextBox.Text != _contact[4].ToString())
             {
                 historyString += plzTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (cityTextBox.Text != _contact[5].ToString())
             {
                 historyString += cityTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (countryTextBox.Text != _contact[6].ToString())
             {
                 historyString += countryTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (phoneTextBox.Text != _contact[7].ToString())
             {
                 historyString += phoneTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (urlTextBox.Text != _contact[8].ToString())
             {
                 historyString += urlTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (emailVerkaufTextBox.Text != _contact[9].ToString())
             {
                 historyString += emailVerkaufTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (emailEinkaufTextBox.Text != _contact[10].ToString())
             {
                 historyString += emailEinkaufTextBox.Text;
-                historyString += "";
+                historyString += " ";
             }
             if (historyString != "")
             {
@@ -173,10 +173,7 @@ namespace Pendenzen
                 neukundeEinkauf = $"'{neukundeEinkauf}'";
             }
 
-            string newDetails = $"";
-
-
-            string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}\n" + newHistory();
+            string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n" + newHistory();
 
             string query = $"UPDATE company SET company_name='{companyTextBox.Text}', company_street='{streetTextBox.Text}', company_pobox='{poBoxTextBox.Text}', company_plz='{plzTextBox.Text}', company_city='{cityTextBox.Text}', company_country='{countryTextBox.Text}', company_phone='{phoneTextBox.Text}', company_website='{urlTextBox.Text}', company_verkaufmail='{emailVerkaufTextBox.Text}', company_einkaufmail='{emailEinkaufTextBox.Text}', company_verkaufkontakt='{verkaufKontakt}', company_einkaufkontakt='{einkaufKontakt}', company_verkaufBuspro='{verkaufBuspro}', company_einkaufBuspro='{einkaufBuspro}', company_sellersince = {neukundeVerkauf}, company_clientsince = {neukundeEinkauf}, company_history = '{history}' WHERE company_id = '{_id}'";
             Console.WriteLine(query);

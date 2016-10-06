@@ -101,6 +101,8 @@
             // 
             // detailsTextBox
             // 
+            this.detailsTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.detailsTextBox.Location = new System.Drawing.Point(17, 198);
             this.detailsTextBox.Name = "detailsTextBox";
             this.detailsTextBox.Size = new System.Drawing.Size(411, 20);
@@ -162,6 +164,7 @@
             // 
             // submitButton
             // 
+            this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.submitButton.Location = new System.Drawing.Point(353, 254);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
@@ -189,10 +192,13 @@
             // 
             // errorLabel
             // 
+            this.errorLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.errorLabel.AutoSize = true;
             this.errorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.errorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.errorLabel.Location = new System.Drawing.Point(14, 221);
+            this.errorLabel.MaximumSize = new System.Drawing.Size(411, 26);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(86, 13);
             this.errorLabel.TabIndex = 17;
