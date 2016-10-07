@@ -1,4 +1,6 @@
-﻿namespace Pendenzen
+﻿using System.Windows.Forms;
+
+namespace Pendenzen
 {
     partial class issueForm
     {
@@ -28,6 +30,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -70,22 +74,24 @@
             this.streetLabel = new System.Windows.Forms.Label();
             this.companyLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schliessenToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.druckenButton = new System.Windows.Forms.Button();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
+            this.button1 = new System.Windows.Forms.Button();
+            this.infoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
             this.pendenzTab.SuspendLayout();
             this.companyTab.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -138,22 +144,44 @@
             // 
             // issueDataView
             // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.issueDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.issueDataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
+            this.issueDataView.MultiSelect = false;
             this.issueDataView.Name = "issueDataView";
             this.issueDataView.ReadOnly = true;
+            this.issueDataView.RowHeadersVisible = false;
+            this.issueDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.issueDataView.ShowCellErrors = false;
+            this.issueDataView.ShowCellToolTips = false;
             this.issueDataView.ShowEditingIcon = false;
-            this.issueDataView.Size = new System.Drawing.Size(1068, 436);
+            this.issueDataView.ShowRowErrors = false;
+            this.issueDataView.Size = new System.Drawing.Size(1067, 436);
             this.issueDataView.TabIndex = 12;
             this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
+            this.issueDataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.issueDataView_CellMouseClick);
             // 
             // refreshButton
             // 
             this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.refreshButton.AutoSize = true;
             this.refreshButton.Location = new System.Drawing.Point(1014, 153);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(75, 23);
@@ -532,25 +560,32 @@
             this.idLabel.TabIndex = 0;
             this.idLabel.Text = "APW";
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(10, 10);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
-            this.menuStrip1.TabIndex = 16;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(10, 10);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1082, 24);
+            this.menuStrip.TabIndex = 16;
+            this.menuStrip.Text = "menuStrip";
             // 
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.druckenToolStripMenuItem,
             this.neuToolStripMenuItem,
-            this.schliessenToolStripMenuItem1});
+            this.schliessenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
+            // 
+            // druckenToolStripMenuItem
+            // 
+            this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
+            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.druckenToolStripMenuItem.Text = "Drucken";
             // 
             // neuToolStripMenuItem
             // 
@@ -575,12 +610,11 @@
             this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
             this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
             // 
-            // schliessenToolStripMenuItem1
+            // schliessenToolStripMenuItem
             // 
-            this.schliessenToolStripMenuItem1.Name = "schliessenToolStripMenuItem1";
-            this.schliessenToolStripMenuItem1.Size = new System.Drawing.Size(128, 22);
-            this.schliessenToolStripMenuItem1.Text = "Schliessen";
-            this.schliessenToolStripMenuItem1.Click += new System.EventHandler(this.schliessenToolStripMenuItem1_Click);
+            this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
+            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.schliessenToolStripMenuItem.Text = "Schliessen";
             // 
             // aboutToolStripMenuItem
             // 
@@ -588,12 +622,6 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // schliessenToolStripMenuItem
-            // 
-            this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
-            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.schliessenToolStripMenuItem.Text = "Schliessen";
             // 
             // druckenButton
             // 
@@ -611,6 +639,29 @@
             this.printIssues.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_BeginPrint);
             this.printIssues.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printIssues_PrintPage);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(891, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(112, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Druckvorschau";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.previewButton_Click);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.infoLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.Location = new System.Drawing.Point(1025, 137);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(59, 13);
+            this.infoLabel.TabIndex = 19;
+            this.infoLabel.Text = "infoLabel";
+            // 
             // issueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -618,6 +669,8 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 659);
+            this.Controls.Add(this.infoLabel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.druckenButton);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
@@ -627,9 +680,9 @@
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.HelpButton = true;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "issueForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
@@ -639,8 +692,8 @@
             this.pendenzTab.ResumeLayout(false);
             this.companyTab.ResumeLayout(false);
             this.companyTab.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,14 +732,13 @@
         private System.Windows.Forms.Label einkaufKontaktLabel;
         private System.Windows.Forms.Label kontaktLabel;
         private System.Windows.Forms.RichTextBox historyBox;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuePendenzToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neueAdresseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem1;
         private System.Windows.Forms.Button openLinkButton;
         private System.Windows.Forms.Label countLabel;
         private System.Windows.Forms.Button nextButton;
@@ -700,6 +752,9 @@
         private System.Windows.Forms.Label webLabel;
         private System.Windows.Forms.Button druckenButton;
         private System.Drawing.Printing.PrintDocument printIssues;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem druckenToolStripMenuItem;
+        private Label infoLabel;
     }
 }
 

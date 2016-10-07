@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="Pendenzen.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.0.6124.21839" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.0.6124.30655" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -54,14 +54,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="87040">
-      <assemblyIdentity name="Pendenzen" version="1.0.6124.21839" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="90112">
+      <assemblyIdentity name="Pendenzen" version="1.0.6124.30655" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YwauL35F4xYjDkCDxnbkSQXGi/k5eKojeN3xdH1hAgQ=</dsig:DigestValue>
+        <dsig:DigestValue>w03QfKOdvvRF8vJCKdQs0jv+wU0jzH5+/KdokdKv6d4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

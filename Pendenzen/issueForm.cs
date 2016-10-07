@@ -27,6 +27,8 @@ namespace Pendenzen
         int headerHeight = 0;
         bool bFirstPage = false;
         bool newPage = false;
+        bool isPrinting = false;
+        bool isSorted = false;
         ArrayList arrColumnLefts = new ArrayList();
         ArrayList arrColumnWidths = new ArrayList();
 
@@ -58,6 +60,36 @@ namespace Pendenzen
 
             return dict;
             
+        }
+        public Dictionary<string, string> headerDictionary()
+        {
+            Dictionary<string, string> dict = new Dictionary<string, string>();
+
+            if (tabControl.SelectedIndex == 0)
+            {
+                dict.Add("idpendenz", "ID");
+                dict.Add("lieferant", "Lieferant");
+                dict.Add("referenz", "Referenz-Nr.");
+                dict.Add("dokument", "Dokument");
+                dict.Add("erfasst_am", "Erstellt am");
+                dict.Add("erfasst_von", "Erfasser");
+                dict.Add("sachbearbeiter", "Sachbearbeiter");
+                dict.Add("due", "Fällig am");
+                dict.Add("detail", "Details");
+                dict.Add("finalized", "Abgeschlossen");
+                dict.Add("state", "Status");
+            }
+            if (tabControl.SelectedIndex == 1)
+            {
+                dict.Add("company_id", "Kürzel");
+                dict.Add("company_name", "Lieferant");
+                dict.Add("company_plz", "PLZ");
+                dict.Add("company_city", "City");
+                dict.Add("company_country", "Land");
+            }
+
+            return dict;
+
         }
 
         private void getCompanyIndex()
@@ -93,6 +125,7 @@ namespace Pendenzen
 
         public issueForm()
         {
+            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             InitializeComponent();
             nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
 
@@ -115,8 +148,12 @@ namespace Pendenzen
 
         private void loadIssues()
         {
-            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            int rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
             issueDataView.DataSource = db.Select(query);
+            if (rowIndex >= 0)
+            {
+                issueDataView.FirstDisplayedScrollingRowIndex = rowIndex;
+            }
         }
 
         private void loadContact(string id)
@@ -313,15 +350,24 @@ namespace Pendenzen
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
+            isSorted = false;
             reloadData(tabControl.SelectedIndex);
         }
 
         private void issueDataView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
+            if (e.RowIndex >= 0)
+            {
+                string changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
 
-            modifyIssue modify = new modifyIssue(int.Parse(changeIssue));
-            modify.ShowDialog();
+                modifyIssue modify = new modifyIssue(int.Parse(changeIssue));
+                modify.ShowDialog();
+            }
+        }
+        private void issueDataView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
+            isSorted = true;
         }
 
         private void neuePendenzToolStripMenuItem_Click(object sender, EventArgs e)
@@ -416,18 +462,49 @@ namespace Pendenzen
         {
             while (true)
             {
-                Thread.Sleep(1000);
-                this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
+                if (isPrinting)
+                {
+                    queryPrint();
+                }
+                else if (!isPrinting && !isSorted)
+                {
+                    this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
+                }
+
+                Console.WriteLine($"is Printing {isPrinting} / is Sorted {isSorted}");
+                Thread.Sleep(5000);
             }
         }
         #endregion
 
         #region Printing
+        private void queryPrint()
+        {
+            isPrinting = true;
+            Console.WriteLine("query Print");
+            Console.WriteLine($"is Printing {isPrinting} / is Sorted {isSorted}");
+            string printQuery = "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter;";
+            issueDataView.DataSource = db.Select(printQuery);
+        }
+
+        private void previewButton_Click(object sender, EventArgs e)
+        {
+            isPrinting = true;
+            queryPrint();
+
+            PrintPreviewDialog printPreview = new PrintPreviewDialog();
+            printPreview.Document = printIssues;
+            printIssues.DefaultPageSettings.Landscape = true;
+            ((Form)printPreview).WindowState = FormWindowState.Maximized;
+            
+            printPreview.ShowDialog();
+            Console.WriteLine("previewButton_Click");
+        }
+
         private void druckenButton_Click(object sender, EventArgs e)
         {
-            query = "SELECT * FROM pendenz GROUP BY sachbearbeiter;";
-            issueDataView.DataSource = db.Select(query);
-
+            isPrinting = true;
+            queryPrint();
 
             // Open print dialog
             PrintDialog printDialog = new PrintDialog();
@@ -438,12 +515,16 @@ namespace Pendenzen
             if (DialogResult.OK == printDialog.ShowDialog())
             {
                 printIssues.DocumentName = "Pendenzen";
+                printIssues.DefaultPageSettings.Landscape = true;
                 printIssues.Print();
             }
+            Console.WriteLine("druckenButton_Click");
         }
 
         private void printIssues_BeginPrint(object sender, PrintEventArgs e)
         {
+            isPrinting = true;
+            queryPrint();
             try
             {
                 strFormat = new StringFormat();
@@ -468,13 +549,16 @@ namespace Pendenzen
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isPrinting = false;
             }
+            Console.WriteLine("printIssues_BeginPrint");
         }
 
         private void printIssues_PrintPage(object sender, PrintPageEventArgs e)
         {
             try
             {
+                Console.WriteLine("Printpage Try");
                 int leftMargin = e.MarginBounds.Left;
                 int topMargin = e.MarginBounds.Top;
                 bool morePagesToPrint = false;
@@ -482,10 +566,14 @@ namespace Pendenzen
 
                 if (bFirstPage)
                 {
+                    Console.WriteLine("firstPage");
                     foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                     {
-                        tmpWidth = (int)(Math.Floor((double)((double)gridColumn.Width / (double)totalWidth * (double)totalWidth * ((double)e.MarginBounds.Width / (double)totalWidth))));
-                        headerHeight = (int)(e.Graphics.MeasureString(gridColumn.HeaderText, gridColumn.InheritedStyle.Font, tmpWidth).Height) + 11;
+                        tmpWidth = (int)(Math.Floor((double)((double)gridColumn.Width /
+                            (double)totalWidth * (double)totalWidth * ((double)e.MarginBounds.Width / (double)totalWidth))));
+
+                        headerHeight = (int)(e.Graphics.MeasureString(gridColumn.HeaderText, 
+                            gridColumn.InheritedStyle.Font, tmpWidth).Height) + 20;
 
                         arrColumnLefts.Add(leftMargin);
                         arrColumnWidths.Add(tmpWidth);
@@ -495,7 +583,7 @@ namespace Pendenzen
                 while (iRow <= issueDataView.Rows.Count - 1)
                 {
                     DataGridViewRow gridRow = issueDataView.Rows[iRow];
-                    cellHeight = gridRow.Height + 5;
+                    cellHeight = gridRow.Height + 20;
                     int iCount = 0;
 
                     if (topMargin + cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
@@ -509,13 +597,15 @@ namespace Pendenzen
                     {
                         if (newPage)
                         {
+                            Console.WriteLine("newPage");
                             // Draw Header
                             string topString = "Pendenzenübersicht";
                             e.Graphics.DrawString(topString,
                                 new Font(issueDataView.Font, FontStyle.Bold), 
                                 Brushes.Black,
                                 e.MarginBounds.Left, 
-                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(issueDataView.Font, FontStyle.Bold), e.MarginBounds.Width).Height);
+                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(issueDataView.Font, FontStyle.Bold),
+                                e.MarginBounds.Width).Height);
 
                             string date = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
 
@@ -523,11 +613,15 @@ namespace Pendenzen
                             e.Graphics.DrawString(date, 
                                 new Font(issueDataView.Font, FontStyle.Bold), 
                                 Brushes.Black, 
-                                e.MarginBounds.Left + (e.MarginBounds.Width - e.Graphics.MeasureString(date, new Font(issueDataView.Font, FontStyle.Bold), e.MarginBounds.Width).Width),
-                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(new Font(issueDataView.Font, FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height);
+                                e.MarginBounds.Left + (e.MarginBounds.Width - e.Graphics.MeasureString(date, new Font(issueDataView.Font, 
+                                FontStyle.Bold), e.MarginBounds.Width).Width),
+                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, 
+                                new Font(new Font(issueDataView.Font, FontStyle.Bold),
+                                FontStyle.Bold), e.MarginBounds.Width).Height);
 
                             // Draw Columns
                             topMargin = e.MarginBounds.Top;
+                            
                             foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                             {
                                 e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
@@ -555,18 +649,18 @@ namespace Pendenzen
                         {
                             if (cell.Value != null)
                             {
+                                RectangleF rectF = new RectangleF((int)arrColumnLefts[iCount], 
+                                    (float)topMargin, (int)arrColumnWidths[iCount], (float)cellHeight);
+
                                 e.Graphics.DrawString(cell.Value.ToString(),
                                    cell.InheritedStyle.Font,
                                    new SolidBrush(cell.InheritedStyle.ForeColor),
-                                   new RectangleF((int)arrColumnLefts[iCount],
-                                   (float)topMargin, 
-                                   (int)arrColumnWidths[iCount], (float)cellHeight),
-                                   strFormat);
+                                   rectF, strFormat);
                             }
                             // Draw Cells Borders
-                            e.Graphics.DrawRectangle(Pens.Black,
-                                new Rectangle((int)arrColumnLefts[iCount], topMargin,
-                                (int)arrColumnWidths[iCount], cellHeight));
+                            Rectangle rect = new Rectangle((int)arrColumnLefts[iCount], 
+                                topMargin, (int)arrColumnWidths[iCount], cellHeight);
+                            e.Graphics.DrawRectangle(Pens.Black, rect);
                             iCount++;
                         }
                     }
@@ -588,7 +682,9 @@ namespace Pendenzen
             {
 
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                isPrinting = false;
             }
+            Console.WriteLine("printIssues_PrintPage");
         }
         #endregion
     }
