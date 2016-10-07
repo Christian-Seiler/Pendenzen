@@ -21,10 +21,14 @@ namespace Pendenzen
         DataTable _table;
         string query;
         StringFormat strFormat;
-        int iCellHeight;
-        int iCount;
-        bool bFirstPage;
-        bool bNewPage;
+        int cellHeight = 0;
+        int iRow = 0;
+        int totalWidth = 0;
+        int headerHeight = 0;
+        bool bFirstPage = false;
+        bool newPage = false;
+        ArrayList arrColumnLefts = new ArrayList();
+        ArrayList arrColumnWidths = new ArrayList();
 
 
         public Dictionary<string, string> dictionary()
@@ -418,23 +422,27 @@ namespace Pendenzen
         }
         #endregion
 
+        #region Printing
         private void druckenButton_Click(object sender, EventArgs e)
         {
             query = "SELECT * FROM pendenz GROUP BY sachbearbeiter;";
             issueDataView.DataSource = db.Select(query);
 
+
+            // Open print dialog
             PrintDialog printDialog = new PrintDialog();
-            printDialog.Document = printDocument1;
+            printDialog.Document = printIssues;
             printDialog.UseEXDialog = true;
 
+            // Get document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
-                printDocument1.DocumentName = "Pendenzen";
-                printDocument1.Print();
+                printIssues.DocumentName = "Pendenzen";
+                printIssues.Print();
             }
         }
 
-        private void printDocument1_BeginPrint(object sender, PrintEventArgs e)
+        private void printIssues_BeginPrint(object sender, PrintEventArgs e)
         {
             try
             {
@@ -444,16 +452,17 @@ namespace Pendenzen
                 strFormat.Trimming = StringTrimming.EllipsisCharacter;
 
                 arrColumnLefts.Clear();
-                arrColumnWidth.Clear();
-                iCellHeight = 0;
-                iCount = 0;
+                arrColumnWidths.Clear();
+                cellHeight = 0;
+                iRow = 0;
                 bFirstPage = true;
-                bNewPage = true;
+                newPage = true;
 
-                iTotalWidth = 0;
+                // Calculating Total Widths
+                totalWidth = 0;
                 foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                 {
-                    iTotalWidth += gridColumn.Width;
+                    totalWidth += gridColumn.Width;
                 }
             }
             catch (Exception ex)
@@ -462,25 +471,125 @@ namespace Pendenzen
             }
         }
 
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        private void printIssues_PrintPage(object sender, PrintPageEventArgs e)
         {
             try
             {
-                int iLeftMargin = e.MarginBounds.Left;
-                int iTopMargin = e.MarginBounds.Top;
-                bool bMorePagesToPrint = false;
-                int iTmpWidth = 0;
+                int leftMargin = e.MarginBounds.Left;
+                int topMargin = e.MarginBounds.Top;
+                bool morePagesToPrint = false;
+                int tmpWidth = 0;
 
                 if (bFirstPage)
                 {
+                    foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
+                    {
+                        tmpWidth = (int)(Math.Floor((double)((double)gridColumn.Width / (double)totalWidth * (double)totalWidth * ((double)e.MarginBounds.Width / (double)totalWidth))));
+                        headerHeight = (int)(e.Graphics.MeasureString(gridColumn.HeaderText, gridColumn.InheritedStyle.Font, tmpWidth).Height) + 11;
 
+                        arrColumnLefts.Add(leftMargin);
+                        arrColumnWidths.Add(tmpWidth);
+                        leftMargin += tmpWidth;
+                    }
                 }
+                while (iRow <= issueDataView.Rows.Count - 1)
+                {
+                    DataGridViewRow gridRow = issueDataView.Rows[iRow];
+                    cellHeight = gridRow.Height + 5;
+                    int iCount = 0;
+
+                    if (topMargin + cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
+                    {
+                        newPage = true;
+                        bFirstPage = false;
+                        morePagesToPrint = true;
+                        break;
+                    }
+                    else
+                    {
+                        if (newPage)
+                        {
+                            // Draw Header
+                            string topString = "Pendenzenübersicht";
+                            e.Graphics.DrawString(topString,
+                                new Font(issueDataView.Font, FontStyle.Bold), 
+                                Brushes.Black,
+                                e.MarginBounds.Left, 
+                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(issueDataView.Font, FontStyle.Bold), e.MarginBounds.Width).Height);
+
+                            string date = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+
+                            // Draw Date
+                            e.Graphics.DrawString(date, 
+                                new Font(issueDataView.Font, FontStyle.Bold), 
+                                Brushes.Black, 
+                                e.MarginBounds.Left + (e.MarginBounds.Width - e.Graphics.MeasureString(date, new Font(issueDataView.Font, FontStyle.Bold), e.MarginBounds.Width).Width),
+                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(new Font(issueDataView.Font, FontStyle.Bold), FontStyle.Bold), e.MarginBounds.Width).Height);
+
+                            // Draw Columns
+                            topMargin = e.MarginBounds.Top;
+                            foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
+                            {
+                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                    new Rectangle((int)arrColumnLefts[iCount], topMargin,
+                                    (int)arrColumnWidths[iCount], headerHeight));
+
+                                e.Graphics.DrawRectangle(Pens.Black,
+                                    new Rectangle((int)arrColumnLefts[iCount], topMargin,
+                                    (int)arrColumnWidths[iCount], headerHeight));
+
+                                e.Graphics.DrawString(gridColumn.HeaderText,
+                                    gridColumn.InheritedStyle.Font,
+                                    new SolidBrush(gridColumn.InheritedStyle.ForeColor),
+                                    new RectangleF((int)arrColumnLefts[iCount], topMargin,
+                                    (int)arrColumnWidths[iCount], headerHeight), strFormat);
+                                iCount++;
+                            }
+                            newPage= false;
+                            topMargin += headerHeight;
+                        }
+                        iCount = 0;
+
+                        // Draw Columns Content
+                        foreach (DataGridViewCell cell in gridRow.Cells)
+                        {
+                            if (cell.Value != null)
+                            {
+                                e.Graphics.DrawString(cell.Value.ToString(),
+                                   cell.InheritedStyle.Font,
+                                   new SolidBrush(cell.InheritedStyle.ForeColor),
+                                   new RectangleF((int)arrColumnLefts[iCount],
+                                   (float)topMargin, 
+                                   (int)arrColumnWidths[iCount], (float)cellHeight),
+                                   strFormat);
+                            }
+                            // Draw Cells Borders
+                            e.Graphics.DrawRectangle(Pens.Black,
+                                new Rectangle((int)arrColumnLefts[iCount], topMargin,
+                                (int)arrColumnWidths[iCount], cellHeight));
+                            iCount++;
+                        }
+                    }
+                    iRow++;
+                    topMargin += cellHeight;
+                }
+                // If more lines exist, print another page
+                if (morePagesToPrint)
+                {
+                    e.HasMorePages = true;
+                }
+                else
+                {
+                    e.HasMorePages = false;
+                }
+
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #endregion
     }
 }
