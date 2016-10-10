@@ -16,7 +16,6 @@ namespace Pendenzen
             creatorLabel.Text = "Erfasser: " + person.getUserFullName();
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";
 
-            DBConnect db = new DBConnect();
             string query = "SELECT company_id FROM company";
             DataTable dataTable = db.Select(query);
             
@@ -93,5 +92,39 @@ namespace Pendenzen
             }
             errorLabel.Visible = true;
         }
+
+        #region Helptext
+
+        private void companyBox_Focused(object sender, EventArgs e)
+        {
+
+            helpTextBox.Text = Properties.Resources.helpCompany;
+        }
+
+        private void referenceTextBox_Focused(object sender, EventArgs e)
+        {
+            helpTextBox.Text = Properties.Resources.helpReference;
+        }
+
+        private void documentTextBox_Focused(object sender, EventArgs e)
+        {
+            helpTextBox.Text = Properties.Resources.helpDocument;
+        }
+
+        private void responsibleTextBox_Focused(object sender, EventArgs e)
+        {
+            helpTextBox.Text = Properties.Resources.helpDocument;
+        }
+
+        private void duePicker_Focused(object sender, EventArgs e)
+        {
+            helpTextBox.Text = Properties.Resources.helpDue;
+        }
+
+        private void detailsTextBox_Focused(object sender, EventArgs e)
+        {
+            helpTextBox.Text = Properties.Resources.helpDetails;
+        }
+        #endregion
     }
 }

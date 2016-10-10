@@ -61,6 +61,79 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die AutoUpdate ist aus! ähnelt.
+        /// </summary>
+        internal static string autoUpdateOff {
+            get {
+                return ResourceManager.GetString("autoUpdateOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Icon ähnlich wie (Symbol).
+        /// </summary>
+        internal static System.Drawing.Icon favicon {
+            get {
+                object obj = ResourceManager.GetObject("favicon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wähle die Firma, die diese Pendenz betrifft.\nFalls die Firma noch nicht vorhanden ist, kann diese über &quot;Neue Firma&quot; angelegt werden. ähnelt.
+        /// </summary>
+        internal static string helpCompany {
+            get {
+                return ResourceManager.GetString("helpCompany", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Jeder unternommene Schritt ist mit einem kurzen Satz zu dokumentieren. ähnelt.
+        /// </summary>
+        internal static string helpDetails {
+            get {
+                return ResourceManager.GetString("helpDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Belegnummer entspricht der Dokumentennummer der Lieferfirma. Auftragsbestätigung (AB), Lieferschein (LS), Gutschrift (GU) oder Rechnung (RG). ähnelt.
+        /// </summary>
+        internal static string helpDocument {
+            get {
+                return ResourceManager.GetString("helpDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das Fälligkeitsdatum der Pendenz. ähnelt.
+        /// </summary>
+        internal static string helpDue {
+            get {
+                return ResourceManager.GetString("helpDue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Referenznummer entspricht unserer Bestellnummer im BusPro. ähnelt.
+        /// </summary>
+        internal static string helpReference {
+            get {
+                return ResourceManager.GetString("helpReference", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Derjenige Sachbearbeiter, der diese Pendenz bearbeitet. ähnelt.
+        /// </summary>
+        internal static string helpSB {
+            get {
+                return ResourceManager.GetString("helpSB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {

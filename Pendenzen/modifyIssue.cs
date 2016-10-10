@@ -203,32 +203,33 @@ namespace Pendenzen
 
         private void companyBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "Wählen Sie die, die Pendenz betreffende Firma.";
+
+            helpTextBox.Text = Properties.Resources.helpCompany;
         }
 
         private void referenceTextBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "Die Referenznummer entspricht unserer Bestellnummer im BusPro.";
+            helpTextBox.Text = Properties.Resources.helpReference;
         }
 
         private void documentTextBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "Die Belegnummer entspricht der Dokumentennummer der Lieferfirma. Auftragsbestätigung (AB), Lieferschein (LS), Gutschrift (GU) oder Rechnung (RG).";
+            helpTextBox.Text = Properties.Resources.helpDocument;
         }
 
         private void responsibleTextBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "Der zuständige Sachbearbeiter (SB) entspricht demjenigen, der die Pendenz bearbeitet.";
+            helpTextBox.Text = Properties.Resources.helpDocument;
         }
 
         private void duePicker_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "An diesem Tag ist die Pendenz zu beenden.";
+            helpTextBox.Text = Properties.Resources.helpDue;
         }
 
         private void detailsTextBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = "Jeder unternommene Schritt ist mit einem kurzen Satz zu dokumentieren.";
+            helpTextBox.Text = Properties.Resources.helpDetails;
         }
         #endregion
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(addCompany));
             this.submitButton = new System.Windows.Forms.Button();
             this.companyTextBox = new System.Windows.Forms.TextBox();
             this.companyIDTextBox = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.einkaufBusproCheck = new System.Windows.Forms.CheckBox();
             this.copyMailCheck = new System.Windows.Forms.CheckBox();
+            this.Icon = Properties.Resources.favicon;
             this.SuspendLayout();
             // 
             // submitButton
@@ -390,6 +392,7 @@
             this.Controls.Add(this.companyIDTextBox);
             this.Controls.Add(this.companyTextBox);
             this.Controls.Add(this.submitButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "addCompany";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Firma hinzufügen";

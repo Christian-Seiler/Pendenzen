@@ -46,6 +46,7 @@
             this.dueLabel = new System.Windows.Forms.Label();
             this.errorLabel = new System.Windows.Forms.Label();
             this.companyBox = new System.Windows.Forms.ComboBox();
+            this.helpTextBox = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // newIssueLabel
@@ -83,6 +84,7 @@
             this.referenceTextBox.Name = "referenceTextBox";
             this.referenceTextBox.Size = new System.Drawing.Size(100, 20);
             this.referenceTextBox.TabIndex = 4;
+            this.referenceTextBox.Enter += new System.EventHandler(this.referenceTextBox_Focused);
             // 
             // documentTextBox
             // 
@@ -90,6 +92,7 @@
             this.documentTextBox.Name = "documentTextBox";
             this.documentTextBox.Size = new System.Drawing.Size(100, 20);
             this.documentTextBox.TabIndex = 5;
+            this.documentTextBox.Enter += new System.EventHandler(this.documentTextBox_Focused);
             // 
             // responsibleTextBox
             // 
@@ -98,6 +101,7 @@
             this.responsibleTextBox.Name = "responsibleTextBox";
             this.responsibleTextBox.Size = new System.Drawing.Size(100, 20);
             this.responsibleTextBox.TabIndex = 6;
+            this.responsibleTextBox.Enter += new System.EventHandler(this.responsibleTextBox_Focused);
             // 
             // detailsTextBox
             // 
@@ -105,8 +109,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.detailsTextBox.Location = new System.Drawing.Point(17, 198);
             this.detailsTextBox.Name = "detailsTextBox";
-            this.detailsTextBox.Size = new System.Drawing.Size(411, 20);
+            this.detailsTextBox.Size = new System.Drawing.Size(409, 20);
             this.detailsTextBox.TabIndex = 7;
+            this.detailsTextBox.Enter += new System.EventHandler(this.detailsTextBox_Focused);
             // 
             // creatorLabel
             // 
@@ -165,7 +170,7 @@
             // submitButton
             // 
             this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.submitButton.Location = new System.Drawing.Point(353, 254);
+            this.submitButton.Location = new System.Drawing.Point(349, 224);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
             this.submitButton.TabIndex = 14;
@@ -180,6 +185,7 @@
             this.duePicker.Name = "duePicker";
             this.duePicker.Size = new System.Drawing.Size(93, 20);
             this.duePicker.TabIndex = 15;
+            this.duePicker.Enter += new System.EventHandler(this.duePicker_Focused);
             // 
             // dueLabel
             // 
@@ -214,12 +220,27 @@
             this.companyBox.Size = new System.Drawing.Size(93, 21);
             this.companyBox.Sorted = true;
             this.companyBox.TabIndex = 3;
+            this.companyBox.Enter += new System.EventHandler(this.companyBox_Focused);
+            // 
+            // helpTextBox
+            // 
+            this.helpTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.helpTextBox.BackColor = System.Drawing.SystemColors.Info;
+            this.helpTextBox.Location = new System.Drawing.Point(12, 253);
+            this.helpTextBox.Name = "helpTextBox";
+            this.helpTextBox.ReadOnly = true;
+            this.helpTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.helpTextBox.Size = new System.Drawing.Size(416, 141);
+            this.helpTextBox.TabIndex = 25;
+            this.helpTextBox.Text = "";
             // 
             // addIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 289);
+            this.ClientSize = new System.Drawing.Size(436, 406);
+            this.Controls.Add(this.helpTextBox);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.dueLabel);
             this.Controls.Add(this.duePicker);
@@ -265,5 +286,6 @@
         private System.Windows.Forms.Label dueLabel;
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.ComboBox companyBox;
+        private System.Windows.Forms.RichTextBox helpTextBox;
     }
 }

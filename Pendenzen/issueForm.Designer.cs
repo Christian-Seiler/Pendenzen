@@ -38,7 +38,7 @@ namespace Pendenzen
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
             this.issueDataView = new System.Windows.Forms.DataGridView();
-            this.refreshButton = new System.Windows.Forms.Button();
+            this.onOffButton = new System.Windows.Forms.Button();
             this.searchDropBox = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pendenzTab = new System.Windows.Forms.TabPage();
@@ -76,15 +76,15 @@ namespace Pendenzen
             this.idLabel = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckenButton = new System.Windows.Forms.Button();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
-            this.button1 = new System.Windows.Forms.Button();
             this.infoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
@@ -126,7 +126,7 @@ namespace Pendenzen
             // searchBox
             // 
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.Location = new System.Drawing.Point(708, 157);
+            this.searchBox.Location = new System.Drawing.Point(900, 157);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(108, 20);
             this.searchBox.TabIndex = 10;
@@ -134,7 +134,7 @@ namespace Pendenzen
             // searchButton
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Location = new System.Drawing.Point(919, 152);
+            this.searchButton.Location = new System.Drawing.Point(1014, 152);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(70, 25);
             this.searchButton.TabIndex = 11;
@@ -144,6 +144,8 @@ namespace Pendenzen
             // 
             // issueDataView
             // 
+            this.issueDataView.AllowUserToAddRows = false;
+            this.issueDataView.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -152,8 +154,9 @@ namespace Pendenzen
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.issueDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.issueDataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.issueDataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -173,28 +176,29 @@ namespace Pendenzen
             this.issueDataView.ShowCellToolTips = false;
             this.issueDataView.ShowEditingIcon = false;
             this.issueDataView.ShowRowErrors = false;
-            this.issueDataView.Size = new System.Drawing.Size(1067, 436);
+            this.issueDataView.Size = new System.Drawing.Size(1067, 439);
             this.issueDataView.TabIndex = 12;
             this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
             this.issueDataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.issueDataView_CellMouseClick);
             // 
-            // refreshButton
+            // onOffButton
             // 
-            this.refreshButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.refreshButton.AutoSize = true;
-            this.refreshButton.Location = new System.Drawing.Point(1014, 153);
-            this.refreshButton.Name = "refreshButton";
-            this.refreshButton.Size = new System.Drawing.Size(75, 23);
-            this.refreshButton.TabIndex = 13;
-            this.refreshButton.Text = "Refresh";
-            this.refreshButton.UseVisualStyleBackColor = true;
-            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            this.onOffButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.onOffButton.AutoSize = true;
+            this.onOffButton.BackColor = System.Drawing.Color.Lime;
+            this.onOffButton.Location = new System.Drawing.Point(1049, 37);
+            this.onOffButton.Name = "onOffButton";
+            this.onOffButton.Size = new System.Drawing.Size(40, 23);
+            this.onOffButton.TabIndex = 13;
+            this.onOffButton.Text = "on";
+            this.onOffButton.UseVisualStyleBackColor = false;
+            this.onOffButton.Click += new System.EventHandler(this.onOffButton_Click);
             // 
             // searchDropBox
             // 
             this.searchDropBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchDropBox.FormattingEnabled = true;
-            this.searchDropBox.Location = new System.Drawing.Point(822, 156);
+            this.searchDropBox.Location = new System.Drawing.Point(803, 155);
             this.searchDropBox.Name = "searchDropBox";
             this.searchDropBox.Size = new System.Drawing.Size(91, 21);
             this.searchDropBox.TabIndex = 14;
@@ -209,7 +213,7 @@ namespace Pendenzen
             this.tabControl.Location = new System.Drawing.Point(13, 183);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1076, 462);
+            this.tabControl.Size = new System.Drawing.Size(1076, 465);
             this.tabControl.TabIndex = 15;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
@@ -219,7 +223,7 @@ namespace Pendenzen
             this.pendenzTab.Location = new System.Drawing.Point(4, 22);
             this.pendenzTab.Name = "pendenzTab";
             this.pendenzTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pendenzTab.Size = new System.Drawing.Size(1068, 436);
+            this.pendenzTab.Size = new System.Drawing.Size(1068, 439);
             this.pendenzTab.TabIndex = 0;
             this.pendenzTab.Text = "Pendenzen";
             this.pendenzTab.UseVisualStyleBackColor = true;
@@ -260,7 +264,7 @@ namespace Pendenzen
             this.companyTab.Location = new System.Drawing.Point(4, 22);
             this.companyTab.Name = "companyTab";
             this.companyTab.Padding = new System.Windows.Forms.Padding(3);
-            this.companyTab.Size = new System.Drawing.Size(1068, 436);
+            this.companyTab.Size = new System.Drawing.Size(1068, 439);
             this.companyTab.TabIndex = 1;
             this.companyTab.Text = "Adressen";
             this.companyTab.UseVisualStyleBackColor = true;
@@ -574,18 +578,35 @@ namespace Pendenzen
             // dateiToolStripMenuItem
             // 
             this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.druckenToolStripMenuItem,
             this.neuToolStripMenuItem,
+            this.druckToolStripMenuItem,
             this.schliessenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
+            // druckToolStripMenuItem
+            // 
+            this.druckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.druckvorschauToolStripMenuItem,
+            this.druckenToolStripMenuItem});
+            this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
+            this.druckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.druckToolStripMenuItem.Text = "Druck";
+            // 
+            // druckvorschauToolStripMenuItem
+            // 
+            this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
+            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
+            this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
+            // 
             // druckenToolStripMenuItem
             // 
             this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
-            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.druckenToolStripMenuItem.Text = "Drucken";
+            this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
             // 
             // neuToolStripMenuItem
             // 
@@ -623,44 +644,25 @@ namespace Pendenzen
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // druckenButton
-            // 
-            this.druckenButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.druckenButton.Location = new System.Drawing.Point(1009, 38);
-            this.druckenButton.Name = "druckenButton";
-            this.druckenButton.Size = new System.Drawing.Size(75, 23);
-            this.druckenButton.TabIndex = 17;
-            this.druckenButton.Text = "Drucken";
-            this.druckenButton.UseVisualStyleBackColor = true;
-            this.druckenButton.Click += new System.EventHandler(this.druckenButton_Click);
-            // 
             // printIssues
             // 
             this.printIssues.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_BeginPrint);
             this.printIssues.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printIssues_PrintPage);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(891, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Druckvorschau";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.previewButton_Click);
-            // 
             // infoLabel
             // 
-            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.infoLabel.AutoSize = true;
             this.infoLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.infoLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.infoLabel.Enabled = false;
             this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoLabel.Location = new System.Drawing.Point(1025, 137);
+            this.infoLabel.Location = new System.Drawing.Point(1030, 63);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(59, 13);
             this.infoLabel.TabIndex = 19;
             this.infoLabel.Text = "infoLabel";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.infoLabel.Visible = false;
             // 
             // issueForm
             // 
@@ -668,13 +670,11 @@ namespace Pendenzen
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1102, 659);
+            this.ClientSize = new System.Drawing.Size(1102, 662);
             this.Controls.Add(this.infoLabel);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.druckenButton);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
-            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.onOffButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchBox);
             this.Controls.Add(this.addButton);
@@ -683,6 +683,7 @@ namespace Pendenzen
             this.Controls.Add(this.menuStrip);
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip;
+            this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "issueForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
@@ -707,7 +708,7 @@ namespace Pendenzen
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.DataGridView issueDataView;
-        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Button onOffButton;
         private System.Windows.Forms.ComboBox searchDropBox;
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage pendenzTab;
@@ -750,11 +751,11 @@ namespace Pendenzen
         private System.Windows.Forms.Label verkaufLabel;
         private System.Windows.Forms.Label einkaufLabel;
         private System.Windows.Forms.Label webLabel;
-        private System.Windows.Forms.Button druckenButton;
         private System.Drawing.Printing.PrintDocument printIssues;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolStripMenuItem druckenToolStripMenuItem;
         private Label infoLabel;
+        private ToolStripMenuItem druckToolStripMenuItem;
+        private ToolStripMenuItem druckvorschauToolStripMenuItem;
+        private ToolStripMenuItem druckenToolStripMenuItem;
     }
 }
 
