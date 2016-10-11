@@ -109,6 +109,7 @@ namespace Pendenzen
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "info";
+            this.Icon = Properties.Resources.favicon;
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Info";
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).EndInit();

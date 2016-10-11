@@ -396,6 +396,7 @@
             this.Name = "addCompany";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Firma hinzufügen";
+            this.Icon = Properties.Resources.favicon;
             this.ResumeLayout(false);
             this.PerformLayout();
 

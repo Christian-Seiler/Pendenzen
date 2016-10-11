@@ -12,7 +12,7 @@ using System.Drawing;
 
 namespace Pendenzen
 {
-    public partial class issueForm : Form
+    public partial class mainForm : Form
     {
         #region global Variables
         DBConnect db = new DBConnect();
@@ -70,7 +70,7 @@ namespace Pendenzen
                 dict.Add("idpendenz", "ID");
                 dict.Add("lieferant", "Lieferant");
                 dict.Add("referenz", "Referenz-Nr.");
-                dict.Add("dokument", "Dokument");
+                dict.Add("document", "Dokument");
                 dict.Add("erfasst_am", "Erstellt am");
                 dict.Add("erfasst_von", "Erfasser");
                 dict.Add("sachbearbeiter", "Sachbearbeiter");
@@ -123,7 +123,7 @@ namespace Pendenzen
             }
         }
 
-        public issueForm()
+        public mainForm()
         {
             query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             InitializeComponent();
@@ -277,8 +277,11 @@ namespace Pendenzen
 
         private void WriteToCSV()
         {
-            query = createQuery("company");
+            query = createAdressQuery();
+
+            Console.WriteLine(query);
             DataTable table = db.Select(query);
+
             var result = new StringBuilder();
             for (int i = 0; i < table.Columns.Count; i++)
             {
@@ -310,6 +313,11 @@ namespace Pendenzen
                 string path = saveFile.FileName;
                 File.WriteAllText(path, result.ToString(), Encoding.Unicode);
             }
+        }
+
+        private string createAdressQuery()
+        {
+            return "SELECT company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
         }
 
         private string createQuery(string table)

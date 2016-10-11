@@ -125,7 +125,7 @@
     <value>..\resources\favicon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="helpCompany" xml:space="preserve">
-    <value>Wähle die Firma, die diese Pendenz betrifft.\nFalls die Firma noch nicht vorhanden ist, kann diese über "Neue Firma" angelegt werden.</value>
+    <value>Wähle die Firma, die diese Pendenz betrifft. Falls die Firma noch nicht vorhanden ist, kann diese über "Neue Firma" angelegt werden.</value>
   </data>
   <data name="helpDetails" xml:space="preserve">
     <value>Jeder unternommene Schritt ist mit einem kurzen Satz zu dokumentieren.</value>
@@ -134,7 +134,7 @@
     <value>Die Belegnummer entspricht der Dokumentennummer der Lieferfirma. Auftragsbestätigung (AB), Lieferschein (LS), Gutschrift (GU) oder Rechnung (RG).</value>
   </data>
   <data name="helpDue" xml:space="preserve">
-    <value>Das Fälligkeitsdatum der Pendenz.</value>
+    <value>Das Fälligkeitsdatum der Pendenz. Normalerweise innerhalb der kommenden 7 Tagen.</value>
   </data>
   <data name="helpReference" xml:space="preserve">
     <value>Die Referenznummer entspricht unserer Bestellnummer im BusPro.</value>

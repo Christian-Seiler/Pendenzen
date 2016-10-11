@@ -2,7 +2,7 @@
 
 namespace Pendenzen
 {
-    partial class issueForm
+    partial class mainForm
     {
         /// <summary>
         /// Erforderliche Designervariable.
@@ -76,12 +76,12 @@ namespace Pendenzen
             this.idLabel = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
@@ -385,7 +385,7 @@ namespace Pendenzen
             // 
             this.historyBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.historyBox.Location = new System.Drawing.Point(691, 7);
+            this.historyBox.Location = new System.Drawing.Point(774, 3);
             this.historyBox.Name = "historyBox";
             this.historyBox.Size = new System.Drawing.Size(371, 423);
             this.historyBox.TabIndex = 21;
@@ -585,29 +585,6 @@ namespace Pendenzen
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
-            // druckToolStripMenuItem
-            // 
-            this.druckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.druckvorschauToolStripMenuItem,
-            this.druckenToolStripMenuItem});
-            this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
-            this.druckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.druckToolStripMenuItem.Text = "Druck";
-            // 
-            // druckvorschauToolStripMenuItem
-            // 
-            this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
-            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
-            this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
-            // 
-            // druckenToolStripMenuItem
-            // 
-            this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
-            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.druckenToolStripMenuItem.Text = "Drucken";
-            this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
-            // 
             // neuToolStripMenuItem
             // 
             this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -630,6 +607,29 @@ namespace Pendenzen
             this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
             this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
+            // 
+            // druckToolStripMenuItem
+            // 
+            this.druckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.druckvorschauToolStripMenuItem,
+            this.druckenToolStripMenuItem});
+            this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
+            this.druckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.druckToolStripMenuItem.Text = "Druck";
+            // 
+            // druckvorschauToolStripMenuItem
+            // 
+            this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
+            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
+            this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
+            // 
+            // druckenToolStripMenuItem
+            // 
+            this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
+            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.druckenToolStripMenuItem.Text = "Drucken";
+            this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
             // 
             // schliessenToolStripMenuItem
             // 
@@ -664,7 +664,7 @@ namespace Pendenzen
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.infoLabel.Visible = false;
             // 
-            // issueForm
+            // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -682,9 +682,10 @@ namespace Pendenzen
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.menuStrip);
             this.HelpButton = true;
+            this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(1100, 700);
-            this.Name = "issueForm";
+            this.Name = "mainForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();

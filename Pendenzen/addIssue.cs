@@ -113,7 +113,7 @@ namespace Pendenzen
 
         private void responsibleTextBox_Focused(object sender, EventArgs e)
         {
-            helpTextBox.Text = Properties.Resources.helpDocument;
+            helpTextBox.Text = Properties.Resources.helpSB;
         }
 
         private void duePicker_Focused(object sender, EventArgs e)

@@ -80,7 +80,7 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Wähle die Firma, die diese Pendenz betrifft.\nFalls die Firma noch nicht vorhanden ist, kann diese über &quot;Neue Firma&quot; angelegt werden. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wähle die Firma, die diese Pendenz betrifft. Falls die Firma noch nicht vorhanden ist, kann diese über &quot;Neue Firma&quot; angelegt werden. ähnelt.
         /// </summary>
         internal static string helpCompany {
             get {
@@ -107,7 +107,7 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die Das Fälligkeitsdatum der Pendenz. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das Fälligkeitsdatum der Pendenz. Normalerweise innerhalb der kommenden 7 Tagen. ähnelt.
         /// </summary>
         internal static string helpDue {
             get {

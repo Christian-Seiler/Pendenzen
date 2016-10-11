@@ -261,6 +261,7 @@
             this.Controls.Add(this.newIssueLabel);
             this.Name = "addIssue";
             this.Text = "Neue Pendenz";
+            this.Icon = Properties.Resources.favicon;
             this.ResumeLayout(false);
             this.PerformLayout();
 

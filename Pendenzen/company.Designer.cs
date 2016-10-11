@@ -259,6 +259,7 @@
             this.Name = "Firmendetails";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Company";
+            this.Icon = Properties.Resources.favicon;
             this.ResumeLayout(false);
             this.PerformLayout();
 

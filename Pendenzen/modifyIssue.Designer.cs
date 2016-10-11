@@ -343,6 +343,7 @@ namespace Pendenzen
             this.Controls.Add(this.companyBox);
             this.Controls.Add(this.referenceLabel);
             this.Controls.Add(this.changeIssueLabel);
+            this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.Name = "modifyIssue";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenz bearbeiten";

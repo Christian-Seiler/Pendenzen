@@ -389,6 +389,7 @@
             this.Name = "modifyCompany";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Firma bearbeiten";
+            this.Icon = Properties.Resources.favicon;
             this.ResumeLayout(false);
             this.PerformLayout();
 
