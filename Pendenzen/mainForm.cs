@@ -132,6 +132,12 @@ namespace Pendenzen
             tabControl_Selected(null, null);
             
             threadStarter();
+
+            string[] status = { "open", "closed", "cancelled"};
+            foreach (string s in status)
+            {
+                searchStatusBox.Items.Add(s);
+            }
         }
 
         private void reloadData(int tabIndex)
@@ -141,6 +147,19 @@ namespace Pendenzen
                 loadIssues();
                 formatDataView();
                 druckToolStripMenuItem.Enabled = true;
+
+                int maxRows = issueDataView.RowCount;
+                if (maxRows == 0)
+                {
+                    restoreLabel.Visible = true;
+                    restoreButton.Visible = true;
+                }
+                else
+                {
+                    restoreLabel.Visible = false;
+                    restoreButton.Visible = false;
+                }
+
             }
             else if (tabIndex == 1)
             {
@@ -327,11 +346,20 @@ namespace Pendenzen
 
         private string createQuery(string table, string searchKey)
         {
+            if (searchKey == "")
+            {
+                return createQuery(table);
+            }
             return $"SELECT * FROM {table} WHERE {searchKey} = ''";
         }
 
         private string createQuery(string table, string searchKey, string searchText)
         {
+
+            if (searchKey == "")
+            {
+                return createQuery(table);
+            }
             return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
         }
 
@@ -352,11 +380,15 @@ namespace Pendenzen
 
             if (tabControl.SelectedIndex == 0)
             {
-                if (searchBox.Text != "")
+                if (searchStatusBox.Visible)
+                {
+                    query = createQuery("pendenz", searchKey, searchStatusBox.Text);
+                }
+                else if (searchBox.Visible && searchBox.Text != "")
                 {
                     query = createQuery("pendenz", searchKey, searchBox.Text);
                 }
-                else if (searchBox.Text == "")
+                else if (searchBox.Visible && searchBox.Text == "")
                 {
                     query = createQuery("pendenz", searchKey);
                 }
@@ -367,6 +399,7 @@ namespace Pendenzen
             {
                 loadContact(searchKey, searchBox.Text);
             }
+            isOn = true;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -445,6 +478,8 @@ namespace Pendenzen
             {
                 searchDropBox.Items.Add(pair.Key);
             }
+            searchDropBox.Text = "";
+            searchBox.Text = "";
         }
 
         private void openLinkButton_Click(object sender, EventArgs e)
@@ -493,6 +528,30 @@ namespace Pendenzen
         {
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
+
+        private void searchDropBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (searchDropBox.Text == "Status")
+            {
+                searchBox.Visible = false;
+                searchBox.Clear();
+                searchStatusBox.Visible = true;
+            }
+            else
+            {
+                searchBox.Visible = true;
+                searchStatusBox.Visible = false;
+                searchStatusBox.Text = "";
+            }
+        }
+
+        private void restoreButton_Click(object sender, EventArgs e)
+        {
+            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            restoreButton.Visible = false;
+            restoreLabel.Visible = false;
+        }
+
         #endregion
 
         #region MultiThreading
@@ -512,6 +571,7 @@ namespace Pendenzen
                     this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
                     this.Invoke((MethodInvoker)delegate { onOffButton.BackColor = Color.Lime; });
                     this.Invoke((MethodInvoker)delegate { this.infoLabel.Visible = false; });
+                    Console.WriteLine($"Current Query: {query}");
                 }
                 if (!isOn)
                 {
@@ -729,7 +789,9 @@ namespace Pendenzen
             }
             Console.WriteLine("printIssues_PrintPage");
         }
+
         #endregion
+
 
     }
 }

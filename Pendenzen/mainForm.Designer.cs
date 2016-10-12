@@ -30,8 +30,8 @@ namespace Pendenzen
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -42,6 +42,8 @@ namespace Pendenzen
             this.searchDropBox = new System.Windows.Forms.ComboBox();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.pendenzTab = new System.Windows.Forms.TabPage();
+            this.restoreLabel = new System.Windows.Forms.Label();
+            this.restoreButton = new System.Windows.Forms.Button();
             this.companyTab = new System.Windows.Forms.TabPage();
             this.verkaufLabel = new System.Windows.Forms.Label();
             this.einkaufLabel = new System.Windows.Forms.Label();
@@ -86,6 +88,8 @@ namespace Pendenzen
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.searchStatusBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -146,10 +150,10 @@ namespace Pendenzen
             // 
             this.issueDataView.AllowUserToAddRows = false;
             this.issueDataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -158,14 +162,14 @@ namespace Pendenzen
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle4;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
             this.issueDataView.MultiSelect = false;
             this.issueDataView.Name = "issueDataView";
@@ -202,6 +206,7 @@ namespace Pendenzen
             this.searchDropBox.Name = "searchDropBox";
             this.searchDropBox.Size = new System.Drawing.Size(91, 21);
             this.searchDropBox.TabIndex = 14;
+            this.searchDropBox.SelectedIndexChanged += new System.EventHandler(this.searchDropBox_SelectedIndexChanged);
             // 
             // tabControl
             // 
@@ -219,6 +224,8 @@ namespace Pendenzen
             // 
             // pendenzTab
             // 
+            this.pendenzTab.Controls.Add(this.restoreLabel);
+            this.pendenzTab.Controls.Add(this.restoreButton);
             this.pendenzTab.Controls.Add(this.issueDataView);
             this.pendenzTab.Location = new System.Drawing.Point(4, 22);
             this.pendenzTab.Name = "pendenzTab";
@@ -227,6 +234,29 @@ namespace Pendenzen
             this.pendenzTab.TabIndex = 0;
             this.pendenzTab.Text = "Pendenzen";
             this.pendenzTab.UseVisualStyleBackColor = true;
+            // 
+            // restoreLabel
+            // 
+            this.restoreLabel.AutoSize = true;
+            this.restoreLabel.Location = new System.Drawing.Point(288, 190);
+            this.restoreLabel.Name = "restoreLabel";
+            this.restoreLabel.Size = new System.Drawing.Size(516, 13);
+            this.restoreLabel.TabIndex = 14;
+            this.restoreLabel.Text = "Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder " +
+    "setze die Suche zurück.";
+            this.restoreLabel.Visible = false;
+            // 
+            // restoreButton
+            // 
+            this.restoreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.restoreButton.Location = new System.Drawing.Point(473, 206);
+            this.restoreButton.Name = "restoreButton";
+            this.restoreButton.Size = new System.Drawing.Size(119, 23);
+            this.restoreButton.TabIndex = 13;
+            this.restoreButton.Text = "Suche zurücksetzen";
+            this.restoreButton.UseVisualStyleBackColor = true;
+            this.restoreButton.Visible = false;
+            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // companyTab
             // 
@@ -664,6 +694,25 @@ namespace Pendenzen
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.infoLabel.Visible = false;
             // 
+            // searchStatusBox
+            // 
+            this.searchStatusBox.FormattingEnabled = true;
+            this.searchStatusBox.Location = new System.Drawing.Point(901, 157);
+            this.searchStatusBox.Name = "searchStatusBox";
+            this.searchStatusBox.Size = new System.Drawing.Size(107, 21);
+            this.searchStatusBox.TabIndex = 20;
+            this.searchStatusBox.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(979, 42);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 21;
+            this.label1.Text = "AutoUpdate";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -671,6 +720,8 @@ namespace Pendenzen
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 662);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.searchStatusBox);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
@@ -692,6 +743,7 @@ namespace Pendenzen
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).EndInit();
             this.tabControl.ResumeLayout(false);
             this.pendenzTab.ResumeLayout(false);
+            this.pendenzTab.PerformLayout();
             this.companyTab.ResumeLayout(false);
             this.companyTab.PerformLayout();
             this.menuStrip.ResumeLayout(false);
@@ -757,6 +809,10 @@ namespace Pendenzen
         private ToolStripMenuItem druckToolStripMenuItem;
         private ToolStripMenuItem druckvorschauToolStripMenuItem;
         private ToolStripMenuItem druckenToolStripMenuItem;
+        private ComboBox searchStatusBox;
+        private Label restoreLabel;
+        private Button restoreButton;
+        private Label label1;
     }
 }
 

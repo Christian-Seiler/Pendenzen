@@ -142,5 +142,14 @@ namespace Pendenzen.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder setze die Suche zurück. ähnelt.
+        /// </summary>
+        internal static string restoreMessagge {
+            get {
+                return ResourceManager.GetString("restoreMessagge", resourceCulture);
+            }
+        }
     }
 }

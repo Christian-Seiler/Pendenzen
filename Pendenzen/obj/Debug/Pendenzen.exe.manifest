@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\favicon.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.0.6128.29485" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.0.6129.29077" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -55,14 +55,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="589224">
-      <assemblyIdentity name="Pendenzen" version="1.0.6128.29485" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="591272">
+      <assemblyIdentity name="Pendenzen" version="1.0.6129.29077" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>AkzbXiD8K5x3u93m4Y4CT5P+mzR+6b7lPg50uHt0lWc=</dsig:DigestValue>
+        <dsig:DigestValue>WaWs84P+LE+ifHlDwrwAGGsMVWqv/HsrQ+y1vs5DwFE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
