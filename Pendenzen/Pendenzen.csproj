@@ -108,6 +108,12 @@
     <Compile Include="company.Designer.cs">
       <DependentUpon>company.cs</DependentUpon>
     </Compile>
+    <Compile Include="reorg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reorg.Designer.cs">
+      <DependentUpon>reorg.cs</DependentUpon>
+    </Compile>
     <Compile Include="info.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="company.resx">
       <DependentUpon>company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reorg.resx">
+      <DependentUpon>reorg.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="info.resx">
       <DependentUpon>info.cs</DependentUpon>

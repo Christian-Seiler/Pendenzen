@@ -20,3 +20,4 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyCompany.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Firmendetails.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.mainForm.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.reorganisation.resources

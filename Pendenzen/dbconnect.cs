@@ -102,9 +102,8 @@ namespace Pendenzen
         }
 
         //Delete statement
-        public void Delete()
+        public void Delete(string query)
         {
-            string query = "DELETE FROM supplier WHERE supplier_id='ID'";
             if (this.OpenConnection() == true)
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);

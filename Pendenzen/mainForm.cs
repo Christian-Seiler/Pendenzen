@@ -18,6 +18,7 @@ namespace Pendenzen
         DBConnect db = new DBConnect();
         addIssue issue = new addIssue();
         addCompany company = new addCompany();
+        reorganisation reorg = new reorganisation();
         ArrayList _companies;
         DataTable _table;
         string query;
@@ -97,30 +98,15 @@ namespace Pendenzen
             DataTable table = db.Select("SELECT company_id FROM company");
 
             _companies = new ArrayList(table.Rows.Count);
-            foreach (DataRow row in table.Rows)
-            {
-                _companies.Add(row.ItemArray[0]);
-            }
+            foreach (DataRow row in table.Rows) { _companies.Add(row.ItemArray[0]); }
             
             int currentID = _companies.IndexOf(idLabel.Text) + 1;
             countLabel.Text = $"{currentID} von {_companies.Count}";
 
-            if (currentID == 1)
-            {
-                previousButton.Enabled = false;
-            }
-            else
-            {
-                previousButton.Enabled = true;
-            }
-            if (currentID == _companies.Count) 
-            {
-                nextButton.Enabled = false;
-            }
-            else
-            {
-                nextButton.Enabled = true;
-            }
+            if (currentID == 1) { previousButton.Enabled = false; }
+            else { previousButton.Enabled = true; }
+            if (currentID == _companies.Count) { nextButton.Enabled = false; }
+            else { nextButton.Enabled = true; }
         }
 
         public mainForm()
@@ -134,10 +120,7 @@ namespace Pendenzen
             threadStarter();
 
             string[] status = { "open", "closed", "cancelled"};
-            foreach (string s in status)
-            {
-                searchStatusBox.Items.Add(s);
-            }
+            foreach (string s in status) { searchStatusBox.Items.Add(s); }
         }
 
         private void reloadData(int tabIndex)
@@ -393,7 +376,6 @@ namespace Pendenzen
                     query = createQuery("pendenz", searchKey);
                 }
                 issueDataView.DataSource = db.Select(query);
-
             }
             if (tabControl.SelectedIndex == 1)
             {
@@ -456,6 +438,11 @@ namespace Pendenzen
         private void neueAdresseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             company.ShowDialog();
+        }
+
+        private void reorganisationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reorg.ShowDialog();
         }
 
         private void schliessenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -566,12 +553,12 @@ namespace Pendenzen
         {
             while (true)
             {
+                Thread.Sleep(1000);
                 if (isOn)
                 {
                     this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
                     this.Invoke((MethodInvoker)delegate { onOffButton.BackColor = Color.Lime; });
                     this.Invoke((MethodInvoker)delegate { this.infoLabel.Visible = false; });
-                    Console.WriteLine($"Current Query: {query}");
                 }
                 if (!isOn)
                 {
@@ -579,7 +566,7 @@ namespace Pendenzen
                     this.Invoke((MethodInvoker)delegate { this.infoLabel.Text = Pendenzen.Properties.Resources.autoUpdateOff; });
                     this.Invoke((MethodInvoker)delegate { this.infoLabel.Visible = true; });
                 }
-                Thread.Sleep(1000);
+
             }
         }
         #endregion
@@ -791,7 +778,6 @@ namespace Pendenzen
         }
 
         #endregion
-
-
+        
     }
 }
