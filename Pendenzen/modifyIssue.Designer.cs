@@ -347,6 +347,7 @@ namespace Pendenzen
             this.Name = "modifyIssue";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenz bearbeiten";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.modifyIssue_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

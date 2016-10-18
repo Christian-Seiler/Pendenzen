@@ -134,6 +134,15 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Das Firmenkürzel ist zwindend. ähnelt.
+        /// </summary>
+        internal static string idRequired {
+            get {
+                return ResourceManager.GetString("idRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {
@@ -144,11 +153,29 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Wollen Sie das Formular ohne zu Speichern schliessen? ähnelt.
+        /// </summary>
+        internal static string NichtSpeichern {
+            get {
+                return ResourceManager.GetString("NichtSpeichern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder setze die Suche zurück. ähnelt.
         /// </summary>
         internal static string restoreMessagge {
             get {
                 return ResourceManager.GetString("restoreMessagge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die Suchkriterien sind erforderlich. ähnelt.
+        /// </summary>
+        internal static string Suchkriterien {
+            get {
+                return ResourceManager.GetString("Suchkriterien", resourceCulture);
             }
         }
     }

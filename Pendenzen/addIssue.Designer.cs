@@ -259,9 +259,11 @@
             this.Controls.Add(this.btnAddCompany);
             this.Controls.Add(this.referenceLabel);
             this.Controls.Add(this.newIssueLabel);
+            this.Icon = global::Pendenzen.Properties.Resources.favicon;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "addIssue";
             this.Text = "Neue Pendenz";
-            this.Icon = Properties.Resources.favicon;
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -60,6 +60,7 @@ namespace Pendenzen
         {
             neukundeVerkauf = Date;
         }
+
         private void neukundeEinkauf_Checked(object sender, EventArgs e)
         {
             neukundeEinkauf = Date;
@@ -67,35 +68,45 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string newDetails = $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
-            string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
+            if (companyIDTextBox.TextLength > 0)
+            {
+                string newDetails = $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
+                string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
 
-            string verkaufKontakt = "Nein";
-            string einkaufKontakt = "Nein";
-            string verkaufBuspro = "Nein";
-            string einkaufBuspro = "Nein";
+                string verkaufKontakt = "Nein";
+                string einkaufKontakt = "Nein";
+                string verkaufBuspro = "Nein";
+                string einkaufBuspro = "Nein";
 
-            if (verkaufKontaktCheck.Checked)
-            {
-                verkaufKontakt = "Ja";
-            }
-            if (einkaufKontaktCheck.Checked)
-            {
-                einkaufKontakt = "Ja";
-            }
-            if (verkaufBusproCheck.Checked)
-            {
-                verkaufBuspro = "Ja";
-            }
-            if (einkaufBusproCheck.Checked)
-            {
-                einkaufBuspro = "Ja";
-            }
+                if (verkaufKontaktCheck.Checked)
+                {
+                    verkaufKontakt = "Ja";
+                }
+                if (einkaufKontaktCheck.Checked)
+                {
+                    einkaufKontakt = "Ja";
+                }
+                if (verkaufBusproCheck.Checked)
+                {
+                    verkaufBuspro = "Ja";
+                }
+                if (einkaufBusproCheck.Checked)
+                {
+                    einkaufBuspro = "Ja";
+                }
 
-            string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}', '{history}')";
-            Console.WriteLine(query);
-            db.Update(query);
-            Close();
+                string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}', '{history}')";
+                Console.WriteLine(query);
+                db.Update(query);
+                Close();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(Properties.Resources.idRequired, 
+                    "Fehlende Eingabe", 
+                    MessageBoxButtons.OKCancel, 
+                    MessageBoxIcon.Question);
+            }
         }
 
         private void copyMailCheck_CheckStateChanged(object sender, EventArgs e)

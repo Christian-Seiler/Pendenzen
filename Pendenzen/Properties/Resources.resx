@@ -148,4 +148,13 @@
   <data name="restoreMessagge" xml:space="preserve">
     <value>Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder setze die Suche zurück.</value>
   </data>
+  <data name="Suchkriterien" xml:space="preserve">
+    <value>Suchkriterien sind erforderlich.</value>
+  </data>
+  <data name="NichtSpeichern" xml:space="preserve">
+    <value>Wollen Sie das Formular ohne zu Speichern schliessen?</value>
+  </data>
+  <data name="idRequired" xml:space="preserve">
+    <value>Das Firmenkürzel ist zwindend.</value>
+  </data>
 </root>

@@ -91,6 +91,7 @@
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +108,13 @@
     </Compile>
     <Compile Include="company.Designer.cs">
       <DependentUpon>company.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Encryption.cs" />
+    <Compile Include="password.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="password.Designer.cs">
+      <DependentUpon>password.cs</DependentUpon>
     </Compile>
     <Compile Include="reorg.cs">
       <SubType>Form</SubType>
@@ -159,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="company.resx">
       <DependentUpon>company.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="password.resx">
+      <DependentUpon>password.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reorg.resx">
       <DependentUpon>reorg.cs</DependentUpon>

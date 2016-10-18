@@ -14,7 +14,9 @@ namespace Pendenzen
     {
 
         DBConnect db = new DBConnect();
+        Encryption crypt = new Encryption();
         string query = "";
+        string count = "";
         string date;
 
         public reorganisation()
@@ -32,16 +34,27 @@ namespace Pendenzen
                 if (openOnly.Checked)
                 {
                     query = $"DELETE FROM pendenz WHERE erfasst_am < '{date}' AND state = 'done'";
+                    count = $"SELECT COUNT(*) FROM pendenz WHERE erfasst_am < '{date}' AND state = 'done'";
                 }
                 else
                 {
                     query = $"DELETE FROM pendenz WHERE erfasst_am < '{date}'";
+                    count = $"SELECT COUNT(*) FROM pendenz WHERE erfasst_am < '{date}'";
+                }
+                if (db.Count(count) > 0)
+                {
+                    infoLabel.Text = $"{db.Count(count)} Datensätze gelöscht.";
+                    infoLabel.Visible = true;
+                    db.Delete(query);
+                }
+                else
+                {
+                    infoLabel.Text = $"Keide Datensätze zu löschen.";
+                    infoLabel.Visible = true;
                 }
 
-                db.Delete(query);
             }
             else {
-
             }
         }
 
@@ -52,27 +65,22 @@ namespace Pendenzen
 
         private bool authenticate ()
         {
-            query = $"SELECT adminpass FROM admin";
+            query = $"SELECT AdminOption FROM admin WHERE idadmin = 'pass'";
             var passTable = db.Select(query);
             var passRow = passTable.Rows[0];
             object[] passCell = passRow.ItemArray;
 
-
             var pass = passCell[0].ToString();
 
-            if (passwordBox.Text == pass)
+
+            if (crypt.Encrypt(passwordBox.Text) == pass)
             {
-                Console.WriteLine("Password correct!");
                 return true;
             }
             else
             {
-                Console.WriteLine("Password false!");
                 return false;
             }
-
-
-
         }
     }
 }

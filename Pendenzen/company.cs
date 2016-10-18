@@ -36,25 +36,7 @@ namespace Pendenzen
                     contact.Add(row[column]);
                 }
             }
-            /*
-            kundeLabel.Text = "";
-            einkauferLabel.Text = "";
 
-            DateTime kundeDate;
-            if (contact[15].ToString() != "")
-            {
-                kundeDate = DateTime.Parse(contact[15].ToString());
-                string date = kundeDate.ToShortDateString();
-                kundeLabel.Text = $" Kunde seit: {date}";
-            }
-            DateTime einkaufDate;
-            if (contact[16].ToString() != "")
-            {
-                einkaufDate = DateTime.Parse(contact[16].ToString());
-                string date = einkaufDate.ToShortDateString();
-                einkauferLabel.Text = $" Verkauf seit: {date}";
-            }
-            */
             idLabel.Text = contact[0].ToString();
             companyLabel.Text = contact[1].ToString();
             companyBigLabel.Text = $"{companyLabel.Text} ({idLabel.Text})";
@@ -67,11 +49,7 @@ namespace Pendenzen
             urlLabel.Text = contact[8].ToString();
             emailVerkaufLabel.Text = contact[9].ToString();
             emailEinkaufLabel.Text = contact[10].ToString();
-            //verkaufKontaktLabel.Text = $"Verkauf: {contact[11].ToString()}";
-            //einkaufKontaktLabel.Text = $"Einkauf: {contact[12].ToString()}";
-            //verkaufBusproLabel.Text = $"Verkauf: {contact[13].ToString()}";
-            //einkaufBusproLabel.Text = $"Einkauf: {contact[14].ToString()}";
-            //getCompanyIndex();
+
             manageButtons();
         }
 

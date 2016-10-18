@@ -19,6 +19,7 @@ namespace Pendenzen
         addIssue issue = new addIssue();
         addCompany company = new addCompany();
         reorganisation reorg = new reorganisation();
+        password pass = new password();
         ArrayList _companies;
         DataTable _table;
         string query;
@@ -361,25 +362,33 @@ namespace Pendenzen
 
             dictionary().TryGetValue(searchDropBox.Text, out searchKey);
 
-            if (tabControl.SelectedIndex == 0)
+            if (searchDropBox.Text != "")
             {
-                if (searchStatusBox.Visible)
+                if (tabControl.SelectedIndex == 0)
                 {
-                    query = createQuery("pendenz", searchKey, searchStatusBox.Text);
+                    if (searchStatusBox.Visible)
+                    {
+                        query = createQuery("pendenz", searchKey, searchStatusBox.Text);
+                    }
+                    else if (searchBox.Visible && searchBox.Text != "")
+                    {
+                        query = createQuery("pendenz", searchKey, searchBox.Text);
+                    }
+                    else if (searchBox.Visible && searchBox.Text == "")
+                    {
+                        query = createQuery("pendenz", searchKey);
+                    }
+                    issueDataView.DataSource = db.Select(query);
                 }
-                else if (searchBox.Visible && searchBox.Text != "")
+                if (tabControl.SelectedIndex == 1)
                 {
-                    query = createQuery("pendenz", searchKey, searchBox.Text);
+                    loadContact(searchKey, searchBox.Text);
                 }
-                else if (searchBox.Visible && searchBox.Text == "")
-                {
-                    query = createQuery("pendenz", searchKey);
-                }
-                issueDataView.DataSource = db.Select(query);
+
             }
-            if (tabControl.SelectedIndex == 1)
+            else
             {
-                loadContact(searchKey, searchBox.Text);
+                DialogResult result = MessageBox.Show(Properties.Resources.Suchkriterien, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             isOn = true;
         }
@@ -443,6 +452,11 @@ namespace Pendenzen
         private void reorganisationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             reorg.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pass.ShowDialog();
         }
 
         private void schliessenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -539,6 +553,14 @@ namespace Pendenzen
             restoreLabel.Visible = false;
         }
 
+        private void searchBox_Enter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                searchButton_Click(this.searchButton, e);
+            }
+        }
+
         #endregion
 
         #region MultiThreading
@@ -587,6 +609,7 @@ namespace Pendenzen
             queryPrint();
 
             PrintPreviewDialog printPreview = new PrintPreviewDialog();
+            printPreview.Icon = Properties.Resources.favicon;
             printPreview.Document = printIssues;
             printIssues.DefaultPageSettings.Landscape = true;
             ((Form)printPreview).WindowState = FormWindowState.Maximized;
@@ -650,7 +673,6 @@ namespace Pendenzen
         {
             try
             {
-                Console.WriteLine("Printpage Try");
                 int leftMargin = e.MarginBounds.Left;
                 int topMargin = e.MarginBounds.Top;
                 bool morePagesToPrint = false;
@@ -658,7 +680,6 @@ namespace Pendenzen
 
                 if (bFirstPage)
                 {
-                    Console.WriteLine("firstPage");
                     foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                     {
                         tmpWidth = (int)(Math.Floor((double)((double)gridColumn.Width /
@@ -689,7 +710,6 @@ namespace Pendenzen
                     {
                         if (newPage)
                         {
-                            Console.WriteLine("newPage");
                             // Draw Header
                             string topString = "Pendenzenübersicht";
                             e.Graphics.DrawString(topString,
@@ -774,10 +794,10 @@ namespace Pendenzen
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            Console.WriteLine("printIssues_PrintPage");
         }
 
         #endregion
-        
+
+
     }
 }

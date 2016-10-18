@@ -197,6 +197,15 @@ namespace Pendenzen
             Firmendetails company = new Firmendetails(companyBox.Text);
             company.ShowDialog();
         }
+        private void modifyIssue_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show(Properties.Resources.NichtSpeichern, "Schliessen", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+        }
+
         #endregion
 
         #region Helptext

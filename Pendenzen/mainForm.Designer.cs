@@ -87,6 +87,7 @@ namespace Pendenzen
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
             this.infoLabel = new System.Windows.Forms.Label();
@@ -136,6 +137,7 @@ namespace Pendenzen
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(108, 20);
             this.searchBox.TabIndex = 10;
+            this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_Enter);
             // 
             // searchButton
             // 
@@ -673,7 +675,8 @@ namespace Pendenzen
             // adminToolStripMenuItem
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reorganisationToolStripMenuItem});
+            this.reorganisationToolStripMenuItem,
+            this.kennwortÄndernToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
@@ -681,9 +684,16 @@ namespace Pendenzen
             // reorganisationToolStripMenuItem
             // 
             this.reorganisationToolStripMenuItem.Name = "reorganisationToolStripMenuItem";
-            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.reorganisationToolStripMenuItem.Text = "Reorganisation";
             this.reorganisationToolStripMenuItem.Click += new System.EventHandler(this.reorganisationToolStripMenuItem_Click);
+            // 
+            // kennwortÄndernToolStripMenuItem
+            // 
+            this.kennwortÄndernToolStripMenuItem.Name = "kennwortÄndernToolStripMenuItem";
+            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
+            this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -740,7 +750,6 @@ namespace Pendenzen
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 662);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.searchStatusBox);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
@@ -751,6 +760,7 @@ namespace Pendenzen
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.menuStrip);
+            this.Controls.Add(this.searchStatusBox);
             this.HelpButton = true;
             this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.MainMenuStrip = this.menuStrip;
@@ -834,6 +844,7 @@ namespace Pendenzen
         private Label restoreLabel;
         private Button restoreButton;
         private Label label1;
+        private ToolStripMenuItem kennwortÄndernToolStripMenuItem;
     }
 }
 
