@@ -15,10 +15,14 @@ namespace Pendenzen
             
             creatorLabel.Text = "Erfasser: " + person.getUserFullName();
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";
+            duePicker.Value = DateTime.Now.AddDays(7);
+        }
 
+        private void setCompanyBox()
+        {
             string query = "SELECT company_id FROM company";
             DataTable dataTable = db.Select(query);
-            
+
             foreach (DataRow row in dataTable.Rows)
             {
                 foreach (DataColumn column in dataTable.Columns)
@@ -26,9 +30,7 @@ namespace Pendenzen
                     companyBox.Items.Add(row[column]);
                 }
             }
-
-            duePicker.Value = DateTime.Now.AddDays(7);
-         }
+        }
 
         private void btnAddCompany_Click(object sender, EventArgs e)
         {

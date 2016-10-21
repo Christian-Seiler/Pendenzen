@@ -22,6 +22,12 @@ namespace Pendenzen
             InitializeComponent();
         }
 
+        public addCompany(string id)
+        {
+            InitializeComponent();
+            companyIDTextBox.Text = id;
+        }
+
         private void getCountry(object sender, EventArgs e)
         {
             string companyID;

@@ -20,13 +20,13 @@ namespace Pendenzen
         string _document;
         string _responsible;
         DateTime _due;
+        DBConnect db = new DBConnect();
         string changesText;
 
         public modifyIssue(int id)
         {
             InitializeComponent();
             _id = id;
-            DBConnect db = new DBConnect();
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             DataTable dataTable = db.Select(query);
 
@@ -194,16 +194,24 @@ namespace Pendenzen
 
         private void detailsFirmaButton_Click(object sender, EventArgs e)
         {
-            Firmendetails company = new Firmendetails(companyBox.Text);
-            company.ShowDialog();
-        }
-        private void modifyIssue_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show(Properties.Resources.NichtSpeichern, "Schliessen", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (result == DialogResult.Cancel)
+             var isInDatabase = db.Count($"SELECT COUNT(*) FROM company WHERE company_id = '{_company}'");
+
+            Console.WriteLine(isInDatabase);
+
+            if (isInDatabase != 0)
             {
-                e.Cancel = true;
+                Firmendetails company = new Firmendetails(companyBox.Text);
+                company.ShowDialog();
+                Console.WriteLine("Is in Database");
             }
+            else
+            {
+                addCompany add = new addCompany(_company);
+                add.ShowDialog();
+                Console.WriteLine("Is NOT in Database");
+            }
+
+
         }
 
         #endregion

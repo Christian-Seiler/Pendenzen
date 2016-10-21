@@ -60,7 +60,7 @@
             // 
             this.altesPasswort.Location = new System.Drawing.Point(128, 33);
             this.altesPasswort.Name = "altesPasswort";
-            this.altesPasswort.PasswordChar = '\u25CF';
+            this.altesPasswort.PasswordChar = '●';
             this.altesPasswort.Size = new System.Drawing.Size(100, 20);
             this.altesPasswort.TabIndex = 0;
             // 
@@ -86,17 +86,17 @@
             // 
             this.neuesPasswort.Location = new System.Drawing.Point(128, 59);
             this.neuesPasswort.Name = "neuesPasswort";
+            this.neuesPasswort.PasswordChar = '●';
             this.neuesPasswort.Size = new System.Drawing.Size(100, 20);
             this.neuesPasswort.TabIndex = 1;
-            this.neuesPasswort.PasswordChar = '\u25CF';
             // 
             // confirmPasswort
             // 
             this.confirmPasswort.Location = new System.Drawing.Point(128, 85);
             this.confirmPasswort.Name = "confirmPasswort";
+            this.confirmPasswort.PasswordChar = '●';
             this.confirmPasswort.Size = new System.Drawing.Size(100, 20);
             this.confirmPasswort.TabIndex = 2;
-            this.confirmPasswort.PasswordChar = '\u25CF';
             // 
             // password
             // 
