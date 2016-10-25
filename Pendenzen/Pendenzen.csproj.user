@@ -6,7 +6,7 @@
     <SupportUrlHistory>http://www.christianseiler.ch</SupportUrlHistory>
     <UpdateUrlHistory />
     <BootstrapperUrlHistory />
-    <ErrorReportUrlHistory />
+    <ErrorReportUrlHistory>https://github.com/Christian-Seiler/Pendenzen/issues/new</ErrorReportUrlHistory>
     <FallbackCulture>de-DE</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>
   </PropertyGroup>

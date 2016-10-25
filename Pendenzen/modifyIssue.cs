@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Windows.Forms;
 
 namespace Pendenzen
 {
@@ -196,22 +191,16 @@ namespace Pendenzen
         {
              var isInDatabase = db.Count($"SELECT COUNT(*) FROM company WHERE company_id = '{_company}'");
 
-            Console.WriteLine(isInDatabase);
-
-            if (isInDatabase != 0)
+            if (isInDatabase > 0)
             {
                 Firmendetails company = new Firmendetails(companyBox.Text);
                 company.ShowDialog();
-                Console.WriteLine("Is in Database");
             }
             else
             {
                 addCompany add = new addCompany(_company);
                 add.ShowDialog();
-                Console.WriteLine("Is NOT in Database");
             }
-
-
         }
 
         #endregion

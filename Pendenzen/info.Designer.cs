@@ -105,7 +105,7 @@ namespace Pendenzen
             this.bugButton.TabIndex = 5;
             this.bugButton.Text = "Fehler melden";
             this.bugButton.UseVisualStyleBackColor = true;
-            this.bugButton.Click += new System.EventHandler(this.supportButton_Click);
+            this.bugButton.Click += new System.EventHandler(this.bugButton_Click);
             // 
             // info
             // 

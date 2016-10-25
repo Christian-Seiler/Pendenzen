@@ -103,7 +103,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(327, 203);
+            this.ClientSize = new System.Drawing.Size(250, 181);
             this.Controls.Add(this.confirmPasswort);
             this.Controls.Add(this.neuesPasswort);
             this.Controls.Add(this.newPasswortLabel);
