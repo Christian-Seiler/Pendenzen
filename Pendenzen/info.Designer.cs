@@ -35,6 +35,7 @@ namespace Pendenzen
             this.copyrightLabel = new System.Windows.Forms.Label();
             this.logoPicturebox = new System.Windows.Forms.PictureBox();
             this.supportButton = new System.Windows.Forms.Button();
+            this.bugButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace Pendenzen
             this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(13, 110);
+            this.versionLabel.Location = new System.Drawing.Point(13, 132);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(63, 13);
             this.versionLabel.TabIndex = 1;
@@ -64,7 +65,7 @@ namespace Pendenzen
             this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Location = new System.Drawing.Point(13, 140);
+            this.copyrightLabel.Location = new System.Drawing.Point(13, 162);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(50, 13);
             this.copyrightLabel.TabIndex = 2;
@@ -86,7 +87,7 @@ namespace Pendenzen
             // 
             this.supportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.supportButton.Location = new System.Drawing.Point(68, 180);
+            this.supportButton.Location = new System.Drawing.Point(68, 244);
             this.supportButton.Name = "supportButton";
             this.supportButton.Size = new System.Drawing.Size(104, 23);
             this.supportButton.TabIndex = 4;
@@ -94,22 +95,35 @@ namespace Pendenzen
             this.supportButton.UseVisualStyleBackColor = true;
             this.supportButton.Click += new System.EventHandler(this.supportButton_Click);
             // 
+            // bugButton
+            // 
+            this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.bugButton.Location = new System.Drawing.Point(68, 214);
+            this.bugButton.Name = "bugButton";
+            this.bugButton.Size = new System.Drawing.Size(104, 23);
+            this.bugButton.TabIndex = 5;
+            this.bugButton.Text = "Fehler melden";
+            this.bugButton.UseVisualStyleBackColor = true;
+            this.bugButton.Click += new System.EventHandler(this.supportButton_Click);
+            // 
             // info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(244, 217);
+            this.ClientSize = new System.Drawing.Size(244, 281);
             this.Controls.Add(this.supportButton);
             this.Controls.Add(this.logoPicturebox);
             this.Controls.Add(this.copyrightLabel);
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.productNameLabel);
+            this.Controls.Add(this.bugButton);
+            this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "info";
-            this.Icon = Properties.Resources.favicon;
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Info";
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).EndInit();
@@ -125,5 +139,6 @@ namespace Pendenzen
         private System.Windows.Forms.Label copyrightLabel;
         private System.Windows.Forms.PictureBox logoPicturebox;
         private System.Windows.Forms.Button supportButton;
+        private System.Windows.Forms.Button bugButton;
     }
 }

@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Pendenzen
@@ -17,7 +12,7 @@ namespace Pendenzen
             InitializeComponent();
 
             productNameLabel.Text = ProductName;
-            versionLabel.Text = $"Version {ProductVersion} ({System.Reflection.Assembly.GetExecutingAssembly().GetName().Version})";
+            versionLabel.Text = $"Version {ProductVersion} ({Assembly.GetExecutingAssembly().GetName().Version})";
             copyrightLabel.Text = "Copyright © 2016 Christian Seiler Services.\n" +
                 "Alle Rechte vorbehalten.";
         }
@@ -26,7 +21,14 @@ namespace Pendenzen
         {
             string url = "http://www.christianseiler.ch";
 
-            System.Diagnostics.Process.Start(url);
+            Process.Start(url);
+        }
+
+        private void bugButton_Click(object sender, EventArgs e)
+        {
+            string url = "https://github.com/Christian-Seiler/Pendenzen/issues/new";
+
+            Process.Start(url);
         }
     }
 }
