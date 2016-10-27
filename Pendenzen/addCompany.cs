@@ -102,7 +102,6 @@ namespace Pendenzen
                 }
 
                 string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', '{neukundeVerkauf}', '{neukundeEinkauf}', '{history}')";
-                Console.WriteLine(query);
                 db.Update(query);
                 Close();
             }

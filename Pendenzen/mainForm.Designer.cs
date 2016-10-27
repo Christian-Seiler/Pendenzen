@@ -93,6 +93,7 @@ namespace Pendenzen
             this.infoLabel = new System.Windows.Forms.Label();
             this.searchStatusBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.resetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -133,7 +134,7 @@ namespace Pendenzen
             // searchBox
             // 
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.Location = new System.Drawing.Point(900, 157);
+            this.searchBox.Location = new System.Drawing.Point(814, 155);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(108, 20);
             this.searchBox.TabIndex = 10;
@@ -142,9 +143,9 @@ namespace Pendenzen
             // searchButton
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Location = new System.Drawing.Point(1014, 152);
+            this.searchButton.Location = new System.Drawing.Point(928, 153);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(70, 25);
+            this.searchButton.Size = new System.Drawing.Size(75, 25);
             this.searchButton.TabIndex = 11;
             this.searchButton.Text = "Suchen";
             this.searchButton.UseVisualStyleBackColor = true;
@@ -206,7 +207,7 @@ namespace Pendenzen
             // 
             this.searchDropBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchDropBox.FormattingEnabled = true;
-            this.searchDropBox.Location = new System.Drawing.Point(803, 155);
+            this.searchDropBox.Location = new System.Drawing.Point(717, 155);
             this.searchDropBox.Name = "searchDropBox";
             this.searchDropBox.Size = new System.Drawing.Size(91, 21);
             this.searchDropBox.TabIndex = 14;
@@ -705,6 +706,7 @@ namespace Pendenzen
             // printIssues
             // 
             this.printIssues.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_BeginPrint);
+            this.printIssues.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_EndPrint);
             this.printIssues.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printIssues_PrintPage);
             // 
             // infoLabel
@@ -726,7 +728,7 @@ namespace Pendenzen
             // 
             this.searchStatusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchStatusBox.FormattingEnabled = true;
-            this.searchStatusBox.Location = new System.Drawing.Point(901, 157);
+            this.searchStatusBox.Location = new System.Drawing.Point(815, 155);
             this.searchStatusBox.Name = "searchStatusBox";
             this.searchStatusBox.Size = new System.Drawing.Size(107, 21);
             this.searchStatusBox.TabIndex = 20;
@@ -742,13 +744,24 @@ namespace Pendenzen
             this.label1.TabIndex = 21;
             this.label1.Text = "AutoUpdate";
             // 
+            // resetButton
+            // 
+            this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetButton.Location = new System.Drawing.Point(1009, 154);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 22;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.reset_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 662);
+            this.Controls.Add(this.resetButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tabControl);
@@ -845,6 +858,7 @@ namespace Pendenzen
         private Button restoreButton;
         private Label label1;
         private ToolStripMenuItem kennwortÄndernToolStripMenuItem;
+        private Button resetButton;
     }
 }
 

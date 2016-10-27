@@ -23,6 +23,8 @@ namespace Pendenzen
         ArrayList _companies;
         DataTable _table;
         string query;
+        string printQuery = $"SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
+        string baseQuery = "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
         StringFormat strFormat;
         int cellHeight = 0;
         int iRow = 0;
@@ -30,9 +32,19 @@ namespace Pendenzen
         int headerHeight = 0;
         bool bFirstPage = false;
         bool newPage = false;
-        bool isOn = true;
+        bool isOn = false;
         ArrayList arrColumnLefts = new ArrayList();
         ArrayList arrColumnWidths = new ArrayList();
+
+        public void setIsOn(bool on)
+        {
+            isOn = on;
+        }
+        public void setQuery(string setQuery)
+        {
+            query = setQuery;
+        }
+
         #endregion
 
         public Dictionary<string, string> dictionary()
@@ -115,15 +127,16 @@ namespace Pendenzen
             query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             InitializeComponent();
             nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
-
+            isOn = true;
             tabControl_Selected(null, null);
             
             threadStarter();
 
-            string[] status = { "open", "closed", "cancelled"};
+            string[] status = { "open", "done", "cancelled"};
             foreach (string s in status) { searchStatusBox.Items.Add(s); }
         }
 
+        #region Data
         private void reloadData(int tabIndex)
         {
             if (tabIndex == 0)
@@ -197,7 +210,7 @@ namespace Pendenzen
 
             makeData(_table);
         }
-        
+
         private void makeData(DataTable table)
         {
             ArrayList contact = new ArrayList(table.Columns.Count);
@@ -226,7 +239,7 @@ namespace Pendenzen
                 string date = einkaufDate.ToShortDateString();
                 einkauferLabel.Text = $" Verkauf seit: {date}";
             }
-            
+
             idLabel.Text = contact[0].ToString();
             companyLabel.Text = contact[1].ToString();
             streetLabel.Text = contact[2].ToString();
@@ -247,77 +260,6 @@ namespace Pendenzen
             manageButtons();
         }
 
-        private void manageButtons()
-        {
-            if (urlLabel.Text == "")
-            {
-                openLinkButton.Visible = false;
-                webLabel.Visible = false;
-            } else
-            {
-                openLinkButton.Visible = true;
-                webLabel.Visible = true;
-            }
-            if (emailVerkaufLabel.Text == "")
-            {
-                verkaufEmailButton.Visible = false;
-                verkaufLabel.Visible = false;
-            } else
-            {
-                verkaufEmailButton.Visible = true;
-                verkaufLabel.Visible = true;
-            }
-            if (emailEinkaufLabel.Text == "")
-            {
-                einkaufEmailButton.Visible = false;
-                einkaufLabel.Visible = false;
-            } else
-            {
-                einkaufEmailButton.Visible = true;
-                einkaufLabel.Visible = true;
-            }
-        }
-
-        private void WriteToCSV()
-        {
-            query = createAdressQuery();
-
-            Console.WriteLine(query);
-            DataTable table = db.Select(query);
-
-            var result = new StringBuilder();
-            for (int i = 0; i < table.Columns.Count; i++)
-            {
-                result.Append(table.Columns[i].ColumnName);
-                result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
-            }
-
-            foreach (DataRow row in table.Rows)
-            {
-                for (int i = 0; i < table.Columns.Count; i++)
-                {
-                    result.Append(row[i].ToString());
-                    result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
-                }
-            }
-            
-            SaveFileDialog saveFile = new SaveFileDialog();
-
-            saveFile.FileName = "export.csv";
-            saveFile.DefaultExt = "csv";
-            saveFile.InitialDirectory = Environment.GetEnvironmentVariable("USERPROFILE");
-            saveFile.Title = "Adressen exportieren unter";
-            saveFile.Filter = "Alle Dateien (*.*)|*.*";
-            saveFile.CheckPathExists = true;
-            saveFile.RestoreDirectory = true;
-
-            if (saveFile.ShowDialog() == DialogResult.OK)
-            {
-                string path = saveFile.FileName;
-                File.WriteAllText(path, result.ToString(), Encoding.Unicode);
-            }
-        }
-
         private string createAdressQuery()
         {
             return "SELECT company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
@@ -325,6 +267,7 @@ namespace Pendenzen
 
         private string createQuery(string table)
         {
+            printQuery = baseQuery + $"FROM pendenz GROUP BY sachbearbeiter";
             return $"SELECT * FROM {table}";
         }
 
@@ -334,63 +277,18 @@ namespace Pendenzen
             {
                 return createQuery(table);
             }
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = '' GROUP BY sachbearbeiter";
             return $"SELECT * FROM {table} WHERE {searchKey} = ''";
         }
 
         private string createQuery(string table, string searchKey, string searchText)
         {
-
             if (searchKey == "")
             {
                 return createQuery(table);
             }
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}' GROUP BY sachbearbeiter";
             return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
-        }
-
-        #region UIControls
-        private void btnInfo_Click(object sender, System.EventArgs e)
-        {
-            info info = new info();
-            info.ShowDialog();
-        }
-
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            dictionary();
-
-            var searchKey = "";
-
-            dictionary().TryGetValue(searchDropBox.Text, out searchKey);
-
-            if (searchDropBox.Text != "")
-            {
-                if (tabControl.SelectedIndex == 0)
-                {
-                    if (searchStatusBox.Visible)
-                    {
-                        query = createQuery("pendenz", searchKey, searchStatusBox.Text);
-                    }
-                    else if (searchBox.Visible && searchBox.Text != "")
-                    {
-                        query = createQuery("pendenz", searchKey, searchBox.Text);
-                    }
-                    else if (searchBox.Visible && searchBox.Text == "")
-                    {
-                        query = createQuery("pendenz", searchKey);
-                    }
-                    issueDataView.DataSource = db.Select(query);
-                }
-                if (tabControl.SelectedIndex == 1)
-                {
-                    loadContact(searchKey, searchBox.Text);
-                }
-
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show(Properties.Resources.Suchkriterien, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
-            isOn = true;
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -405,27 +303,11 @@ namespace Pendenzen
             }
         }
 
-        private void onOffButton_Click(object sender, EventArgs e)
-        {
-            if (isOn)
-            {
-                isOn = false;
-                onOffButton.Text = "off";
-                onOffButton.BackColor = Color.Red;
-            }
-            else if (!isOn)
-            {
-                isOn = true;
-                onOffButton.Text = "on";
-                onOffButton.BackColor = Color.Lime;
-                reloadData(tabControl.SelectedIndex);
-            }
-        }
-
         private void issueDataView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+                isOn = false;
                 string changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
 
                 modifyIssue modify = new modifyIssue(int.Parse(changeIssue));
@@ -435,9 +317,13 @@ namespace Pendenzen
 
         private void issueDataView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            string sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
             isOn = false;
+            string sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
         }
+
+        #endregion
+
+        #region Toolstrip
 
         private void neuePendenzToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -469,6 +355,10 @@ namespace Pendenzen
             info info = new info();
             info.ShowDialog();
         }
+
+        #endregion
+
+        #region Address
 
         private void tabControl_Selected(object sender, TabControlEventArgs e)
         {
@@ -529,6 +419,131 @@ namespace Pendenzen
         {
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
+        
+        private void manageButtons()
+        {
+            if (urlLabel.Text == "")
+            {
+                openLinkButton.Visible = false;
+                webLabel.Visible = false;
+            }
+            else
+            {
+                openLinkButton.Visible = true;
+                webLabel.Visible = true;
+            }
+            if (emailVerkaufLabel.Text == "")
+            {
+                verkaufEmailButton.Visible = false;
+                verkaufLabel.Visible = false;
+            }
+            else
+            {
+                verkaufEmailButton.Visible = true;
+                verkaufLabel.Visible = true;
+            }
+            if (emailEinkaufLabel.Text == "")
+            {
+                einkaufEmailButton.Visible = false;
+                einkaufLabel.Visible = false;
+            }
+            else
+            {
+                einkaufEmailButton.Visible = true;
+                einkaufLabel.Visible = true;
+            }
+        }
+
+        private void WriteToCSV()
+        {
+            query = createAdressQuery();
+
+            DataTable table = db.Select(query);
+
+            var result = new StringBuilder();
+            for (int i = 0; i < table.Columns.Count; i++)
+            {
+                result.Append(table.Columns[i].ColumnName);
+                result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+            }
+
+            foreach (DataRow row in table.Rows)
+            {
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    result.Append(row[i].ToString());
+                    result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
+                }
+            }
+
+            SaveFileDialog saveFile = new SaveFileDialog();
+
+            saveFile.FileName = "export.csv";
+            saveFile.DefaultExt = "csv";
+            saveFile.InitialDirectory = Environment.GetEnvironmentVariable("USERPROFILE");
+            saveFile.Title = "Adressen exportieren unter";
+            saveFile.Filter = "Alle Dateien (*.*)|*.*";
+            saveFile.CheckPathExists = true;
+            saveFile.RestoreDirectory = true;
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                string path = saveFile.FileName;
+                File.WriteAllText(path, result.ToString(), Encoding.Unicode);
+            }
+        }
+
+        #endregion
+
+        #region Search
+
+        private void reset_Click(object sender, EventArgs e)
+        {
+            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            isOn = true;
+            searchBox.Clear();
+            searchDropBox.Text = "";
+            searchStatusBox.Text = "";
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            dictionary();
+
+            var searchKey = "";
+
+            dictionary().TryGetValue(searchDropBox.Text, out searchKey);
+
+            if (searchDropBox.Text != "")
+            {
+                if (tabControl.SelectedIndex == 0)
+                {
+                    if (searchStatusBox.Visible)
+                    {
+                        query = createQuery("pendenz", searchKey, searchStatusBox.Text);
+                    }
+                    else if (searchBox.Visible && searchBox.Text != "")
+                    {
+                        query = createQuery("pendenz", searchKey, searchBox.Text);
+                    }
+                    else if (searchBox.Visible && searchBox.Text == "")
+                    {
+                        query = createQuery("pendenz", searchKey);
+                    }
+                    issueDataView.DataSource = db.Select(query);
+                }
+                if (tabControl.SelectedIndex == 1)
+                {
+                    loadContact(searchKey, searchBox.Text);
+                }
+
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show(Properties.Resources.Suchkriterien, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+            isOn = true;
+        }
 
         private void searchDropBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -548,9 +563,9 @@ namespace Pendenzen
 
         private void restoreButton_Click(object sender, EventArgs e)
         {
-            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             restoreButton.Visible = false;
             restoreLabel.Visible = false;
+            reset_Click(sender, e);
         }
 
         private void searchBox_Enter(object sender, KeyEventArgs e)
@@ -558,6 +573,27 @@ namespace Pendenzen
             if (e.KeyValue == 13)
             {
                 searchButton_Click(this.searchButton, e);
+            }
+        }
+
+        #endregion
+
+        #region AutoUpdate
+
+        private void onOffButton_Click(object sender, EventArgs e)
+        {
+            if (isOn)
+            {
+                isOn = false;
+                onOffButton.Text = "off";
+                onOffButton.BackColor = Color.Red;
+            }
+            else if (!isOn)
+            {
+                isOn = true;
+                onOffButton.Text = "on";
+                onOffButton.BackColor = Color.Lime;
+                reloadData(tabControl.SelectedIndex);
             }
         }
 
@@ -597,10 +633,6 @@ namespace Pendenzen
         private void queryPrint()
         {
             isOn = false;
-            onOffButton.Text = "off";
-            onOffButton.BackColor = Color.Red;
-
-            string printQuery = "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
             issueDataView.DataSource = db.Select(printQuery);
         }
 
@@ -613,21 +645,19 @@ namespace Pendenzen
             printPreview.Document = printIssues;
             printIssues.DefaultPageSettings.Landscape = true;
             ((Form)printPreview).WindowState = FormWindowState.Maximized;
-            
+             
             printPreview.ShowDialog();
-            Console.WriteLine("previewButton_Click");
         }
 
         private void druckenButton_Click(object sender, EventArgs e)
         {
-
             queryPrint();
 
             // Open print dialog
             PrintDialog printDialog = new PrintDialog();
             printDialog.Document = printIssues;
             printDialog.UseEXDialog = true;
-
+            
             // Get document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
@@ -635,12 +665,10 @@ namespace Pendenzen
                 printIssues.DefaultPageSettings.Landscape = true;
                 printIssues.Print();
             }
-            Console.WriteLine("druckenButton_Click");
         }
 
         private void printIssues_BeginPrint(object sender, PrintEventArgs e)
         {
-            queryPrint();
             try
             {
                 strFormat = new StringFormat();
@@ -666,7 +694,6 @@ namespace Pendenzen
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            Console.WriteLine("printIssues_BeginPrint");
         }
 
         private void printIssues_PrintPage(object sender, PrintPageEventArgs e)
@@ -796,8 +823,11 @@ namespace Pendenzen
             }
         }
 
+        private void printIssues_EndPrint(object sender, PrintEventArgs e)
+        {
+            //isOn = true;
+        }
+
         #endregion
-
-
     }
 }

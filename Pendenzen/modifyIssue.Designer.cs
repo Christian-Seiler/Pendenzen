@@ -174,7 +174,7 @@ namespace Pendenzen
             this.changeButton.TabIndex = 14;
             this.changeButton.Text = "OK";
             this.changeButton.UseVisualStyleBackColor = true;
-            this.changeButton.Click += new System.EventHandler(this.changeButton_Click);
+            this.changeButton.Click += new System.EventHandler(this.okButton_Click);
             // 
             // duePicker
             // 

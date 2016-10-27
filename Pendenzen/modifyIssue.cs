@@ -14,8 +14,11 @@ namespace Pendenzen
         string _reference;
         string _document;
         string _responsible;
+        string _state;
         DateTime _due;
         DBConnect db = new DBConnect();
+
+        
         string changesText;
 
         public modifyIssue(int id)
@@ -53,6 +56,7 @@ namespace Pendenzen
             _document = list[3];
             _responsible = list[6];
             _due = Convert.ToDateTime(list[7]);
+            _state = list[10];
 
             changeIssueLabel.Text = $"Pendenz #{id} bearbeiten";
             creatorLabel.Text = $"Erfasser: {list[5]}";
@@ -63,13 +67,26 @@ namespace Pendenzen
             responsibleTextBox.Text = _responsible;
             duePicker.Value = _due;
             historyTextBox.Text = list[8];
+
+            switch (_state)
+            {
+                case "cancelled":
+                    cancelButton.Checked = true;
+                    break;
+                case "done":
+                    finalizedButton.Checked = true;
+                    break;
+                default:
+                    openButton.Checked = true;
+                    break;
+            }
         }
 
         #region UI
-        private void changeButton_Click(object sender, EventArgs e)
+        private void okButton_Click(object sender, EventArgs e)
         {
-            string newState;
-            string finalizedDate;
+            string newState = "";
+            string finalizedDate = "";
 
             List<string> changes = new List<string>();
             
@@ -115,7 +132,7 @@ namespace Pendenzen
             {
                 newState = "cancelled";
                 finalizedDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-            } else
+            } else if (openButton.Checked)
             {
                 newState = "open";
                 finalizedDate = "";
@@ -127,21 +144,19 @@ namespace Pendenzen
             string sachbearbeiter = $"sachbearbeiter = '{responsibleTextBox.Text}'";
             string due = $"due = '{duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss")}'";
             string detail = $"detail = '{detailsText}'";
-            string finalized = $"finalized = '{finalizedDate}'";
-            string state = $"state = '{newState}'";
-
-            DBConnect db = new DBConnect();
-            string query;
-            if (newState == "open")
+            string finalized;
+            if (finalizedDate == "")
             {
-                query = $"UPDATE pendenz SET {lieferant}, {referenz}, {document}, {sachbearbeiter}, {due}, {detail} WHERE idpendenz={_id}";
+                finalized = "finalized = null";
             }
             else
             {
-                query = $"UPDATE pendenz SET {lieferant}, {referenz}, {document}, {sachbearbeiter}, {due}, {detail}, {finalized}, {state}  WHERE idpendenz={_id}";
+                finalized = $"finalized = '{finalizedDate}'";
             }
-            
-            Console.WriteLine(query);
+            string state = $"state = '{newState}'";
+
+            string  query = $"UPDATE pendenz SET {lieferant}, {referenz}, {document}, {sachbearbeiter}, {due}, {detail}, {finalized}, {state}  WHERE idpendenz={_id}";
+
             db.Update(query);
             Close();
         }
