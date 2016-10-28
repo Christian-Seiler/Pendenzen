@@ -138,12 +138,12 @@ namespace Pendenzen
                 finalizedDate = "";
             }
 
-            string lieferant = $"lieferant = '{companyBox.Text}'";
-            string referenz = $"referenz = '{referenceTextBox.Text}'";
-            string document = $"document = '{documentTextBox.Text}'";
-            string sachbearbeiter = $"sachbearbeiter = '{responsibleTextBox.Text}'";
-            string due = $"due = '{duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss")}'";
-            string detail = $"detail = '{detailsText}'";
+            string lieferant = $"lieferant = `{companyBox.Text}`";
+            string referenz = $"referenz = `{referenceTextBox.Text}`";
+            string document = $"document = `{documentTextBox.Text}`";
+            string sachbearbeiter = $"sachbearbeiter = `{responsibleTextBox.Text}`";
+            string due = $"due = `{duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss")}`";
+            string detail = $"detail = `{detailsText}`";
             string finalized;
             if (finalizedDate == "")
             {
@@ -151,9 +151,9 @@ namespace Pendenzen
             }
             else
             {
-                finalized = $"finalized = '{finalizedDate}'";
+                finalized = $"finalized = `{finalizedDate}`";
             }
-            string state = $"state = '{newState}'";
+            string state = $"state = `{newState}`";
 
             string  query = $"UPDATE pendenz SET {lieferant}, {referenz}, {document}, {sachbearbeiter}, {due}, {detail}, {finalized}, {state}  WHERE idpendenz={_id}";
 

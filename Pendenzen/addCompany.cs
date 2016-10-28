@@ -103,8 +103,7 @@ namespace Pendenzen
                     einkaufBuspro = "Ja";
                 }
 
-
-                string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text}', '{streetTextBox.Text}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', {neukundeVerkauf}, {neukundeEinkauf}, '{history}')";
+                string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text.Replace("'", "''")}', '{streetTextBox.Text.Replace("'", "''")}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text.Replace("'", "''")}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', {neukundeVerkauf}, {neukundeEinkauf}, '{history.Replace("'", "''")}')";
                 Console.WriteLine(query);
                 db.Insert(query);
                 Close();

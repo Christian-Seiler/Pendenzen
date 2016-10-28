@@ -56,7 +56,7 @@ namespace Pendenzen
             checkEntries();
             if (_error == false)
             {
-                string query = $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail) VALUES('{lieferant}', '{referenz}', '{document}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details}')";
+                string query = $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail) VALUES(`{lieferant}`, `{referenz.Replace("'", "''")}`, `{document.Replace("'", "''")}`, `{erfasstAm}`, `{erfasstVon}`, `{sachbearbeiter}`, `{due}`, `{details.Replace("'", "''")}`)";
                 db.Insert(query);
                 Close();
             }

@@ -752,10 +752,9 @@ namespace Pendenzen
             this.infoLabel.Location = new System.Drawing.Point(951, 63);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(139, 26);
-            this.infoLabel.TabIndex = 45;
             this.infoLabel.Text = "AutoUpdate ist aus!\r\nDrücke F4 zum starten.";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.infoLabel.UseMnemonic = false;
+            this.infoLabel.Visible = false;
             // 
             // searchStatusBox
             // 

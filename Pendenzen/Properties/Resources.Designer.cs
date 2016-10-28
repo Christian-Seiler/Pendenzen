@@ -61,7 +61,8 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
-        ///   Sucht eine lokalisierte Zeichenfolge, die AutoUpdate ist aus! \nDrücke F4 zum starten. ähnelt.
+        ///   Sucht eine lokalisierte Zeichenfolge, die AutoUpdate ist aus!
+        ///Drücke F4 zum starten. ähnelt.
         /// </summary>
         internal static string autoUpdateOff {
             get {
