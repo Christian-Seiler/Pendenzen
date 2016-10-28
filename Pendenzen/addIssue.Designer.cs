@@ -56,7 +56,6 @@
             this.newIssueLabel.Location = new System.Drawing.Point(13, 13);
             this.newIssueLabel.Name = "newIssueLabel";
             this.newIssueLabel.Size = new System.Drawing.Size(138, 24);
-            this.newIssueLabel.TabIndex = 0;
             this.newIssueLabel.Text = "Neue Pendenz";
             // 
             // referenceLabel
@@ -65,7 +64,6 @@
             this.referenceLabel.Location = new System.Drawing.Point(113, 95);
             this.referenceLabel.Name = "referenceLabel";
             this.referenceLabel.Size = new System.Drawing.Size(67, 13);
-            this.referenceLabel.TabIndex = 1;
             this.referenceLabel.Text = "Referenz Nr.";
             // 
             // btnAddCompany
@@ -73,7 +71,7 @@
             this.btnAddCompany.Location = new System.Drawing.Point(353, 12);
             this.btnAddCompany.Name = "btnAddCompany";
             this.btnAddCompany.Size = new System.Drawing.Size(75, 23);
-            this.btnAddCompany.TabIndex = 2;
+            this.btnAddCompany.TabIndex = 7;
             this.btnAddCompany.Text = "Neue Firma";
             this.btnAddCompany.UseVisualStyleBackColor = true;
             this.btnAddCompany.Click += new System.EventHandler(this.btnAddCompany_Click);
@@ -83,7 +81,7 @@
             this.referenceTextBox.Location = new System.Drawing.Point(116, 115);
             this.referenceTextBox.Name = "referenceTextBox";
             this.referenceTextBox.Size = new System.Drawing.Size(100, 20);
-            this.referenceTextBox.TabIndex = 4;
+            this.referenceTextBox.TabIndex = 1;
             this.referenceTextBox.Enter += new System.EventHandler(this.referenceTextBox_Focused);
             // 
             // documentTextBox
@@ -91,7 +89,7 @@
             this.documentTextBox.Location = new System.Drawing.Point(222, 115);
             this.documentTextBox.Name = "documentTextBox";
             this.documentTextBox.Size = new System.Drawing.Size(100, 20);
-            this.documentTextBox.TabIndex = 5;
+            this.documentTextBox.TabIndex = 2;
             this.documentTextBox.Enter += new System.EventHandler(this.documentTextBox_Focused);
             // 
             // responsibleTextBox
@@ -100,7 +98,7 @@
             this.responsibleTextBox.MaxLength = 5;
             this.responsibleTextBox.Name = "responsibleTextBox";
             this.responsibleTextBox.Size = new System.Drawing.Size(100, 20);
-            this.responsibleTextBox.TabIndex = 6;
+            this.responsibleTextBox.TabIndex = 3;
             this.responsibleTextBox.Enter += new System.EventHandler(this.responsibleTextBox_Focused);
             // 
             // detailsTextBox
@@ -110,7 +108,7 @@
             this.detailsTextBox.Location = new System.Drawing.Point(17, 198);
             this.detailsTextBox.Name = "detailsTextBox";
             this.detailsTextBox.Size = new System.Drawing.Size(409, 20);
-            this.detailsTextBox.TabIndex = 7;
+            this.detailsTextBox.TabIndex = 5;
             this.detailsTextBox.Enter += new System.EventHandler(this.detailsTextBox_Focused);
             // 
             // creatorLabel
@@ -119,7 +117,6 @@
             this.creatorLabel.Location = new System.Drawing.Point(13, 41);
             this.creatorLabel.Name = "creatorLabel";
             this.creatorLabel.Size = new System.Drawing.Size(122, 13);
-            this.creatorLabel.TabIndex = 8;
             this.creatorLabel.Text = "Erfasser: Bob Meierhans";
             // 
             // companyLabel
@@ -128,7 +125,6 @@
             this.companyLabel.Location = new System.Drawing.Point(13, 95);
             this.companyLabel.Name = "companyLabel";
             this.companyLabel.Size = new System.Drawing.Size(32, 13);
-            this.companyLabel.TabIndex = 9;
             this.companyLabel.Text = "Firma";
             // 
             // dateLabel
@@ -137,7 +133,6 @@
             this.dateLabel.Location = new System.Drawing.Point(12, 57);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(98, 13);
-            this.dateLabel.TabIndex = 10;
             this.dateLabel.Text = "Datum: 01.01.2016";
             // 
             // documentLabel
@@ -146,7 +141,6 @@
             this.documentLabel.Location = new System.Drawing.Point(222, 95);
             this.documentLabel.Name = "documentLabel";
             this.documentLabel.Size = new System.Drawing.Size(34, 13);
-            this.documentLabel.TabIndex = 11;
             this.documentLabel.Text = "Beleg";
             // 
             // responsibleLabel
@@ -155,7 +149,6 @@
             this.responsibleLabel.Location = new System.Drawing.Point(328, 95);
             this.responsibleLabel.Name = "responsibleLabel";
             this.responsibleLabel.Size = new System.Drawing.Size(78, 13);
-            this.responsibleLabel.TabIndex = 12;
             this.responsibleLabel.Text = "zuständiger SB";
             // 
             // detailLabel
@@ -164,7 +157,6 @@
             this.detailLabel.Location = new System.Drawing.Point(17, 182);
             this.detailLabel.Name = "detailLabel";
             this.detailLabel.Size = new System.Drawing.Size(39, 13);
-            this.detailLabel.TabIndex = 13;
             this.detailLabel.Text = "Details";
             // 
             // submitButton
@@ -173,7 +165,7 @@
             this.submitButton.Location = new System.Drawing.Point(349, 224);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(75, 23);
-            this.submitButton.TabIndex = 14;
+            this.submitButton.TabIndex = 6;
             this.submitButton.Text = "OK";
             this.submitButton.UseVisualStyleBackColor = true;
             this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
@@ -184,7 +176,7 @@
             this.duePicker.Location = new System.Drawing.Point(17, 159);
             this.duePicker.Name = "duePicker";
             this.duePicker.Size = new System.Drawing.Size(93, 20);
-            this.duePicker.TabIndex = 15;
+            this.duePicker.TabIndex = 4;
             this.duePicker.Enter += new System.EventHandler(this.duePicker_Focused);
             // 
             // dueLabel
@@ -193,7 +185,6 @@
             this.dueLabel.Location = new System.Drawing.Point(17, 143);
             this.dueLabel.Name = "dueLabel";
             this.dueLabel.Size = new System.Drawing.Size(51, 13);
-            this.dueLabel.TabIndex = 16;
             this.dueLabel.Text = "Fällig am:";
             // 
             // errorLabel
@@ -207,7 +198,6 @@
             this.errorLabel.MaximumSize = new System.Drawing.Size(411, 26);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(86, 13);
-            this.errorLabel.TabIndex = 17;
             this.errorLabel.Text = "error message";
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.errorLabel.UseMnemonic = false;
@@ -219,7 +209,7 @@
             this.companyBox.Name = "companyBox";
             this.companyBox.Size = new System.Drawing.Size(93, 21);
             this.companyBox.Sorted = true;
-            this.companyBox.TabIndex = 3;
+            this.companyBox.TabIndex = 0;
             this.companyBox.Enter += new System.EventHandler(this.companyBox_Focused);
             // 
             // helpTextBox
@@ -232,7 +222,6 @@
             this.helpTextBox.ReadOnly = true;
             this.helpTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.helpTextBox.Size = new System.Drawing.Size(416, 141);
-            this.helpTextBox.TabIndex = 25;
             this.helpTextBox.Text = "";
             // 
             // addIssue

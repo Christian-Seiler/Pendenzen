@@ -267,7 +267,7 @@ namespace Pendenzen
 
         private string createQuery(string table)
         {
-            printQuery = baseQuery + $"FROM pendenz GROUP BY sachbearbeiter";
+            printQuery = baseQuery + $"FROM pendenz";
             return $"SELECT * FROM {table}";
         }
 
@@ -277,7 +277,7 @@ namespace Pendenzen
             {
                 return createQuery(table);
             }
-            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = '' GROUP BY sachbearbeiter";
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = ''";
             return $"SELECT * FROM {table} WHERE {searchKey} = ''";
         }
 
@@ -287,7 +287,7 @@ namespace Pendenzen
             {
                 return createQuery(table);
             }
-            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}' GROUP BY sachbearbeiter";
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'";
             return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
         }
 
@@ -354,6 +354,11 @@ namespace Pendenzen
         {
             info info = new info();
             info.ShowDialog();
+        }
+
+        private void autoUpdateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            isOn = true;
         }
 
         #endregion
@@ -633,6 +638,7 @@ namespace Pendenzen
         private void queryPrint()
         {
             isOn = false;
+            Console.WriteLine(printQuery);
             issueDataView.DataSource = db.Select(printQuery);
         }
 

@@ -162,12 +162,12 @@ namespace Pendenzen
             {
                 einkaufBuspro = "Ja";
             }
-            if (verkaufNeukundeCheck.Checked)
+            if (neukundeVerkaufCheck.Checked)
             {
                 neukundeVerkauf = DateTime.Now.ToString("yyyy-MM-dd");
                 neukundeVerkauf = $"'{neukundeVerkauf}'";
             }
-            if (einkaufNeukundeCheck.Checked)
+            if (neukundeEinkaufCheck.Checked)
             {
                 neukundeEinkauf = DateTime.Now.ToString("yyyy-MM-dd");
                 neukundeEinkauf = $"'{neukundeEinkauf}'";

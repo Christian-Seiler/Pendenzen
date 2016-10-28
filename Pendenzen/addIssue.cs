@@ -12,6 +12,7 @@ namespace Pendenzen
         public addIssue()
         {
             InitializeComponent();
+            setCompanyBox();
             
             creatorLabel.Text = "Erfasser: " + person.getUserFullName();
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";

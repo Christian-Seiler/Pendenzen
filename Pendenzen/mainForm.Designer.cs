@@ -30,8 +30,8 @@ namespace Pendenzen
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -85,15 +85,18 @@ namespace Pendenzen
             this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
             this.infoLabel = new System.Windows.Forms.Label();
             this.searchStatusBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
+            this.sucheZurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -105,10 +108,10 @@ namespace Pendenzen
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(13, 103);
+            this.nameLabel.Location = new System.Drawing.Point(14, 90);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(112, 13);
-            this.nameLabel.TabIndex = 0;
+            this.nameLabel.TabIndex = 102;
             this.nameLabel.Text = "Name: Bob Meierhans";
             // 
             // logoPictureBox
@@ -118,7 +121,7 @@ namespace Pendenzen
             this.logoPictureBox.Name = "logoPictureBox";
             this.logoPictureBox.Size = new System.Drawing.Size(180, 50);
             this.logoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoPictureBox.TabIndex = 1;
+            this.logoPictureBox.TabIndex = 101;
             this.logoPictureBox.TabStop = false;
             // 
             // addButton
@@ -126,7 +129,7 @@ namespace Pendenzen
             this.addButton.Location = new System.Drawing.Point(13, 137);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(69, 25);
-            this.addButton.TabIndex = 8;
+            this.addButton.TabIndex = 0;
             this.addButton.Text = "Neu";
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
@@ -134,19 +137,19 @@ namespace Pendenzen
             // searchBox
             // 
             this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.Location = new System.Drawing.Point(814, 155);
+            this.searchBox.Location = new System.Drawing.Point(824, 145);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(108, 20);
-            this.searchBox.TabIndex = 10;
+            this.searchBox.TabIndex = 41;
             this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_Enter);
             // 
             // searchButton
             // 
             this.searchButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchButton.Location = new System.Drawing.Point(928, 153);
+            this.searchButton.Location = new System.Drawing.Point(938, 143);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 25);
-            this.searchButton.TabIndex = 11;
+            this.searchButton.TabIndex = 42;
             this.searchButton.Text = "Suchen";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -155,10 +158,10 @@ namespace Pendenzen
             // 
             this.issueDataView.AllowUserToAddRows = false;
             this.issueDataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -167,14 +170,14 @@ namespace Pendenzen
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle6;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
             this.issueDataView.MultiSelect = false;
             this.issueDataView.Name = "issueDataView";
@@ -185,8 +188,8 @@ namespace Pendenzen
             this.issueDataView.ShowCellToolTips = false;
             this.issueDataView.ShowEditingIcon = false;
             this.issueDataView.ShowRowErrors = false;
-            this.issueDataView.Size = new System.Drawing.Size(1067, 439);
-            this.issueDataView.TabIndex = 12;
+            this.issueDataView.Size = new System.Drawing.Size(1087, 459);
+            this.issueDataView.TabIndex = 21;
             this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
             this.issueDataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.issueDataView_CellMouseClick);
             // 
@@ -195,10 +198,10 @@ namespace Pendenzen
             this.onOffButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.onOffButton.AutoSize = true;
             this.onOffButton.BackColor = System.Drawing.Color.Lime;
-            this.onOffButton.Location = new System.Drawing.Point(1049, 37);
+            this.onOffButton.Location = new System.Drawing.Point(1050, 37);
             this.onOffButton.Name = "onOffButton";
             this.onOffButton.Size = new System.Drawing.Size(40, 23);
-            this.onOffButton.TabIndex = 13;
+            this.onOffButton.TabIndex = 100;
             this.onOffButton.Text = "on";
             this.onOffButton.UseVisualStyleBackColor = false;
             this.onOffButton.Click += new System.EventHandler(this.onOffButton_Click);
@@ -207,10 +210,10 @@ namespace Pendenzen
             // 
             this.searchDropBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchDropBox.FormattingEnabled = true;
-            this.searchDropBox.Location = new System.Drawing.Point(717, 155);
+            this.searchDropBox.Location = new System.Drawing.Point(727, 145);
             this.searchDropBox.Name = "searchDropBox";
             this.searchDropBox.Size = new System.Drawing.Size(91, 21);
-            this.searchDropBox.TabIndex = 14;
+            this.searchDropBox.TabIndex = 40;
             this.searchDropBox.SelectedIndexChanged += new System.EventHandler(this.searchDropBox_SelectedIndexChanged);
             // 
             // tabControl
@@ -220,11 +223,11 @@ namespace Pendenzen
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl.Controls.Add(this.pendenzTab);
             this.tabControl.Controls.Add(this.companyTab);
-            this.tabControl.Location = new System.Drawing.Point(13, 183);
+            this.tabControl.Location = new System.Drawing.Point(3, 173);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1076, 465);
-            this.tabControl.TabIndex = 15;
+            this.tabControl.Size = new System.Drawing.Size(1096, 485);
+            this.tabControl.TabIndex = 1;
             this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
             // pendenzTab
@@ -235,7 +238,7 @@ namespace Pendenzen
             this.pendenzTab.Location = new System.Drawing.Point(4, 22);
             this.pendenzTab.Name = "pendenzTab";
             this.pendenzTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pendenzTab.Size = new System.Drawing.Size(1068, 439);
+            this.pendenzTab.Size = new System.Drawing.Size(1088, 459);
             this.pendenzTab.TabIndex = 0;
             this.pendenzTab.Text = "Pendenzen";
             this.pendenzTab.UseVisualStyleBackColor = true;
@@ -245,19 +248,19 @@ namespace Pendenzen
             this.restoreLabel.AutoSize = true;
             this.restoreLabel.Location = new System.Drawing.Point(288, 190);
             this.restoreLabel.Name = "restoreLabel";
-            this.restoreLabel.Size = new System.Drawing.Size(516, 13);
-            this.restoreLabel.TabIndex = 14;
+            this.restoreLabel.Size = new System.Drawing.Size(559, 13);
+            this.restoreLabel.TabIndex = 0;
             this.restoreLabel.Text = "Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder " +
-    "setze die Suche zurück.";
+    "setze die Suche zurück (Ctrl + Y).";
             this.restoreLabel.Visible = false;
             // 
             // restoreButton
             // 
             this.restoreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.restoreButton.Location = new System.Drawing.Point(473, 206);
+            this.restoreButton.Location = new System.Drawing.Point(473, 226);
             this.restoreButton.Name = "restoreButton";
             this.restoreButton.Size = new System.Drawing.Size(119, 23);
-            this.restoreButton.TabIndex = 13;
+            this.restoreButton.TabIndex = 20;
             this.restoreButton.Text = "Suche zurücksetzen";
             this.restoreButton.UseVisualStyleBackColor = true;
             this.restoreButton.Visible = false;
@@ -299,7 +302,7 @@ namespace Pendenzen
             this.companyTab.Location = new System.Drawing.Point(4, 22);
             this.companyTab.Name = "companyTab";
             this.companyTab.Padding = new System.Windows.Forms.Padding(3);
-            this.companyTab.Size = new System.Drawing.Size(1068, 439);
+            this.companyTab.Size = new System.Drawing.Size(1088, 459);
             this.companyTab.TabIndex = 1;
             this.companyTab.Text = "Adressen";
             this.companyTab.UseVisualStyleBackColor = true;
@@ -310,7 +313,7 @@ namespace Pendenzen
             this.verkaufLabel.Location = new System.Drawing.Point(39, 207);
             this.verkaufLabel.Name = "verkaufLabel";
             this.verkaufLabel.Size = new System.Drawing.Size(50, 13);
-            this.verkaufLabel.TabIndex = 32;
+            this.verkaufLabel.TabIndex = 0;
             this.verkaufLabel.Text = "Verkauf: ";
             // 
             // einkaufLabel
@@ -319,7 +322,7 @@ namespace Pendenzen
             this.einkaufLabel.Location = new System.Drawing.Point(39, 190);
             this.einkaufLabel.Name = "einkaufLabel";
             this.einkaufLabel.Size = new System.Drawing.Size(49, 13);
-            this.einkaufLabel.TabIndex = 31;
+            this.einkaufLabel.TabIndex = 1;
             this.einkaufLabel.Text = "Einkauf: ";
             // 
             // webLabel
@@ -328,7 +331,7 @@ namespace Pendenzen
             this.webLabel.Location = new System.Drawing.Point(39, 173);
             this.webLabel.Name = "webLabel";
             this.webLabel.Size = new System.Drawing.Size(33, 13);
-            this.webLabel.TabIndex = 30;
+            this.webLabel.TabIndex = 2;
             this.webLabel.Text = "Web:";
             // 
             // einkaufEmailButton
@@ -337,7 +340,7 @@ namespace Pendenzen
             this.einkaufEmailButton.Location = new System.Drawing.Point(145, 357);
             this.einkaufEmailButton.Name = "einkaufEmailButton";
             this.einkaufEmailButton.Size = new System.Drawing.Size(90, 23);
-            this.einkaufEmailButton.TabIndex = 29;
+            this.einkaufEmailButton.TabIndex = 31;
             this.einkaufEmailButton.Text = "Email Einkauf";
             this.einkaufEmailButton.UseVisualStyleBackColor = true;
             this.einkaufEmailButton.Click += new System.EventHandler(this.einkaufEmailButton_Click);
@@ -348,7 +351,7 @@ namespace Pendenzen
             this.verkaufEmailButton.Location = new System.Drawing.Point(241, 357);
             this.verkaufEmailButton.Name = "verkaufEmailButton";
             this.verkaufEmailButton.Size = new System.Drawing.Size(90, 23);
-            this.verkaufEmailButton.TabIndex = 28;
+            this.verkaufEmailButton.TabIndex = 32;
             this.verkaufEmailButton.Text = "Email Verkauf";
             this.verkaufEmailButton.UseVisualStyleBackColor = true;
             this.verkaufEmailButton.Click += new System.EventHandler(this.verkaufEmailButton_Click);
@@ -359,7 +362,7 @@ namespace Pendenzen
             this.einkauferLabel.Location = new System.Drawing.Point(425, 47);
             this.einkauferLabel.Name = "einkauferLabel";
             this.einkauferLabel.Size = new System.Drawing.Size(112, 13);
-            this.einkauferLabel.TabIndex = 27;
+            this.einkauferLabel.TabIndex = 33;
             this.einkauferLabel.Text = "Einkauf seit Jan. 1970";
             // 
             // exportButton
@@ -368,7 +371,7 @@ namespace Pendenzen
             this.exportButton.Location = new System.Drawing.Point(145, 386);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(90, 23);
-            this.exportButton.TabIndex = 26;
+            this.exportButton.TabIndex = 34;
             this.exportButton.Text = "Export";
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
@@ -379,7 +382,7 @@ namespace Pendenzen
             this.nextButton.Location = new System.Drawing.Point(457, 386);
             this.nextButton.Name = "nextButton";
             this.nextButton.Size = new System.Drawing.Size(23, 23);
-            this.nextButton.TabIndex = 25;
+            this.nextButton.TabIndex = 36;
             this.nextButton.Text = ">";
             this.nextButton.UseVisualStyleBackColor = true;
             this.nextButton.Click += new System.EventHandler(this.nextButton_Click);
@@ -390,7 +393,7 @@ namespace Pendenzen
             this.previousButton.Location = new System.Drawing.Point(337, 386);
             this.previousButton.Name = "previousButton";
             this.previousButton.Size = new System.Drawing.Size(23, 23);
-            this.previousButton.TabIndex = 24;
+            this.previousButton.TabIndex = 35;
             this.previousButton.Text = "<";
             this.previousButton.UseVisualStyleBackColor = true;
             this.previousButton.Click += new System.EventHandler(this.previousButton_Click);
@@ -402,7 +405,7 @@ namespace Pendenzen
             this.countLabel.Location = new System.Drawing.Point(388, 391);
             this.countLabel.Name = "countLabel";
             this.countLabel.Size = new System.Drawing.Size(43, 13);
-            this.countLabel.TabIndex = 23;
+            this.countLabel.TabIndex = 37;
             this.countLabel.Text = "1 von 1";
             // 
             // openLinkButton
@@ -411,7 +414,7 @@ namespace Pendenzen
             this.openLinkButton.Location = new System.Drawing.Point(42, 357);
             this.openLinkButton.Name = "openLinkButton";
             this.openLinkButton.Size = new System.Drawing.Size(90, 23);
-            this.openLinkButton.TabIndex = 22;
+            this.openLinkButton.TabIndex = 30;
             this.openLinkButton.Text = "Link öffnen";
             this.openLinkButton.UseVisualStyleBackColor = true;
             this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
@@ -423,7 +426,7 @@ namespace Pendenzen
             this.historyBox.Location = new System.Drawing.Point(774, 3);
             this.historyBox.Name = "historyBox";
             this.historyBox.Size = new System.Drawing.Size(371, 423);
-            this.historyBox.TabIndex = 21;
+            this.historyBox.TabIndex = 38;
             this.historyBox.Text = "";
             // 
             // kundeLabel
@@ -432,7 +435,7 @@ namespace Pendenzen
             this.kundeLabel.Location = new System.Drawing.Point(425, 30);
             this.kundeLabel.Name = "kundeLabel";
             this.kundeLabel.Size = new System.Drawing.Size(107, 13);
-            this.kundeLabel.TabIndex = 20;
+            this.kundeLabel.TabIndex = 39;
             this.kundeLabel.Text = "Kunde seit Jan. 1970";
             // 
             // verkaufBusproLabel
@@ -441,7 +444,7 @@ namespace Pendenzen
             this.verkaufBusproLabel.Location = new System.Drawing.Point(492, 173);
             this.verkaufBusproLabel.Name = "verkaufBusproLabel";
             this.verkaufBusproLabel.Size = new System.Drawing.Size(72, 13);
-            this.verkaufBusproLabel.TabIndex = 19;
+            this.verkaufBusproLabel.TabIndex = 40;
             this.verkaufBusproLabel.Text = "Verkauf: Nein";
             // 
             // einkaufBusproLabel
@@ -450,7 +453,7 @@ namespace Pendenzen
             this.einkaufBusproLabel.Location = new System.Drawing.Point(492, 156);
             this.einkaufBusproLabel.Name = "einkaufBusproLabel";
             this.einkaufBusproLabel.Size = new System.Drawing.Size(71, 13);
-            this.einkaufBusproLabel.TabIndex = 18;
+            this.einkaufBusproLabel.TabIndex = 41;
             this.einkaufBusproLabel.Text = "Einkauf: Nein";
             // 
             // busproLabel
@@ -459,7 +462,7 @@ namespace Pendenzen
             this.busproLabel.Location = new System.Drawing.Point(425, 156);
             this.busproLabel.Name = "busproLabel";
             this.busproLabel.Size = new System.Drawing.Size(61, 13);
-            this.busproLabel.TabIndex = 17;
+            this.busproLabel.TabIndex = 42;
             this.busproLabel.Text = "Im BusPro?";
             // 
             // verkaufKontaktLabel
@@ -468,7 +471,7 @@ namespace Pendenzen
             this.verkaufKontaktLabel.Location = new System.Drawing.Point(492, 98);
             this.verkaufKontaktLabel.Name = "verkaufKontaktLabel";
             this.verkaufKontaktLabel.Size = new System.Drawing.Size(72, 13);
-            this.verkaufKontaktLabel.TabIndex = 16;
+            this.verkaufKontaktLabel.TabIndex = 43;
             this.verkaufKontaktLabel.Text = "Verkauf: Nein";
             // 
             // einkaufKontaktLabel
@@ -477,7 +480,7 @@ namespace Pendenzen
             this.einkaufKontaktLabel.Location = new System.Drawing.Point(493, 81);
             this.einkaufKontaktLabel.Name = "einkaufKontaktLabel";
             this.einkaufKontaktLabel.Size = new System.Drawing.Size(71, 13);
-            this.einkaufKontaktLabel.TabIndex = 15;
+            this.einkaufKontaktLabel.TabIndex = 44;
             this.einkaufKontaktLabel.Text = "Einkauf: Nein";
             // 
             // kontaktLabel
@@ -486,7 +489,7 @@ namespace Pendenzen
             this.kontaktLabel.Location = new System.Drawing.Point(425, 81);
             this.kontaktLabel.Name = "kontaktLabel";
             this.kontaktLabel.Size = new System.Drawing.Size(47, 13);
-            this.kontaktLabel.TabIndex = 14;
+            this.kontaktLabel.TabIndex = 45;
             this.kontaktLabel.Text = "Kontakt:";
             // 
             // emailVerkaufLabel
@@ -495,7 +498,7 @@ namespace Pendenzen
             this.emailVerkaufLabel.Location = new System.Drawing.Point(95, 207);
             this.emailVerkaufLabel.Name = "emailVerkaufLabel";
             this.emailVerkaufLabel.Size = new System.Drawing.Size(93, 13);
-            this.emailVerkaufLabel.TabIndex = 11;
+            this.emailVerkaufLabel.TabIndex = 46;
             this.emailVerkaufLabel.Text = "verkauf@email.ch";
             // 
             // emailEinkaufLabel
@@ -504,7 +507,7 @@ namespace Pendenzen
             this.emailEinkaufLabel.Location = new System.Drawing.Point(95, 190);
             this.emailEinkaufLabel.Name = "emailEinkaufLabel";
             this.emailEinkaufLabel.Size = new System.Drawing.Size(92, 13);
-            this.emailEinkaufLabel.TabIndex = 10;
+            this.emailEinkaufLabel.TabIndex = 47;
             this.emailEinkaufLabel.Text = "einkauf@email.ch";
             // 
             // urlLabel
@@ -513,7 +516,7 @@ namespace Pendenzen
             this.urlLabel.Location = new System.Drawing.Point(95, 173);
             this.urlLabel.Name = "urlLabel";
             this.urlLabel.Size = new System.Drawing.Size(116, 13);
-            this.urlLabel.TabIndex = 9;
+            this.urlLabel.TabIndex = 48;
             this.urlLabel.Text = "http://www.website.ch";
             // 
             // phoneLabel
@@ -522,7 +525,7 @@ namespace Pendenzen
             this.phoneLabel.Location = new System.Drawing.Point(39, 156);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(38, 13);
-            this.phoneLabel.TabIndex = 8;
+            this.phoneLabel.TabIndex = 49;
             this.phoneLabel.Text = "Phone";
             // 
             // countryLabel
@@ -531,7 +534,7 @@ namespace Pendenzen
             this.countryLabel.Location = new System.Drawing.Point(39, 115);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(43, 13);
-            this.countryLabel.TabIndex = 7;
+            this.countryLabel.TabIndex = 50;
             this.countryLabel.Text = "Country";
             // 
             // cityLabel
@@ -540,7 +543,7 @@ namespace Pendenzen
             this.cityLabel.Location = new System.Drawing.Point(95, 98);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
-            this.cityLabel.TabIndex = 6;
+            this.cityLabel.TabIndex = 51;
             this.cityLabel.Text = "City";
             // 
             // companyChangeLabel
@@ -549,7 +552,7 @@ namespace Pendenzen
             this.companyChangeLabel.Location = new System.Drawing.Point(42, 386);
             this.companyChangeLabel.Name = "companyChangeLabel";
             this.companyChangeLabel.Size = new System.Drawing.Size(90, 23);
-            this.companyChangeLabel.TabIndex = 5;
+            this.companyChangeLabel.TabIndex = 33;
             this.companyChangeLabel.Text = "Bearbeiten";
             this.companyChangeLabel.UseVisualStyleBackColor = true;
             this.companyChangeLabel.Click += new System.EventHandler(this.companyChangeLabel_Click);
@@ -560,7 +563,7 @@ namespace Pendenzen
             this.plzLabel.Location = new System.Drawing.Point(39, 98);
             this.plzLabel.Name = "plzLabel";
             this.plzLabel.Size = new System.Drawing.Size(27, 13);
-            this.plzLabel.TabIndex = 4;
+            this.plzLabel.TabIndex = 52;
             this.plzLabel.Text = "PLZ";
             // 
             // poBoxLabel
@@ -569,7 +572,7 @@ namespace Pendenzen
             this.poBoxLabel.Location = new System.Drawing.Point(39, 81);
             this.poBoxLabel.Name = "poBoxLabel";
             this.poBoxLabel.Size = new System.Drawing.Size(49, 13);
-            this.poBoxLabel.TabIndex = 3;
+            this.poBoxLabel.TabIndex = 53;
             this.poBoxLabel.Text = "P.O. Box";
             // 
             // streetLabel
@@ -578,7 +581,7 @@ namespace Pendenzen
             this.streetLabel.Location = new System.Drawing.Point(39, 64);
             this.streetLabel.Name = "streetLabel";
             this.streetLabel.Size = new System.Drawing.Size(35, 13);
-            this.streetLabel.TabIndex = 2;
+            this.streetLabel.TabIndex = 54;
             this.streetLabel.Text = "Street";
             // 
             // companyLabel
@@ -587,7 +590,7 @@ namespace Pendenzen
             this.companyLabel.Location = new System.Drawing.Point(39, 47);
             this.companyLabel.Name = "companyLabel";
             this.companyLabel.Size = new System.Drawing.Size(51, 13);
-            this.companyLabel.TabIndex = 1;
+            this.companyLabel.TabIndex = 55;
             this.companyLabel.Text = "Company";
             // 
             // idLabel
@@ -596,19 +599,20 @@ namespace Pendenzen
             this.idLabel.Location = new System.Drawing.Point(39, 30);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(32, 13);
-            this.idLabel.TabIndex = 0;
+            this.idLabel.TabIndex = 56;
             this.idLabel.Text = "APW";
             // 
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
+            this.editToolStripMenuItem,
             this.adminToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(10, 10);
+            this.infoToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1082, 24);
-            this.menuStrip.TabIndex = 16;
+            this.menuStrip.Size = new System.Drawing.Size(1102, 24);
+            this.menuStrip.TabIndex = 60;
             this.menuStrip.Text = "menuStrip";
             // 
             // dateiToolStripMenuItem
@@ -618,6 +622,7 @@ namespace Pendenzen
             this.druckToolStripMenuItem,
             this.schliessenToolStripMenuItem});
             this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            this.dateiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
             this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.dateiToolStripMenuItem.Text = "Datei";
             // 
@@ -627,20 +632,23 @@ namespace Pendenzen
             this.neuePendenzToolStripMenuItem,
             this.neueAdresseToolStripMenuItem});
             this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.neuToolStripMenuItem.Text = "Neu";
             // 
             // neuePendenzToolStripMenuItem
             // 
             this.neuePendenzToolStripMenuItem.Name = "neuePendenzToolStripMenuItem";
-            this.neuePendenzToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.neuePendenzToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.neuePendenzToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.neuePendenzToolStripMenuItem.Text = "Neue Pendenz";
             this.neuePendenzToolStripMenuItem.Click += new System.EventHandler(this.neuePendenzToolStripMenuItem_Click);
             // 
             // neueAdresseToolStripMenuItem
             // 
             this.neueAdresseToolStripMenuItem.Name = "neueAdresseToolStripMenuItem";
-            this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.neueAdresseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
             this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
             this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
             // 
@@ -650,28 +658,49 @@ namespace Pendenzen
             this.druckvorschauToolStripMenuItem,
             this.druckenToolStripMenuItem});
             this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
-            this.druckToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.druckToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.druckToolStripMenuItem.Text = "Druck";
             // 
             // druckvorschauToolStripMenuItem
             // 
             this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
-            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.druckvorschauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
             this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
             this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
             // 
             // druckenToolStripMenuItem
             // 
             this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
-            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.druckenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
             this.druckenToolStripMenuItem.Text = "Drucken";
             this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
             // 
             // schliessenToolStripMenuItem
             // 
             this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
-            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.schliessenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.schliessenToolStripMenuItem.Text = "Schliessen";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoUpdateToolStripMenuItem,
+            this.sucheZurücksetzenToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.editToolStripMenuItem.Text = "Bearbeiten";
+            // 
+            // autoUpdateToolStripMenuItem
+            // 
+            this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
+            this.autoUpdateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
             // 
             // adminToolStripMenuItem
             // 
@@ -679,29 +708,32 @@ namespace Pendenzen
             this.reorganisationToolStripMenuItem,
             this.kennwortÄndernToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             // 
             // reorganisationToolStripMenuItem
             // 
             this.reorganisationToolStripMenuItem.Name = "reorganisationToolStripMenuItem";
-            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.reorganisationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.reorganisationToolStripMenuItem.Text = "Reorganisation";
             this.reorganisationToolStripMenuItem.Click += new System.EventHandler(this.reorganisationToolStripMenuItem_Click);
             // 
             // kennwortÄndernToolStripMenuItem
             // 
             this.kennwortÄndernToolStripMenuItem.Name = "kennwortÄndernToolStripMenuItem";
-            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
             this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
-            // aboutToolStripMenuItem
+            // infoToolStripMenuItem
             // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // printIssues
             // 
@@ -711,49 +743,58 @@ namespace Pendenzen
             // 
             // infoLabel
             // 
+            this.infoLabel.AllowDrop = true;
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.infoLabel.AutoSize = true;
             this.infoLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.infoLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.infoLabel.Enabled = false;
             this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoLabel.Location = new System.Drawing.Point(1030, 63);
+            this.infoLabel.Location = new System.Drawing.Point(951, 63);
             this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(59, 13);
-            this.infoLabel.TabIndex = 19;
-            this.infoLabel.Text = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(139, 26);
+            this.infoLabel.TabIndex = 45;
+            this.infoLabel.Text = "AutoUpdate ist aus!\r\nDrücke F4 zum starten.";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.infoLabel.Visible = false;
+            this.infoLabel.UseMnemonic = false;
             // 
             // searchStatusBox
             // 
             this.searchStatusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.searchStatusBox.FormattingEnabled = true;
-            this.searchStatusBox.Location = new System.Drawing.Point(815, 155);
+            this.searchStatusBox.Location = new System.Drawing.Point(825, 145);
             this.searchStatusBox.Name = "searchStatusBox";
             this.searchStatusBox.Size = new System.Drawing.Size(107, 21);
-            this.searchStatusBox.TabIndex = 20;
+            this.searchStatusBox.TabIndex = 41;
             this.searchStatusBox.Visible = false;
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(979, 42);
+            this.label1.Location = new System.Drawing.Point(980, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 21;
+            this.label1.TabIndex = 44;
             this.label1.Text = "AutoUpdate";
             // 
             // resetButton
             // 
             this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetButton.Location = new System.Drawing.Point(1009, 154);
+            this.resetButton.Location = new System.Drawing.Point(1019, 144);
             this.resetButton.Name = "resetButton";
             this.resetButton.Size = new System.Drawing.Size(75, 23);
-            this.resetButton.TabIndex = 22;
+            this.resetButton.TabIndex = 43;
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.reset_Click);
+            // 
+            // sucheZurücksetzenToolStripMenuItem
+            // 
+            this.sucheZurücksetzenToolStripMenuItem.Name = "sucheZurücksetzenToolStripMenuItem";
+            this.sucheZurücksetzenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.sucheZurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.sucheZurücksetzenToolStripMenuItem.Text = "Suche zurücksetzen";
+            this.sucheZurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // mainForm
             // 
@@ -779,7 +820,6 @@ namespace Pendenzen
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "mainForm";
-            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Pendenzen";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).EndInit();
@@ -830,12 +870,14 @@ namespace Pendenzen
         private System.Windows.Forms.RichTextBox historyBox;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neuePendenzToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem neueAdresseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem autoUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reorganisationToolStripMenuItem;
         private System.Windows.Forms.Button openLinkButton;
         private System.Windows.Forms.Label countLabel;
@@ -859,6 +901,7 @@ namespace Pendenzen
         private Label label1;
         private ToolStripMenuItem kennwortÄndernToolStripMenuItem;
         private Button resetButton;
+        private ToolStripMenuItem sucheZurücksetzenToolStripMenuItem;
     }
 }
 

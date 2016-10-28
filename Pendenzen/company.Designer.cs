@@ -40,7 +40,7 @@
             this.phoneLabel = new System.Windows.Forms.Label();
             this.countryLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
-            this.companyChangeLabel = new System.Windows.Forms.Button();
+            this.companyChangeButton = new System.Windows.Forms.Button();
             this.plzLabel = new System.Windows.Forms.Label();
             this.poBoxLabel = new System.Windows.Forms.Label();
             this.streetLabel = new System.Windows.Forms.Label();
@@ -55,7 +55,6 @@
             this.verkaufLabel.Location = new System.Drawing.Point(13, 239);
             this.verkaufLabel.Name = "verkaufLabel";
             this.verkaufLabel.Size = new System.Drawing.Size(50, 13);
-            this.verkaufLabel.TabIndex = 50;
             this.verkaufLabel.Text = "Verkauf: ";
             // 
             // einkaufLabel
@@ -64,7 +63,6 @@
             this.einkaufLabel.Location = new System.Drawing.Point(13, 222);
             this.einkaufLabel.Name = "einkaufLabel";
             this.einkaufLabel.Size = new System.Drawing.Size(49, 13);
-            this.einkaufLabel.TabIndex = 49;
             this.einkaufLabel.Text = "Einkauf: ";
             // 
             // webLabel
@@ -73,7 +71,6 @@
             this.webLabel.Location = new System.Drawing.Point(13, 205);
             this.webLabel.Name = "webLabel";
             this.webLabel.Size = new System.Drawing.Size(33, 13);
-            this.webLabel.TabIndex = 48;
             this.webLabel.Text = "Web:";
             // 
             // einkaufEmailButton
@@ -82,7 +79,7 @@
             this.einkaufEmailButton.Location = new System.Drawing.Point(320, 147);
             this.einkaufEmailButton.Name = "einkaufEmailButton";
             this.einkaufEmailButton.Size = new System.Drawing.Size(90, 23);
-            this.einkaufEmailButton.TabIndex = 47;
+            this.einkaufEmailButton.TabIndex = 1;
             this.einkaufEmailButton.Text = "Email Einkauf";
             this.einkaufEmailButton.UseVisualStyleBackColor = true;
             this.einkaufEmailButton.Click += new System.EventHandler(this.einkaufEmailButton_Click);
@@ -93,7 +90,7 @@
             this.verkaufEmailButton.Location = new System.Drawing.Point(320, 176);
             this.verkaufEmailButton.Name = "verkaufEmailButton";
             this.verkaufEmailButton.Size = new System.Drawing.Size(90, 23);
-            this.verkaufEmailButton.TabIndex = 46;
+            this.verkaufEmailButton.TabIndex = 2;
             this.verkaufEmailButton.Text = "Email Verkauf";
             this.verkaufEmailButton.UseVisualStyleBackColor = true;
             this.verkaufEmailButton.Click += new System.EventHandler(this.verkaufEmailButton_Click);
@@ -104,7 +101,7 @@
             this.openLinkButton.Location = new System.Drawing.Point(320, 118);
             this.openLinkButton.Name = "openLinkButton";
             this.openLinkButton.Size = new System.Drawing.Size(90, 23);
-            this.openLinkButton.TabIndex = 45;
+            this.openLinkButton.TabIndex = 0;
             this.openLinkButton.Text = "Link öffnen";
             this.openLinkButton.UseVisualStyleBackColor = true;
             this.openLinkButton.Click += new System.EventHandler(this.openLinkButton_Click);
@@ -115,7 +112,7 @@
             this.emailVerkaufLabel.Location = new System.Drawing.Point(69, 239);
             this.emailVerkaufLabel.Name = "emailVerkaufLabel";
             this.emailVerkaufLabel.Size = new System.Drawing.Size(93, 13);
-            this.emailVerkaufLabel.TabIndex = 44;
+            this.emailVerkaufLabel.TabIndex = 2;
             this.emailVerkaufLabel.Text = "verkauf@email.ch";
             // 
             // emailEinkaufLabel
@@ -124,7 +121,6 @@
             this.emailEinkaufLabel.Location = new System.Drawing.Point(69, 222);
             this.emailEinkaufLabel.Name = "emailEinkaufLabel";
             this.emailEinkaufLabel.Size = new System.Drawing.Size(92, 13);
-            this.emailEinkaufLabel.TabIndex = 43;
             this.emailEinkaufLabel.Text = "einkauf@email.ch";
             // 
             // urlLabel
@@ -133,7 +129,6 @@
             this.urlLabel.Location = new System.Drawing.Point(69, 205);
             this.urlLabel.Name = "urlLabel";
             this.urlLabel.Size = new System.Drawing.Size(116, 13);
-            this.urlLabel.TabIndex = 42;
             this.urlLabel.Text = "http://www.website.ch";
             // 
             // phoneLabel
@@ -142,7 +137,6 @@
             this.phoneLabel.Location = new System.Drawing.Point(13, 188);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(38, 13);
-            this.phoneLabel.TabIndex = 41;
             this.phoneLabel.Text = "Phone";
             // 
             // countryLabel
@@ -151,7 +145,6 @@
             this.countryLabel.Location = new System.Drawing.Point(13, 147);
             this.countryLabel.Name = "countryLabel";
             this.countryLabel.Size = new System.Drawing.Size(43, 13);
-            this.countryLabel.TabIndex = 40;
             this.countryLabel.Text = "Country";
             // 
             // cityLabel
@@ -160,19 +153,18 @@
             this.cityLabel.Location = new System.Drawing.Point(69, 130);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
-            this.cityLabel.TabIndex = 39;
             this.cityLabel.Text = "City";
             // 
-            // companyChangeLabel
+            // companyChangeButton
             // 
-            this.companyChangeLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.companyChangeLabel.Location = new System.Drawing.Point(320, 227);
-            this.companyChangeLabel.Name = "companyChangeLabel";
-            this.companyChangeLabel.Size = new System.Drawing.Size(75, 23);
-            this.companyChangeLabel.TabIndex = 38;
-            this.companyChangeLabel.Text = "Bearbeiten";
-            this.companyChangeLabel.UseVisualStyleBackColor = true;
-            this.companyChangeLabel.Click += new System.EventHandler(this.companyChangeLabel_Click);
+            this.companyChangeButton.Cursor = System.Windows.Forms.Cursors.Default;
+            this.companyChangeButton.Location = new System.Drawing.Point(320, 227);
+            this.companyChangeButton.Name = "companyChangeButton";
+            this.companyChangeButton.Size = new System.Drawing.Size(75, 23);
+            this.companyChangeButton.Text = "Bearbeiten";
+            this.companyChangeButton.UseVisualStyleBackColor = true;
+            this.companyChangeButton.Click += new System.EventHandler(this.companyChangeLabel_Click);
+            this.companyChangeButton.TabIndex = 3;
             // 
             // plzLabel
             // 
@@ -180,7 +172,6 @@
             this.plzLabel.Location = new System.Drawing.Point(13, 130);
             this.plzLabel.Name = "plzLabel";
             this.plzLabel.Size = new System.Drawing.Size(27, 13);
-            this.plzLabel.TabIndex = 37;
             this.plzLabel.Text = "PLZ";
             // 
             // poBoxLabel
@@ -189,7 +180,6 @@
             this.poBoxLabel.Location = new System.Drawing.Point(13, 113);
             this.poBoxLabel.Name = "poBoxLabel";
             this.poBoxLabel.Size = new System.Drawing.Size(49, 13);
-            this.poBoxLabel.TabIndex = 36;
             this.poBoxLabel.Text = "P.O. Box";
             // 
             // streetLabel
@@ -198,7 +188,6 @@
             this.streetLabel.Location = new System.Drawing.Point(13, 96);
             this.streetLabel.Name = "streetLabel";
             this.streetLabel.Size = new System.Drawing.Size(35, 13);
-            this.streetLabel.TabIndex = 35;
             this.streetLabel.Text = "Street";
             // 
             // companyLabel
@@ -207,7 +196,6 @@
             this.companyLabel.Location = new System.Drawing.Point(13, 79);
             this.companyLabel.Name = "companyLabel";
             this.companyLabel.Size = new System.Drawing.Size(51, 13);
-            this.companyLabel.TabIndex = 34;
             this.companyLabel.Text = "Company";
             // 
             // idLabel
@@ -216,7 +204,6 @@
             this.idLabel.Location = new System.Drawing.Point(13, 62);
             this.idLabel.Name = "idLabel";
             this.idLabel.Size = new System.Drawing.Size(32, 13);
-            this.idLabel.TabIndex = 33;
             this.idLabel.Text = "APW";
             // 
             // companyBigLabel
@@ -227,7 +214,6 @@
             this.companyBigLabel.Name = "companyBigLabel";
             this.companyBigLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.companyBigLabel.Size = new System.Drawing.Size(91, 24);
-            this.companyBigLabel.TabIndex = 51;
             this.companyBigLabel.Text = "Company";
             // 
             // Firmendetails
@@ -250,7 +236,7 @@
             this.Controls.Add(this.phoneLabel);
             this.Controls.Add(this.countryLabel);
             this.Controls.Add(this.cityLabel);
-            this.Controls.Add(this.companyChangeLabel);
+            this.Controls.Add(this.companyChangeButton);
             this.Controls.Add(this.plzLabel);
             this.Controls.Add(this.poBoxLabel);
             this.Controls.Add(this.streetLabel);
@@ -279,7 +265,7 @@
         private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.Label countryLabel;
         private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.Button companyChangeLabel;
+        private System.Windows.Forms.Button companyChangeButton;
         private System.Windows.Forms.Label plzLabel;
         private System.Windows.Forms.Label poBoxLabel;
         private System.Windows.Forms.Label streetLabel;
