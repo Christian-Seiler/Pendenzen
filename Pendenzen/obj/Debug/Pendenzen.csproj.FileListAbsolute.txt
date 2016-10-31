@@ -22,3 +22,6 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csprojResolveAssemblyReference.cache
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb

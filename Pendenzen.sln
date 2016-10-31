@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pendenzen", "Pendenzen\Pendenzen.csproj", "{9ED20331-9E94-4974-BBED-2DF18EEF3334}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{72F1F762-9ABB-4165-A318-A90F27193EAA}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Pendenzen\Setup\Setup\Setup.vdproj", "{67A0F278-E7A6-4453-9DB4-15ECC4E62C07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,8 @@ Global
 		{9ED20331-9E94-4974-BBED-2DF18EEF3334}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9ED20331-9E94-4974-BBED-2DF18EEF3334}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9ED20331-9E94-4974-BBED-2DF18EEF3334}.Release|Any CPU.Build.0 = Release|Any CPU
-		{72F1F762-9ABB-4165-A318-A90F27193EAA}.Debug|Any CPU.ActiveCfg = Debug
-		{72F1F762-9ABB-4165-A318-A90F27193EAA}.Debug|Any CPU.Build.0 = Debug
-		{72F1F762-9ABB-4165-A318-A90F27193EAA}.Release|Any CPU.ActiveCfg = Release
-		{72F1F762-9ABB-4165-A318-A90F27193EAA}.Release|Any CPU.Build.0 = Release
+		{67A0F278-E7A6-4453-9DB4-15ECC4E62C07}.Debug|Any CPU.ActiveCfg = Debug
+		{67A0F278-E7A6-4453-9DB4-15ECC4E62C07}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
