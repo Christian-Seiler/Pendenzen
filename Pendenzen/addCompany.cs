@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Pendenzen.Properties;
 
 namespace Pendenzen
 {
     public partial class addCompany : Form
     {
-        DBConnect db = new DBConnect();
-        string Date = DateTime.Now.ToShortDateString();
-        string neukundeVerkauf = "null";
-        string neukundeEinkauf = "null";
+        private readonly string Date = DateTime.Now.ToShortDateString();
+        private readonly DBConnect db = new DBConnect();
+        private string neukundeEinkauf = "null";
+        private string neukundeVerkauf = "null";
 
         public addCompany()
         {
@@ -47,18 +43,15 @@ namespace Pendenzen
                 string query = $"SELECT countryname FROM country WHERE idcountry='{companyID.Remove(textLength - 4)}'";
 
 
-
-                List<string> list = new List<string>();
+                var list = new List<string>();
                 var i = 0;
-                DataTable data = db.Select(query);
+                var data = db.Select(query);
                 foreach (DataRow row in data.Rows)
-                {
                     foreach (DataColumn col in data.Columns)
                     {
                         list.Add(row.ItemArray[i].ToString());
                         i++;
                     }
-                }
 
                 countryTextBox.Text = list[0];
             }
@@ -78,41 +71,36 @@ namespace Pendenzen
         {
             if (companyIDTextBox.TextLength > 0)
             {
-                string newDetails = $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
-                string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
+                string newDetails =
+                    $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
+                string history =
+                    $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
 
-                string verkaufKontakt = "Nein";
-                string einkaufKontakt = "Nein";
-                string verkaufBuspro = "Nein";
-                string einkaufBuspro = "Nein";
+                var verkaufKontakt = "Nein";
+                var einkaufKontakt = "Nein";
+                var verkaufBuspro = "Nein";
+                var einkaufBuspro = "Nein";
 
                 if (verkaufKontaktCheck.Checked)
-                {
                     verkaufKontakt = "Ja";
-                }
                 if (einkaufKontaktCheck.Checked)
-                {
                     einkaufKontakt = "Ja";
-                }
                 if (verkaufBusproCheck.Checked)
-                {
                     verkaufBuspro = "Ja";
-                }
                 if (einkaufBusproCheck.Checked)
-                {
                     einkaufBuspro = "Ja";
-                }
 
-                string query = $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text.Replace("'", "''")}', '{streetTextBox.Text.Replace("'", "''")}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text.Replace("'", "''")}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', {neukundeVerkauf}, {neukundeEinkauf}, '{history.Replace("'", "''")}')";
+                string query =
+                    $"INSERT INTO company VALUES ('{companyIDTextBox.Text}', '{companyTextBox.Text.Replace("'", "''")}', '{streetTextBox.Text.Replace("'", "''")}', '{poBoxTextBox.Text}', '{plzTextBox.Text}', '{cityTextBox.Text.Replace("'", "''")}', '{countryTextBox.Text}', '{phoneTextBox.Text}', '{urlTextBox.Text}', '{emailVerkaufTextBox.Text}', '{emailEinkaufTextBox.Text}', '{verkaufKontakt}', '{einkaufKontakt}', '{verkaufBuspro}', '{einkaufBuspro}', {neukundeVerkauf}, {neukundeEinkauf}, '{history.Replace("'", "''")}')";
                 Console.WriteLine(query);
                 db.Insert(query);
                 Close();
             }
             else
             {
-                DialogResult result = MessageBox.Show(Properties.Resources.idRequired, 
-                    "Fehlende Eingabe", 
-                    MessageBoxButtons.OKCancel, 
+                var result = MessageBox.Show(Resources.idRequired,
+                    "Fehlende Eingabe",
+                    MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Question);
             }
         }

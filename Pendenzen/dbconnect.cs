@@ -1,16 +1,16 @@
-﻿using System.Windows.Forms;
+﻿using System.Data;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
-using System.Data;
 
 namespace Pendenzen
 {
-    class DBConnect
+    internal class DBConnect
     {
         private MySqlConnection connection;
-        private string server;
         private string database;
-        private string uid;
         private string password;
+        private string server;
+        private string uid;
 
         //Constructor
         public DBConnect()
@@ -27,7 +27,7 @@ namespace Pendenzen
             password = "pendenzen";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+                               database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             connection = new MySqlConnection(connectionString);
         }
@@ -79,36 +79,35 @@ namespace Pendenzen
         //Insert statement
         public void Insert(string query)
         {
-
-            if (this.OpenConnection() == true)
+            if (OpenConnection())
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                var cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                CloseConnection();
             }
         }
 
         //Update statement
         public void Update(string query)
         {
-            if (this.OpenConnection() == true)
+            if (OpenConnection())
             {
-                MySqlCommand cmd = new MySqlCommand();
+                var cmd = new MySqlCommand();
                 cmd.CommandText = query;
                 cmd.Connection = connection;
                 cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                CloseConnection();
             }
         }
 
         //Delete statement
         public void Delete(string query)
         {
-            if (this.OpenConnection() == true)
+            if (OpenConnection())
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                var cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                this.CloseConnection();
+                CloseConnection();
             }
         }
 
@@ -116,50 +115,45 @@ namespace Pendenzen
         public DataTable Select(string query)
         {
             // Open connection
-            if(this.OpenConnection() == true)
+            if (OpenConnection())
             {
                 // Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                var cmd = new MySqlCommand(query, connection);
 
                 // Create a data reader and Execute the command
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                var adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = cmd;
-                DataTable dTable = new DataTable();
+                var dTable = new DataTable();
                 adapter.Fill(dTable);
 
                 //close connection
-                this.CloseConnection();
+                CloseConnection();
 
                 //return DataTable to be displayed
                 return dTable;
-            } else
-            {
-                return null;
             }
+            return null;
         }
 
         //Count statement
         public int Count(string query)
         {
-            int Count = -1;
+            var Count = -1;
 
             //Open Connection
-            if (this.OpenConnection() == true)
+            if (OpenConnection())
             {
                 // Create Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                var cmd = new MySqlCommand(query, connection);
                 //ExecuteScalar will return one Value
                 Count = int.Parse(cmd.ExecuteScalar() + "");
                 //close connection
-                this.CloseConnection();
+                CloseConnection();
                 //return List to be displayed
 
                 return Count;
             }
-            else
-            {
-                return Count;
-            }
+            return Count;
         }
 
         //Backup

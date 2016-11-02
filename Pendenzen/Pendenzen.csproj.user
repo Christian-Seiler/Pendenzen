@@ -4,7 +4,7 @@
     <PublishUrlHistory>I:\Pendenzen\|I:\|H:\Projekte\Publish\|publish\</PublishUrlHistory>
     <InstallUrlHistory>\\srv01\Intranet\Pendenzen\</InstallUrlHistory>
     <SupportUrlHistory>http://www.christianseiler.ch</SupportUrlHistory>
-    <UpdateUrlHistory />
+    <UpdateUrlHistory>\\srv01\Intranet\Pendenzen\</UpdateUrlHistory>
     <BootstrapperUrlHistory />
     <ErrorReportUrlHistory>https://github.com/Christian-Seiler/Pendenzen/issues/new</ErrorReportUrlHistory>
     <FallbackCulture>de-DE</FallbackCulture>

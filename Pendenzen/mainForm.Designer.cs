@@ -30,8 +30,8 @@ namespace Pendenzen
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -87,6 +87,7 @@ namespace Pendenzen
             this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sucheZurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,7 +97,6 @@ namespace Pendenzen
             this.searchStatusBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
-            this.sucheZurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -158,10 +158,10 @@ namespace Pendenzen
             // 
             this.issueDataView.AllowUserToAddRows = false;
             this.issueDataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -170,14 +170,14 @@ namespace Pendenzen
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
             this.issueDataView.MultiSelect = false;
             this.issueDataView.Name = "issueDataView";
@@ -699,8 +699,17 @@ namespace Pendenzen
             // 
             this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
             this.autoUpdateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
+            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
             this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
+            this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.onOffButton_Click);
+            // 
+            // sucheZurücksetzenToolStripMenuItem
+            // 
+            this.sucheZurücksetzenToolStripMenuItem.Name = "sucheZurücksetzenToolStripMenuItem";
+            this.sucheZurücksetzenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.sucheZurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.sucheZurücksetzenToolStripMenuItem.Text = "Suche zurücksetzen";
+            this.sucheZurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // adminToolStripMenuItem
             // 
@@ -752,6 +761,7 @@ namespace Pendenzen
             this.infoLabel.Location = new System.Drawing.Point(951, 63);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(139, 26);
+            this.infoLabel.TabIndex = 45;
             this.infoLabel.Text = "AutoUpdate ist aus!\r\nDrücke F4 zum starten.";
             this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.infoLabel.Visible = false;
@@ -786,14 +796,6 @@ namespace Pendenzen
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.reset_Click);
-            // 
-            // sucheZurücksetzenToolStripMenuItem
-            // 
-            this.sucheZurücksetzenToolStripMenuItem.Name = "sucheZurücksetzenToolStripMenuItem";
-            this.sucheZurücksetzenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.sucheZurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.sucheZurücksetzenToolStripMenuItem.Text = "Suche zurücksetzen";
-            this.sucheZurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.restoreButton_Click);
             // 
             // mainForm
             // 

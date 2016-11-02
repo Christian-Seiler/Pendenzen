@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Pendenzen.exe" version="1.0.0.31" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Pendenzen.exe" version="1.0.1.35" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Resources\favicon.ico" asmv2:publisher="Christian Seiler Services" co.v1:suiteName="Pendenzen" asmv2:product="Pendenzen" asmv2:supportUrl="http://www.christianseiler.ch/" co.v1:errorReportUrl="https://github.com/Christian-Seiler/Pendenzen/issues/new" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.0.6148.21497" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.0.6150.17594" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
@@ -56,24 +56,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="435624">
-      <assemblyIdentity name="Pendenzen" version="1.0.6148.21497" publicKeyToken="442601F6CBD8FA6F" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="435784">
+      <assemblyIdentity name="Pendenzen" version="1.0.6150.17594" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WDDQ32zibxP7sf9bk5KVNGP/s0HAurf41A/22V5QqdQ=</dsig:DigestValue>
+        <dsig:DigestValue>XX7kqIfTSZaCKCU4OnaXud4HrmSWMk58B46nIeeKCz8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Pendenzen.exe.config" size="189">
+  <file name="Pendenzen.exe.config" size="176">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>6N7MliNbVJSIAIPrecIshMbZ7zEoKLr5SQvud4LDUOw=</dsig:DigestValue>
+      <dsig:DigestValue>tsxc5adG/C1u+mam9jZe/vIbMbM5gjy6p4mKjZ9M0WU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\favicon.ico" size="165662">

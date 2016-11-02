@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pendenzen
 {
     public partial class modifyCompany : Form
     {
-        DBConnect db = new DBConnect();
-        ArrayList _contact = new ArrayList();
-        string _id;
-        string _history;
+        private readonly ArrayList _contact = new ArrayList();
+        private readonly string _history;
+        private readonly string _id;
+        private readonly DBConnect db = new DBConnect();
 
         public modifyCompany(string id)
         {
@@ -26,15 +20,11 @@ namespace Pendenzen
 
             string query = $"SELECT * FROM company WHERE company_id = '{id}'";
 
-            DataTable table = db.Select(query);
-            ArrayList contact = new ArrayList(table.Columns.Count);
+            var table = db.Select(query);
+            var contact = new ArrayList(table.Columns.Count);
             foreach (DataRow row in table.Rows)
-            {
                 foreach (DataColumn column in table.Columns)
-                {
                     contact.Add(row[column]);
-                }
-            }
 
             _contact = contact;
 
@@ -52,26 +42,18 @@ namespace Pendenzen
             _history = contact[17].ToString();
 
             if (contact[11].ToString() == "Ja")
-            {
                 verkaufKontaktCheck.Checked = true;
-            }
             if (contact[12].ToString() == "Ja")
-            {
                 einkaufKontaktCheck.Checked = true;
-            }
             if (contact[13].ToString() == "Ja")
-            {
                 verkaufBusproCheck.Checked = true;
-            }
             if (contact[14].ToString() == "Ja")
-            {
                 einkaufBusproCheck.Checked = true;
-            }
         }
 
         private string newHistory()
         {
-            string historyString = "";
+            var historyString = "";
             if (companyIDTextBox.Text != _contact[0].ToString())
             {
                 historyString += companyIDTextBox.Text;
@@ -128,9 +110,7 @@ namespace Pendenzen
                 historyString += " ";
             }
             if (historyString != "")
-            {
                 historyString += "\n";
-            }
 
             historyString += _history;
 
@@ -139,29 +119,21 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string verkaufKontakt = "Nein";
-            string einkaufKontakt = "Nein";
-            string verkaufBuspro = "Nein";
-            string einkaufBuspro = "Nein";
-            string neukundeVerkauf = "null";
-            string neukundeEinkauf = "null";
+            var verkaufKontakt = "Nein";
+            var einkaufKontakt = "Nein";
+            var verkaufBuspro = "Nein";
+            var einkaufBuspro = "Nein";
+            var neukundeVerkauf = "null";
+            var neukundeEinkauf = "null";
 
             if (verkaufKontaktCheck.Checked)
-            {
                 verkaufKontakt = "Ja";
-            }
             if (einkaufKontaktCheck.Checked)
-            {
                 einkaufKontakt = "Ja";
-            }
             if (verkaufBusproCheck.Checked)
-            {
                 verkaufBuspro = "Ja";
-            }
             if (einkaufBusproCheck.Checked)
-            {
                 einkaufBuspro = "Ja";
-            }
             if (neukundeVerkaufCheck.Checked)
             {
                 neukundeVerkauf = DateTime.Now.ToString("yyyy-MM-dd");
@@ -173,9 +145,10 @@ namespace Pendenzen
                 neukundeEinkauf = $"'{neukundeEinkauf}'";
             }
 
-            string history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n" + newHistory();
+            var history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n" + newHistory();
 
-            string query = $"UPDATE company SET company_name=`{companyTextBox.Text.Replace("'", "''")}`, company_street=`{streetTextBox.Text}`, company_pobox=`{poBoxTextBox.Text}`, company_plz=`{plzTextBox.Text}`, company_city=`{cityTextBox.Text.Replace("'", "''")}`, company_country=`{countryTextBox.Text}`, company_phone=`{phoneTextBox.Text}`, company_website=`{urlTextBox.Text}`, company_verkaufmail=`{emailVerkaufTextBox.Text}`, company_einkaufmail=`{emailEinkaufTextBox.Text}`, company_verkaufkontakt=`{verkaufKontakt}`, company_einkaufkontakt=`{einkaufKontakt}`, company_verkaufBuspro=`{verkaufBuspro}`, company_einkaufBuspro=`{einkaufBuspro}`, company_sellersince = {neukundeVerkauf}, company_clientsince = {neukundeEinkauf}, company_history = `{history.Replace("'", "''")}` WHERE company_id = '{_id}'";
+            string query =
+                $"UPDATE company SET company_name='{companyTextBox.Text.Replace("'", "''")}', company_street='{streetTextBox.Text}', company_pobox='{poBoxTextBox.Text}', company_plz='{plzTextBox.Text}', company_city='{cityTextBox.Text.Replace("'", "''")}', company_country='{countryTextBox.Text}', company_phone='{phoneTextBox.Text}', company_website='{urlTextBox.Text}', company_verkaufmail='{emailVerkaufTextBox.Text}', company_einkaufmail='{emailEinkaufTextBox.Text}', company_verkaufkontakt='{verkaufKontakt}', company_einkaufkontakt='{einkaufKontakt}', company_verkaufBuspro='{verkaufBuspro}', company_einkaufBuspro='{einkaufBuspro}', company_sellersince = {neukundeVerkauf}, company_clientsince = {neukundeEinkauf}, company_history = '{history.Replace("'", "''")}' WHERE company_id = '{_id}'";
             db.Update(query);
             Close();
         }

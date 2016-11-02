@@ -1,55 +1,37 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using System.Diagnostics;
 using System.Data;
-using System.Text;
-using System.IO;
-using System.Threading;
-using System.Drawing.Printing;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Printing;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Windows.Forms;
+using Pendenzen.Properties;
 
 namespace Pendenzen
 {
     public partial class mainForm : Form
     {
-        #region global Variables
-        DBConnect db = new DBConnect();
-        addIssue issue = new addIssue();
-        addCompany company = new addCompany();
-        reorganisation reorg = new reorganisation();
-        password pass = new password();
-        ArrayList _companies;
-        DataTable _table;
-        string query;
-        string printQuery = $"SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
-        string baseQuery = "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
-        StringFormat strFormat;
-        int cellHeight = 0;
-        int iRow = 0;
-        int totalWidth = 0;
-        int headerHeight = 0;
-        bool bFirstPage = false;
-        bool newPage = false;
-        bool isOn = false;
-        ArrayList arrColumnLefts = new ArrayList();
-        ArrayList arrColumnWidths = new ArrayList();
-
-        public void setIsOn(bool on)
+        public mainForm()
         {
-            isOn = on;
-        }
-        public void setQuery(string setQuery)
-        {
-            query = setQuery;
-        }
+            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            InitializeComponent();
+            nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
+            isOn = true;
+            tabControl_Selected(null, null);
 
-        #endregion
+            threadStarter();
+
+            string[] status = {"open", "done", "cancelled"};
+            foreach (var s in status) searchStatusBox.Items.Add(s);
+        }
 
         public Dictionary<string, string> dictionary()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
+            var dict = new Dictionary<string, string>();
 
             if (tabControl.SelectedIndex == 0)
             {
@@ -73,11 +55,11 @@ namespace Pendenzen
             }
 
             return dict;
-            
         }
+
         public Dictionary<string, string> headerDictionary()
         {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
+            var dict = new Dictionary<string, string>();
 
             if (tabControl.SelectedIndex == 0)
             {
@@ -103,40 +85,87 @@ namespace Pendenzen
             }
 
             return dict;
-
         }
 
         private void getCompanyIndex()
         {
-            DataTable table = db.Select("SELECT company_id FROM company");
+            var table = db.Select("SELECT company_id FROM company");
 
             _companies = new ArrayList(table.Rows.Count);
-            foreach (DataRow row in table.Rows) { _companies.Add(row.ItemArray[0]); }
-            
-            int currentID = _companies.IndexOf(idLabel.Text) + 1;
+            foreach (DataRow row in table.Rows) _companies.Add(row.ItemArray[0]);
+
+            var currentID = _companies.IndexOf(idLabel.Text) + 1;
             countLabel.Text = $"{currentID} von {_companies.Count}";
 
-            if (currentID == 1) { previousButton.Enabled = false; }
-            else { previousButton.Enabled = true; }
-            if (currentID == _companies.Count) { nextButton.Enabled = false; }
-            else { nextButton.Enabled = true; }
+            if (currentID == 1) previousButton.Enabled = false;
+            else previousButton.Enabled = true;
+            if (currentID == _companies.Count) nextButton.Enabled = false;
+            else nextButton.Enabled = true;
         }
 
-        public mainForm()
+        #region AutoUpdate
+
+        private void onOffButton_Click(object sender, EventArgs e)
         {
-            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
-            InitializeComponent();
-            nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
-            isOn = true;
-            tabControl_Selected(null, null);
-            
-            threadStarter();
-
-            string[] status = { "open", "done", "cancelled"};
-            foreach (string s in status) { searchStatusBox.Items.Add(s); }
+            if (isOn)
+            {
+                isOn = false;
+                onOffButton.Text = "off";
+                onOffButton.BackColor = Color.Red;
+            }
+            else if (!isOn)
+            {
+                isOn = true;
+                onOffButton.Text = "on";
+                onOffButton.BackColor = Color.Lime;
+                reloadData(tabControl.SelectedIndex);
+            }
         }
+
+        #endregion
+
+        #region global Variables
+
+        private readonly DBConnect db = new DBConnect();
+        private readonly addIssue issue = new addIssue();
+        private readonly addCompany company = new addCompany();
+        private readonly reorganisation reorg = new reorganisation();
+        private readonly password pass = new password();
+        private ArrayList _companies;
+        private DataTable _table;
+        private string query;
+
+        private string printQuery =
+            $"SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
+
+        private readonly string baseQuery =
+            "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
+
+        private StringFormat strFormat;
+        private int cellHeight;
+        private int iRow;
+        private int totalWidth;
+        private int headerHeight;
+        private bool bFirstPage;
+        private bool newPage;
+        private bool isOn;
+        private readonly ArrayList arrColumnLefts = new ArrayList();
+        private readonly ArrayList arrColumnWidths = new ArrayList();
+
+        public void setIsOn(bool on)
+        {
+            isOn = on;
+        }
+
+        public void setQuery(string setQuery)
+        {
+            query = setQuery;
+        }
+
+        #endregion
 
         #region Data
+
         private void reloadData(int tabIndex)
         {
             if (tabIndex == 0)
@@ -145,7 +174,7 @@ namespace Pendenzen
                 formatDataView();
                 druckToolStripMenuItem.Enabled = true;
 
-                int maxRows = issueDataView.RowCount;
+                var maxRows = issueDataView.RowCount;
                 if (maxRows == 0)
                 {
                     restoreLabel.Visible = true;
@@ -156,7 +185,6 @@ namespace Pendenzen
                     restoreLabel.Visible = false;
                     restoreButton.Visible = false;
                 }
-
             }
             else if (tabIndex == 1)
             {
@@ -167,34 +195,24 @@ namespace Pendenzen
 
         private void loadIssues()
         {
-            int rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
+            var rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
             issueDataView.DataSource = db.Select(query);
             if (rowIndex >= 0)
-            {
                 issueDataView.FirstDisplayedScrollingRowIndex = rowIndex;
-            }
         }
 
         private void formatDataView()
         {
-            for (int c = 0; c < issueDataView.Columns.Count; c++)
+            for (var c = 0; c < issueDataView.Columns.Count; c++)
             {
-                foreach (KeyValuePair<string, string> pair in headerDictionary())
-                {
+                foreach (var pair in headerDictionary())
                     if (issueDataView.Columns[c].Name == pair.Key)
-                    {
-                        this.issueDataView.Columns[c].HeaderText = pair.Value;
-                    }
-                }
+                        issueDataView.Columns[c].HeaderText = pair.Value;
 
                 if (issueDataView.Columns[c].Name == "detail")
-                {
                     issueDataView.Columns[c].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }
                 else
-                {
                     issueDataView.Columns[c].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                }
             }
         }
 
@@ -213,14 +231,10 @@ namespace Pendenzen
 
         private void makeData(DataTable table)
         {
-            ArrayList contact = new ArrayList(table.Columns.Count);
+            var contact = new ArrayList(table.Columns.Count);
             foreach (DataRow row in table.Rows)
-            {
                 foreach (DataColumn column in table.Columns)
-                {
                     contact.Add(row[column]);
-                }
-            }
 
             kundeLabel.Text = "";
             einkauferLabel.Text = "";
@@ -229,14 +243,14 @@ namespace Pendenzen
             if (contact[15].ToString() != "")
             {
                 kundeDate = DateTime.Parse(contact[15].ToString());
-                string date = kundeDate.ToShortDateString();
+                var date = kundeDate.ToShortDateString();
                 kundeLabel.Text = $" Kunde seit: {date}";
             }
             DateTime einkaufDate;
             if (contact[16].ToString() != "")
             {
                 einkaufDate = DateTime.Parse(contact[16].ToString());
-                string date = einkaufDate.ToShortDateString();
+                var date = einkaufDate.ToShortDateString();
                 einkauferLabel.Text = $" Verkauf seit: {date}";
             }
 
@@ -251,10 +265,10 @@ namespace Pendenzen
             urlLabel.Text = contact[8].ToString();
             emailVerkaufLabel.Text = contact[9].ToString();
             emailEinkaufLabel.Text = contact[10].ToString();
-            verkaufKontaktLabel.Text = $"Verkauf: {contact[11].ToString()}";
-            einkaufKontaktLabel.Text = $"Einkauf: {contact[12].ToString()}";
-            verkaufBusproLabel.Text = $"Verkauf: {contact[13].ToString()}";
-            einkaufBusproLabel.Text = $"Einkauf: {contact[14].ToString()}";
+            verkaufKontaktLabel.Text = $"Verkauf: {contact[11]}";
+            einkaufKontaktLabel.Text = $"Einkauf: {contact[12]}";
+            verkaufBusproLabel.Text = $"Verkauf: {contact[13]}";
+            einkaufBusproLabel.Text = $"Einkauf: {contact[14]}";
             historyBox.Text = contact[17].ToString();
             getCompanyIndex();
             manageButtons();
@@ -262,7 +276,8 @@ namespace Pendenzen
 
         private string createAdressQuery()
         {
-            return "SELECT company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
+            return
+                "SELECT company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
         }
 
         private string createQuery(string table)
@@ -274,9 +289,7 @@ namespace Pendenzen
         private string createQuery(string table, string searchKey)
         {
             if (searchKey == "")
-            {
                 return createQuery(table);
-            }
             printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = ''";
             return $"SELECT * FROM {table} WHERE {searchKey} = ''";
         }
@@ -284,9 +297,7 @@ namespace Pendenzen
         private string createQuery(string table, string searchKey, string searchText)
         {
             if (searchKey == "")
-            {
                 return createQuery(table);
-            }
             printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'";
             return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
         }
@@ -294,13 +305,9 @@ namespace Pendenzen
         private void addButton_Click(object sender, EventArgs e)
         {
             if (tabControl.SelectedIndex == 0)
-            {
                 issue.ShowDialog();
-            }
             if (tabControl.SelectedIndex == 1)
-            {
                 company.ShowDialog();
-            }
         }
 
         private void issueDataView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -308,9 +315,9 @@ namespace Pendenzen
             if (e.RowIndex >= 0)
             {
                 isOn = false;
-                string changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
+                var changeIssue = issueDataView.CurrentRow.Cells[0].Value.ToString();
 
-                modifyIssue modify = new modifyIssue(int.Parse(changeIssue));
+                var modify = new modifyIssue(int.Parse(changeIssue));
                 modify.ShowDialog();
             }
         }
@@ -318,7 +325,7 @@ namespace Pendenzen
         private void issueDataView_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             isOn = false;
-            string sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
+            var sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
         }
 
         #endregion
@@ -347,12 +354,12 @@ namespace Pendenzen
 
         private void schliessenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            info info = new info();
+            var info = new info();
             info.ShowDialog();
         }
 
@@ -370,10 +377,8 @@ namespace Pendenzen
             reloadData(tabControl.SelectedIndex);
 
             searchDropBox.Items.Clear();
-            foreach (KeyValuePair<string, string> pair in dictionary())
-            {
+            foreach (var pair in dictionary())
                 searchDropBox.Items.Add(pair.Key);
-            }
             searchDropBox.Text = "";
             searchBox.Text = "";
         }
@@ -381,32 +386,30 @@ namespace Pendenzen
         private void openLinkButton_Click(object sender, EventArgs e)
         {
             if (urlLabel.Text != "")
-            {
                 Process.Start(urlLabel.Text);
-            }
         }
 
         private void companyChangeLabel_Click(object sender, EventArgs e)
         {
-            modifyCompany modifyCompany = new modifyCompany(idLabel.Text);
+            var modifyCompany = new modifyCompany(idLabel.Text);
 
             modifyCompany.ShowDialog();
         }
 
         private void previousButton_Click(object sender, EventArgs e)
         {
-            int id = _companies.IndexOf(idLabel.Text);
+            var id = _companies.IndexOf(idLabel.Text);
             if (id > 0)
             {
-                string previousID = _companies[id - 1].ToString();
+                var previousID = _companies[id - 1].ToString();
                 loadContact(previousID);
             }
         }
 
         private void nextButton_Click(object sender, EventArgs e)
         {
-            int id = _companies.IndexOf(idLabel.Text) + 1;
-            string nextID = _companies[id].ToString();
+            var id = _companies.IndexOf(idLabel.Text) + 1;
+            var nextID = _companies[id].ToString();
             loadContact(nextID);
         }
 
@@ -424,7 +427,7 @@ namespace Pendenzen
         {
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
-        
+
         private void manageButtons()
         {
             if (urlLabel.Text == "")
@@ -463,25 +466,23 @@ namespace Pendenzen
         {
             query = createAdressQuery();
 
-            DataTable table = db.Select(query);
+            var table = db.Select(query);
 
             var result = new StringBuilder();
-            for (int i = 0; i < table.Columns.Count; i++)
+            for (var i = 0; i < table.Columns.Count; i++)
             {
                 result.Append(table.Columns[i].ColumnName);
                 result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
             }
 
             foreach (DataRow row in table.Rows)
-            {
-                for (int i = 0; i < table.Columns.Count; i++)
+                for (var i = 0; i < table.Columns.Count; i++)
                 {
-                    result.Append(row[i].ToString());
+                    result.Append(row[i]);
                     result.Append(i == table.Columns.Count - 1 ? "\n" : ",");
                 }
-            }
 
-            SaveFileDialog saveFile = new SaveFileDialog();
+            var saveFile = new SaveFileDialog();
 
             saveFile.FileName = "export.csv";
             saveFile.DefaultExt = "csv";
@@ -493,7 +494,7 @@ namespace Pendenzen
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                string path = saveFile.FileName;
+                var path = saveFile.FileName;
                 File.WriteAllText(path, result.ToString(), Encoding.Unicode);
             }
         }
@@ -524,28 +525,20 @@ namespace Pendenzen
                 if (tabControl.SelectedIndex == 0)
                 {
                     if (searchStatusBox.Visible)
-                    {
                         query = createQuery("pendenz", searchKey, searchStatusBox.Text);
-                    }
-                    else if (searchBox.Visible && searchBox.Text != "")
-                    {
+                    else if (searchBox.Visible && (searchBox.Text != ""))
                         query = createQuery("pendenz", searchKey, searchBox.Text);
-                    }
-                    else if (searchBox.Visible && searchBox.Text == "")
-                    {
+                    else if (searchBox.Visible && (searchBox.Text == ""))
                         query = createQuery("pendenz", searchKey);
-                    }
                     issueDataView.DataSource = db.Select(query);
                 }
                 if (tabControl.SelectedIndex == 1)
-                {
                     loadContact(searchKey, searchBox.Text);
-                }
-
             }
             else
             {
-                DialogResult result = MessageBox.Show(Properties.Resources.Suchkriterien, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                var result = MessageBox.Show(Resources.Suchkriterien, "Fehler", MessageBoxButtons.OK,
+                    MessageBoxIcon.Stop);
             }
             isOn = true;
         }
@@ -576,38 +569,16 @@ namespace Pendenzen
         private void searchBox_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
-            {
-                searchButton_Click(this.searchButton, e);
-            }
-        }
-
-        #endregion
-
-        #region AutoUpdate
-
-        private void onOffButton_Click(object sender, EventArgs e)
-        {
-            if (isOn)
-            {
-                isOn = false;
-                onOffButton.Text = "off";
-                onOffButton.BackColor = Color.Red;
-            }
-            else if (!isOn)
-            {
-                isOn = true;
-                onOffButton.Text = "on";
-                onOffButton.BackColor = Color.Lime;
-                reloadData(tabControl.SelectedIndex);
-            }
+                searchButton_Click(searchButton, e);
         }
 
         #endregion
 
         #region MultiThreading
+
         private void threadStarter()
         {
-            Thread thread = new Thread(new ThreadStart(this.threadTask));
+            var thread = new Thread(threadTask);
             thread.IsBackground = true;
             thread.Start();
         }
@@ -619,22 +590,23 @@ namespace Pendenzen
                 Thread.Sleep(1000);
                 if (isOn)
                 {
-                    this.Invoke((MethodInvoker)delegate { reloadData(tabControl.SelectedIndex); });
-                    this.Invoke((MethodInvoker)delegate { onOffButton.BackColor = Color.Lime; });
-                    this.Invoke((MethodInvoker)delegate { this.infoLabel.Visible = false; });
+                    Invoke((MethodInvoker) delegate { reloadData(tabControl.SelectedIndex); });
+                    Invoke((MethodInvoker) delegate { onOffButton.BackColor = Color.Lime; });
+                    Invoke((MethodInvoker) delegate { infoLabel.Visible = false; });
                 }
                 if (!isOn)
                 {
-                    this.Invoke((MethodInvoker)delegate { onOffButton.BackColor = Color.Red; });
-                    this.Invoke((MethodInvoker)delegate { this.infoLabel.Text = Pendenzen.Properties.Resources.autoUpdateOff; });
-                    this.Invoke((MethodInvoker)delegate { this.infoLabel.Visible = true; });
+                    Invoke((MethodInvoker) delegate { onOffButton.BackColor = Color.Red; });
+                    Invoke((MethodInvoker) delegate { infoLabel.Text = Resources.autoUpdateOff; });
+                    Invoke((MethodInvoker) delegate { infoLabel.Visible = true; });
                 }
-
             }
         }
+
         #endregion
 
         #region Printing
+
         private void queryPrint()
         {
             isOn = false;
@@ -646,12 +618,12 @@ namespace Pendenzen
         {
             queryPrint();
 
-            PrintPreviewDialog printPreview = new PrintPreviewDialog();
-            printPreview.Icon = Properties.Resources.favicon;
+            var printPreview = new PrintPreviewDialog();
+            printPreview.Icon = Resources.favicon;
             printPreview.Document = printIssues;
             printIssues.DefaultPageSettings.Landscape = true;
-            ((Form)printPreview).WindowState = FormWindowState.Maximized;
-             
+            ((Form) printPreview).WindowState = FormWindowState.Maximized;
+
             printPreview.ShowDialog();
         }
 
@@ -660,10 +632,10 @@ namespace Pendenzen
             queryPrint();
 
             // Open print dialog
-            PrintDialog printDialog = new PrintDialog();
+            var printDialog = new PrintDialog();
             printDialog.Document = printIssues;
             printDialog.UseEXDialog = true;
-            
+
             // Get document
             if (DialogResult.OK == printDialog.ShowDialog())
             {
@@ -692,9 +664,7 @@ namespace Pendenzen
                 // Calculating Total Widths
                 totalWidth = 0;
                 foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
-                {
                     totalWidth += gridColumn.Width;
-                }
             }
             catch (Exception ex)
             {
@@ -706,31 +676,30 @@ namespace Pendenzen
         {
             try
             {
-                int leftMargin = e.MarginBounds.Left;
-                int topMargin = e.MarginBounds.Top;
-                bool morePagesToPrint = false;
-                int tmpWidth = 0;
+                var leftMargin = e.MarginBounds.Left;
+                var topMargin = e.MarginBounds.Top;
+                var morePagesToPrint = false;
+                var tmpWidth = 0;
 
                 if (bFirstPage)
-                {
                     foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                     {
-                        tmpWidth = (int)(Math.Floor((double)((double)gridColumn.Width /
-                            (double)totalWidth * (double)totalWidth * ((double)e.MarginBounds.Width / (double)totalWidth))));
+                        tmpWidth = (int) Math.Floor(gridColumn.Width/
+                                                    (double) totalWidth*totalWidth*
+                                                    (e.MarginBounds.Width/(double) totalWidth));
 
-                        headerHeight = (int)(e.Graphics.MeasureString(gridColumn.HeaderText,
-                            gridColumn.InheritedStyle.Font, tmpWidth).Height) + 20;
+                        headerHeight = (int) e.Graphics.MeasureString(gridColumn.HeaderText,
+                                           gridColumn.InheritedStyle.Font, tmpWidth).Height + 20;
 
                         arrColumnLefts.Add(leftMargin);
                         arrColumnWidths.Add(tmpWidth);
                         leftMargin += tmpWidth;
                     }
-                }
                 while (iRow <= issueDataView.Rows.Count - 1)
                 {
-                    DataGridViewRow gridRow = issueDataView.Rows[iRow];
+                    var gridRow = issueDataView.Rows[iRow];
                     cellHeight = gridRow.Height + 20;
-                    int iCount = 0;
+                    var iCount = 0;
 
                     if (topMargin + cellHeight >= e.MarginBounds.Height + e.MarginBounds.Top)
                     {
@@ -739,89 +708,83 @@ namespace Pendenzen
                         morePagesToPrint = true;
                         break;
                     }
-                    else
+                    if (newPage)
                     {
-                        if (newPage)
-                        {
-                            // Draw Header
-                            string topString = "Pendenzenübersicht";
-                            e.Graphics.DrawString(topString,
-                                new Font(issueDataView.Font, FontStyle.Bold),
-                                Brushes.Black,
-                                e.MarginBounds.Left,
-                                e.MarginBounds.Top - e.Graphics.MeasureString(topString, new Font(issueDataView.Font, FontStyle.Bold),
+                        // Draw Header
+                        var topString = "Pendenzenübersicht";
+                        e.Graphics.DrawString(topString,
+                            new Font(issueDataView.Font, FontStyle.Bold),
+                            Brushes.Black,
+                            e.MarginBounds.Left,
+                            e.MarginBounds.Top -
+                            e.Graphics.MeasureString(topString, new Font(issueDataView.Font, FontStyle.Bold),
                                 e.MarginBounds.Width).Height);
 
-                            string date = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
+                        var date = DateTime.Now.ToLongDateString() + " " + DateTime.Now.ToShortTimeString();
 
-                            // Draw Date
-                            e.Graphics.DrawString(date,
-                                new Font(issueDataView.Font, FontStyle.Bold),
-                                Brushes.Black,
-                                e.MarginBounds.Left + (e.MarginBounds.Width - e.Graphics.MeasureString(date, new Font(issueDataView.Font,
-                                FontStyle.Bold), e.MarginBounds.Width).Width),
-                                e.MarginBounds.Top - e.Graphics.MeasureString(topString,
+                        // Draw Date
+                        e.Graphics.DrawString(date,
+                            new Font(issueDataView.Font, FontStyle.Bold),
+                            Brushes.Black,
+                            e.MarginBounds.Left +
+                            (e.MarginBounds.Width - e.Graphics.MeasureString(date, new Font(issueDataView.Font,
+                                 FontStyle.Bold), e.MarginBounds.Width).Width),
+                            e.MarginBounds.Top - e.Graphics.MeasureString(topString,
                                 new Font(new Font(issueDataView.Font, FontStyle.Bold),
-                                FontStyle.Bold), e.MarginBounds.Width).Height);
+                                    FontStyle.Bold), e.MarginBounds.Width).Height);
 
-                            // Draw Columns
-                            topMargin = e.MarginBounds.Top;
+                        // Draw Columns
+                        topMargin = e.MarginBounds.Top;
 
-                            foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
-                            {
-                                e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
-                                    new Rectangle((int)arrColumnLefts[iCount], topMargin,
-                                    (int)arrColumnWidths[iCount], headerHeight));
-
-                                e.Graphics.DrawRectangle(Pens.Black,
-                                    new Rectangle((int)arrColumnLefts[iCount], topMargin,
-                                    (int)arrColumnWidths[iCount], headerHeight));
-
-                                e.Graphics.DrawString(gridColumn.HeaderText,
-                                    gridColumn.InheritedStyle.Font,
-                                    new SolidBrush(gridColumn.InheritedStyle.ForeColor),
-                                    new RectangleF((int)arrColumnLefts[iCount], topMargin,
-                                    (int)arrColumnWidths[iCount], headerHeight), strFormat);
-                                iCount++;
-                            }
-                            newPage = false;
-                            topMargin += headerHeight;
-                        }
-                        iCount = 0;
-
-                        // Draw Columns Content
-                        foreach (DataGridViewCell cell in gridRow.Cells)
+                        foreach (DataGridViewColumn gridColumn in issueDataView.Columns)
                         {
-                            if (cell.Value != null)
-                            {
-                                RectangleF rectF = new RectangleF((int)arrColumnLefts[iCount],
-                                    (float)topMargin, (int)arrColumnWidths[iCount], (float)cellHeight);
+                            e.Graphics.FillRectangle(new SolidBrush(Color.LightGray),
+                                new Rectangle((int) arrColumnLefts[iCount], topMargin,
+                                    (int) arrColumnWidths[iCount], headerHeight));
 
-                                e.Graphics.DrawString(cell.Value.ToString(),
-                                   cell.InheritedStyle.Font,
-                                   new SolidBrush(cell.InheritedStyle.ForeColor),
-                                   rectF, strFormat);
-                            }
-                            // Draw Cells Borders
-                            Rectangle rect = new Rectangle((int)arrColumnLefts[iCount],
-                                topMargin, (int)arrColumnWidths[iCount], cellHeight);
-                            e.Graphics.DrawRectangle(Pens.Black, rect);
+                            e.Graphics.DrawRectangle(Pens.Black,
+                                new Rectangle((int) arrColumnLefts[iCount], topMargin,
+                                    (int) arrColumnWidths[iCount], headerHeight));
+
+                            e.Graphics.DrawString(gridColumn.HeaderText,
+                                gridColumn.InheritedStyle.Font,
+                                new SolidBrush(gridColumn.InheritedStyle.ForeColor),
+                                new RectangleF((int) arrColumnLefts[iCount], topMargin,
+                                    (int) arrColumnWidths[iCount], headerHeight), strFormat);
                             iCount++;
                         }
+                        newPage = false;
+                        topMargin += headerHeight;
+                    }
+                    iCount = 0;
+
+                    // Draw Columns Content
+                    foreach (DataGridViewCell cell in gridRow.Cells)
+                    {
+                        if (cell.Value != null)
+                        {
+                            var rectF = new RectangleF((int) arrColumnLefts[iCount],
+                                topMargin, (int) arrColumnWidths[iCount], cellHeight);
+
+                            e.Graphics.DrawString(cell.Value.ToString(),
+                                cell.InheritedStyle.Font,
+                                new SolidBrush(cell.InheritedStyle.ForeColor),
+                                rectF, strFormat);
+                        }
+                        // Draw Cells Borders
+                        var rect = new Rectangle((int) arrColumnLefts[iCount],
+                            topMargin, (int) arrColumnWidths[iCount], cellHeight);
+                        e.Graphics.DrawRectangle(Pens.Black, rect);
+                        iCount++;
                     }
                     iRow++;
                     topMargin += cellHeight;
                 }
                 // If more lines exist, print another page
                 if (morePagesToPrint)
-                {
                     e.HasMorePages = true;
-                }
                 else
-                {
                     e.HasMorePages = false;
-                }
-
             }
             catch (Exception ex)
             {

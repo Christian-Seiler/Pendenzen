@@ -1,23 +1,16 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pendenzen
 {
     public partial class Firmendetails : Form
     {
+        private readonly DataTable _table;
 
-        DBConnect db = new DBConnect();
-
-        DataTable _table;
+        private readonly DBConnect db = new DBConnect();
 
         public Firmendetails(string id)
         {
@@ -28,14 +21,10 @@ namespace Pendenzen
 
         private void makeData(DataTable table)
         {
-            ArrayList contact = new ArrayList(table.Columns.Count);
+            var contact = new ArrayList(table.Columns.Count);
             foreach (DataRow row in table.Rows)
-            {
                 foreach (DataColumn column in table.Columns)
-                {
                     contact.Add(row[column]);
-                }
-            }
 
             idLabel.Text = contact[0].ToString();
             companyLabel.Text = contact[1].ToString();
@@ -69,7 +58,6 @@ namespace Pendenzen
             {
                 verkaufEmailButton.Visible = false;
                 verkaufLabel.Visible = false;
-
             }
             else
             {
@@ -90,10 +78,9 @@ namespace Pendenzen
 
         private void companyChangeLabel_Click(object sender, EventArgs e)
         {
-            modifyCompany modifyCompany = new modifyCompany(idLabel.Text);
+            var modifyCompany = new modifyCompany(idLabel.Text);
             Close();
             modifyCompany.ShowDialog();
-
         }
 
         private void openLinkButton_Click(object sender, EventArgs e)

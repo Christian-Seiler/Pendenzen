@@ -1,29 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pendenzen
 {
     public partial class reorganisation : Form
     {
+        private string count = "";
+        private readonly Encryption crypt = new Encryption();
+        private string date;
 
-        DBConnect db = new DBConnect();
-        Encryption crypt = new Encryption();
-        string query = "";
-        string count = "";
-        string date;
+        private readonly DBConnect db = new DBConnect();
+        private string query = "";
 
         public reorganisation()
         {
             InitializeComponent();
 
-            string[] months = { "3", "6", "9", "12" };
+            string[] months = {"3", "6", "9", "12"};
             dateBox.Items.AddRange(months);
         }
 
@@ -52,35 +45,27 @@ namespace Pendenzen
                     infoLabel.Text = $"Keide Datensätze zu löschen.";
                     infoLabel.Visible = true;
                 }
-
-            }
-            else {
             }
         }
 
         private void dateBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            date = DateTime.Now.AddMonths(-Int32.Parse(dateBox.Text)).ToString("yyyy-MM-dd HH:mm:ss");
+            date = DateTime.Now.AddMonths(-int.Parse(dateBox.Text)).ToString("yyyy-MM-dd HH:mm:ss");
         }
 
-        private bool authenticate ()
+        private bool authenticate()
         {
             query = $"SELECT AdminOption FROM admin WHERE idadmin = 'pass'";
             var passTable = db.Select(query);
             var passRow = passTable.Rows[0];
-            object[] passCell = passRow.ItemArray;
+            var passCell = passRow.ItemArray;
 
             var pass = passCell[0].ToString();
 
 
             if (crypt.Encrypt(passwordBox.Text) == pass)
-            {
                 return true;
-            }
-            else
-            {
-                return false;
-            }
+            return false;
         }
     }
 }
