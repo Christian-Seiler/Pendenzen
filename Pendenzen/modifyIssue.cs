@@ -107,7 +107,7 @@ namespace Pendenzen
                 newDetails = detailsTextBox.Text + "\n";
 
             var detailsText =
-                $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}{changesText}" +
+                $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()}\n{newDetails}{changesText}" +
                 historyTextBox.Text;
 
             if (finalizedButton.Checked)

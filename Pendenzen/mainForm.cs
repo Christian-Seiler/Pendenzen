@@ -19,7 +19,7 @@ namespace Pendenzen
         {
             query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
             InitializeComponent();
-            nameLabel.Text = "Name: " + person.getUserFullName() + " / " + person.getUserName();
+            nameLabel.Text = "Name: " + person.getInfo()[1] + " " + person.getInfo()[2] + " / " + person.getInfo()[0] + "\nAbteilung:" + person.getInfo()[4];
             isOn = true;
             tabControl_Selected(null, null);
 

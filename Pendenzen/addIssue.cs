@@ -15,7 +15,7 @@ namespace Pendenzen
             InitializeComponent();
             setCompanyBox();
 
-            creatorLabel.Text = "Erfasser: " + person.getUserFullName();
+            creatorLabel.Text = "Erfasser: " + person.getInfo();
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";
             duePicker.Value = DateTime.Now.AddDays(7);
         }
@@ -38,14 +38,14 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string detailsText = $"{DateTime.Now} {person.getUserFullName()}\n{detailsTextBox.Text}";
+            string detailsText = $"{DateTime.Now} {person.getInfo()}\n{detailsTextBox.Text}";
 
             var lieferant = companyBox.Text;
             var referenz = referenceTextBox.Text;
             var document = documentTextBox.Text;
             var erfasstAm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            var erfasstVon = person.getUserName().ToUpper();
+            var erfasstVon = person.getID().ToUpper();
             var sachbearbeiter = responsibleTextBox.Text.ToUpper();
             var due = duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             var details = detailsText;

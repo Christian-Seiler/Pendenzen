@@ -74,7 +74,7 @@ namespace Pendenzen
                 string newDetails =
                     $"Firma {companyIDTextBox.Text} erstellt\n{companyTextBox.Text}, {streetTextBox.Text}, {plzTextBox.Text}, {cityTextBox.Text}";
                 string history =
-                    $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n{newDetails}";
+                    $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()}\n{newDetails}";
 
                 var verkaufKontakt = "Nein";
                 var einkaufKontakt = "Nein";

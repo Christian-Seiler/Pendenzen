@@ -113,7 +113,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:..\\Output\\Setup.msi"
+        "OutputFilename" = "8:I:\\Pendenzen\\Setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -128,7 +128,7 @@
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
-            "Url" = "8:"
+            "Url" = "8:\\\\srv01\\Intranet\\Pendenzen\\Setup.msi"
             "ComponentsUrl" = "8:"
                 "Items"
                 {
@@ -145,6 +145,34 @@
     {
         "CustomAction"
         {
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_923CADAAC5A54206B0E420A33100E25C"
+            {
+            "Name" = "8:Primäre Ausgabe from Pendenzen (Active)"
+            "Condition" = "8:"
+            "Object" = "8:_9AE3347F4F294086A1B0E05DF3FBC1C3"
+            "FileType" = "3:2"
+            "InstallAction" = "3:1"
+            "Arguments" = "8:"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_116CAB92_FBC7_4D16_ADA7_4AC9AA026097"
+            "InstallerClass" = "11:TRUE"
+            "CustomActionData" = "8:"
+            }
+            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_B9BBBE71A7474076A4C74E4421B1DF3D"
+            {
+            "Name" = "8:msiexec.exe"
+            "Condition" = "8:"
+            "Object" = "8:_52431FD3F099450DABF42E98863C208C"
+            "FileType" = "3:2"
+            "InstallAction" = "3:4"
+            "Arguments" = "8:/x {C1EA6313-9130-4072-B0D8-5D67B9E7EFB7} /qr"
+            "EntryPoint" = "8:"
+            "Sequence" = "3:1"
+            "Identifier" = "8:_D265AB97_E39F_496B_9AA2_21B0C92AA9B9"
+            "InstallerClass" = "11:FALSE"
+            "CustomActionData" = "8:"
+            }
         }
         "DefaultFeature"
         {
@@ -388,15 +416,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pendenzen"
-        "ProductCode" = "8:{E14EFDBE-624E-45F9-B880-B741D5E05E26}"
-        "PackageCode" = "8:{26148DEA-50AE-4D62-A3C2-0A93FA890FA8}"
+        "ProductCode" = "8:{C1EA6313-9130-4072-B0D8-5D67B9E7EFB7}"
+        "PackageCode" = "8:{3DEF8807-4E87-4103-AA6A-C0A0D8C514C4}"
         "UpgradeCode" = "8:{8292F4C7-A13E-4DD6-8E7A-4A9C0364EF6F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.1"
+        "ProductVersion" = "8:1.0.2"
         "Manufacturer" = "8:Christian Seiler Services"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.christianseiler.ch"
@@ -526,7 +554,7 @@
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A05EEB0755D34E0B9C88A8E799764271"
             {
             "Name" = "8:Uninstall"
-            "Arguments" = "8:/x {E14EFDBE-624E-45F9-B880-B741D5E05E26} /qr"
+            "Arguments" = "8:/x {C1EA6313-9130-4072-B0D8-5D67B9E7EFB7} /qr"
             "Description" = "8:"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:1"
@@ -926,7 +954,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9AE3347F4F294086A1B0E05DF3FBC1C3"
             {
-            "SourcePath" = "8:..\\Pendenzen\\obj\\Release\\Pendenzen.exe"
+            "SourcePath" = "8:..\\Pendenzen\\obj\\Debug\\Pendenzen.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_AE7E5A3DFEE64907B875F8C6CA5ED5DF"

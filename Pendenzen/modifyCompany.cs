@@ -145,7 +145,7 @@ namespace Pendenzen
                 neukundeEinkauf = $"'{neukundeEinkauf}'";
             }
 
-            var history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getUserFullName()}\n" + newHistory();
+            var history = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()}\n" + newHistory();
 
             string query =
                 $"UPDATE company SET company_name='{companyTextBox.Text.Replace("'", "''")}', company_street='{streetTextBox.Text}', company_pobox='{poBoxTextBox.Text}', company_plz='{plzTextBox.Text}', company_city='{cityTextBox.Text.Replace("'", "''")}', company_country='{countryTextBox.Text}', company_phone='{phoneTextBox.Text}', company_website='{urlTextBox.Text}', company_verkaufmail='{emailVerkaufTextBox.Text}', company_einkaufmail='{emailEinkaufTextBox.Text}', company_verkaufkontakt='{verkaufKontakt}', company_einkaufkontakt='{einkaufKontakt}', company_verkaufBuspro='{verkaufBuspro}', company_einkaufBuspro='{einkaufBuspro}', company_sellersince = {neukundeVerkauf}, company_clientsince = {neukundeEinkauf}, company_history = '{history.Replace("'", "''")}' WHERE company_id = '{_id}'";
