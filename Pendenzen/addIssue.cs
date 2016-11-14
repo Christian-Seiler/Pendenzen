@@ -38,23 +38,24 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string detailsText = $"{DateTime.Now} {person.getInfo()}\n{detailsTextBox.Text}";
+            string detailsText = $"{DateTime.Now} {person.getInfo()[1]} {person.getInfo()[2]}\n{detailsTextBox.Text}";
 
             var lieferant = companyBox.Text;
             var referenz = referenceTextBox.Text;
             var document = documentTextBox.Text;
             var erfasstAm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            var erfasstVon = person.getID().ToUpper();
+            string erfasstVon = person.getInfo()[0];
             var sachbearbeiter = responsibleTextBox.Text.ToUpper();
             var due = duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             var details = detailsText;
+            string department = person.getInfo()[4];
 
             checkEntries();
             if (_error == false)
             {
                 string query =
-                    $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail) VALUES('{lieferant}', '{referenz.Replace("'", "''")}', '{document.Replace("'", "''")}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details.Replace("'", "''")}')";
+                    $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail, department) VALUES('{lieferant}', '{referenz.Replace("'", "''")}', '{document.Replace("'", "''")}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details.Replace("'", "''")}', '{department}')";
                 db.Insert(query);
                 Close();
             }

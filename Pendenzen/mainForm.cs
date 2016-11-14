@@ -17,7 +17,7 @@ namespace Pendenzen
     {
         public mainForm()
         {
-            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            query = baseQuery + "FROM pendenz WHERE state = 'open'" + admin() + " ORDER BY idpendenz desc";
             InitializeComponent();
             nameLabel.Text = "Name: " + person.getInfo()[1] + " " + person.getInfo()[2] + " / " + person.getInfo()[0] + "\nAbteilung:" + person.getInfo()[4];
             isOn = true;
@@ -282,24 +282,36 @@ namespace Pendenzen
 
         private string createQuery(string table)
         {
-            printQuery = baseQuery + $"FROM pendenz";
-            return $"SELECT * FROM {table}";
+            printQuery = baseQuery + $"FROM pendenz" + admin();
+            return $"SELECT * FROM {table}" + admin();
         }
 
         private string createQuery(string table, string searchKey)
         {
             if (searchKey == "")
                 return createQuery(table);
-            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = ''";
-            return $"SELECT * FROM {table} WHERE {searchKey} = ''";
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = ''" + admin();
+            return baseQuery + $"FROM {table} WHERE {searchKey} = ''" + admin();
         }
 
         private string createQuery(string table, string searchKey, string searchText)
         {
             if (searchKey == "")
                 return createQuery(table);
-            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'";
-            return $"SELECT * FROM {table} WHERE {searchKey} LIKE '{searchText}'";
+            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'" + admin();
+            return baseQuery + $"FROM {table} WHERE {searchKey} LIKE '{searchText}'" + admin();
+        }
+
+        private string admin()
+        {
+            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            {
+                return "";
+            }
+            else
+            {
+                return $" AND department = '{person.getInfo()[4]}'";
+            }
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -505,7 +517,7 @@ namespace Pendenzen
 
         private void reset_Click(object sender, EventArgs e)
         {
-            query = "SELECT * FROM pendenz WHERE state = 'open' ORDER BY idpendenz desc";
+            query = baseQuery + "FROM pendenz WHERE state = 'open' " + admin() +" ORDER BY idpendenz desc";
             isOn = true;
             searchBox.Clear();
             searchDropBox.Text = "";
@@ -610,7 +622,6 @@ namespace Pendenzen
         private void queryPrint()
         {
             isOn = false;
-            Console.WriteLine(printQuery);
             issueDataView.DataSource = db.Select(printQuery);
         }
 

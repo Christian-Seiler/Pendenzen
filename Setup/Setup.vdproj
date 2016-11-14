@@ -416,15 +416,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pendenzen"
-        "ProductCode" = "8:{C1EA6313-9130-4072-B0D8-5D67B9E7EFB7}"
-        "PackageCode" = "8:{3DEF8807-4E87-4103-AA6A-C0A0D8C514C4}"
+        "ProductCode" = "8:{A0F55390-81B5-4E05-BF05-21FA1A916979}"
+        "PackageCode" = "8:{28ADD588-98B7-4711-8007-F2E3BD114DC7}"
         "UpgradeCode" = "8:{8292F4C7-A13E-4DD6-8E7A-4A9C0364EF6F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.0.2"
+        "ProductVersion" = "8:1.1.0"
         "Manufacturer" = "8:Christian Seiler Services"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.christianseiler.ch"
@@ -954,7 +954,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9AE3347F4F294086A1B0E05DF3FBC1C3"
             {
-            "SourcePath" = "8:..\\Pendenzen\\obj\\Debug\\Pendenzen.exe"
+            "SourcePath" = "8:..\\Pendenzen\\obj\\Release\\Pendenzen.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_AE7E5A3DFEE64907B875F8C6CA5ED5DF"
