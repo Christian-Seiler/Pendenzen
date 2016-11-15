@@ -15,7 +15,8 @@ namespace Pendenzen
             InitializeComponent();
             setCompanyBox();
 
-            creatorLabel.Text = "Erfasser: " + person.getInfo();
+            creatorLabel.Text = $"Erfasser: {person.getInfo()[1]} {person.getInfo()[2]}";
+            abteilungLabel.Text = $"Abteilung: {person.getInfo()[4]}";
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";
             duePicker.Value = DateTime.Now.AddDays(7);
         }
@@ -56,6 +57,7 @@ namespace Pendenzen
             {
                 string query =
                     $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail, department) VALUES('{lieferant}', '{referenz.Replace("'", "''")}', '{document.Replace("'", "''")}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details.Replace("'", "''")}', '{department}')";
+  
                 db.Insert(query);
                 Close();
             }

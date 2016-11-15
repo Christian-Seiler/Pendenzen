@@ -17,6 +17,8 @@ namespace Pendenzen
         private readonly string _reference;
         private readonly string _responsible;
         private readonly string _state;
+        private readonly string _abteilung;
+        private string path;
 
 
         private string changesText;
@@ -25,9 +27,17 @@ namespace Pendenzen
         public modifyIssue(int id)
         {
             InitializeComponent();
+
+
             _id = id;
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             var dataTable = db.Select(query);
+
+            path = Path.getPath(_company.Length == 3, _abteilung);
+            if (path == "-1")
+            {
+                openFilesButton.Visible = false;
+            }
 
 
             var list = new List<string>();
@@ -52,6 +62,7 @@ namespace Pendenzen
             _responsible = list[6];
             _due = Convert.ToDateTime(list[7]);
             _state = list[10];
+            _abteilung = list[11];
 
             changeIssueLabel.Text = $"Pendenz #{id} bearbeiten";
             creatorLabel.Text = $"Erfasser: {list[5]}";
@@ -107,7 +118,7 @@ namespace Pendenzen
                 newDetails = detailsTextBox.Text + "\n";
 
             var detailsText =
-                $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()}\n{newDetails}{changesText}" +
+                $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()[1]} {person.getInfo()[2]}\n{newDetails}{changesText}" +
                 historyTextBox.Text;
 
             if (finalizedButton.Checked)
@@ -167,20 +178,9 @@ namespace Pendenzen
 
         private void openFilesButton_Click(object sender, EventArgs e)
         {
-            if (_company.Length == 3)
-            {
-                var path = @"K:\Einkauf\Lieferanten\Inland\" + _company + @"\Korrespondenz";
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                Process.Start(path);
-            }
-            else
-            {
-                var path = @"K:\Einkauf\Lieferanten\Ausland\" + _company + @"\Korrespondenz";
-                if (!Directory.Exists(path))
-                    Directory.CreateDirectory(path);
-                Process.Start(path);
-            }
+            if (!Directory.Exists(path))
+                Directory.CreateDirectory(path);
+            Process.Start(path);
         }
 
         private void detailsFirmaButton_Click(object sender, EventArgs e)

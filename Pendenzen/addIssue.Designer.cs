@@ -47,6 +47,7 @@
             this.errorLabel = new System.Windows.Forms.Label();
             this.companyBox = new System.Windows.Forms.ComboBox();
             this.helpTextBox = new System.Windows.Forms.RichTextBox();
+            this.abteilungLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // newIssueLabel
@@ -56,6 +57,7 @@
             this.newIssueLabel.Location = new System.Drawing.Point(13, 13);
             this.newIssueLabel.Name = "newIssueLabel";
             this.newIssueLabel.Size = new System.Drawing.Size(138, 24);
+            this.newIssueLabel.TabIndex = 14;
             this.newIssueLabel.Text = "Neue Pendenz";
             // 
             // referenceLabel
@@ -64,6 +66,7 @@
             this.referenceLabel.Location = new System.Drawing.Point(113, 95);
             this.referenceLabel.Name = "referenceLabel";
             this.referenceLabel.Size = new System.Drawing.Size(67, 13);
+            this.referenceLabel.TabIndex = 13;
             this.referenceLabel.Text = "Referenz Nr.";
             // 
             // btnAddCompany
@@ -117,6 +120,7 @@
             this.creatorLabel.Location = new System.Drawing.Point(13, 41);
             this.creatorLabel.Name = "creatorLabel";
             this.creatorLabel.Size = new System.Drawing.Size(122, 13);
+            this.creatorLabel.TabIndex = 12;
             this.creatorLabel.Text = "Erfasser: Bob Meierhans";
             // 
             // companyLabel
@@ -125,14 +129,16 @@
             this.companyLabel.Location = new System.Drawing.Point(13, 95);
             this.companyLabel.Name = "companyLabel";
             this.companyLabel.Size = new System.Drawing.Size(32, 13);
+            this.companyLabel.TabIndex = 11;
             this.companyLabel.Text = "Firma";
             // 
             // dateLabel
             // 
             this.dateLabel.AutoSize = true;
-            this.dateLabel.Location = new System.Drawing.Point(12, 57);
+            this.dateLabel.Location = new System.Drawing.Point(14, 67);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(98, 13);
+            this.dateLabel.TabIndex = 10;
             this.dateLabel.Text = "Datum: 01.01.2016";
             // 
             // documentLabel
@@ -141,6 +147,7 @@
             this.documentLabel.Location = new System.Drawing.Point(222, 95);
             this.documentLabel.Name = "documentLabel";
             this.documentLabel.Size = new System.Drawing.Size(34, 13);
+            this.documentLabel.TabIndex = 9;
             this.documentLabel.Text = "Beleg";
             // 
             // responsibleLabel
@@ -149,6 +156,7 @@
             this.responsibleLabel.Location = new System.Drawing.Point(328, 95);
             this.responsibleLabel.Name = "responsibleLabel";
             this.responsibleLabel.Size = new System.Drawing.Size(78, 13);
+            this.responsibleLabel.TabIndex = 8;
             this.responsibleLabel.Text = "zuständiger SB";
             // 
             // detailLabel
@@ -157,6 +165,7 @@
             this.detailLabel.Location = new System.Drawing.Point(17, 182);
             this.detailLabel.Name = "detailLabel";
             this.detailLabel.Size = new System.Drawing.Size(39, 13);
+            this.detailLabel.TabIndex = 7;
             this.detailLabel.Text = "Details";
             // 
             // submitButton
@@ -185,6 +194,7 @@
             this.dueLabel.Location = new System.Drawing.Point(17, 143);
             this.dueLabel.Name = "dueLabel";
             this.dueLabel.Size = new System.Drawing.Size(51, 13);
+            this.dueLabel.TabIndex = 2;
             this.dueLabel.Text = "Fällig am:";
             // 
             // errorLabel
@@ -198,6 +208,7 @@
             this.errorLabel.MaximumSize = new System.Drawing.Size(411, 26);
             this.errorLabel.Name = "errorLabel";
             this.errorLabel.Size = new System.Drawing.Size(86, 13);
+            this.errorLabel.TabIndex = 1;
             this.errorLabel.Text = "error message";
             this.errorLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.errorLabel.UseMnemonic = false;
@@ -222,13 +233,24 @@
             this.helpTextBox.ReadOnly = true;
             this.helpTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
             this.helpTextBox.Size = new System.Drawing.Size(416, 141);
+            this.helpTextBox.TabIndex = 0;
             this.helpTextBox.Text = "";
+            // 
+            // abteilungLabel
+            // 
+            this.abteilungLabel.AutoSize = true;
+            this.abteilungLabel.Location = new System.Drawing.Point(14, 54);
+            this.abteilungLabel.Name = "abteilungLabel";
+            this.abteilungLabel.Size = new System.Drawing.Size(103, 13);
+            this.abteilungLabel.TabIndex = 15;
+            this.abteilungLabel.Text = "Abteilung: Werkstatt";
             // 
             // addIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 406);
+            this.Controls.Add(this.abteilungLabel);
             this.Controls.Add(this.helpTextBox);
             this.Controls.Add(this.errorLabel);
             this.Controls.Add(this.dueLabel);
@@ -279,5 +301,6 @@
         private System.Windows.Forms.Label errorLabel;
         private System.Windows.Forms.ComboBox companyBox;
         private System.Windows.Forms.RichTextBox helpTextBox;
+        private System.Windows.Forms.Label abteilungLabel;
     }
 }

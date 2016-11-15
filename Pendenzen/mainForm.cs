@@ -19,7 +19,8 @@ namespace Pendenzen
         {
             query = baseQuery + "FROM pendenz WHERE state = 'open'" + admin() + " ORDER BY idpendenz desc";
             InitializeComponent();
-            nameLabel.Text = "Name: " + person.getInfo()[1] + " " + person.getInfo()[2] + " / " + person.getInfo()[0] + "\nAbteilung:" + person.getInfo()[4];
+            nameLabel.Text =
+                $"Name: {person.getInfo()[1]} {person.getInfo()[2]} / {person.getInfo()[0]}\nAbteilung: {person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
             isOn = true;
             tabControl_Selected(null, null);
 
@@ -282,16 +283,17 @@ namespace Pendenzen
 
         private string createQuery(string table)
         {
-            printQuery = baseQuery + $"FROM pendenz" + admin();
-            return $"SELECT * FROM {table}" + admin();
+            printQuery = $"{baseQuery} FROM pendenz {admin()}";
+            return $"{baseQuery} FROM {table} {admin().Replace("AND", "WHERE")}";
         }
 
         private string createQuery(string table, string searchKey)
         {
             if (searchKey == "")
                 return createQuery(table);
-            printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} = ''" + admin();
-            return baseQuery + $"FROM {table} WHERE {searchKey} = ''" + admin();
+
+            printQuery = $"{baseQuery} FROM pendenz WHERE {searchKey} = '' {admin()}";
+            return $"{baseQuery} FROM {table} WHERE {searchKey} = '' {admin()}";
         }
 
         private string createQuery(string table, string searchKey, string searchText)
@@ -306,12 +308,13 @@ namespace Pendenzen
         {
             if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
             {
-                return "";
+            return "";
             }
             else
             {
-                return $" AND department = '{person.getInfo()[4]}'";
+                return $"AND department = '{person.getInfo()[4]}'";
             }
+            // return $"AND department = '{person.getInfo()[4]}'";
         }
 
         private void addButton_Click(object sender, EventArgs e)

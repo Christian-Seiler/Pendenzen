@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pendenzen", "Pendenzen\Pend
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{64088A9C-BD84-4E03-97E3-D67E767CEF27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Updater", "Updater\Updater.csproj", "{BAEE2B68-201A-4125-995F-62A814F34B21}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{64088A9C-BD84-4E03-97E3-D67E767CEF27}.Debug|Any CPU.Build.0 = Debug
 		{64088A9C-BD84-4E03-97E3-D67E767CEF27}.Release|Any CPU.ActiveCfg = Release
 		{64088A9C-BD84-4E03-97E3-D67E767CEF27}.Release|Any CPU.Build.0 = Release
-		{BAEE2B68-201A-4125-995F-62A814F34B21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAEE2B68-201A-4125-995F-62A814F34B21}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAEE2B68-201A-4125-995F-62A814F34B21}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAEE2B68-201A-4125-995F-62A814F34B21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
