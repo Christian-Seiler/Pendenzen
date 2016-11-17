@@ -1,3 +1,29 @@
 \\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
 \\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
 \\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.manifest
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.dll
+H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.xml
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csprojResolveAssemblyReference.cache
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addIssue.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Firmendetails.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.password.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.reorganisation.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.info.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.mainForm.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addCompany.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyCompany.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyIssue.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Properties.Resources.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csproj.GenerateResource.Cache
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.TrustInfo.xml
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe.manifest
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.stats.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.ubergabe.resources

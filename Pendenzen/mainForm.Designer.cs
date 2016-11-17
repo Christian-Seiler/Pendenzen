@@ -30,6 +30,7 @@ namespace Pendenzen
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.nameLabel = new System.Windows.Forms.Label();
@@ -91,12 +92,15 @@ namespace Pendenzen
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
             this.infoLabel = new System.Windows.Forms.Label();
             this.searchStatusBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.übergabeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -715,7 +719,9 @@ namespace Pendenzen
             // 
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reorganisationToolStripMenuItem,
-            this.kennwortÄndernToolStripMenuItem});
+            this.kennwortÄndernToolStripMenuItem,
+            this.statistikToolStripMenuItem,
+            this.übergabeToolStripMenuItem});
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
@@ -735,6 +741,13 @@ namespace Pendenzen
             this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
             this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // statistikToolStripMenuItem
+            // 
+            this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.statistikToolStripMenuItem.Text = "Statistik";
+            this.statistikToolStripMenuItem.Click += new System.EventHandler(this.statistikToolStripMenuItem_Click);
             // 
             // infoToolStripMenuItem
             // 
@@ -796,6 +809,13 @@ namespace Pendenzen
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.reset_Click);
+            // 
+            // übergabeToolStripMenuItem
+            // 
+            this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
+            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.übergabeToolStripMenuItem.Text = "Übergabe";
+            this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
             // 
             // mainForm
             // 
@@ -903,6 +923,9 @@ namespace Pendenzen
         private ToolStripMenuItem kennwortÄndernToolStripMenuItem;
         private Button resetButton;
         private ToolStripMenuItem sucheZurücksetzenToolStripMenuItem;
+        private ToolStripMenuItem statistikToolStripMenuItem;
+        private ToolTip toolTip1;
+        private ToolStripMenuItem übergabeToolStripMenuItem;
     }
 }
 

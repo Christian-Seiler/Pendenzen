@@ -22,3 +22,5 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csprojResolveAssemblyReference.cache
+H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Stats.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.ubergabe.resources

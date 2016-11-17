@@ -27,33 +27,23 @@ namespace Pendenzen
             switch (abteilung)
             {
                 case "Einkauf":
+                    // K:\Einkauf\Lieferanten\Inland\ALO
                     path = $@"K:\Einkauf\Lieferanten\{folder}\Korrespondenz";
                     break;
                 case "Verkauf":
+                    // K:\Verkauf\Kunden\Inland\AAA\Korrespondenz
                     path = $@"K:\Verkauf\Kunden\{folder}\Korrespondenz";
                     break;
                 case "Buchhaltung":
+                    // K:\Buchhaltung\Firmen \Alludo
                     path = $@"K:\Buchhaltung\Firmen";
                     break;
                 default:
                     path = "-1";
                     break;
             }
-
-            // Buchhaltung = K:\Buchhaltung\Firmen \Alludo
-            // Verkauf     = K:\Verkauf\Kunden     \Inland\AAA\Korrespondenz
-            // Einkauf     = K:\Einkauf\Lieferanten\Inland\ALO
-
+            
             return path;
         }
-
-
-
-
-
-
-
-
-
     }
 }

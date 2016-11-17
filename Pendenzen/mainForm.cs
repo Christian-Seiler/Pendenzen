@@ -314,7 +314,6 @@ namespace Pendenzen
             {
                 return $"AND department = '{person.getInfo()[4]}'";
             }
-            // return $"AND department = '{person.getInfo()[4]}'";
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -383,6 +382,12 @@ namespace Pendenzen
             isOn = true;
         }
 
+        private void statistikToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var stats = new Stats();
+            stats.ShowDialog();
+        }
+
         #endregion
 
         #region Address
@@ -442,6 +447,8 @@ namespace Pendenzen
         {
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
+
+
 
         private void manageButtons()
         {
@@ -812,5 +819,11 @@ namespace Pendenzen
         }
 
         #endregion
+
+        private void übergabeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ubergabe = new ubergabe();
+            ubergabe.ShowDialog();
+        }
     }
 }

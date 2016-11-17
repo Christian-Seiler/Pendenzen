@@ -27,19 +27,10 @@ namespace Pendenzen
         public modifyIssue(int id)
         {
             InitializeComponent();
-
-
             _id = id;
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             var dataTable = db.Select(query);
-
-            path = Path.getPath(_company.Length == 3, _abteilung);
-            if (path == "-1")
-            {
-                openFilesButton.Visible = false;
-            }
-
-
+            
             var list = new List<string>();
             var i = 0;
             foreach (DataRow row in dataTable.Rows)
@@ -85,6 +76,12 @@ namespace Pendenzen
                 default:
                     openButton.Checked = true;
                     break;
+            }
+
+            path = Path.getPath(_company.Length == 3, _abteilung);
+            if (path == "-1")
+            {
+                openFilesButton.Visible = false;
             }
         }
 
