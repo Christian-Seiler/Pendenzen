@@ -78,7 +78,7 @@ namespace Pendenzen
                     break;
             }
 
-            path = Path.getPath(_company.Length == 3, _abteilung);
+            path = Path.getPath(_company.Length == 3, _company, _abteilung);
             if (path == "-1")
             {
                 openFilesButton.Visible = false;

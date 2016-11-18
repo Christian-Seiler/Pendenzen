@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="Pendenzen.exe" version="1.3.1.35" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="Pendenzen.exe" version="1.3.3.35" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Resources\favicon.ico" asmv2:publisher="Christian Seiler Services" co.v1:suiteName="Pendenzen" asmv2:product="Pendenzen" asmv2:supportUrl="http://www.christianseiler.ch/" co.v1:errorReportUrl="https://github.com/Christian-Seiler/Pendenzen/issues/new" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.3.6165.27302" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.3.6166.27071" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
@@ -57,13 +57,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="441928">
-      <assemblyIdentity name="Pendenzen" version="1.3.6165.27302" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Pendenzen" version="1.3.6166.27071" publicKeyToken="8EF17B9B91F556FE" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>xjIqJLkDc9bC6f6aYqSFidNU7zaKfQYnqccV72lfFsE=</dsig:DigestValue>
+        <dsig:DigestValue>d6hOyg5b/PVdBwbsSG4XanQa+zkPQw147Msn77Hjc3s=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

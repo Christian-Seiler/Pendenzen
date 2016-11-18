@@ -9,7 +9,7 @@ namespace Pendenzen
     class Path
     {
 
-        public static string getPath(bool isInland, string abteilung)
+        public static string getPath(bool isInland, string company, string abteilung)
         {
             string folder = "";
             switch (isInland)
@@ -27,15 +27,15 @@ namespace Pendenzen
             switch (abteilung)
             {
                 case "Einkauf":
-                    // K:\Einkauf\Lieferanten\Inland\ALO
-                    path = $@"K:\Einkauf\Lieferanten\{folder}\Korrespondenz";
+                    // K:\Einkauf\Lieferanten\Inland\ALO\Korrespondenz
+                    path = $@"K:\Einkauf\Lieferanten\{folder}\{company}\Korrespondenz";
                     break;
                 case "Verkauf":
                     // K:\Verkauf\Kunden\Inland\AAA\Korrespondenz
-                    path = $@"K:\Verkauf\Kunden\{folder}\Korrespondenz";
+                    path = $@"K:\Verkauf\Kunden\{folder}\{company}\Korrespondenz";
                     break;
                 case "Buchhaltung":
-                    // K:\Buchhaltung\Firmen \Alludo
+                    // K:\Buchhaltung\Firmen\Alludo
                     path = $@"K:\Buchhaltung\Firmen";
                     break;
                 default:
