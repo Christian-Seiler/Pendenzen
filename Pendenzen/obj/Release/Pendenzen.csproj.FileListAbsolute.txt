@@ -24,3 +24,6 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csprojResolveAssemblyReference.cache
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Stats.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.ubergabe.resources
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe.config
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb

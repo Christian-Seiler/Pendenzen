@@ -32,6 +32,12 @@ namespace Pendenzen
             connection = new MySqlConnection(connectionString);
         }
 
+        public bool Open()
+        {
+            return OpenConnection();
+        }
+
+
         //open connection to database
         private bool OpenConnection()
         {
