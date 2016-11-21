@@ -197,7 +197,17 @@ namespace Pendenzen
         private void loadIssues()
         {
             var rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
-            issueDataView.DataSource = db.Select(query);
+            DataTable table = issueDataView.DataSource as DataTable;
+            DataTable newTable = db.Select(query);
+            if (table == newTable)
+            {
+                Console.WriteLine("Data did not change.");
+            }
+            else
+            {
+                Console.WriteLine("Data is being updated.");
+                issueDataView.DataSource = newTable;
+            }
             if (rowIndex >= 0)
                 issueDataView.FirstDisplayedScrollingRowIndex = rowIndex;
         }
@@ -386,6 +396,12 @@ namespace Pendenzen
         {
             var stats = new Stats();
             stats.ShowDialog();
+        }
+
+        private void übergabeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ubergabe = new ubergabe();
+            ubergabe.ShowDialog();
         }
 
         #endregion
@@ -819,11 +835,5 @@ namespace Pendenzen
         }
 
         #endregion
-
-        private void übergabeToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var ubergabe = new ubergabe();
-            ubergabe.ShowDialog();
-        }
     }
 }

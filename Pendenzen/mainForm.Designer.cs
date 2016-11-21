@@ -93,6 +93,7 @@ namespace Pendenzen
             this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.übergabeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printIssues = new System.Drawing.Printing.PrintDocument();
             this.infoLabel = new System.Windows.Forms.Label();
@@ -100,7 +101,6 @@ namespace Pendenzen
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.übergabeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -749,6 +749,13 @@ namespace Pendenzen
             this.statistikToolStripMenuItem.Text = "Statistik";
             this.statistikToolStripMenuItem.Click += new System.EventHandler(this.statistikToolStripMenuItem_Click);
             // 
+            // übergabeToolStripMenuItem
+            // 
+            this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
+            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.übergabeToolStripMenuItem.Text = "Übergabe";
+            this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
+            // 
             // infoToolStripMenuItem
             // 
             this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
@@ -809,13 +816,6 @@ namespace Pendenzen
             this.resetButton.Text = "Reset";
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.reset_Click);
-            // 
-            // übergabeToolStripMenuItem
-            // 
-            this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
-            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.übergabeToolStripMenuItem.Text = "Übergabe";
-            this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
             // 
             // mainForm
             // 

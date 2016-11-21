@@ -109,30 +109,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="company.cs">
+    <Compile Include="Address\company.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="company.Designer.cs">
+    <Compile Include="Address\company.Designer.cs">
       <DependentUpon>company.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="files.cs" />
-    <Compile Include="password.cs">
+    <Compile Include="Admin\password.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="password.Designer.cs">
+    <Compile Include="Admin\password.Designer.cs">
       <DependentUpon>password.cs</DependentUpon>
     </Compile>
-    <Compile Include="reorg.cs">
+    <Compile Include="Admin\reorg.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="reorg.Designer.cs">
+    <Compile Include="Admin\reorg.Designer.cs">
       <DependentUpon>reorg.cs</DependentUpon>
     </Compile>
-    <Compile Include="info.cs">
+    <Compile Include="Admin\info.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="info.Designer.cs">
+    <Compile Include="Admin\info.Designer.cs">
       <DependentUpon>info.cs</DependentUpon>
     </Compile>
     <Compile Include="mainForm.cs">
@@ -141,71 +141,71 @@
     <Compile Include="mainForm.Designer.cs">
       <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="addCompany.cs">
+    <Compile Include="Address\addCompany.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addCompany.Designer.cs">
+    <Compile Include="Address\addCompany.Designer.cs">
       <DependentUpon>addCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="addIssue.cs">
+    <Compile Include="Issues\addIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="addIssue.Designer.cs">
+    <Compile Include="Issues\addIssue.Designer.cs">
       <DependentUpon>addIssue.cs</DependentUpon>
     </Compile>
-    <Compile Include="modifyCompany.cs">
+    <Compile Include="Address\modifyCompany.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modifyCompany.Designer.cs">
+    <Compile Include="Address\modifyCompany.Designer.cs">
       <DependentUpon>modifyCompany.cs</DependentUpon>
     </Compile>
-    <Compile Include="modifyIssue.cs">
+    <Compile Include="Issues\modifyIssue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="modifyIssue.Designer.cs">
+    <Compile Include="Issues\modifyIssue.Designer.cs">
       <DependentUpon>modifyIssue.cs</DependentUpon>
     </Compile>
     <Compile Include="person.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="dbconnect.cs" />
-    <Compile Include="stats.cs">
+    <Compile Include="Admin\stats.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="stats.Designer.cs">
+    <Compile Include="Admin\stats.Designer.cs">
       <DependentUpon>stats.cs</DependentUpon>
     </Compile>
-    <Compile Include="ubergabe.cs">
+    <Compile Include="Issues\ubergabe.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ubergabe.Designer.cs">
+    <Compile Include="Issues\ubergabe.Designer.cs">
       <DependentUpon>ubergabe.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="addIssue.resx">
+    <EmbeddedResource Include="Issues\addIssue.resx">
       <DependentUpon>addIssue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="company.resx">
+    <EmbeddedResource Include="Address\company.resx">
       <DependentUpon>company.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="password.resx">
+    <EmbeddedResource Include="Admin\password.resx">
       <DependentUpon>password.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="reorg.resx">
+    <EmbeddedResource Include="Admin\reorg.resx">
       <DependentUpon>reorg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="info.resx">
+    <EmbeddedResource Include="Admin\info.resx">
       <DependentUpon>info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="mainForm.resx">
       <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="addCompany.resx">
+    <EmbeddedResource Include="Address\addCompany.resx">
       <DependentUpon>addCompany.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modifyCompany.resx">
+    <EmbeddedResource Include="Address\modifyCompany.resx">
       <DependentUpon>modifyCompany.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modifyIssue.resx">
+    <EmbeddedResource Include="Issues\modifyIssue.resx">
       <DependentUpon>modifyIssue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -213,10 +213,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="stats.resx">
+    <EmbeddedResource Include="Admin\stats.resx">
       <DependentUpon>stats.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ubergabe.resx">
+    <EmbeddedResource Include="Issues\ubergabe.resx">
       <DependentUpon>ubergabe.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Pendenzen.pfx" />
