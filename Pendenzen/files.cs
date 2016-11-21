@@ -36,7 +36,7 @@ namespace Pendenzen
                     break;
                 case "Buchhaltung":
                     // K:\Buchhaltung\Firmen\Alludo
-                    // path = $@"K:\Buchhaltung\Firmen\{folder}\{company}\Korrespondenz";
+                    path = $@"K:\Buchhaltung\Firmen\{folder}\{company}";
                     path = $@"K:\Buchhaltung\Firmen";
                     break;
                 default:

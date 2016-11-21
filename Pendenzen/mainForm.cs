@@ -15,19 +15,62 @@ namespace Pendenzen
 {
     public partial class mainForm : Form
     {
+
+        #region global Variables
+
+        private readonly DBConnect db = new DBConnect();
+        private readonly addIssue issue = new addIssue();
+        private readonly addCompany company = new addCompany();
+        private readonly reorganisation reorg = new reorganisation();
+        private readonly password pass = new password();
+        private ArrayList _companies;
+        private DataTable _table;
+        private DataTable oldTable;
+        private string query;
+
+        private string printQuery =
+            $"SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
+
+        private readonly string baseQuery =
+            "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
+
+        private StringFormat strFormat;
+        private int cellHeight;
+        private int iRow;
+        private int totalWidth;
+        private int headerHeight;
+        private bool bFirstPage;
+        private bool newPage;
+        private bool isOn;
+        private readonly ArrayList arrColumnLefts = new ArrayList();
+        private readonly ArrayList arrColumnWidths = new ArrayList();
+
+        public void setIsOn(bool on)
+        {
+            isOn = on;
+        }
+
+        public void setQuery(string setQuery)
+        {
+            query = setQuery;
+        }
+
+        #endregion
+
         public mainForm()
         {
             query = baseQuery + "FROM pendenz WHERE state = 'open'" + admin() + " ORDER BY idpendenz desc";
             InitializeComponent();
             nameLabel.Text =
                 $"Name: {person.getInfo()[1]} {person.getInfo()[2]} / {person.getInfo()[0]}\nAbteilung: {person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
-            isOn = true;
-            tabControl_Selected(null, null);
-
-            threadStarter();
 
             string[] status = {"open", "done", "cancelled"};
             foreach (var s in status) searchStatusBox.Items.Add(s);
+            oldTable = db.Select(query);
+            issueDataView.DataSource = oldTable;
+            tabControl_Selected(null, null);
+            threadStarter();
+            isOn = true;
         }
 
         public Dictionary<string, string> dictionary()
@@ -125,46 +168,6 @@ namespace Pendenzen
 
         #endregion
 
-        #region global Variables
-
-        private readonly DBConnect db = new DBConnect();
-        private readonly addIssue issue = new addIssue();
-        private readonly addCompany company = new addCompany();
-        private readonly reorganisation reorg = new reorganisation();
-        private readonly password pass = new password();
-        private ArrayList _companies;
-        private DataTable _table;
-        private string query;
-
-        private string printQuery =
-            $"SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail FROM pendenz GROUP BY sachbearbeiter";
-
-        private readonly string baseQuery =
-            "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
-
-        private StringFormat strFormat;
-        private int cellHeight;
-        private int iRow;
-        private int totalWidth;
-        private int headerHeight;
-        private bool bFirstPage;
-        private bool newPage;
-        private bool isOn;
-        private readonly ArrayList arrColumnLefts = new ArrayList();
-        private readonly ArrayList arrColumnWidths = new ArrayList();
-
-        public void setIsOn(bool on)
-        {
-            isOn = on;
-        }
-
-        public void setQuery(string setQuery)
-        {
-            query = setQuery;
-        }
-
-        #endregion
-
         #region Data
 
         private void reloadData(int tabIndex)
@@ -197,19 +200,32 @@ namespace Pendenzen
         private void loadIssues()
         {
             var rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
-            DataTable table = issueDataView.DataSource as DataTable;
             DataTable newTable = db.Select(query);
-            if (table == newTable)
+           
+            if (!AreTablesTheSame(oldTable, newTable))
             {
-                Console.WriteLine("Data did not change.");
-            }
-            else
-            {
-                Console.WriteLine("Data is being updated.");
                 issueDataView.DataSource = newTable;
+                oldTable = newTable;
             }
             if (rowIndex >= 0)
                 issueDataView.FirstDisplayedScrollingRowIndex = rowIndex;
+        }
+
+        public static bool AreTablesTheSame(DataTable tbl1, DataTable tbl2)
+        {
+            if (tbl1.Rows.Count != tbl2.Rows.Count || tbl1.Columns.Count != tbl2.Columns.Count)
+                return false;
+
+
+            for (int i = 0; i < tbl1.Rows.Count; i++)
+            {
+                for (int c = 0; c < tbl1.Columns.Count; c++)
+                {
+                    if (!Equals(tbl1.Rows[i][c], tbl2.Rows[i][c]))
+                        return false;
+                }
+            }
+            return true;
         }
 
         private void formatDataView()
@@ -625,7 +641,7 @@ namespace Pendenzen
         {
             while (true)
             {
-                Thread.Sleep(1000);
+                Thread.Sleep(500);
                 if (isOn)
                 {
                     Invoke((MethodInvoker) delegate { reloadData(tabControl.SelectedIndex); });

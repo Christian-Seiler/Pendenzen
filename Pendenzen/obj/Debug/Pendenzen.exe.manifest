@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\favicon.ico" asmv2:publisher="Christian Seiler Services" co.v1:suiteName="Pendenzen" asmv2:product="Pendenzen" asmv2:supportUrl="http://www.christianseiler.ch/" co.v1:errorReportUrl="https://github.com/Christian-Seiler/Pendenzen/issues/new" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.3.6168.35809" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.3.6169.21529" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
@@ -56,24 +56,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="445440">
-      <assemblyIdentity name="Pendenzen" version="1.3.6168.35809" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="445952">
+      <assemblyIdentity name="Pendenzen" version="1.3.6169.21529" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ecQVm8Vy3URX3RoDR9lSYLy+Cu/dU0zi7WxEpjdKiQo=</dsig:DigestValue>
+        <dsig:DigestValue>aw7sSY5PE7ZebMb+Blo8vcj4NR4l7Iz8hiXBLroPik8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Pendenzen.exe.config" size="1608">
+  <file name="Pendenzen.exe.config" size="1639">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>L9i1nx9+vmiUwv55mSPjLtHo5OKBm+ME90/jdR8MtZU=</dsig:DigestValue>
+      <dsig:DigestValue>3KvUUgC2dtG+zKU04ifGJL/gFS4Bh1qb2jlQv62rcWE=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\favicon.ico" size="165662">
