@@ -34,6 +34,8 @@ namespace Pendenzen
         private readonly string baseQuery =
             "SELECT idpendenz, lieferant, referenz, document, sachbearbeiter, due, detail ";
 
+        private string printHeader;
+
         private StringFormat strFormat;
         private int cellHeight;
         private int iRow;
@@ -309,6 +311,7 @@ namespace Pendenzen
 
         private string createQuery(string table)
         {
+            printHeader = "";
             printQuery = $"{baseQuery} FROM pendenz {admin()}";
             return $"{baseQuery} FROM {table} {admin().Replace("AND", "WHERE")}";
         }
@@ -317,7 +320,7 @@ namespace Pendenzen
         {
             if (searchKey == "")
                 return createQuery(table);
-
+            printHeader = $"{searchKey} = leer";
             printQuery = $"{baseQuery} FROM pendenz WHERE {searchKey} = '' {admin()}";
             return $"{baseQuery} FROM {table} WHERE {searchKey} = '' {admin()}";
         }
@@ -326,6 +329,7 @@ namespace Pendenzen
         {
             if (searchKey == "")
                 return createQuery(table);
+            printHeader = $"{searchKey}: {searchText}";
             printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'" + admin();
             return baseQuery + $"FROM {table} WHERE {searchKey} LIKE '{searchText}'" + admin();
         }
@@ -578,12 +582,17 @@ namespace Pendenzen
             {
                 if (tabControl.SelectedIndex == 0)
                 {
+                    var ending = "ORDER BY idpendenz desc";
+                    if (searchDropBox.Text != "Status")
+                    {
+                        ending = " AND state = 'open' " + ending;
+                    }
                     if (searchStatusBox.Visible)
-                        query = createQuery("pendenz", searchKey, searchStatusBox.Text);
+                        query = createQuery("pendenz", searchKey, searchStatusBox.Text) + ending;
                     else if (searchBox.Visible && (searchBox.Text != ""))
-                        query = createQuery("pendenz", searchKey, searchBox.Text);
+                        query = createQuery("pendenz", searchKey, searchBox.Text) + ending;
                     else if (searchBox.Visible && (searchBox.Text == ""))
-                        query = createQuery("pendenz", searchKey);
+                        query = createQuery("pendenz", searchKey) + ending;
                     issueDataView.DataSource = db.Select(query);
                 }
                 if (tabControl.SelectedIndex == 1)

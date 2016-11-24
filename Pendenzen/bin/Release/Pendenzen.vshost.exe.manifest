@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Resources\favicon.ico" asmv2:publisher="Christian Seiler Services" co.v1:suiteName="Pendenzen" asmv2:product="Pendenzen" asmv2:supportUrl="http://www.christianseiler.ch/" co.v1:errorReportUrl="https://github.com/Christian-Seiler/Pendenzen/issues/new" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Pendenzen" version="1.3.6169.29728" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Pendenzen" version="1.3.6171.24197" language="neutral" processorArchitecture="msil" />
     <commandLine file="Pendenzen.exe" parameters="" />
   </entryPoint>
   <co.v1:useManifestForTrust xmlns="urn:schemas-microsoft-com:asm.v1" />
@@ -57,13 +57,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Pendenzen.exe" size="441344">
-      <assemblyIdentity name="Pendenzen" version="1.3.6169.29728" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Pendenzen" version="1.3.6171.24197" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2qB6SD5KT0ZpR6th1xynOG3kitXW2F6Cmedqukifp+c=</dsig:DigestValue>
+        <dsig:DigestValue>tgFi30yHVF6rdjx1spjmLjdbefDrMqxJBGJwW+Ra+u8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
