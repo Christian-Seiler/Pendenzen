@@ -320,7 +320,12 @@ namespace Pendenzen
         {
             if (searchKey == "")
                 return createQuery(table);
-            printHeader = $"{searchKey} = leer";
+            foreach (var pair in headerDictionary())
+            {
+                if (searchKey == pair.Key) 
+                    printHeader = $"{pair.Value}";
+            }
+
             printQuery = $"{baseQuery} FROM pendenz WHERE {searchKey} = '' {admin()}";
             return $"{baseQuery} FROM {table} WHERE {searchKey} = '' {admin()}";
         }
@@ -329,7 +334,12 @@ namespace Pendenzen
         {
             if (searchKey == "")
                 return createQuery(table);
-            printHeader = $"{searchKey}: {searchText}";
+            foreach (var pair in headerDictionary())
+            {
+                if (searchKey == pair.Key)
+                    printHeader = $"{pair.Value}: {searchText}";
+            }
+
             printQuery = baseQuery + $"FROM pendenz WHERE {searchKey} LIKE '{searchText}'" + admin();
             return baseQuery + $"FROM {table} WHERE {searchKey} LIKE '{searchText}'" + admin();
         }
@@ -773,7 +783,7 @@ namespace Pendenzen
                     if (newPage)
                     {
                         // Draw Header
-                        var topString = "Pendenzenübersicht";
+                        var topString = $"Pendenzenübersicht\n{printHeader}";
                         e.Graphics.DrawString(topString,
                             new Font(issueDataView.Font, FontStyle.Bold),
                             Brushes.Black,

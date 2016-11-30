@@ -5,7 +5,7 @@
     <InstallUrlHistory>\\srv01\Intranet\Pendenzen\</InstallUrlHistory>
     <SupportUrlHistory>http://www.christianseiler.ch</SupportUrlHistory>
     <UpdateUrlHistory>\\srv01\Intranet\Pendenzen\</UpdateUrlHistory>
-    <BootstrapperUrlHistory />
+    <BootstrapperUrlHistory>\\srv01\Intranet\Pendenzen\DotNetFX46</BootstrapperUrlHistory>
     <ErrorReportUrlHistory>https://github.com/Christian-Seiler/Pendenzen/issues/new</ErrorReportUrlHistory>
     <FallbackCulture>de-DE</FallbackCulture>
     <VerifyUploadedFiles>false</VerifyUploadedFiles>

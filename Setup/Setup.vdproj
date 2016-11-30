@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_9E788A05231EC11932DFF060A696FCE5"
         "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
         "MsmSig" = "8:_UNDEFINED"
@@ -34,6 +40,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F2152E30AD87117863786E4E8ABFD85A"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -41,12 +53,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9E788A05231EC11932DFF060A696FCE5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -74,6 +80,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.5 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5"
+                    }
+                }
             }
         }
         "Release"
@@ -95,9 +109,9 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:2"
+            "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
-            "ComponentsUrl" = "8:"
+            "ComponentsUrl" = "8:\\\\srv01\\Intranet\\Pendenzen\\DotNetFX46"
                 "Items"
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.6"
@@ -124,11 +138,11 @@
         {
             "LaunchCondition"
             {
-                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_A39BDC830C454ECC98F978F52A3E2F9C"
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_D78BFBA7074944B2BD739B143399C7A4"
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6"
+                "FrameworkVersion" = "8:.NETFramework,Version=v4.5"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:http://go.microsoft.com/fwlink/?LinkId=395269"
                 }
@@ -136,6 +150,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_599F97B29A7F4BE4B143AA3E184DA2D0"
+            {
+            "SourcePath" = "8:logo Allpower.jpg"
+            "TargetName" = "8:logo Allpower.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_D20AFB00EB344490ACCBEB12235A64A6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9E788A05231EC11932DFF060A696FCE5"
             {
             "AssemblyRegister" = "3:1"
@@ -229,7 +263,7 @@
             }
             "{3C67513D-01DD-4637-8A68-80971EB9504F}:_D20AFB00EB344490ACCBEB12235A64A6"
             {
-            "DefaultLocation" = "8:[ProgramFilesFolder][Manufacturer]\\[ProductName]"
+            "DefaultLocation" = "8:[ProgramFiles64Folder][Manufacturer]\\[ProductName]"
             "Name" = "8:#1925"
             "AlwaysCreate" = "11:FALSE"
             "Condition" = "8:"
@@ -254,19 +288,19 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:Setup"
-        "ProductCode" = "8:{205A595D-5AC8-4464-A16F-A476B84C57CF}"
-        "PackageCode" = "8:{48F8FA69-2755-4B70-B43B-06B3F66002AC}"
+        "ProductName" = "8:Pendenzen"
+        "ProductCode" = "8:{E4359CE0-8791-4636-A8AA-B4A078FB3745}"
+        "PackageCode" = "8:{A4D7DA86-2162-4CE2-BEC2-6E62CBF16527}"
         "UpgradeCode" = "8:{B51164C8-9CD5-4983-BA31-846CB9847A5F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.4.0"
+        "ProductVersion" = "8:1.4.1"
         "Manufacturer" = "8:Christian Seiler Services"
         "ARPHELPTELEPHONE" = "8:"
-        "ARPHELPLINK" = "8:www.christianseiler.ch"
+        "ARPHELPLINK" = "8:http://www.christianseiler.ch"
         "Title" = "8:Setup"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Christian Seiler Services"
@@ -277,7 +311,7 @@
         "ARPIconIndex" = "3:32512"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
-        "TargetPlatform" = "3:0"
+        "TargetPlatform" = "3:1"
         "PreBuildEvent" = "8:"
         "PostBuildEvent" = "8:"
         "RunPostBuildEvent" = "3:0"
@@ -382,12 +416,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
             "Folder" = "8:_86BD820B2AE04D2CB451CC2B080AB222"
             "WorkingFolder" = "8:_D20AFB00EB344490ACCBEB12235A64A6"
-            "Icon" = "8:"
+            "Icon" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_A15891C592074F11A8E760BC43CF3C77"
@@ -396,12 +430,12 @@
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
+            "IconIndex" = "3:32512"
             "Transitive" = "11:FALSE"
             "Target" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
             "Folder" = "8:_2927B6FED2634A6B9FED360DD540446A"
             "WorkingFolder" = "8:_D20AFB00EB344490ACCBEB12235A64A6"
-            "Icon" = "8:"
+            "Icon" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
             "Feature" = "8:"
             }
         }
@@ -437,7 +471,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -485,7 +520,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -516,7 +552,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -560,7 +597,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -604,7 +642,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -648,7 +687,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -685,7 +725,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -707,7 +748,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_599F97B29A7F4BE4B143AA3E184DA2D0"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -748,7 +790,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_B65243381A0A4C6093FCB0E51DEFCD48"
             {
-            "SourcePath" = "8:..\\Pendenzen\\obj\\Debug\\Pendenzen.exe"
+            "SourcePath" = "8:..\\Pendenzen\\obj\\Release\\Pendenzen.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D20AFB00EB344490ACCBEB12235A64A6"

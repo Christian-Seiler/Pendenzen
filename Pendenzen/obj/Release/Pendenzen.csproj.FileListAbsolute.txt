@@ -1,3 +1,6 @@
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe.config
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
+\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe.config
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe.manifest
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\Pendenzen.application
@@ -15,6 +18,8 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.addCompany.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.modifyCompany.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.modifyIssue.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Properties.Resources.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Stats.resources
+H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.ubergabe.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csproj.GenerateResource.Cache
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.TrustInfo.xml
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe.manifest
@@ -22,8 +27,3 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csprojResolveAssemblyReference.cache
-H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Stats.resources
-H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.ubergabe.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe.config
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
