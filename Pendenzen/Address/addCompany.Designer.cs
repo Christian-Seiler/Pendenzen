@@ -94,6 +94,7 @@
             this.companyLabel.Location = new System.Drawing.Point(12, 59);
             this.companyLabel.Name = "companyLabel";
             this.companyLabel.Size = new System.Drawing.Size(32, 13);
+            this.companyLabel.TabIndex = 29;
             this.companyLabel.Text = "Firma";
             // 
             // companyIDLabel
@@ -102,6 +103,7 @@
             this.companyIDLabel.Location = new System.Drawing.Point(12, 10);
             this.companyIDLabel.Name = "companyIDLabel";
             this.companyIDLabel.Size = new System.Drawing.Size(36, 13);
+            this.companyIDLabel.TabIndex = 28;
             this.companyIDLabel.Text = "Kürzel";
             // 
             // streetLabel
@@ -110,6 +112,7 @@
             this.streetLabel.Location = new System.Drawing.Point(12, 98);
             this.streetLabel.Name = "streetLabel";
             this.streetLabel.Size = new System.Drawing.Size(42, 13);
+            this.streetLabel.TabIndex = 27;
             this.streetLabel.Text = "Strasse";
             // 
             // streetTextBox
@@ -125,6 +128,7 @@
             this.poBoxLabel.Location = new System.Drawing.Point(12, 137);
             this.poBoxLabel.Name = "poBoxLabel";
             this.poBoxLabel.Size = new System.Drawing.Size(49, 13);
+            this.poBoxLabel.TabIndex = 26;
             this.poBoxLabel.Text = "Postfach";
             // 
             // poBoxTextBox
@@ -140,6 +144,7 @@
             this.zipLabel.Location = new System.Drawing.Point(10, 176);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(27, 13);
+            this.zipLabel.TabIndex = 25;
             this.zipLabel.Text = "PLZ";
             // 
             // plzTextBox
@@ -155,6 +160,7 @@
             this.coutryLabel.Location = new System.Drawing.Point(12, 215);
             this.coutryLabel.Name = "coutryLabel";
             this.coutryLabel.Size = new System.Drawing.Size(31, 13);
+            this.coutryLabel.TabIndex = 23;
             this.coutryLabel.Text = "Land";
             // 
             // countryTextBox
@@ -162,6 +168,7 @@
             this.countryTextBox.Location = new System.Drawing.Point(13, 231);
             this.countryTextBox.Name = "countryTextBox";
             this.countryTextBox.Size = new System.Drawing.Size(200, 20);
+            this.countryTextBox.TabIndex = 24;
             // 
             // phoneLabel
             // 
@@ -169,6 +176,7 @@
             this.phoneLabel.Location = new System.Drawing.Point(249, 59);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(43, 13);
+            this.phoneLabel.TabIndex = 22;
             this.phoneLabel.Text = "Telefon";
             // 
             // phoneTextBox
@@ -184,6 +192,7 @@
             this.cityLabel.Location = new System.Drawing.Point(65, 176);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(32, 13);
+            this.cityLabel.TabIndex = 21;
             this.cityLabel.Text = "Stadt";
             // 
             // cityTextBox
@@ -199,6 +208,7 @@
             this.einkaufEmailLabel.Location = new System.Drawing.Point(249, 215);
             this.einkaufEmailLabel.Name = "einkaufEmailLabel";
             this.einkaufEmailLabel.Size = new System.Drawing.Size(71, 13);
+            this.einkaufEmailLabel.TabIndex = 20;
             this.einkaufEmailLabel.Text = "Email Einkauf";
             // 
             // emailEinkaufTextBox
@@ -214,6 +224,7 @@
             this.verkaufEmailLabel.Location = new System.Drawing.Point(249, 137);
             this.verkaufEmailLabel.Name = "verkaufEmailLabel";
             this.verkaufEmailLabel.Size = new System.Drawing.Size(72, 13);
+            this.verkaufEmailLabel.TabIndex = 19;
             this.verkaufEmailLabel.Text = "Email Verkauf";
             // 
             // emailVerkaufTextBox
@@ -229,6 +240,7 @@
             this.websiteLabel.Location = new System.Drawing.Point(249, 98);
             this.websiteLabel.Name = "websiteLabel";
             this.websiteLabel.Size = new System.Drawing.Size(46, 13);
+            this.websiteLabel.TabIndex = 18;
             this.websiteLabel.Text = "Website";
             // 
             // urlTextBox
@@ -244,6 +256,7 @@
             this.kontaktLabel.Location = new System.Drawing.Point(490, 10);
             this.kontaktLabel.Name = "kontaktLabel";
             this.kontaktLabel.Size = new System.Drawing.Size(56, 13);
+            this.kontaktLabel.TabIndex = 17;
             this.kontaktLabel.Text = "In Kontakt";
             // 
             // verkaufKontaktCheck
@@ -304,6 +317,7 @@
             this.label11.Location = new System.Drawing.Point(490, 98);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(54, 13);
+            this.label11.TabIndex = 16;
             this.label11.Text = "Im Buspro";
             // 
             // label12
@@ -312,6 +326,7 @@
             this.label12.Location = new System.Drawing.Point(490, 176);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(71, 13);
+            this.label12.TabIndex = 15;
             this.label12.Text = "Ist Neukunde";
             // 
             // einkaufBusproCheck
@@ -388,7 +403,6 @@
 
         private System.Windows.Forms.Button submitButton;
         private System.Windows.Forms.TextBox companyTextBox;
-        private System.Windows.Forms.TextBox companyIDTextBox;
         private System.Windows.Forms.Label companyLabel;
         private System.Windows.Forms.Label companyIDLabel;
         private System.Windows.Forms.Label streetLabel;
@@ -419,5 +433,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.CheckBox einkaufBusproCheck;
         private System.Windows.Forms.CheckBox copyMailCheck;
+        protected internal System.Windows.Forms.TextBox companyIDTextBox;
     }
 }

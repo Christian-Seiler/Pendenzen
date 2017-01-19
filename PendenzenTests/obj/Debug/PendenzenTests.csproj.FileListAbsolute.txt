@@ -1,0 +1,11 @@
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\PendenzenTests.dll
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\PendenzenTests.pdb
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\Pendenzen.exe
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\MySql.Data.dll
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\Pendenzen.pdb
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\MySql.Data.xml
+H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\de\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.csprojResolveAssemblyReference.cache
+H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.dll
+H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.pdb

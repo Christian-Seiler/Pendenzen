@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Pendenzen.Properties;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,6 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using Pendenzen.Properties;
 
 namespace Pendenzen
 {
@@ -75,32 +75,35 @@ namespace Pendenzen
             isOn = true;
         }
 
-        public Dictionary<string, string> dictionary()
+        public Dictionary<string, string> dictionary
         {
-            var dict = new Dictionary<string, string>();
-
-            if (tabControl.SelectedIndex == 0)
+            get
             {
-                dict.Add("ID", "idpendenz");
-                dict.Add("Lieferant", "lieferant");
-                dict.Add("Referenz-Nr.", "referenz");
-                dict.Add("Dokument", "dokument");
-                dict.Add("Erfasser", "erfasst_von");
-                dict.Add("Sachbearbeiter", "sachbearbeiter");
-                dict.Add("Status", "state");
-            }
-            if (tabControl.SelectedIndex == 1)
-            {
-                dict.Add("Kürzel", "company_id");
-                dict.Add("Lieferant", "company_name");
-                dict.Add("PLZ", "company_plz");
-                dict.Add("City", "company_city");
-                dict.Add("Land", "company_country");
+                var dict = new Dictionary<string, string>();
 
-                getCompanyIndex();
-            }
+                if (tabControl.SelectedIndex == 0)
+                {
+                    dict.Add("ID", "idpendenz");
+                    dict.Add("Lieferant", "lieferant");
+                    dict.Add("Referenz-Nr.", "referenz");
+                    dict.Add("Dokument", "dokument");
+                    dict.Add("Erfasser", "erfasst_von");
+                    dict.Add("Sachbearbeiter", "sachbearbeiter");
+                    dict.Add("Status", "state");
+                }
+                if (tabControl.SelectedIndex == 1)
+                {
+                    dict.Add("Kürzel", "company_id");
+                    dict.Add("Lieferant", "company_name");
+                    dict.Add("PLZ", "company_plz");
+                    dict.Add("City", "company_city");
+                    dict.Add("Land", "company_country");
 
-            return dict;
+                    getCompanyIndex();
+                }
+
+                return dict;
+            }
         }
 
         public Dictionary<string, string> headerDictionary()
@@ -443,7 +446,7 @@ namespace Pendenzen
             reloadData(tabControl.SelectedIndex);
 
             searchDropBox.Items.Clear();
-            foreach (var pair in dictionary())
+            foreach (var pair in dictionary)
                 searchDropBox.Items.Add(pair.Key);
             searchDropBox.Text = "";
             searchBox.Text = "";
@@ -493,8 +496,6 @@ namespace Pendenzen
         {
             Process.Start($"mailto:{emailEinkaufLabel.Text}");
         }
-
-
 
         private void manageButtons()
         {
@@ -582,11 +583,8 @@ namespace Pendenzen
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            dictionary();
-
             var searchKey = "";
-
-            dictionary().TryGetValue(searchDropBox.Text, out searchKey);
+            dictionary.TryGetValue(searchDropBox.Text, out searchKey);
 
             if (searchDropBox.Text != "")
             {

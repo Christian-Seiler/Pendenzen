@@ -22,12 +22,14 @@ namespace Pendenzen
             var lastMonth = DateTime.Today.AddMonths(-1).ToString("yyyy-MM-01");
 
             offen.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='open' {admin()}").ToString();
-            geschlossenAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='done' AND finalized >= {thisMonth} {admin()}").ToString();
-            storniertAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='cancelled' AND finalized >= {thisMonth}-01 {admin()}").ToString();
-            geschlossenLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='done' AND finalized < {lastMonth} AND finalized >= {lastMonth} {admin()}").ToString();
-            storniertLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='cancelled' AND finalized < {lastMonth} AND finalized >= {lastMonth} {admin()}").ToString();
-            totalAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE erfasst_am >= {lastMonth} {admin()}").ToString();
-            totalLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE erfasst_am < {lastMonth} AND erfasst_am >= {lastMonth} {admin()}").ToString();
+
+            geschlossenAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='done' AND finalized >= '{thisMonth}' {admin()}").ToString();
+            storniertAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='cancelled' AND finalized >= '{thisMonth}' {admin()}").ToString();
+            totalAktuell.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE erfasst_am >= '{lastMonth}' {admin()}").ToString();
+
+            geschlossenLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='done' AND finalized < '{thisMonth}' AND finalized >= '{lastMonth}' {admin()}").ToString();
+            storniertLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE state='cancelled' AND finalized < '{thisMonth}' AND finalized >= '{lastMonth}' {admin()}").ToString();
+            totalLetzt.Text = db.Count($"SELECT COUNT(*) FROM pendenz WHERE erfasst_am < '{thisMonth}' AND erfasst_am >= '{lastMonth}' {admin()}").ToString();
 
             title.Text = $"Statistik {dept()}";
         }

@@ -27,7 +27,7 @@ namespace Pendenzen
             switch (abteilung)
             {
                 case "Einkauf":
-                    // K:\Einkauf\Lieferanten\Inland\ALO\Korrespondenz
+                    // K:\Einkauf\Lieferanten\Inland\AAA\Korrespondenz
                     path = $@"K:\Einkauf\Lieferanten\{folder}\{company}\Korrespondenz";
                     break;
                 case "Verkauf":
@@ -35,9 +35,8 @@ namespace Pendenzen
                     path = $@"K:\Verkauf\Kunden\{folder}\{company}\Korrespondenz";
                     break;
                 case "Buchhaltung":
-                    // K:\Buchhaltung\Firmen\Alludo
-                    path = $@"K:\Buchhaltung\Firmen\{folder}\{company}";
-                    path = $@"K:\Buchhaltung\Firmen";
+                    // K:\Buchhaltung\Firmen\AAA
+                    path = $@"K:\Buchhaltung\Firmen\{company}";
                     break;
                 default:
                     path = "-1";

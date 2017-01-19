@@ -33,15 +33,11 @@ namespace Pendenzen
 
             SearchResult result = search.FindOne();
 
-            // distinguishedname     CN=Christian Seiler,OU=IT,OU=Abteilung,DC=allpower,DC=local
-            // displayname
-            // name
-
-            list.Add(result.Properties["samAccountName"][0].ToString());    //
-            list.Add(result.Properties["givenName"][0].ToString());         //
-            list.Add(result.Properties["sn"][0].ToString());                //
-            list.Add(result.Properties["mail"][0].ToString());              //
-            list.Add(result.Properties["distinguishedname"][0].ToString().Split(',')[1].Split('=').Last()); //
+            list.Add(result.Properties["samAccountName"][0].ToString());
+            list.Add(result.Properties["givenName"][0].ToString());
+            list.Add(result.Properties["sn"][0].ToString());
+            list.Add(result.Properties["mail"][0].ToString());
+            list.Add(result.Properties["distinguishedname"][0].ToString().Split(',')[1].Split('=').Last());
 
             return list;
         }

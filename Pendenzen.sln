@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pendenzen", "Pendenzen\Pend
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{1CDBD502-3BF9-4240-A986-10E21B39760E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PendenzenTests", "PendenzenTests\PendenzenTests.csproj", "{08C559CB-F33A-4797-B632-2A4AAB504F0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1CDBD502-3BF9-4240-A986-10E21B39760E}.Debug|Any CPU.ActiveCfg = Debug
 		{1CDBD502-3BF9-4240-A986-10E21B39760E}.Release|Any CPU.ActiveCfg = Release
 		{1CDBD502-3BF9-4240-A986-10E21B39760E}.Release|Any CPU.Build.0 = Release
+		{08C559CB-F33A-4797-B632-2A4AAB504F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08C559CB-F33A-4797-B632-2A4AAB504F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08C559CB-F33A-4797-B632-2A4AAB504F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08C559CB-F33A-4797-B632-2A4AAB504F0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
