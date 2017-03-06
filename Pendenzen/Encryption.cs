@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Pendenzen
 {
-    internal class Encryption
+    public class Encryption
     {
         public string Encrypt(string plainText)
         {

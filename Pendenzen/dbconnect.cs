@@ -4,7 +4,7 @@ using MySql.Data.MySqlClient;
 
 namespace Pendenzen
 {
-    internal class DBConnect
+    public class DBConnect
     {
         private MySqlConnection connection;
         private string database;

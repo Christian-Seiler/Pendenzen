@@ -16,10 +16,10 @@ namespace Pendenzen
         {
             InitializeComponent();
             _table = db.Select($"SELECT * FROM company WHERE company_id = '{id}'");
-            makeData(_table);
+            MakeData(_table);
         }
 
-        private void makeData(DataTable table)
+        private void MakeData(DataTable table)
         {
             var contact = new ArrayList(table.Columns.Count);
             foreach (DataRow row in table.Rows)
@@ -39,10 +39,10 @@ namespace Pendenzen
             emailVerkaufLabel.Text = contact[9].ToString();
             emailEinkaufLabel.Text = contact[10].ToString();
 
-            manageButtons();
+            ManageButtons();
         }
 
-        private void manageButtons()
+        private void ManageButtons()
         {
             if (urlLabel.Text == "")
             {

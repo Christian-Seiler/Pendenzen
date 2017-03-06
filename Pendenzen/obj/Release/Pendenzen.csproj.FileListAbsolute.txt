@@ -8,7 +8,6 @@ H:\Projekte\Pendenzen\Pendenzen\bin\Release\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\MySql.Data.dll
 H:\Projekte\Pendenzen\Pendenzen\bin\Release\MySql.Data.xml
-H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csprojResolveAssemblyReference.cache
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.addIssue.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.Firmendetails.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.password.resources
@@ -27,3 +26,4 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe.manifest
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.pdb
+H:\Projekte\Pendenzen\Pendenzen\obj\Release\Pendenzen.csprojResolveAssemblyReference.cache

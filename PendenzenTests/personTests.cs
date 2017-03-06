@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pendenzen.Tests
+namespace PendenzenTests
 {
     [TestClass()]
     public class personTests
@@ -14,9 +14,9 @@ namespace Pendenzen.Tests
         [TestMethod()]
         public void getIDTest()
         {
-            var ida = person.getID();
-            var ide = "sec";
-            Assert.AreEqual(ida, ide);
+            var actual = person.getID();
+            var expected = "sec";
+            Assert.AreEqual(actual, expected);
         }
     }
 }

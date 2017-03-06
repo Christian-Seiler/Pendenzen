@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Pendenzen
 {
-    class Path
+    public class myPath
     {
-
+        /// <summary>
+        /// getPath creates the appropriate path for the given department and company
+        /// </summary>
+        /// <param name="isInland">bool describing whether the company is local or abroad</param>
+        /// <param name="company">the name of the company</param>
+        /// <param name="abteilung">the name of the department</param>
+        /// <returns></returns>
         public static string getPath(bool isInland, string company, string abteilung)
         {
             string folder = "";
@@ -35,14 +37,14 @@ namespace Pendenzen
                     path = $@"K:\Verkauf\Kunden\{folder}\{company}\Korrespondenz";
                     break;
                 case "Buchhaltung":
-                    // K:\Buchhaltung\Firmen\AAA
-                    path = $@"K:\Buchhaltung\Firmen\{company}";
+                    // K:\Buchhaltung\Firmen\Inland\AAA
+                    path = $@"K:\Buchhaltung\Firmen\{folder}\{company}";
                     break;
                 default:
                     path = "-1";
                     break;
             }
-            
+            Console.WriteLine(path);
             return path;
         }
     }

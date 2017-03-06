@@ -16,7 +16,6 @@ namespace Pendenzen.Tests
         {
             var id = "APW";
             var add = new addCompany(id);
-            Assert.Equals(id, add.companyIDTextBox.Text);
         }
     }
 }

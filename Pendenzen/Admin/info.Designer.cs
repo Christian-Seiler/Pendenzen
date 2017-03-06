@@ -51,10 +51,9 @@ namespace Pendenzen
             // 
             // versionLabel
             // 
-            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(13, 132);
+            this.versionLabel.Location = new System.Drawing.Point(13, 133);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(63, 13);
             this.versionLabel.TabIndex = 1;
@@ -65,7 +64,7 @@ namespace Pendenzen
             this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Location = new System.Drawing.Point(13, 162);
+            this.copyrightLabel.Location = new System.Drawing.Point(13, 163);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(50, 13);
             this.copyrightLabel.TabIndex = 2;
@@ -78,7 +77,7 @@ namespace Pendenzen
             this.logoPicturebox.Image = global::Pendenzen.Properties.Resources.logo;
             this.logoPicturebox.Location = new System.Drawing.Point(13, 13);
             this.logoPicturebox.Name = "logoPicturebox";
-            this.logoPicturebox.Size = new System.Drawing.Size(214, 50);
+            this.logoPicturebox.Size = new System.Drawing.Size(254, 50);
             this.logoPicturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoPicturebox.TabIndex = 3;
             this.logoPicturebox.TabStop = false;
@@ -87,9 +86,9 @@ namespace Pendenzen
             // 
             this.supportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.supportButton.Location = new System.Drawing.Point(68, 244);
+            this.supportButton.Location = new System.Drawing.Point(68, 245);
             this.supportButton.Name = "supportButton";
-            this.supportButton.Size = new System.Drawing.Size(104, 23);
+            this.supportButton.Size = new System.Drawing.Size(144, 23);
             this.supportButton.TabIndex = 4;
             this.supportButton.Text = "Support";
             this.supportButton.UseVisualStyleBackColor = true;
@@ -99,9 +98,9 @@ namespace Pendenzen
             // 
             this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bugButton.Location = new System.Drawing.Point(68, 214);
+            this.bugButton.Location = new System.Drawing.Point(68, 215);
             this.bugButton.Name = "bugButton";
-            this.bugButton.Size = new System.Drawing.Size(104, 23);
+            this.bugButton.Size = new System.Drawing.Size(144, 23);
             this.bugButton.TabIndex = 5;
             this.bugButton.Text = "Fehler melden";
             this.bugButton.UseVisualStyleBackColor = true;
@@ -111,9 +110,8 @@ namespace Pendenzen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(244, 281);
+            this.ClientSize = new System.Drawing.Size(284, 282);
             this.Controls.Add(this.supportButton);
             this.Controls.Add(this.logoPicturebox);
             this.Controls.Add(this.copyrightLabel);

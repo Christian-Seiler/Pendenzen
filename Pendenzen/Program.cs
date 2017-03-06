@@ -19,7 +19,7 @@ namespace Pendenzen
             }
             else
             {
-                MessageBox.Show("Cannot connect to server.  Contact administrator");
+                MessageBox.Show("Cannot connect to server. Please contact administrator");
             }
         }
     }

@@ -34,7 +34,7 @@
     <WebPage>publish.htm</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>35</ApplicationRevision>
-    <ApplicationVersion>1.3.4.%2a</ApplicationVersion>
+    <ApplicationVersion>1.4.2.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <ExcludeDeploymentUrl>true</ExcludeDeploymentUrl>
@@ -119,7 +119,7 @@
       <DependentUpon>company.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
-    <Compile Include="files.cs" />
+    <Compile Include="myPath.cs" />
     <Compile Include="Admin\password.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_A.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

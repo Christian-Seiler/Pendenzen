@@ -12,8 +12,9 @@ namespace Pendenzen
             InitializeComponent();
 
             productNameLabel.Text = ProductName;
-            versionLabel.Text = $"Version {ProductVersion} ({Assembly.GetExecutingAssembly().GetName().Version})";
-            copyrightLabel.Text = "Copyright © 2016 Christian Seiler Services.\n" +
+            versionLabel.Text = $"Version {ProductVersion}";
+            String year = $"2016 - {DateTime.Now.Year}";
+            copyrightLabel.Text = $"Copyright © {year} Christian Seiler Services.\n" +
                                   "Alle Rechte vorbehalten.";
         }
 

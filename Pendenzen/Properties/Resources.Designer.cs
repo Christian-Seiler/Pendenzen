@@ -154,6 +154,16 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Ressource vom Typ System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo_css {
+            get {
+                object obj = ResourceManager.GetObject("logo_css", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Wollen Sie das Formular ohne zu Speichern schliessen? ähnelt.
         /// </summary>
         internal static string NichtSpeichern {
