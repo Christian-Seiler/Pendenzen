@@ -645,6 +645,40 @@ namespace Pendenzen
 
         #endregion
 
+        #region Support
+
+        public List<string> supportList
+        {
+            get
+            {
+                var list = new List<string>();
+                
+                {
+                    list.Add("Drucker");
+                    list.Add("Outlook");
+                    list.Add("Internet");
+                    list.Add("Intranet");
+                    list.Add("Netzwerk");
+                    list.Add("Sicherheit");
+                    list.Add("BusPro");
+                    list.Add("ZET");
+                    list.Add("User");
+                    list.Add("Windows");
+                    list.Add("Server");
+                    list.Add("Software");
+                    list.Add("Hardware");
+                }
+
+                return list;
+            }
+        }
+
+
+
+
+
+        #endregion
+
         #region MultiThreading
 
         private void threadStarter()

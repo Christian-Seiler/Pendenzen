@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Christian Seiler Services")]
 [assembly: AssemblyProduct("Pendenzen")]
-[assembly: AssemblyCopyright("Copyright © 2016 Christian Seiler Services. Alle Rechte vorbehalten.")]
+[assembly: AssemblyCopyright("Copyright © 2017 Christian Seiler Services. Alle Rechte vorbehalten.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 // übernehmen, indem Sie "*" eingeben:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.4.*")]
+[assembly: AssemblyVersion("1.5.*")]
 //[assembly: AssemblyFileVersion("1.4.2")]
