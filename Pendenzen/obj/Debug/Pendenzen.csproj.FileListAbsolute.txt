@@ -1,6 +1,3 @@
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.config
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.manifest
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
@@ -27,25 +24,3 @@ H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.pdb
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.stats.resources
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.ubergabe.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csprojResolveAssemblyReference.cache
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addIssue.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Firmendetails.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.password.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.reorganisation.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.info.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.mainForm.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addCompany.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyCompany.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.modifyIssue.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Properties.Resources.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.Stats.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.ubergabe.resources
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csproj.GenerateResource.Cache
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.manifest
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\Pendenzen.pdb
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\bin\Debug\MySql.Data.xml
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.TrustInfo.xml
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.exe.manifest
-\\Mac\Home\Documents\08 Coding\C#\Pendenzen\Pendenzen\obj\Debug\Pendenzen.application
