@@ -78,6 +78,13 @@ namespace Pendenzen
             this.companyLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
             this.supportTab = new System.Windows.Forms.TabPage();
+            this.type = new System.Windows.Forms.Label();
+            this.typeBox = new System.Windows.Forms.ComboBox();
+            this.sendButton = new System.Windows.Forms.Button();
+            this.descriptionBox = new System.Windows.Forms.RichTextBox();
+            this.problemBox = new System.Windows.Forms.TextBox();
+            this.descriptionLbl = new System.Windows.Forms.Label();
+            this.problemLbl = new System.Windows.Forms.Label();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -102,13 +109,6 @@ namespace Pendenzen
             this.label1 = new System.Windows.Forms.Label();
             this.resetButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.problemLbl = new System.Windows.Forms.Label();
-            this.descriptionLbl = new System.Windows.Forms.Label();
-            this.problemBox = new System.Windows.Forms.TextBox();
-            this.descriptionBox = new System.Windows.Forms.RichTextBox();
-            this.sendButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.type = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
@@ -619,7 +619,7 @@ namespace Pendenzen
             // supportTab
             // 
             this.supportTab.Controls.Add(this.type);
-            this.supportTab.Controls.Add(this.comboBox1);
+            this.supportTab.Controls.Add(this.typeBox);
             this.supportTab.Controls.Add(this.sendButton);
             this.supportTab.Controls.Add(this.descriptionBox);
             this.supportTab.Controls.Add(this.problemBox);
@@ -632,6 +632,68 @@ namespace Pendenzen
             this.supportTab.TabIndex = 2;
             this.supportTab.Text = "Support";
             this.supportTab.UseVisualStyleBackColor = true;
+            // 
+            // type
+            // 
+            this.type.AutoSize = true;
+            this.type.Location = new System.Drawing.Point(567, 23);
+            this.type.Name = "type";
+            this.type.Size = new System.Drawing.Size(20, 13);
+            this.type.TabIndex = 6;
+            this.type.Text = "Art";
+            // 
+            // typeBox
+            // 
+            this.typeBox.FormattingEnabled = true;
+            this.typeBox.Location = new System.Drawing.Point(570, 39);
+            this.typeBox.Name = "typeBox";
+            this.typeBox.Size = new System.Drawing.Size(268, 21);
+            this.typeBox.TabIndex = 5;
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(10, 400);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(75, 23);
+            this.sendButton.TabIndex = 4;
+            this.sendButton.Text = "Senden";
+            this.sendButton.UseVisualStyleBackColor = true;
+            // 
+            // descriptionBox
+            // 
+            this.descriptionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.descriptionBox.Location = new System.Drawing.Point(10, 125);
+            this.descriptionBox.Name = "descriptionBox";
+            this.descriptionBox.Size = new System.Drawing.Size(1072, 166);
+            this.descriptionBox.TabIndex = 3;
+            this.descriptionBox.Text = "";
+            // 
+            // problemBox
+            // 
+            this.problemBox.Location = new System.Drawing.Point(10, 40);
+            this.problemBox.Name = "problemBox";
+            this.problemBox.Size = new System.Drawing.Size(521, 20);
+            this.problemBox.TabIndex = 2;
+            // 
+            // descriptionLbl
+            // 
+            this.descriptionLbl.AutoSize = true;
+            this.descriptionLbl.Location = new System.Drawing.Point(7, 109);
+            this.descriptionLbl.Name = "descriptionLbl";
+            this.descriptionLbl.Size = new System.Drawing.Size(72, 13);
+            this.descriptionLbl.TabIndex = 1;
+            this.descriptionLbl.Text = "Beschreibung";
+            // 
+            // problemLbl
+            // 
+            this.problemLbl.AutoSize = true;
+            this.problemLbl.Location = new System.Drawing.Point(7, 24);
+            this.problemLbl.Name = "problemLbl";
+            this.problemLbl.Size = new System.Drawing.Size(38, 13);
+            this.problemLbl.TabIndex = 0;
+            this.problemLbl.Text = "Betreff";
             // 
             // menuStrip
             // 
@@ -844,68 +906,6 @@ namespace Pendenzen
             this.resetButton.UseVisualStyleBackColor = true;
             this.resetButton.Click += new System.EventHandler(this.reset_Click);
             // 
-            // problemLbl
-            // 
-            this.problemLbl.AutoSize = true;
-            this.problemLbl.Location = new System.Drawing.Point(7, 24);
-            this.problemLbl.Name = "problemLbl";
-            this.problemLbl.Size = new System.Drawing.Size(38, 13);
-            this.problemLbl.TabIndex = 0;
-            this.problemLbl.Text = "Betreff";
-            // 
-            // descriptionLbl
-            // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(7, 109);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(72, 13);
-            this.descriptionLbl.TabIndex = 1;
-            this.descriptionLbl.Text = "Beschreibung";
-            // 
-            // problemBox
-            // 
-            this.problemBox.Location = new System.Drawing.Point(10, 40);
-            this.problemBox.Name = "problemBox";
-            this.problemBox.Size = new System.Drawing.Size(521, 20);
-            this.problemBox.TabIndex = 2;
-            // 
-            // descriptionBox
-            // 
-            this.descriptionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionBox.Location = new System.Drawing.Point(10, 125);
-            this.descriptionBox.Name = "descriptionBox";
-            this.descriptionBox.Size = new System.Drawing.Size(1072, 166);
-            this.descriptionBox.TabIndex = 3;
-            this.descriptionBox.Text = "";
-            // 
-            // sendButton
-            // 
-            this.sendButton.Location = new System.Drawing.Point(10, 400);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 23);
-            this.sendButton.TabIndex = 4;
-            this.sendButton.Text = "Senden";
-            this.sendButton.UseVisualStyleBackColor = true;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(570, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(268, 21);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // type
-            // 
-            this.type.AutoSize = true;
-            this.type.Location = new System.Drawing.Point(567, 23);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(20, 13);
-            this.type.TabIndex = 6;
-            this.type.Text = "Art";
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1024,7 +1024,7 @@ namespace Pendenzen
         private Label descriptionLbl;
         private Label problemLbl;
         private Label type;
-        private ComboBox comboBox1;
+        private ComboBox typeBox;
     }
 }
 

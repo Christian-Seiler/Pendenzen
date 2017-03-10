@@ -66,6 +66,7 @@ namespace Pendenzen
             nameLabel.Text =
                 $"Name: {person.getInfo()[1]} {person.getInfo()[2]} / {person.getInfo()[0]}\nAbteilung: {person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
 
+            typeBox.DataSource = supportList;
             string[] status = {"open", "done", "cancelled"};
             foreach (var s in status) searchStatusBox.Items.Add(s);
             oldTable = db.Select(query);
@@ -199,6 +200,10 @@ namespace Pendenzen
             {
                 loadContact(idLabel.Text);
                 druckToolStripMenuItem.Enabled = false;
+            }
+            else if (tabIndex == 2)
+            {
+                
             }
         }
 
@@ -673,7 +678,10 @@ namespace Pendenzen
             }
         }
 
-
+        public void submit_Click(object sender, EventArgs e)
+        {
+            // TODO: Create Query to send Support Issue.
+        }
 
 
 
