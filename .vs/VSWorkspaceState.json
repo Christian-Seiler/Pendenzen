@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Pendenzen"
   ],
-  "SelectedNode": "\\Pendenzen.sln",
+  "SelectedNode": "\\Pendenzen\\mainForm.cs",
   "PreviewInSolutionExplorer": false
 }

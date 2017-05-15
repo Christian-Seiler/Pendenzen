@@ -3,7 +3,6 @@ H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe.manifest
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.application
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.exe
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\Pendenzen.pdb
-H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.dll
 H:\Projekte\Pendenzen\Pendenzen\bin\Debug\MySql.Data.xml
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.csprojResolveAssemblyReference.cache
 H:\Projekte\Pendenzen\Pendenzen\obj\Debug\Pendenzen.addIssue.resources

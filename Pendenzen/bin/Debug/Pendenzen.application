@@ -10,7 +10,7 @@
     </subscription>
   </deployment>
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.6" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.6.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
     <dependentAssembly dependencyType="install" codebase="Pendenzen.exe.manifest" size="6076">
@@ -20,7 +20,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>d5K1R+wjFl+uIMz8TXiZCybo5gNNK8CpsV8bbmGV5Kc=</dsig:DigestValue>
+        <dsig:DigestValue>/7x3zon9ZT2bHNpcNMOkCO0Mf9gcbmgR45LDWSKBogI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

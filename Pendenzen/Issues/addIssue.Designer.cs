@@ -1,6 +1,6 @@
 ﻿namespace Pendenzen
 {
-    partial class addIssue
+    partial class AddIssue
     {
         /// <summary>
         /// Required designer variable.

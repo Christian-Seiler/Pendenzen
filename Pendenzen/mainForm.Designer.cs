@@ -33,18 +33,41 @@ namespace Pendenzen
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
             this.searchBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
-            this.issueDataView = new System.Windows.Forms.DataGridView();
             this.onOffButton = new System.Windows.Forms.Button();
             this.searchDropBox = new System.Windows.Forms.ComboBox();
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.pendenzTab = new System.Windows.Forms.TabPage();
-            this.restoreLabel = new System.Windows.Forms.Label();
-            this.restoreButton = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sucheZurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.übergabeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.storniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printIssues = new System.Drawing.Printing.PrintDocument();
+            this.infoLabel = new System.Windows.Forms.Label();
+            this.searchStatusBox = new System.Windows.Forms.ComboBox();
+            this.autoUpdate = new System.Windows.Forms.Label();
+            this.resetButton = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.companyTab = new System.Windows.Forms.TabPage();
             this.verkaufLabel = new System.Windows.Forms.Label();
             this.einkaufLabel = new System.Windows.Forms.Label();
@@ -77,45 +100,34 @@ namespace Pendenzen
             this.streetLabel = new System.Windows.Forms.Label();
             this.companyLabel = new System.Windows.Forms.Label();
             this.idLabel = new System.Windows.Forms.Label();
-            this.supportTab = new System.Windows.Forms.TabPage();
-            this.type = new System.Windows.Forms.Label();
-            this.typeBox = new System.Windows.Forms.ComboBox();
-            this.sendButton = new System.Windows.Forms.Button();
-            this.descriptionBox = new System.Windows.Forms.RichTextBox();
-            this.problemBox = new System.Windows.Forms.TextBox();
-            this.descriptionLbl = new System.Windows.Forms.Label();
-            this.problemLbl = new System.Windows.Forms.Label();
-            this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.dateiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neuePendenzToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.neueAdresseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckvorschauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.druckenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.schliessenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autoUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sucheZurücksetzenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reorganisationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kennwortÄndernToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.übergabeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printIssues = new System.Drawing.Printing.PrintDocument();
-            this.infoLabel = new System.Windows.Forms.Label();
-            this.searchStatusBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.resetButton = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pendenzTab = new System.Windows.Forms.TabPage();
+            this.restoreLabel = new System.Windows.Forms.Label();
+            this.restoreButton = new System.Windows.Forms.Button();
+            this.issueDataView = new System.Windows.Forms.DataGridView();
+            this.tabControl = new System.Windows.Forms.TabControl();
+            this.stornoTab = new System.Windows.Forms.TabPage();
+            this.stornoDataView = new System.Windows.Forms.DataGridView();
+            this.label6 = new System.Windows.Forms.Label();
+            this.reasonBox = new System.Windows.Forms.ComboBox();
+            this.amount = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.companyBox = new System.Windows.Forms.ComboBox();
+            this.credit = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.invoice = new System.Windows.Forms.TextBox();
+            this.Senden = new System.Windows.Forms.Button();
+            this.companyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+            this.menuStrip.SuspendLayout();
+            this.companyTab.SuspendLayout();
+            this.pendenzTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
-            this.pendenzTab.SuspendLayout();
-            this.companyTab.SuspendLayout();
-            this.supportTab.SuspendLayout();
-            this.menuStrip.SuspendLayout();
+            this.stornoTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyChart)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -167,45 +179,6 @@ namespace Pendenzen
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
-            // issueDataView
-            // 
-            this.issueDataView.AllowUserToAddRows = false;
-            this.issueDataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.issueDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.issueDataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
-            this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.issueDataView.Location = new System.Drawing.Point(0, 0);
-            this.issueDataView.MultiSelect = false;
-            this.issueDataView.Name = "issueDataView";
-            this.issueDataView.ReadOnly = true;
-            this.issueDataView.RowHeadersVisible = false;
-            this.issueDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.issueDataView.ShowCellErrors = false;
-            this.issueDataView.ShowCellToolTips = false;
-            this.issueDataView.ShowEditingIcon = false;
-            this.issueDataView.ShowRowErrors = false;
-            this.issueDataView.Size = new System.Drawing.Size(1087, 459);
-            this.issueDataView.TabIndex = 21;
-            this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
-            this.issueDataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.issueDataView_CellMouseClick);
-            // 
             // onOffButton
             // 
             this.onOffButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -229,56 +202,223 @@ namespace Pendenzen
             this.searchDropBox.TabIndex = 40;
             this.searchDropBox.SelectedIndexChanged += new System.EventHandler(this.searchDropBox_SelectedIndexChanged);
             // 
-            // tabControl
+            // menuStrip
             // 
-            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl.Controls.Add(this.pendenzTab);
-            this.tabControl.Controls.Add(this.companyTab);
-            this.tabControl.Controls.Add(this.supportTab);
-            this.tabControl.Location = new System.Drawing.Point(3, 173);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1096, 485);
-            this.tabControl.TabIndex = 1;
-            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dateiToolStripMenuItem,
+            this.editToolStripMenuItem,
+            this.adminToolStripMenuItem,
+            this.infoToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(1102, 24);
+            this.menuStrip.TabIndex = 60;
+            this.menuStrip.Text = "menuStrip";
             // 
-            // pendenzTab
+            // dateiToolStripMenuItem
             // 
-            this.pendenzTab.Controls.Add(this.restoreLabel);
-            this.pendenzTab.Controls.Add(this.restoreButton);
-            this.pendenzTab.Controls.Add(this.issueDataView);
-            this.pendenzTab.Location = new System.Drawing.Point(4, 22);
-            this.pendenzTab.Name = "pendenzTab";
-            this.pendenzTab.Padding = new System.Windows.Forms.Padding(3);
-            this.pendenzTab.Size = new System.Drawing.Size(1088, 459);
-            this.pendenzTab.TabIndex = 0;
-            this.pendenzTab.Text = "Pendenzen";
-            this.pendenzTab.UseVisualStyleBackColor = true;
+            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuToolStripMenuItem,
+            this.druckToolStripMenuItem,
+            this.schliessenToolStripMenuItem});
+            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
+            this.dateiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
+            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.dateiToolStripMenuItem.Text = "Datei";
             // 
-            // restoreLabel
+            // neuToolStripMenuItem
             // 
-            this.restoreLabel.AutoSize = true;
-            this.restoreLabel.Location = new System.Drawing.Point(288, 190);
-            this.restoreLabel.Name = "restoreLabel";
-            this.restoreLabel.Size = new System.Drawing.Size(559, 13);
-            this.restoreLabel.TabIndex = 0;
-            this.restoreLabel.Text = "Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder " +
-    "setze die Suche zurück (Ctrl + Y).";
-            this.restoreLabel.Visible = false;
+            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.neuePendenzToolStripMenuItem,
+            this.neueAdresseToolStripMenuItem});
+            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
+            this.neuToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.neuToolStripMenuItem.Text = "Neu";
             // 
-            // restoreButton
+            // neuePendenzToolStripMenuItem
             // 
-            this.restoreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.restoreButton.Location = new System.Drawing.Point(473, 226);
-            this.restoreButton.Name = "restoreButton";
-            this.restoreButton.Size = new System.Drawing.Size(119, 23);
-            this.restoreButton.TabIndex = 20;
-            this.restoreButton.Text = "Suche zurücksetzen";
-            this.restoreButton.UseVisualStyleBackColor = true;
-            this.restoreButton.Visible = false;
-            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
+            this.neuePendenzToolStripMenuItem.Name = "neuePendenzToolStripMenuItem";
+            this.neuePendenzToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.neuePendenzToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.neuePendenzToolStripMenuItem.Text = "Neue Pendenz";
+            this.neuePendenzToolStripMenuItem.Click += new System.EventHandler(this.neuePendenzToolStripMenuItem_Click);
+            // 
+            // neueAdresseToolStripMenuItem
+            // 
+            this.neueAdresseToolStripMenuItem.Name = "neueAdresseToolStripMenuItem";
+            this.neueAdresseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.N)));
+            this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
+            this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
+            this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
+            // 
+            // druckToolStripMenuItem
+            // 
+            this.druckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.druckvorschauToolStripMenuItem,
+            this.druckenToolStripMenuItem});
+            this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
+            this.druckToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.druckToolStripMenuItem.Text = "Druck";
+            // 
+            // druckvorschauToolStripMenuItem
+            // 
+            this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
+            this.druckvorschauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
+            this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
+            // 
+            // druckenToolStripMenuItem
+            // 
+            this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
+            this.druckenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.druckenToolStripMenuItem.Text = "Drucken";
+            this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
+            // 
+            // schliessenToolStripMenuItem
+            // 
+            this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
+            this.schliessenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.schliessenToolStripMenuItem.Text = "Schliessen";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.autoUpdateToolStripMenuItem,
+            this.sucheZurücksetzenToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.editToolStripMenuItem.Text = "Bearbeiten";
+            // 
+            // autoUpdateToolStripMenuItem
+            // 
+            this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
+            this.autoUpdateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
+            this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.onOffButton_Click);
+            // 
+            // sucheZurücksetzenToolStripMenuItem
+            // 
+            this.sucheZurücksetzenToolStripMenuItem.Name = "sucheZurücksetzenToolStripMenuItem";
+            this.sucheZurücksetzenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
+            this.sucheZurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
+            this.sucheZurücksetzenToolStripMenuItem.Text = "Suche zurücksetzen";
+            this.sucheZurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.restoreButton_Click);
+            // 
+            // adminToolStripMenuItem
+            // 
+            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reorganisationToolStripMenuItem,
+            this.kennwortÄndernToolStripMenuItem,
+            this.statistikToolStripMenuItem,
+            this.übergabeToolStripMenuItem,
+            this.storniToolStripMenuItem});
+            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
+            this.adminToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
+            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
+            this.adminToolStripMenuItem.Text = "Admin";
+            // 
+            // reorganisationToolStripMenuItem
+            // 
+            this.reorganisationToolStripMenuItem.Name = "reorganisationToolStripMenuItem";
+            this.reorganisationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reorganisationToolStripMenuItem.Text = "Reorganisation";
+            this.reorganisationToolStripMenuItem.Click += new System.EventHandler(this.reorganisationToolStripMenuItem_Click);
+            // 
+            // kennwortÄndernToolStripMenuItem
+            // 
+            this.kennwortÄndernToolStripMenuItem.Name = "kennwortÄndernToolStripMenuItem";
+            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
+            this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
+            // 
+            // statistikToolStripMenuItem
+            // 
+            this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.statistikToolStripMenuItem.Text = "Statistik";
+            this.statistikToolStripMenuItem.Click += new System.EventHandler(this.statistikToolStripMenuItem_Click);
+            // 
+            // übergabeToolStripMenuItem
+            // 
+            this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
+            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.übergabeToolStripMenuItem.Text = "Übergabe";
+            this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
+            // 
+            // storniToolStripMenuItem
+            // 
+            this.storniToolStripMenuItem.Name = "storniToolStripMenuItem";
+            this.storniToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.storniToolStripMenuItem.Text = "Storni";
+            // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.infoToolStripMenuItem.Text = "Info";
+            this.infoToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // printIssues
+            // 
+            this.printIssues.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_BeginPrint);
+            this.printIssues.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_EndPrint);
+            this.printIssues.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printIssues_PrintPage);
+            // 
+            // infoLabel
+            // 
+            this.infoLabel.AllowDrop = true;
+            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoLabel.AutoSize = true;
+            this.infoLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.infoLabel.Cursor = System.Windows.Forms.Cursors.Default;
+            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.infoLabel.Location = new System.Drawing.Point(951, 63);
+            this.infoLabel.Name = "infoLabel";
+            this.infoLabel.Size = new System.Drawing.Size(139, 26);
+            this.infoLabel.TabIndex = 45;
+            this.infoLabel.Text = "AutoUpdate ist aus!\r\nDrücke F4 zum starten.";
+            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.infoLabel.Visible = false;
+            // 
+            // searchStatusBox
+            // 
+            this.searchStatusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.searchStatusBox.FormattingEnabled = true;
+            this.searchStatusBox.Location = new System.Drawing.Point(825, 145);
+            this.searchStatusBox.Name = "searchStatusBox";
+            this.searchStatusBox.Size = new System.Drawing.Size(107, 21);
+            this.searchStatusBox.TabIndex = 41;
+            this.searchStatusBox.Visible = false;
+            // 
+            // autoUpdate
+            // 
+            this.autoUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.autoUpdate.AutoSize = true;
+            this.autoUpdate.Location = new System.Drawing.Point(980, 42);
+            this.autoUpdate.Name = "autoUpdate";
+            this.autoUpdate.Size = new System.Drawing.Size(64, 13);
+            this.autoUpdate.TabIndex = 44;
+            this.autoUpdate.Text = "AutoUpdate";
+            // 
+            // resetButton
+            // 
+            this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.resetButton.Location = new System.Drawing.Point(1019, 144);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(75, 23);
+            this.resetButton.TabIndex = 43;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = true;
+            this.resetButton.Click += new System.EventHandler(this.reset_Click);
             // 
             // companyTab
             // 
@@ -616,295 +756,246 @@ namespace Pendenzen
             this.idLabel.TabIndex = 56;
             this.idLabel.Text = "APW";
             // 
-            // supportTab
+            // pendenzTab
             // 
-            this.supportTab.Controls.Add(this.type);
-            this.supportTab.Controls.Add(this.typeBox);
-            this.supportTab.Controls.Add(this.sendButton);
-            this.supportTab.Controls.Add(this.descriptionBox);
-            this.supportTab.Controls.Add(this.problemBox);
-            this.supportTab.Controls.Add(this.descriptionLbl);
-            this.supportTab.Controls.Add(this.problemLbl);
-            this.supportTab.Location = new System.Drawing.Point(4, 22);
-            this.supportTab.Name = "supportTab";
-            this.supportTab.Padding = new System.Windows.Forms.Padding(3);
-            this.supportTab.Size = new System.Drawing.Size(1088, 459);
-            this.supportTab.TabIndex = 2;
-            this.supportTab.Text = "Support";
-            this.supportTab.UseVisualStyleBackColor = true;
+            this.pendenzTab.Controls.Add(this.restoreLabel);
+            this.pendenzTab.Controls.Add(this.restoreButton);
+            this.pendenzTab.Controls.Add(this.issueDataView);
+            this.pendenzTab.Location = new System.Drawing.Point(4, 22);
+            this.pendenzTab.Name = "pendenzTab";
+            this.pendenzTab.Padding = new System.Windows.Forms.Padding(3);
+            this.pendenzTab.Size = new System.Drawing.Size(1088, 459);
+            this.pendenzTab.TabIndex = 0;
+            this.pendenzTab.Text = "Pendenzen";
+            this.pendenzTab.UseVisualStyleBackColor = true;
             // 
-            // type
+            // restoreLabel
             // 
-            this.type.AutoSize = true;
-            this.type.Location = new System.Drawing.Point(567, 23);
-            this.type.Name = "type";
-            this.type.Size = new System.Drawing.Size(20, 13);
-            this.type.TabIndex = 6;
-            this.type.Text = "Art";
+            this.restoreLabel.AutoSize = true;
+            this.restoreLabel.Location = new System.Drawing.Point(288, 190);
+            this.restoreLabel.Name = "restoreLabel";
+            this.restoreLabel.Size = new System.Drawing.Size(559, 13);
+            this.restoreLabel.TabIndex = 0;
+            this.restoreLabel.Text = "Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder " +
+    "setze die Suche zurück (Ctrl + Y).";
+            this.restoreLabel.Visible = false;
             // 
-            // typeBox
+            // restoreButton
             // 
-            this.typeBox.FormattingEnabled = true;
-            this.typeBox.Location = new System.Drawing.Point(570, 39);
-            this.typeBox.Name = "typeBox";
-            this.typeBox.Size = new System.Drawing.Size(268, 21);
-            this.typeBox.TabIndex = 5;
+            this.restoreButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.restoreButton.Location = new System.Drawing.Point(473, 226);
+            this.restoreButton.Name = "restoreButton";
+            this.restoreButton.Size = new System.Drawing.Size(119, 23);
+            this.restoreButton.TabIndex = 20;
+            this.restoreButton.Text = "Suche zurücksetzen";
+            this.restoreButton.UseVisualStyleBackColor = true;
+            this.restoreButton.Visible = false;
+            this.restoreButton.Click += new System.EventHandler(this.restoreButton_Click);
             // 
-            // sendButton
+            // issueDataView
             // 
-            this.sendButton.Location = new System.Drawing.Point(10, 400);
-            this.sendButton.Name = "sendButton";
-            this.sendButton.Size = new System.Drawing.Size(75, 23);
-            this.sendButton.TabIndex = 4;
-            this.sendButton.Text = "Senden";
-            this.sendButton.UseVisualStyleBackColor = true;
-            // 
-            // descriptionBox
-            // 
-            this.descriptionBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.issueDataView.AllowUserToAddRows = false;
+            this.issueDataView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.descriptionBox.Location = new System.Drawing.Point(10, 125);
-            this.descriptionBox.Name = "descriptionBox";
-            this.descriptionBox.Size = new System.Drawing.Size(1072, 166);
-            this.descriptionBox.TabIndex = 3;
-            this.descriptionBox.Text = "";
+            this.issueDataView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.issueDataView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
+            this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
+            this.issueDataView.Location = new System.Drawing.Point(0, 0);
+            this.issueDataView.MultiSelect = false;
+            this.issueDataView.Name = "issueDataView";
+            this.issueDataView.ReadOnly = true;
+            this.issueDataView.RowHeadersVisible = false;
+            this.issueDataView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.issueDataView.ShowCellErrors = false;
+            this.issueDataView.ShowCellToolTips = false;
+            this.issueDataView.ShowEditingIcon = false;
+            this.issueDataView.ShowRowErrors = false;
+            this.issueDataView.Size = new System.Drawing.Size(1087, 459);
+            this.issueDataView.TabIndex = 21;
+            this.issueDataView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.issueDataView_CellClick);
+            this.issueDataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.issueDataView_CellMouseClick);
             // 
-            // problemBox
+            // tabControl
             // 
-            this.problemBox.Location = new System.Drawing.Point(10, 40);
-            this.problemBox.Name = "problemBox";
-            this.problemBox.Size = new System.Drawing.Size(521, 20);
-            this.problemBox.TabIndex = 2;
+            this.tabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl.Controls.Add(this.pendenzTab);
+            this.tabControl.Controls.Add(this.companyTab);
+            this.tabControl.Controls.Add(this.stornoTab);
+            this.tabControl.Location = new System.Drawing.Point(3, 173);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(1096, 485);
+            this.tabControl.TabIndex = 1;
+            this.tabControl.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl_Selected);
             // 
-            // descriptionLbl
+            // stornoTab
             // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(7, 109);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(72, 13);
-            this.descriptionLbl.TabIndex = 1;
-            this.descriptionLbl.Text = "Beschreibung";
+            this.stornoTab.Controls.Add(this.companyChart);
+            this.stornoTab.Controls.Add(this.stornoDataView);
+            this.stornoTab.Controls.Add(this.label6);
+            this.stornoTab.Controls.Add(this.reasonBox);
+            this.stornoTab.Controls.Add(this.amount);
+            this.stornoTab.Controls.Add(this.label5);
+            this.stornoTab.Controls.Add(this.label4);
+            this.stornoTab.Controls.Add(this.companyBox);
+            this.stornoTab.Controls.Add(this.credit);
+            this.stornoTab.Controls.Add(this.label3);
+            this.stornoTab.Controls.Add(this.label2);
+            this.stornoTab.Controls.Add(this.invoice);
+            this.stornoTab.Controls.Add(this.Senden);
+            this.stornoTab.Location = new System.Drawing.Point(4, 22);
+            this.stornoTab.Name = "stornoTab";
+            this.stornoTab.Padding = new System.Windows.Forms.Padding(3);
+            this.stornoTab.Size = new System.Drawing.Size(1088, 459);
+            this.stornoTab.TabIndex = 2;
+            this.stornoTab.Text = "Storni";
+            this.stornoTab.UseVisualStyleBackColor = true;
             // 
-            // problemLbl
+            // stornoDataView
             // 
-            this.problemLbl.AutoSize = true;
-            this.problemLbl.Location = new System.Drawing.Point(7, 24);
-            this.problemLbl.Name = "problemLbl";
-            this.problemLbl.Size = new System.Drawing.Size(38, 13);
-            this.problemLbl.TabIndex = 0;
-            this.problemLbl.Text = "Betreff";
+            this.stornoDataView.AllowUserToAddRows = false;
+            this.stornoDataView.AllowUserToDeleteRows = false;
+            this.stornoDataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stornoDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.stornoDataView.Location = new System.Drawing.Point(10, 179);
+            this.stornoDataView.Name = "stornoDataView";
+            this.stornoDataView.ReadOnly = true;
+            this.stornoDataView.RowHeadersVisible = false;
+            this.stornoDataView.Size = new System.Drawing.Size(619, 274);
+            this.stornoDataView.TabIndex = 11;
             // 
-            // menuStrip
+            // label6
             // 
-            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dateiToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.adminToolStripMenuItem,
-            this.infoToolStripMenuItem});
-            this.menuStrip.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(1102, 24);
-            this.menuStrip.TabIndex = 60;
-            this.menuStrip.Text = "menuStrip";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(10, 107);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Stornogrund";
             // 
-            // dateiToolStripMenuItem
+            // reasonBox
             // 
-            this.dateiToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuToolStripMenuItem,
-            this.druckToolStripMenuItem,
-            this.schliessenToolStripMenuItem});
-            this.dateiToolStripMenuItem.Name = "dateiToolStripMenuItem";
-            this.dateiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.N)));
-            this.dateiToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.dateiToolStripMenuItem.Text = "Datei";
+            this.reasonBox.FormattingEnabled = true;
+            this.reasonBox.Location = new System.Drawing.Point(10, 123);
+            this.reasonBox.Name = "reasonBox";
+            this.reasonBox.Size = new System.Drawing.Size(206, 21);
+            this.reasonBox.TabIndex = 9;
             // 
-            // neuToolStripMenuItem
+            // amount
             // 
-            this.neuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.neuePendenzToolStripMenuItem,
-            this.neueAdresseToolStripMenuItem});
-            this.neuToolStripMenuItem.Name = "neuToolStripMenuItem";
-            this.neuToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.neuToolStripMenuItem.Text = "Neu";
+            this.amount.Location = new System.Drawing.Point(116, 84);
+            this.amount.Name = "amount";
+            this.amount.Size = new System.Drawing.Size(100, 20);
+            this.amount.TabIndex = 8;
             // 
-            // neuePendenzToolStripMenuItem
+            // label5
             // 
-            this.neuePendenzToolStripMenuItem.Name = "neuePendenzToolStripMenuItem";
-            this.neuePendenzToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.neuePendenzToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.neuePendenzToolStripMenuItem.Text = "Neue Pendenz";
-            this.neuePendenzToolStripMenuItem.Click += new System.EventHandler(this.neuePendenzToolStripMenuItem_Click);
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(115, 68);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Betrag";
             // 
-            // neueAdresseToolStripMenuItem
+            // label4
             // 
-            this.neueAdresseToolStripMenuItem.Name = "neueAdresseToolStripMenuItem";
-            this.neueAdresseToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.N)));
-            this.neueAdresseToolStripMenuItem.Size = new System.Drawing.Size(274, 22);
-            this.neueAdresseToolStripMenuItem.Text = "Neue Adresse";
-            this.neueAdresseToolStripMenuItem.Click += new System.EventHandler(this.neueAdresseToolStripMenuItem_Click);
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 67);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(32, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Firma";
             // 
-            // druckToolStripMenuItem
+            // companyBox
             // 
-            this.druckToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.druckvorschauToolStripMenuItem,
-            this.druckenToolStripMenuItem});
-            this.druckToolStripMenuItem.Name = "druckToolStripMenuItem";
-            this.druckToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.druckToolStripMenuItem.Text = "Druck";
+            this.companyBox.FormattingEnabled = true;
+            this.companyBox.Location = new System.Drawing.Point(10, 83);
+            this.companyBox.Name = "companyBox";
+            this.companyBox.Size = new System.Drawing.Size(100, 21);
+            this.companyBox.TabIndex = 5;
             // 
-            // druckvorschauToolStripMenuItem
+            // credit
             // 
-            this.druckvorschauToolStripMenuItem.Name = "druckvorschauToolStripMenuItem";
-            this.druckvorschauToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.P)));
-            this.druckvorschauToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.druckvorschauToolStripMenuItem.Text = "Druckvorschau";
-            this.druckvorschauToolStripMenuItem.Click += new System.EventHandler(this.previewButton_Click);
+            this.credit.Location = new System.Drawing.Point(116, 44);
+            this.credit.Name = "credit";
+            this.credit.Size = new System.Drawing.Size(100, 20);
+            this.credit.TabIndex = 4;
             // 
-            // druckenToolStripMenuItem
+            // label3
             // 
-            this.druckenToolStripMenuItem.Name = "druckenToolStripMenuItem";
-            this.druckenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.druckenToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
-            this.druckenToolStripMenuItem.Text = "Drucken";
-            this.druckenToolStripMenuItem.Click += new System.EventHandler(this.druckenButton_Click);
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(115, 28);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Gutschrift";
             // 
-            // schliessenToolStripMenuItem
+            // label2
             // 
-            this.schliessenToolStripMenuItem.Name = "schliessenToolStripMenuItem";
-            this.schliessenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.schliessenToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.schliessenToolStripMenuItem.Text = "Schliessen";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Rechnung";
             // 
-            // editToolStripMenuItem
+            // invoice
             // 
-            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.autoUpdateToolStripMenuItem,
-            this.sucheZurücksetzenToolStripMenuItem});
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.editToolStripMenuItem.Text = "Bearbeiten";
+            this.invoice.Location = new System.Drawing.Point(10, 44);
+            this.invoice.Name = "invoice";
+            this.invoice.Size = new System.Drawing.Size(100, 20);
+            this.invoice.TabIndex = 1;
             // 
-            // autoUpdateToolStripMenuItem
+            // Senden
             // 
-            this.autoUpdateToolStripMenuItem.Name = "autoUpdateToolStripMenuItem";
-            this.autoUpdateToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.autoUpdateToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.autoUpdateToolStripMenuItem.Text = "AutoUpdate";
-            this.autoUpdateToolStripMenuItem.Click += new System.EventHandler(this.onOffButton_Click);
+            this.Senden.Location = new System.Drawing.Point(10, 150);
+            this.Senden.Name = "Senden";
+            this.Senden.Size = new System.Drawing.Size(75, 23);
+            this.Senden.TabIndex = 0;
+            this.Senden.Text = "Senden";
+            this.Senden.UseVisualStyleBackColor = true;
+            this.Senden.Click += new System.EventHandler(this.submitStorno);
             // 
-            // sucheZurücksetzenToolStripMenuItem
+            // companyChart
             // 
-            this.sucheZurücksetzenToolStripMenuItem.Name = "sucheZurücksetzenToolStripMenuItem";
-            this.sucheZurücksetzenToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.sucheZurücksetzenToolStripMenuItem.Size = new System.Drawing.Size(220, 22);
-            this.sucheZurücksetzenToolStripMenuItem.Text = "Suche zurücksetzen";
-            this.sucheZurücksetzenToolStripMenuItem.Click += new System.EventHandler(this.restoreButton_Click);
-            // 
-            // adminToolStripMenuItem
-            // 
-            this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reorganisationToolStripMenuItem,
-            this.kennwortÄndernToolStripMenuItem,
-            this.statistikToolStripMenuItem,
-            this.übergabeToolStripMenuItem});
-            this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
-            this.adminToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.A)));
-            this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
-            this.adminToolStripMenuItem.Text = "Admin";
-            // 
-            // reorganisationToolStripMenuItem
-            // 
-            this.reorganisationToolStripMenuItem.Name = "reorganisationToolStripMenuItem";
-            this.reorganisationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.reorganisationToolStripMenuItem.Text = "Reorganisation";
-            this.reorganisationToolStripMenuItem.Click += new System.EventHandler(this.reorganisationToolStripMenuItem_Click);
-            // 
-            // kennwortÄndernToolStripMenuItem
-            // 
-            this.kennwortÄndernToolStripMenuItem.Name = "kennwortÄndernToolStripMenuItem";
-            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
-            this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
-            // 
-            // statistikToolStripMenuItem
-            // 
-            this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.statistikToolStripMenuItem.Text = "Statistik";
-            this.statistikToolStripMenuItem.Click += new System.EventHandler(this.statistikToolStripMenuItem_Click);
-            // 
-            // übergabeToolStripMenuItem
-            // 
-            this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
-            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.übergabeToolStripMenuItem.Text = "Übergabe";
-            this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
-            // 
-            // infoToolStripMenuItem
-            // 
-            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            this.infoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.infoToolStripMenuItem.Text = "Info";
-            this.infoToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // printIssues
-            // 
-            this.printIssues.BeginPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_BeginPrint);
-            this.printIssues.EndPrint += new System.Drawing.Printing.PrintEventHandler(this.printIssues_EndPrint);
-            this.printIssues.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printIssues_PrintPage);
-            // 
-            // infoLabel
-            // 
-            this.infoLabel.AllowDrop = true;
-            this.infoLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoLabel.AutoSize = true;
-            this.infoLabel.BackColor = System.Drawing.Color.Gainsboro;
-            this.infoLabel.Cursor = System.Windows.Forms.Cursors.Default;
-            this.infoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoLabel.Location = new System.Drawing.Point(951, 63);
-            this.infoLabel.Name = "infoLabel";
-            this.infoLabel.Size = new System.Drawing.Size(139, 26);
-            this.infoLabel.TabIndex = 45;
-            this.infoLabel.Text = "AutoUpdate ist aus!\r\nDrücke F4 zum starten.";
-            this.infoLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.infoLabel.Visible = false;
-            // 
-            // searchStatusBox
-            // 
-            this.searchStatusBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchStatusBox.FormattingEnabled = true;
-            this.searchStatusBox.Location = new System.Drawing.Point(825, 145);
-            this.searchStatusBox.Name = "searchStatusBox";
-            this.searchStatusBox.Size = new System.Drawing.Size(107, 21);
-            this.searchStatusBox.TabIndex = 41;
-            this.searchStatusBox.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(980, 42);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "AutoUpdate";
-            // 
-            // resetButton
-            // 
-            this.resetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.resetButton.Location = new System.Drawing.Point(1019, 144);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(75, 23);
-            this.resetButton.TabIndex = 43;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = true;
-            this.resetButton.Click += new System.EventHandler(this.reset_Click);
+            this.companyChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.companyChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.companyChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.companyChart.Legends.Add(legend1);
+            this.companyChart.Location = new System.Drawing.Point(635, 179);
+            this.companyChart.Name = "companyChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.companyChart.Series.Add(series1);
+            this.companyChart.Size = new System.Drawing.Size(447, 274);
+            this.companyChart.TabIndex = 12;
+            this.companyChart.TabStop = false;
+            this.companyChart.Text = "companyChart";
             // 
             // mainForm
             // 
@@ -913,7 +1004,7 @@ namespace Pendenzen
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 662);
             this.Controls.Add(this.resetButton);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.autoUpdate);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.searchDropBox);
@@ -932,16 +1023,18 @@ namespace Pendenzen
             this.Name = "mainForm";
             this.Text = "Pendenzen";
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).EndInit();
-            this.tabControl.ResumeLayout(false);
-            this.pendenzTab.ResumeLayout(false);
-            this.pendenzTab.PerformLayout();
-            this.companyTab.ResumeLayout(false);
-            this.companyTab.PerformLayout();
-            this.supportTab.ResumeLayout(false);
-            this.supportTab.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.companyTab.ResumeLayout(false);
+            this.companyTab.PerformLayout();
+            this.pendenzTab.ResumeLayout(false);
+            this.pendenzTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).EndInit();
+            this.tabControl.ResumeLayout(false);
+            this.stornoTab.ResumeLayout(false);
+            this.stornoTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.companyChart)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -954,32 +1047,8 @@ namespace Pendenzen
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.TextBox searchBox;
         private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.DataGridView issueDataView;
         private System.Windows.Forms.Button onOffButton;
         private System.Windows.Forms.ComboBox searchDropBox;
-        private System.Windows.Forms.TabControl tabControl;
-        private System.Windows.Forms.TabPage pendenzTab;
-        private System.Windows.Forms.TabPage companyTab;
-        private System.Windows.Forms.Label idLabel;
-        private System.Windows.Forms.Button companyChangeLabel;
-        private System.Windows.Forms.Label plzLabel;
-        private System.Windows.Forms.Label poBoxLabel;
-        private System.Windows.Forms.Label streetLabel;
-        private System.Windows.Forms.Label companyLabel;
-        private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.Label emailVerkaufLabel;
-        private System.Windows.Forms.Label emailEinkaufLabel;
-        private System.Windows.Forms.Label urlLabel;
-        private System.Windows.Forms.Label phoneLabel;
-        private System.Windows.Forms.Label countryLabel;
-        private System.Windows.Forms.Label kundeLabel;
-        private System.Windows.Forms.Label verkaufBusproLabel;
-        private System.Windows.Forms.Label einkaufBusproLabel;
-        private System.Windows.Forms.Label busproLabel;
-        private System.Windows.Forms.Label verkaufKontaktLabel;
-        private System.Windows.Forms.Label einkaufKontaktLabel;
-        private System.Windows.Forms.Label kontaktLabel;
-        private System.Windows.Forms.RichTextBox historyBox;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
@@ -991,40 +1060,71 @@ namespace Pendenzen
         private System.Windows.Forms.ToolStripMenuItem neueAdresseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem autoUpdateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reorganisationToolStripMenuItem;
-        private System.Windows.Forms.Button openLinkButton;
-        private System.Windows.Forms.Label countLabel;
-        private System.Windows.Forms.Button nextButton;
-        private System.Windows.Forms.Button previousButton;
-        private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.Label einkauferLabel;
-        private System.Windows.Forms.Button einkaufEmailButton;
-        private System.Windows.Forms.Button verkaufEmailButton;
-        private System.Windows.Forms.Label verkaufLabel;
-        private System.Windows.Forms.Label einkaufLabel;
-        private System.Windows.Forms.Label webLabel;
         private System.Drawing.Printing.PrintDocument printIssues;
         private Label infoLabel;
         private ToolStripMenuItem druckToolStripMenuItem;
         private ToolStripMenuItem druckvorschauToolStripMenuItem;
         private ToolStripMenuItem druckenToolStripMenuItem;
         private ComboBox searchStatusBox;
-        private Label restoreLabel;
-        private Button restoreButton;
-        private Label label1;
+        private Label autoUpdate;
         private ToolStripMenuItem kennwortÄndernToolStripMenuItem;
         private Button resetButton;
         private ToolStripMenuItem sucheZurücksetzenToolStripMenuItem;
         private ToolStripMenuItem statistikToolStripMenuItem;
         private ToolTip toolTip1;
         private ToolStripMenuItem übergabeToolStripMenuItem;
-        private TabPage supportTab;
-        private Button sendButton;
-        private RichTextBox descriptionBox;
-        private TextBox problemBox;
-        private Label descriptionLbl;
-        private Label problemLbl;
-        private Label type;
-        private ComboBox typeBox;
+        private TabPage companyTab;
+        private Label verkaufLabel;
+        private Label einkaufLabel;
+        private Label webLabel;
+        private Button einkaufEmailButton;
+        private Button verkaufEmailButton;
+        private Label einkauferLabel;
+        private Button exportButton;
+        private Button nextButton;
+        private Button previousButton;
+        private Label countLabel;
+        private Button openLinkButton;
+        private RichTextBox historyBox;
+        private Label kundeLabel;
+        private Label verkaufBusproLabel;
+        private Label einkaufBusproLabel;
+        private Label busproLabel;
+        private Label verkaufKontaktLabel;
+        private Label einkaufKontaktLabel;
+        private Label kontaktLabel;
+        private Label emailVerkaufLabel;
+        private Label emailEinkaufLabel;
+        private Label urlLabel;
+        private Label phoneLabel;
+        private Label countryLabel;
+        private Label cityLabel;
+        private Button companyChangeLabel;
+        private Label plzLabel;
+        private Label poBoxLabel;
+        private Label streetLabel;
+        private Label companyLabel;
+        private Label idLabel;
+        private TabPage pendenzTab;
+        private Label restoreLabel;
+        private Button restoreButton;
+        private DataGridView issueDataView;
+        private TabControl tabControl;
+        private TabPage stornoTab;
+        private Label label3;
+        private Label label2;
+        private TextBox invoice;
+        private Button Senden;
+        private Label label6;
+        private ComboBox reasonBox;
+        private TextBox amount;
+        private Label label5;
+        private Label label4;
+        private ComboBox companyBox;
+        private TextBox credit;
+        private DataGridView stornoDataView;
+        private ToolStripMenuItem storniToolStripMenuItem;
+        private System.Windows.Forms.DataVisualization.Charting.Chart companyChart;
     }
 }
 

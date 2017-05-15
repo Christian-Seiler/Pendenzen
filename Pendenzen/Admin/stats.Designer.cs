@@ -57,11 +57,11 @@ namespace Pendenzen
             this.closeButton.UseVisualStyleBackColor = true;
             this.closeButton.Click += new System.EventHandler(this.closeButton_Click);
             // 
-            // label1
+            // autoUpdate
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 77);
-            this.label1.Name = "label1";
+            this.label1.Name = "autoUpdate";
             this.label1.Size = new System.Drawing.Size(33, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Offen";

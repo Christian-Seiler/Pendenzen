@@ -19,7 +19,7 @@ namespace Pendenzen
         #region global Variables
 
         private readonly DBConnect db = new DBConnect();
-        private readonly addIssue issue = new addIssue();
+        private readonly AddIssue issue = new AddIssue();
         private readonly addCompany company = new addCompany();
         private readonly reorganisation reorg = new reorganisation();
         private readonly password pass = new password();
@@ -66,7 +66,6 @@ namespace Pendenzen
             nameLabel.Text =
                 $"Name: {person.getInfo()[1]} {person.getInfo()[2]} / {person.getInfo()[0]}\nAbteilung: {person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
 
-            typeBox.DataSource = supportList;
             string[] status = {"open", "done", "cancelled"};
             foreach (var s in status) searchStatusBox.Items.Add(s);
             oldTable = db.Select(query);
@@ -74,6 +73,8 @@ namespace Pendenzen
             tabControl_Selected(null, null);
             threadStarter();
             isOn = true;
+            setCompany();
+            setReason();
         }
 
         public Dictionary<string, string> dictionary
@@ -101,6 +102,16 @@ namespace Pendenzen
                     dict.Add("Land", "company_country");
 
                     getCompanyIndex();
+                }
+                if (tabControl.SelectedIndex == 2)
+                {
+                    dict.Add("ID", "id");
+                    dict.Add("Rechnung", "invoice");
+                    dict.Add("Gutschrift", "credit");
+                    dict.Add("Firma", "company");
+                    dict.Add("Betrag", "user");
+                    dict.Add("Datum", "date");
+                    dict.Add("Grund", "reason");
                 }
 
                 return dict;
@@ -133,8 +144,19 @@ namespace Pendenzen
                 dict.Add("company_city", "City");
                 dict.Add("company_country", "Land");
             }
+            if (tabControl.SelectedIndex == 1)
+            {
+                dict.Add("id", "ID");
+                dict.Add("invoice", "Rechnung");
+                dict.Add("credit", "Gutschrift");
+                dict.Add("company", "Firma");
+                dict.Add("amount", "Betrag");
+                dict.Add("user", "Benutzer");
+                dict.Add("date", "Datum");
+                dict.Add("reason", "Grund");
+            }
 
-            return dict;
+                return dict;
         }
 
         private void getCompanyIndex()
@@ -203,7 +225,8 @@ namespace Pendenzen
             }
             else if (tabIndex == 2)
             {
-                
+                loadStorno();
+                formatStornoView();
             }
         }
 
@@ -212,7 +235,7 @@ namespace Pendenzen
             var rowIndex = issueDataView.FirstDisplayedScrollingRowIndex;
             DataTable newTable = db.Select(query);
            
-            if (!AreTablesTheSame(oldTable, newTable))
+            if (!areTablesTheSame(oldTable, newTable))
             {
                 issueDataView.DataSource = newTable;
                 oldTable = newTable;
@@ -221,7 +244,7 @@ namespace Pendenzen
                 issueDataView.FirstDisplayedScrollingRowIndex = rowIndex;
         }
 
-        public static bool AreTablesTheSame(DataTable tbl1, DataTable tbl2)
+        public static bool areTablesTheSame(DataTable tbl1, DataTable tbl2)
         {
             if (tbl1.Rows.Count != tbl2.Rows.Count || tbl1.Columns.Count != tbl2.Columns.Count)
                 return false;
@@ -250,6 +273,18 @@ namespace Pendenzen
                     issueDataView.Columns[c].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 else
                     issueDataView.Columns[c].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+        }
+
+        private void formatStornoView()
+        {
+            for (var c = 0; c < stornoDataView.Columns.Count; c++)
+            {
+                foreach (var pair in headerDictionary())
+                    if (stornoDataView.Columns[c].Name == pair.Key)
+                        stornoDataView.Columns[c].HeaderText = pair.Value;
+
+                    stornoDataView.Columns[c].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             }
         }
 
@@ -363,6 +398,17 @@ namespace Pendenzen
                 return $"AND department = '{person.getInfo()[4]}'";
             }
         }
+        private string admin(String modifier)
+        {
+            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            {
+                return "";
+            }
+            else
+            {
+                return $"{modifier} department = '{person.getInfo()[4]}'";
+            }
+        }
 
         private void addButton_Click(object sender, EventArgs e)
         {
@@ -388,6 +434,85 @@ namespace Pendenzen
         {
             isOn = false;
             var sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
+        }
+
+        private void setCompany()
+        {
+            var query = "SELECT company_id FROM company";
+            var dataTable = db.Select(query);
+
+            foreach (DataRow row in dataTable.Rows)
+                foreach (DataColumn column in dataTable.Columns)
+                    companyBox.Items.Add(row[column]);
+        }
+
+        private void setReason()
+        {
+            Debug.WriteLine("HALLO");
+            String query = $"SELECT description FROM reason {admin("WHERE")}";
+            Debug.WriteLine(query);
+            var dataTable = db.Select(query);
+
+            foreach (DataRow row in dataTable.Rows)
+                foreach (DataColumn column in dataTable.Columns)
+                    reasonBox.Items.Add(row[column]);
+        }
+
+        private void submitStorno(object sender, EventArgs e)
+        {
+            if (!stornoFieldsComplete())
+            {
+                MessageBox.Show("Bitte sämtliche Felder ausfüllen.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                var amountDouble = Double.Parse(amount.Text);
+                var date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                var query = $"INSERT INTO stats (invoice, credit, company, amount, user, date, reason) Values " +
+                    $"('{invoice.Text}', '{credit.Text}', '{companyBox.Text}', {amountDouble}, '{person.getID()}', '{date}', '{reasonBox.Text}')";
+                db.Insert(query);
+            }
+        }
+
+        private bool stornoFieldsComplete()
+        {
+            bool b = false;
+            String[] s = { invoice.Text, credit.Text, companyBox.Text, amount.Text, reasonBox.Text };
+            foreach (var box in s)
+            {
+                if (box == null || box == "")
+                {
+                    b = false;
+                } else
+                {
+                    b = true;
+                }
+            }
+
+            return b;
+        }
+
+        private void loadStorno()
+        {
+            getTopStornoComanies();
+            var rowIndex = stornoDataView.FirstDisplayedScrollingRowIndex;
+            String query = $"SELECT * FROM stats {admin("WHERE")}";
+            DataTable newTable = db.Select(query);
+
+            if (!areTablesTheSame(oldTable, newTable))
+            {
+                stornoDataView.DataSource = newTable;
+                oldTable = newTable;
+            }
+            if (rowIndex >= 0)
+                stornoDataView.FirstDisplayedScrollingRowIndex = rowIndex;
+        }
+
+        private void getTopStornoComanies()
+        {
+            String query = "SELECT company, COUNT(company) as c FROM stats GROUP BY company desc ORDER BY c DESC";
+            DataTable table = db.Select(query);
+            companyChart.DataSource = table;
+            companyChart.DataBind();
         }
 
         #endregion

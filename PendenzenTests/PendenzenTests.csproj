@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PendenzenTests</RootNamespace>
     <AssemblyName>PendenzenTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -62,12 +62,6 @@
     <Compile Include="personTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="passwordTests.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Pendenzen\Pendenzen.csproj">
-      <Project>{9ED20331-9E94-4974-BBED-2DF18EEF3334}</Project>
-      <Name>Pendenzen</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

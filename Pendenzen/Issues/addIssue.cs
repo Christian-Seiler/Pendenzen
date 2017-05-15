@@ -5,12 +5,12 @@ using Pendenzen.Properties;
 
 namespace Pendenzen
 {
-    public partial class addIssue : Form
+    public partial class AddIssue : Form
     {
         private bool _error;
         private readonly DBConnect db = new DBConnect();
 
-        public addIssue()
+        public AddIssue()
         {
             InitializeComponent();
             setCompanyBox();
@@ -56,7 +56,8 @@ namespace Pendenzen
             if (_error == false)
             {
                 string query =
-                    $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail, department) VALUES('{lieferant}', '{referenz.Replace("'", "''")}', '{document.Replace("'", "''")}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details.Replace("'", "''")}', '{department}')";
+                    $"INSERT INTO pendenz (lieferant, referenz, document, erfasst_am, erfasst_von, sachbearbeiter, due, detail, department) VALUES" +
+                    $"('{lieferant}', '{referenz.Replace("'", "''")}', '{document.Replace("'", "''")}', '{erfasstAm}', '{erfasstVon}', '{sachbearbeiter}', '{due}', '{details.Replace("'", "''")}', '{department}')";
   
                 db.Insert(query);
                 Close();
