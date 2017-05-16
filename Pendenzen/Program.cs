@@ -13,14 +13,8 @@ namespace Pendenzen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            DBConnect db = new DBConnect();
-            if (db.Open()) {
-                Application.Run(new mainForm());
-            }
-            else
-            {
-                MessageBox.Show("Cannot connect to server. Please contact administrator");
-            }
+            new MakeConnection();
+           // Application.Run(new mainForm());
         }
     }
 }

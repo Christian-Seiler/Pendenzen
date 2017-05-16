@@ -21,7 +21,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_9E788A05231EC11932DFF060A696FCE5"
+        "MsmKey" = "8:_8C50913D2CC9780548F277DE39FD7CC4"
+        "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9CA62AD2B8027AE5B9A5BC6879DC52BF"
         "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,12 +39,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F2152E30AD87117863786E4E8ABFD85A"
-        "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_B65243381A0A4C6093FCB0E51DEFCD48"
         "MsmSig" = "8:_UNDEFINED"
@@ -46,13 +46,13 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9E788A05231EC11932DFF060A696FCE5"
+        "OwnerKey" = "8:_9CA62AD2B8027AE5B9A5BC6879DC52BF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F2152E30AD87117863786E4E8ABFD85A"
+        "OwnerKey" = "8:_8C50913D2CC9780548F277DE39FD7CC4"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -198,7 +198,7 @@
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
-                "FrameworkVersion" = "8:.NETFramework,Version=v4.6.2"
+                "FrameworkVersion" = "8:v4.6.2"
                 "AllowLaterVersions" = "11:FALSE"
                 "InstallUrl" = "8:https://www.microsoft.com/de-de/download/details.aspx?id=53344"
                 }
@@ -226,14 +226,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9E788A05231EC11932DFF060A696FCE5"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8C50913D2CC9780548F277DE39FD7CC4"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_9E788A05231EC11932DFF060A696FCE5"
+                    "_8C50913D2CC9780548F277DE39FD7CC4"
                     {
                     "Name" = "8:System.Net.Http.dll"
                     "Attributes" = "3:512"
@@ -257,14 +257,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F2152E30AD87117863786E4E8ABFD85A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9CA62AD2B8027AE5B9A5BC6879DC52BF"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F2152E30AD87117863786E4E8ABFD85A"
+                    "_9CA62AD2B8027AE5B9A5BC6879DC52BF"
                     {
                     "Name" = "8:MySql.Data.dll"
                     "Attributes" = "3:512"
@@ -355,15 +355,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Pendenzen"
-        "ProductCode" = "8:{95CD8CAD-5A4F-4472-AC2E-BBF32E3FDED5}"
-        "PackageCode" = "8:{032151E5-365F-477A-BEFF-2BFF1063E347}"
+        "ProductCode" = "8:{55BC4DA0-81AC-49C4-A6C3-42C5DB250D1D}"
+        "PackageCode" = "8:{4A1C0B1C-2696-4D69-8D90-D287CC5A6D8A}"
         "UpgradeCode" = "8:{B51164C8-9CD5-4983-BA31-846CB9847A5F}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.4.2"
+        "ProductVersion" = "8:1.5.0"
         "Manufacturer" = "8:Christian Seiler Services"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:http://www.christianseiler.ch"
@@ -409,6 +409,46 @@
                                 }
                                 "Values"
                                 {
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_204437C17F3B40389E38315AD116350B"
+                                    {
+                                    "Name" = "8:Database"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_5CA967E134924DC1A84D27662AFEDA00"
+                                    {
+                                    "Name" = "8:Server"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_5CFC311A47374BADBB8D736AE87437B3"
+                                    {
+                                    "Name" = "8:Username"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_B6BBA654B9F54E84B1E26A5F41DF07C4"
+                                    {
+                                    "Name" = "8:Password"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
+                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_E02D07718F8F4F69AFAFE6EC75AEC98F"
+                                    {
+                                    "Name" = "8:License"
+                                    "Condition" = "8:"
+                                    "Transitive" = "11:FALSE"
+                                    "ValueTypes" = "3:1"
+                                    "Value" = "8:"
+                                    }
                                 }
                             }
                         }
