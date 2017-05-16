@@ -10,6 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Pendenzen
 {
@@ -144,7 +145,7 @@ namespace Pendenzen
                 dict.Add("company_city", "City");
                 dict.Add("company_country", "Land");
             }
-            if (tabControl.SelectedIndex == 1)
+            if (tabControl.SelectedIndex == 2)
             {
                 dict.Add("id", "ID");
                 dict.Add("invoice", "Rechnung");
@@ -448,9 +449,7 @@ namespace Pendenzen
 
         private void setReason()
         {
-            Debug.WriteLine("HALLO");
             String query = $"SELECT description FROM reason {admin("WHERE")}";
-            Debug.WriteLine(query);
             var dataTable = db.Select(query);
 
             foreach (DataRow row in dataTable.Rows)
@@ -495,7 +494,7 @@ namespace Pendenzen
         {
             getTopStornoComanies();
             var rowIndex = stornoDataView.FirstDisplayedScrollingRowIndex;
-            String query = $"SELECT * FROM stats {admin("WHERE")}";
+            String query = $"SELECT * FROM stats {admin("WHERE")} order by id desc";
             DataTable newTable = db.Select(query);
 
             if (!areTablesTheSame(oldTable, newTable))
@@ -511,8 +510,47 @@ namespace Pendenzen
         {
             String query = "SELECT company, COUNT(company) as c FROM stats GROUP BY company desc ORDER BY c DESC";
             DataTable table = db.Select(query);
-            companyChart.DataSource = table;
-            companyChart.DataBind();
+            if (seriesNumber.Points.Count > 0)
+            {
+                seriesNumber.Points.Clear();
+            }
+            foreach (DataRow row in table.Rows)
+            {
+                seriesNumber.XValueType = ChartValueType.String;
+                seriesNumber.YValueType = ChartValueType.Double;
+                DataPoint dataPoint = new DataPoint();
+                String label = $"{row[0]}\nCHF {Math.Round(Double.Parse(row[1].ToString()), 2)}";
+                dataPoint.SetValueXY(label, row[1]);
+                seriesNumber.Points.Add(dataPoint);
+            }
+            query = "SELECT company, SUM(amount) as c FROM stats GROUP BY company desc ORDER BY c DESC";
+            table = db.Select(query);
+            if (seriesAmount.Points.Count > 0)
+            {
+                seriesAmount.Points.Clear();
+            }
+            foreach (DataRow row in table.Rows)
+            {
+                seriesAmount.XValueType = ChartValueType.String;
+                seriesAmount.YValueType = ChartValueType.Double;
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.SetValueXY(row[0], row[1]);
+                seriesAmount.Points.Add(dataPoint);
+            }
+            query = "SELECT reason, COUNT(reason) as c FROM stats GROUP BY reason desc ORDER BY c DESC";
+            table = db.Select(query);
+            if (seriesReason.Points.Count > 0)
+            {
+                seriesReason.Points.Clear();
+            }
+            foreach (DataRow row in table.Rows)
+            {
+                seriesReason.XValueType = ChartValueType.String;
+                seriesReason.YValueType = ChartValueType.Double;
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.SetValueXY(row[0], row[1]);
+                seriesReason.Points.Add(dataPoint);
+            }
         }
 
         #endregion

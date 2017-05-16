@@ -121,6 +121,7 @@
       <DependentUpon>company.cs</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
+    <Compile Include="MakeConnection.cs" />
     <Compile Include="myPath.cs" />
     <Compile Include="Admin\password.cs">
       <SubType>Form</SubType>

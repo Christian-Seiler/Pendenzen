@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Pendenzen
 {
@@ -34,8 +35,14 @@ namespace Pendenzen
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -106,6 +113,9 @@ namespace Pendenzen
             this.issueDataView = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.stornoTab = new System.Windows.Forms.TabPage();
+            this.reasonChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.amountChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.companyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.stornoDataView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.reasonBox = new System.Windows.Forms.ComboBox();
@@ -118,7 +128,6 @@ namespace Pendenzen
             this.label2 = new System.Windows.Forms.Label();
             this.invoice = new System.Windows.Forms.TextBox();
             this.Senden = new System.Windows.Forms.Button();
-            this.companyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.companyTab.SuspendLayout();
@@ -126,8 +135,10 @@ namespace Pendenzen
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
             this.stornoTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).BeginInit();
             this.SuspendLayout();
             // 
             // nameLabel
@@ -848,6 +859,8 @@ namespace Pendenzen
             // 
             // stornoTab
             // 
+            this.stornoTab.Controls.Add(this.reasonChart);
+            this.stornoTab.Controls.Add(this.amountChart);
             this.stornoTab.Controls.Add(this.companyChart);
             this.stornoTab.Controls.Add(this.stornoDataView);
             this.stornoTab.Controls.Add(this.label6);
@@ -869,12 +882,80 @@ namespace Pendenzen
             this.stornoTab.Text = "Storni";
             this.stornoTab.UseVisualStyleBackColor = true;
             // 
+            // reasonChart
+            // 
+            this.reasonChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.reasonChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "ChartArea1";
+            this.reasonChart.ChartAreas.Add(chartArea1);
+            this.reasonChart.Location = new System.Drawing.Point(636, 233);
+            this.reasonChart.Name = "reasonChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Name = "Series";
+            this.reasonChart.Series.Add(series1);
+            this.reasonChart.Size = new System.Drawing.Size(220, 220);
+            this.reasonChart.TabIndex = 13;
+            this.reasonChart.TabStop = false;
+            this.reasonChart.Text = "reasonChart";
+            title1.Name = "Gründe";
+            title1.Text = "Gründe";
+            this.reasonChart.Titles.Add(title1);
+            // 
+            // amountChart
+            // 
+            this.amountChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.amountChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.IsSameFontSizeForAllAxes = true;
+            chartArea2.Name = "ChartArea1";
+            this.amountChart.ChartAreas.Add(chartArea2);
+            this.amountChart.Location = new System.Drawing.Point(862, 7);
+            this.amountChart.Name = "amountChart";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Name = "Series";
+            this.amountChart.Series.Add(series2);
+            this.amountChart.Size = new System.Drawing.Size(220, 220);
+            this.amountChart.TabIndex = 12;
+            this.amountChart.TabStop = false;
+            this.amountChart.Text = "chartAmount";
+            title2.Name = "Firma nach Betrag";
+            title2.Text = "Firma nach Betrag";
+            this.amountChart.Titles.Add(title2);
+            // 
+            // companyChart
+            // 
+            this.companyChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.companyChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea3.Area3DStyle.Enable3D = true;
+            chartArea3.IsSameFontSizeForAllAxes = true;
+            chartArea3.Name = "ChartArea1";
+            this.companyChart.ChartAreas.Add(chartArea3);
+            this.companyChart.Location = new System.Drawing.Point(862, 233);
+            this.companyChart.Name = "companyChart";
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.Name = "Series";
+            this.companyChart.Series.Add(series3);
+            this.companyChart.Size = new System.Drawing.Size(220, 220);
+            this.companyChart.TabIndex = 0;
+            this.companyChart.TabStop = false;
+            this.companyChart.Text = "companyChart";
+            title3.Name = "Firma nach Anzahl";
+            title3.Text = "Firma nach Anzahl";
+            this.companyChart.Titles.Add(title3);
+            // 
             // stornoDataView
             // 
             this.stornoDataView.AllowUserToAddRows = false;
             this.stornoDataView.AllowUserToDeleteRows = false;
-            this.stornoDataView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.stornoDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.stornoDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.stornoDataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.stornoDataView.Location = new System.Drawing.Point(10, 179);
             this.stornoDataView.Name = "stornoDataView";
@@ -975,28 +1056,6 @@ namespace Pendenzen
             this.Senden.UseVisualStyleBackColor = true;
             this.Senden.Click += new System.EventHandler(this.submitStorno);
             // 
-            // companyChart
-            // 
-            this.companyChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.companyChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea1.Area3DStyle.Enable3D = true;
-            chartArea1.IsSameFontSizeForAllAxes = true;
-            chartArea1.Name = "ChartArea1";
-            this.companyChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.companyChart.Legends.Add(legend1);
-            this.companyChart.Location = new System.Drawing.Point(635, 179);
-            this.companyChart.Name = "companyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.companyChart.Series.Add(series1);
-            this.companyChart.Size = new System.Drawing.Size(447, 274);
-            this.companyChart.TabIndex = 12;
-            this.companyChart.TabStop = false;
-            this.companyChart.Text = "companyChart";
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1033,8 +1092,10 @@ namespace Pendenzen
             this.tabControl.ResumeLayout(false);
             this.stornoTab.ResumeLayout(false);
             this.stornoTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.reasonChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.amountChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.companyChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1124,7 +1185,12 @@ namespace Pendenzen
         private TextBox credit;
         private DataGridView stornoDataView;
         private ToolStripMenuItem storniToolStripMenuItem;
-        private System.Windows.Forms.DataVisualization.Charting.Chart companyChart;
+        private Chart companyChart;
+        private System.Windows.Forms.DataVisualization.Charting.Series seriesAmount;
+        private System.Windows.Forms.DataVisualization.Charting.Series seriesNumber;
+        private System.Windows.Forms.DataVisualization.Charting.Series seriesReason;
+        private Chart amountChart;
+        private Chart reasonChart;
     }
 }
 
