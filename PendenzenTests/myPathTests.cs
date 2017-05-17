@@ -1,5 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pendenzen;
+using Pendenzen.Pendenzen;
 using System;
 
 namespace PendenzenTests
