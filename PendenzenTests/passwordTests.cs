@@ -1,13 +1,14 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using Pendenzen.Pendenzen;
 
 namespace PendenzenTests
 {
     [TestClass]
     public class passwordTests
     {
-        Pendenzen.Encryption crypt = new Pendenzen.Encryption();
-        Pendenzen.DBConnect db = new Pendenzen.DBConnect();
+        Encryption crypt = new Encryption();
+        DBConnect db = new DBConnect();
         string query = "";
 
         [TestMethod]
