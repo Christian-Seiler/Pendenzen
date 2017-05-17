@@ -32,7 +32,7 @@
             this.departmentBox = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.okButton = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
             this.textBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(516, 137);
+            this.label2.Location = new System.Drawing.Point(281, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(137, 13);
             this.label2.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // okButton
             // 
-            this.okButton.Location = new System.Drawing.Point(15, 101);
+            this.okButton.Location = new System.Drawing.Point(15, 120);
             this.okButton.Name = "okButton";
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 3;
@@ -74,18 +74,18 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // label3
+            // label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(581, 209);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "keine";
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(281, 28);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(33, 13);
+            this.label.TabIndex = 4;
+            this.label.Text = "keine";
             // 
             // textBox
             // 
-            this.textBox.Location = new System.Drawing.Point(15, 65);
+            this.textBox.Location = new System.Drawing.Point(15, 84);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(260, 20);
             this.textBox.TabIndex = 5;
@@ -93,7 +93,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 49);
+            this.label4.Location = new System.Drawing.Point(12, 68);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 13);
             this.label4.TabIndex = 6;
@@ -101,7 +101,7 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(96, 101);
+            this.cancelButton.Location = new System.Drawing.Point(96, 120);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 7;
@@ -113,11 +113,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 264);
+            this.ClientSize = new System.Drawing.Size(510, 244);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.okButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.departmentBox);
@@ -138,7 +138,7 @@
         private System.Windows.Forms.ComboBox departmentBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button okButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button cancelButton;

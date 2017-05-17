@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.Drawing.Printing;
+using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Pendenzen
@@ -32,17 +34,18 @@ namespace Pendenzen
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title7 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title8 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title9 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -113,9 +116,6 @@ namespace Pendenzen
             this.issueDataView = new System.Windows.Forms.DataGridView();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.stornoTab = new System.Windows.Forms.TabPage();
-            this.reasonChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.amountChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.companyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.stornoDataView = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.reasonBox = new System.Windows.Forms.ComboBox();
@@ -128,6 +128,7 @@ namespace Pendenzen
             this.label2 = new System.Windows.Forms.Label();
             this.invoice = new System.Windows.Forms.TextBox();
             this.Senden = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.menuStrip.SuspendLayout();
             this.companyTab.SuspendLayout();
@@ -135,11 +136,52 @@ namespace Pendenzen
             ((System.ComponentModel.ISupportInitialize)(this.issueDataView)).BeginInit();
             this.tabControl.SuspendLayout();
             this.stornoTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reasonChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.amountChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companyChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).BeginInit();
             this.SuspendLayout();
+            // 
+            // chart
+            // 
+            this.chart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            chartArea1.Area3DStyle.Enable3D = true;
+            chartArea1.IsSameFontSizeForAllAxes = true;
+            chartArea1.Name = "AmountChartArea";
+            chartArea2.Area3DStyle.Enable3D = true;
+            chartArea2.Name = "ReasonChartArea";
+            chartArea3.Area3DStyle.Enable3D = true;
+            chartArea3.Name = "CountChartArea";
+            this.chart.ChartAreas.Add(chartArea1);
+            this.chart.ChartAreas.Add(chartArea2);
+            this.chart.ChartAreas.Add(chartArea3);
+            this.chart.Location = new System.Drawing.Point(642, 13);
+            this.chart.Name = "chart";
+            series1.ChartArea = "AmountChartArea";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Name = "Amount";
+            series2.ChartArea = "ReasonChartArea";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series2.Name = "Reason";
+            series3.ChartArea = "CountChartArea";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series3.IsVisibleInLegend = false;
+            series3.Name = "Count";
+            this.chart.Series.Add(series1);
+            this.chart.Series.Add(series2);
+            this.chart.Series.Add(series3);
+            this.chart.Size = new System.Drawing.Size(440, 440);
+            this.chart.TabIndex = 12;
+            this.chart.TabStop = false;
+            this.chart.Text = "AmountChart";
+            title1.Name = "Amount";
+            title1.Text = "Firmen nach Betrag";
+            title2.Name = "Reason";
+            title2.Text = "Anzahl nach Gründen";
+            title3.Name = "Count";
+            title3.Text = "Anzahl nach Firmen";
+            this.chart.Titles.Add(title1);
+            this.chart.Titles.Add(title2);
+            this.chart.Titles.Add(title3);
             // 
             // nameLabel
             // 
@@ -339,28 +381,28 @@ namespace Pendenzen
             // 
             this.reorganisationToolStripMenuItem.Name = "reorganisationToolStripMenuItem";
             this.reorganisationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.reorganisationToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.reorganisationToolStripMenuItem.Text = "Reorganisation";
             this.reorganisationToolStripMenuItem.Click += new System.EventHandler(this.reorganisationToolStripMenuItem_Click);
             // 
             // kennwortÄndernToolStripMenuItem
             // 
             this.kennwortÄndernToolStripMenuItem.Name = "kennwortÄndernToolStripMenuItem";
-            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.kennwortÄndernToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.kennwortÄndernToolStripMenuItem.Text = "Kennwort ändern";
             this.kennwortÄndernToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // statistikToolStripMenuItem
             // 
             this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.statistikToolStripMenuItem.Text = "Statistik";
             this.statistikToolStripMenuItem.Click += new System.EventHandler(this.statistikToolStripMenuItem_Click);
             // 
             // übergabeToolStripMenuItem
             // 
             this.übergabeToolStripMenuItem.Name = "übergabeToolStripMenuItem";
-            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.übergabeToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
             this.übergabeToolStripMenuItem.Text = "Übergabe";
             this.übergabeToolStripMenuItem.Click += new System.EventHandler(this.übergabeToolStripMenuItem_Click);
             // 
@@ -808,10 +850,10 @@ namespace Pendenzen
             // 
             this.issueDataView.AllowUserToAddRows = false;
             this.issueDataView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.issueDataView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -820,14 +862,14 @@ namespace Pendenzen
             this.issueDataView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.issueDataView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.EnableAlwaysIncludeHeaderText;
             this.issueDataView.Cursor = System.Windows.Forms.Cursors.Default;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.issueDataView.DefaultCellStyle = dataGridViewCellStyle2;
             this.issueDataView.Location = new System.Drawing.Point(0, 0);
             this.issueDataView.MultiSelect = false;
             this.issueDataView.Name = "issueDataView";
@@ -860,9 +902,6 @@ namespace Pendenzen
             // 
             // stornoTab
             // 
-            this.stornoTab.Controls.Add(this.reasonChart);
-            this.stornoTab.Controls.Add(this.amountChart);
-            this.stornoTab.Controls.Add(this.companyChart);
             this.stornoTab.Controls.Add(this.stornoDataView);
             this.stornoTab.Controls.Add(this.label6);
             this.stornoTab.Controls.Add(this.reasonBox);
@@ -882,72 +921,6 @@ namespace Pendenzen
             this.stornoTab.TabIndex = 2;
             this.stornoTab.Text = "Storni";
             this.stornoTab.UseVisualStyleBackColor = true;
-            // 
-            // reasonChart
-            // 
-            this.reasonChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.reasonChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea7.Area3DStyle.Enable3D = true;
-            chartArea7.IsSameFontSizeForAllAxes = true;
-            chartArea7.Name = "ChartArea1";
-            this.reasonChart.ChartAreas.Add(chartArea7);
-            this.reasonChart.Location = new System.Drawing.Point(636, 233);
-            this.reasonChart.Name = "reasonChart";
-            series7.ChartArea = "ChartArea1";
-            series7.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series7.Name = "Series";
-            this.reasonChart.Series.Add(series7);
-            this.reasonChart.Size = new System.Drawing.Size(220, 220);
-            this.reasonChart.TabIndex = 13;
-            this.reasonChart.TabStop = false;
-            this.reasonChart.Text = "reasonChart";
-            title7.Name = "Gründe";
-            title7.Text = "Gründe";
-            this.reasonChart.Titles.Add(title7);
-            // 
-            // amountChart
-            // 
-            this.amountChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.amountChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea8.Area3DStyle.Enable3D = true;
-            chartArea8.IsSameFontSizeForAllAxes = true;
-            chartArea8.Name = "ChartArea1";
-            this.amountChart.ChartAreas.Add(chartArea8);
-            this.amountChart.Location = new System.Drawing.Point(862, 7);
-            this.amountChart.Name = "amountChart";
-            series8.ChartArea = "ChartArea1";
-            series8.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series8.Name = "Series";
-            this.amountChart.Series.Add(series8);
-            this.amountChart.Size = new System.Drawing.Size(220, 220);
-            this.amountChart.TabIndex = 12;
-            this.amountChart.TabStop = false;
-            this.amountChart.Text = "chartAmount";
-            title8.Name = "Firma nach Betrag";
-            title8.Text = "Firma nach Betrag";
-            this.amountChart.Titles.Add(title8);
-            // 
-            // companyChart
-            // 
-            this.companyChart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.companyChart.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            chartArea9.Area3DStyle.Enable3D = true;
-            chartArea9.IsSameFontSizeForAllAxes = true;
-            chartArea9.Name = "ChartArea1";
-            this.companyChart.ChartAreas.Add(chartArea9);
-            this.companyChart.Location = new System.Drawing.Point(862, 233);
-            this.companyChart.Name = "companyChart";
-            series9.ChartArea = "ChartArea1";
-            series9.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series9.Name = "Series";
-            this.companyChart.Series.Add(series9);
-            this.companyChart.Size = new System.Drawing.Size(220, 220);
-            this.companyChart.TabIndex = 0;
-            this.companyChart.TabStop = false;
-            this.companyChart.Text = "companyChart";
-            title9.Name = "Firma nach Anzahl";
-            title9.Text = "Firma nach Anzahl";
-            this.companyChart.Titles.Add(title9);
             // 
             // stornoDataView
             // 
@@ -1082,6 +1055,7 @@ namespace Pendenzen
             this.MinimumSize = new System.Drawing.Size(1100, 700);
             this.Name = "mainForm";
             this.Text = "Pendenzen";
+            ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -1093,9 +1067,6 @@ namespace Pendenzen
             this.tabControl.ResumeLayout(false);
             this.stornoTab.ResumeLayout(false);
             this.stornoTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.reasonChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.amountChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.companyChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stornoDataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1104,25 +1075,25 @@ namespace Pendenzen
 
         #endregion
 
-        private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.PictureBox logoPictureBox;
-        private System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.TextBox searchBox;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.Button onOffButton;
-        private System.Windows.Forms.ComboBox searchDropBox;
-        private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem dateiToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem schliessenToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neuePendenzToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem neueAdresseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem autoUpdateToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reorganisationToolStripMenuItem;
-        private System.Drawing.Printing.PrintDocument printIssues;
+        private Label nameLabel;
+        private PictureBox logoPictureBox;
+        private Button addButton;
+        private TextBox searchBox;
+        private Button searchButton;
+        private Button onOffButton;
+        private ComboBox searchDropBox;
+        private MenuStrip menuStrip;
+        private ToolStripMenuItem dateiToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem adminToolStripMenuItem;
+        private ToolStripMenuItem infoToolStripMenuItem;
+        private ToolStripMenuItem neuToolStripMenuItem;
+        private ToolStripMenuItem schliessenToolStripMenuItem;
+        private ToolStripMenuItem neuePendenzToolStripMenuItem;
+        private ToolStripMenuItem neueAdresseToolStripMenuItem;
+        private ToolStripMenuItem autoUpdateToolStripMenuItem;
+        private ToolStripMenuItem reorganisationToolStripMenuItem;
+        private PrintDocument printIssues;
         private Label infoLabel;
         private ToolStripMenuItem druckToolStripMenuItem;
         private ToolStripMenuItem druckvorschauToolStripMenuItem;
@@ -1184,14 +1155,10 @@ namespace Pendenzen
         private Label label4;
         private ComboBox companyBox;
         private TextBox credit;
+        private Chart chart;
         private DataGridView stornoDataView;
         private ToolStripMenuItem storniToolStripMenuItem;
-        private Chart companyChart;
-        private Series seriesAmount;
-        private Series seriesNumber;
-        private Series seriesReason;
-        private Chart amountChart;
-        private Chart reasonChart;
+        private DataGridViewCellStyle dataGridViewCellStyle5;
+        private DataGridViewCellStyle dataGridViewCellStyle6;
     }
 }
-

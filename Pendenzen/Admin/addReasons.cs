@@ -17,6 +17,8 @@ namespace Pendenzen.Admin
         {
             db = new DBConnect();
             InitializeComponent();
+            getDepartment();
+            getReasons();
         }
 
         private void getDepartment()
@@ -25,6 +27,18 @@ namespace Pendenzen.Admin
             DataTable dataTable = db.Select(query);
             foreach (DataRow row in dataTable.Rows)
                 departmentBox.Items.Add(row[0]);
+        }
+
+        private void getReasons()
+        {
+            String query = "SELECT description, department FROM reason ORDER BY department";
+            DataTable dataTable = db.Select(query);
+            StringBuilder s = new StringBuilder();
+            foreach (DataRow row in dataTable.Rows)
+            {
+                s.AppendLine(row[0] + " - " + row[1]);
+            }
+            label.Text = s.ToString();
         }
 
         private void okButton_Click(object sender, EventArgs e)
