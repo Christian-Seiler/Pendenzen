@@ -1,4 +1,5 @@
-﻿using Pendenzen.Properties;
+﻿using Pendenzen.Admin;
+using Pendenzen.Properties;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -605,6 +606,11 @@ namespace Pendenzen
             ubergabe.ShowDialog();
         }
 
+        private void storniToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var reason = new addReasons();
+            reason.ShowDialog();
+        }
         #endregion
 
         #region Address
@@ -1073,5 +1079,6 @@ namespace Pendenzen
         }
 
         #endregion
+
     }
 }
