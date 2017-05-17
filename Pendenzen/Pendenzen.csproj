@@ -120,6 +120,12 @@
     <Compile Include="Address\company.Designer.cs">
       <DependentUpon>company.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\addReasons.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\addReasons.Designer.cs">
+      <DependentUpon>addReasons.cs</DependentUpon>
+    </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="MakeConnection.cs" />
     <Compile Include="myPath.cs" />
@@ -187,6 +193,9 @@
     <Compile Include="Issues\ubergabe.Designer.cs">
       <DependentUpon>ubergabe.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Admin\addReasons.resx">
+      <DependentUpon>addReasons.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Issues\addIssue.resx">
       <DependentUpon>addIssue.cs</DependentUpon>
     </EmbeddedResource>
