@@ -510,7 +510,7 @@ namespace Pendenzen
         {
             String query = "SELECT company, COUNT(company) as c FROM stats GROUP BY company desc ORDER BY c DESC";
             DataTable table = db.Select(query);
-            if (seriesNumber.Points.Count > 0)
+            if (seriesNumber != null && seriesNumber.Points.Count > 0)
             {
                 seriesNumber.Points.Clear();
             }
@@ -519,8 +519,7 @@ namespace Pendenzen
                 seriesNumber.XValueType = ChartValueType.String;
                 seriesNumber.YValueType = ChartValueType.Double;
                 DataPoint dataPoint = new DataPoint();
-                String label = $"{row[0]}\nCHF {Math.Round(Double.Parse(row[1].ToString()), 2)}";
-                dataPoint.SetValueXY(label, row[1]);
+                dataPoint.SetValueXY($"{row[0]}\n{row[1]}", row[1]);
                 seriesNumber.Points.Add(dataPoint);
             }
             query = "SELECT company, SUM(amount) as c FROM stats GROUP BY company desc ORDER BY c DESC";
@@ -534,7 +533,8 @@ namespace Pendenzen
                 seriesAmount.XValueType = ChartValueType.String;
                 seriesAmount.YValueType = ChartValueType.Double;
                 DataPoint dataPoint = new DataPoint();
-                dataPoint.SetValueXY(row[0], row[1]);
+                String label = $"{row[0]}\nCHF {Math.Round(Double.Parse(row[1].ToString()), 2)}";
+                dataPoint.SetValueXY(label, row[1]);
                 seriesAmount.Points.Add(dataPoint);
             }
             query = "SELECT reason, COUNT(reason) as c FROM stats GROUP BY reason desc ORDER BY c DESC";

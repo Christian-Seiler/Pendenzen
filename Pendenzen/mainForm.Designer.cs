@@ -32,17 +32,17 @@ namespace Pendenzen
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            this.seriesAmount = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.seriesNumber = new System.Windows.Forms.DataVisualization.Charting.Series();
+            this.seriesReason = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.nameLabel = new System.Windows.Forms.Label();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.addButton = new System.Windows.Forms.Button();
@@ -892,10 +892,10 @@ namespace Pendenzen
             this.reasonChart.ChartAreas.Add(chartArea1);
             this.reasonChart.Location = new System.Drawing.Point(636, 233);
             this.reasonChart.Name = "reasonChart";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series1.Name = "Series";
-            this.reasonChart.Series.Add(series1);
+            seriesReason.ChartArea = "ChartArea1";
+            seriesReason.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            seriesReason.Name = "Series";
+            this.reasonChart.Series.Add(seriesReason);
             this.reasonChart.Size = new System.Drawing.Size(220, 220);
             this.reasonChart.TabIndex = 13;
             this.reasonChart.TabStop = false;
@@ -914,10 +914,10 @@ namespace Pendenzen
             this.amountChart.ChartAreas.Add(chartArea2);
             this.amountChart.Location = new System.Drawing.Point(862, 7);
             this.amountChart.Name = "amountChart";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series2.Name = "Series";
-            this.amountChart.Series.Add(series2);
+            seriesAmount.ChartArea = "ChartArea1";
+            seriesAmount.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            seriesAmount.Name = "Series";
+            this.amountChart.Series.Add(seriesAmount);
             this.amountChart.Size = new System.Drawing.Size(220, 220);
             this.amountChart.TabIndex = 12;
             this.amountChart.TabStop = false;
@@ -936,10 +936,10 @@ namespace Pendenzen
             this.companyChart.ChartAreas.Add(chartArea3);
             this.companyChart.Location = new System.Drawing.Point(862, 233);
             this.companyChart.Name = "companyChart";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
-            series3.Name = "Series";
-            this.companyChart.Series.Add(series3);
+            seriesNumber.ChartArea = "ChartArea1";
+            seriesNumber.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            seriesNumber.Name = "Series";
+            this.companyChart.Series.Add(seriesNumber);
             this.companyChart.Size = new System.Drawing.Size(220, 220);
             this.companyChart.TabIndex = 0;
             this.companyChart.TabStop = false;
@@ -1186,9 +1186,9 @@ namespace Pendenzen
         private DataGridView stornoDataView;
         private ToolStripMenuItem storniToolStripMenuItem;
         private Chart companyChart;
-        private System.Windows.Forms.DataVisualization.Charting.Series seriesAmount;
-        private System.Windows.Forms.DataVisualization.Charting.Series seriesNumber;
-        private System.Windows.Forms.DataVisualization.Charting.Series seriesReason;
+        private Series seriesAmount;
+        private Series seriesNumber;
+        private Series seriesReason;
         private Chart amountChart;
         private Chart reasonChart;
     }
