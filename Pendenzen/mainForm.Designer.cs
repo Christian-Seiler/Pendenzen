@@ -914,6 +914,7 @@ namespace Pendenzen
             this.stornoTab.Controls.Add(this.label2);
             this.stornoTab.Controls.Add(this.invoice);
             this.stornoTab.Controls.Add(this.Senden);
+            this.stornoTab.Controls.Add(this.chart);
             this.stornoTab.Location = new System.Drawing.Point(4, 22);
             this.stornoTab.Name = "stornoTab";
             this.stornoTab.Padding = new System.Windows.Forms.Padding(3);
