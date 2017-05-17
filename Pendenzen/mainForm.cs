@@ -66,7 +66,7 @@ namespace Pendenzen
             query = baseQuery + "FROM pendenz WHERE state = 'open'" + admin() + " ORDER BY idpendenz desc";
             InitializeComponent();
             nameLabel.Text =
-                $"Name: {person.getInfo()[1]} {person.getInfo()[2]} / {person.getInfo()[0]}\nAbteilung: {person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
+                $"Name: {Person.getInfo()[1]} {Person.getInfo()[2]} / {Person.getInfo()[0]}\nAbteilung: {Person.getInfo()[4]}\nDatum: {DateTime.Today.ToShortDateString()}";
 
             string[] status = {"open", "done", "cancelled"};
             foreach (var s in status) searchStatusBox.Items.Add(s);
@@ -393,24 +393,24 @@ namespace Pendenzen
 
         private string admin()
         {
-            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
             {
             return "";
             }
             else
             {
-                return $"AND department = '{person.getInfo()[4]}'";
+                return $"AND department = '{Person.getInfo()[4]}'";
             }
         }
         private string admin(String modifier)
         {
-            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
             {
                 return "";
             }
             else
             {
-                return $"{modifier} department = '{person.getInfo()[4]}'";
+                return $"{modifier} department = '{Person.getInfo()[4]}'";
             }
         }
 
@@ -470,7 +470,7 @@ namespace Pendenzen
                 var amountDouble = Double.Parse(amount.Text);
                 var date = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                 var query = $"INSERT INTO stats (invoice, credit, company, amount, user, date, reason) Values " +
-                    $"('{invoice.Text}', '{credit.Text}', '{companyBox.Text}', {amountDouble}, '{person.getID()}', '{date}', '{reasonBox.Text}')";
+                    $"('{invoice.Text}', '{credit.Text}', '{companyBox.Text}', {amountDouble}, '{Person.getID()}', '{date}', '{reasonBox.Text}')";
                 db.Insert(query);
             }
         }

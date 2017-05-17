@@ -63,7 +63,7 @@ namespace Pendenzen
             var pass = passCell[0].ToString();
 
 
-            if (crypt.Encrypt(passwordBox.Text) == pass)
+            if (crypt.encrypt(passwordBox.Text) == pass)
                 return true;
             return false;
         }

@@ -78,7 +78,7 @@ namespace Pendenzen
                     break;
             }
 
-            path = myPath.getPath(_company.Length == 3, _company, _abteilung);
+            path = MyPath.getPath(_company.Length == 3, _company, _abteilung);
             if (path == "-1")
             {
                 openFilesButton.Visible = false;
@@ -114,7 +114,7 @@ namespace Pendenzen
             if (detailsTextBox.Text != "")
                 newDetails = detailsTextBox.Text + "\n";
 
-            var detailsText = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {person.getInfo()[1]} {person.getInfo()[2]}\n{newDetails}{changesText}" +
+            var detailsText = $"{DateTime.Now.ToString("dd. MMM. yy HH:mm")} {Person.getInfo()[1]} {Person.getInfo()[2]}\n{newDetails}{changesText}" +
                 historyTextBox.Text;
 
             if (finalizedButton.Checked)

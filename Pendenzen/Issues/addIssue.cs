@@ -15,8 +15,8 @@ namespace Pendenzen
             InitializeComponent();
             setCompanyBox();
 
-            creatorLabel.Text = $"Erfasser: {person.getInfo()[1]} {person.getInfo()[2]}";
-            abteilungLabel.Text = $"Abteilung: {person.getInfo()[4]}";
+            creatorLabel.Text = $"Erfasser: {Person.getInfo()[1]} {Person.getInfo()[2]}";
+            abteilungLabel.Text = $"Abteilung: {Person.getInfo()[4]}";
             dateLabel.Text = $"Datum: {DateTime.Today.ToShortDateString()}";
             duePicker.Value = DateTime.Now.AddDays(7);
         }
@@ -39,18 +39,18 @@ namespace Pendenzen
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            string detailsText = $"{DateTime.Now} {person.getInfo()[1]} {person.getInfo()[2]}\n{detailsTextBox.Text}";
+            string detailsText = $"{DateTime.Now} {Person.getInfo()[1]} {Person.getInfo()[2]}\n{detailsTextBox.Text}";
 
             var lieferant = companyBox.Text;
             var referenz = referenceTextBox.Text;
             var document = documentTextBox.Text;
             var erfasstAm = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string erfasstVon = person.getInfo()[0];
+            string erfasstVon = Person.getInfo()[0];
             var sachbearbeiter = responsibleTextBox.Text.ToUpper();
             var due = duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             var details = detailsText;
-            string department = person.getInfo()[4];
+            string department = Person.getInfo()[4];
 
             checkEntries();
             if (_error == false)

@@ -36,25 +36,25 @@ namespace Pendenzen
 
         private string dept()
         {
-            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
             {
                 return "aller Abteilungen";
             }
             else
             {
-                return $"{person.getInfo()[4]}";
+                return $"{Person.getInfo()[4]}";
             }
         }
 
         private string admin()
         {
-            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
             {
                 return "";
             }
             else
             {
-                return $"AND department = '{person.getInfo()[4]}'";
+                return $"AND department = '{Person.getInfo()[4]}'";
             }
         }
 

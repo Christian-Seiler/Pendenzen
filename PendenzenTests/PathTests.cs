@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Pendenzen.Pendenzen;
-using System;
+using Pendenzen;
 
 namespace PendenzenTests
 {
@@ -31,7 +30,7 @@ namespace PendenzenTests
                 default: expected = "-1"; break;
             }
 
-            string actual = myPath.getPath(inland, company, department);
+            string actual = MyPath.getPath(inland, company, department);
             Assert.AreEqual(expected, actual);
         }
     }

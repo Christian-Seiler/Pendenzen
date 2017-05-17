@@ -6,7 +6,7 @@ namespace Pendenzen
 {
     public class Encryption
     {
-        public string Encrypt(string plainText)
+        public string encrypt(string plainText)
         {
             if (plainText == null) throw new ArgumentNullException("plainText");
 
@@ -16,7 +16,7 @@ namespace Pendenzen
             return Encoding.ASCII.GetString(data);
         }
 
-        public string Decrypt(string cipher)
+        public string decrypt(string cipher)
         {
             if (cipher == null) throw new ArgumentNullException("cipher");
 

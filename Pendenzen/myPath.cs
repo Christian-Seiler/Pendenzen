@@ -2,7 +2,7 @@
 
 namespace Pendenzen
 {
-    public class myPath
+    public class MyPath
     {
         /// <summary>
         /// getPath creates the appropriate path for the given department and company

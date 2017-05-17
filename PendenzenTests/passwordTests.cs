@@ -1,11 +1,11 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-using Pendenzen.Pendenzen;
+using Pendenzen;
 
 namespace PendenzenTests
 {
     [TestClass]
-    public class passwordTests
+    public class PasswordTests
     {
         Encryption crypt = new Encryption();
         DBConnect db = new DBConnect();
@@ -25,7 +25,7 @@ namespace PendenzenTests
             var passCell = passRow.ItemArray;
             var actual = passCell[0].ToString();
 
-            var expected = crypt.Encrypt("santis");
+            var expected = crypt.encrypt("santis");
             Assert.AreEqual(expected, actual);
         }
     }

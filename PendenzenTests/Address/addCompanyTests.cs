@@ -1,15 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Pendenzen;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Pendenzen.Tests
+namespace PendenzenTests
 {
     [TestClass()]
-    public class addCompanyTests
+    public class AddCompanyTests
     {
         [TestMethod()]
         public void addCompanyWithIDTest()

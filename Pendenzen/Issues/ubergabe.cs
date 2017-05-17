@@ -24,7 +24,7 @@ namespace Pendenzen
             }
             else
             {
-                ubergabeBox.Text = person.getInfo()[0];
+                ubergabeBox.Text = Person.getInfo()[0];
                 ubergabeBox.Enabled = false;
             }
 
@@ -38,7 +38,7 @@ namespace Pendenzen
 
         private bool isAdmin()
         {
-            if (person.getInfo()[4] == "Informatik" || person.getInfo()[4] == "GL")
+            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
             {
                 return true;
             }

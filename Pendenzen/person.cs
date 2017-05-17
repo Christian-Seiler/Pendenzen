@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.DirectoryServices;
 using System.Linq;
 using System.Security.Principal;
-using Microsoft.Win32;
 
 namespace Pendenzen
 {
-    public class person
+    public class Person
     {
         public static string getID()
         {
@@ -18,9 +16,7 @@ namespace Pendenzen
         {
             return getInfo(getID());
         }
-
-
-
+        
         public static List<string> getInfo(string id)
         {
             DirectoryEntry entry = new DirectoryEntry("LDAP://allpower.local", "intranet", "saarcos!50");

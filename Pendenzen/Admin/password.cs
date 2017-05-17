@@ -44,7 +44,7 @@ namespace Pendenzen
             var pass = passCell[0].ToString();
 
 
-            if (crypt.Encrypt(altesPasswort.Text) == pass)
+            if (crypt.encrypt(altesPasswort.Text) == pass)
                 return true;
             message("Passwort ungültig", "Fehler", MessageBoxIcon.Error);
             return false;
@@ -54,7 +54,7 @@ namespace Pendenzen
         {
             if (authenticate() && hasNewPassword())
             {
-                var pass = crypt.Encrypt(neuesPasswort.Text);
+                var pass = crypt.encrypt(neuesPasswort.Text);
                 query = $"UPDATE admin SET AdminOption='{pass}' WHERE idadmin = 'pass'";
                 db.Update(query);
                 message("Passwort erfolgreich geändert", "Erfolg", MessageBoxIcon.Information);
