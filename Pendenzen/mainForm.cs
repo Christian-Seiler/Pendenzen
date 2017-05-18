@@ -514,8 +514,12 @@ namespace Pendenzen
             Series amount = this.chart.Series[this.chart.Series.IndexOf("Amount")];
             Series reason = this.chart.Series[this.chart.Series.IndexOf("Reason")];
             Series count = this.chart.Series[this.chart.Series.IndexOf("Count")];
+            Series reasonAmount = this.chart.Series[this.chart.Series.IndexOf("ReasonAmount")];
 
-            Debug.WriteLine($"Indexes: {this.chart.Series.IndexOf("Amount")}, {this.chart.Series.IndexOf("Reason")}, {this.chart.Series.IndexOf("Count")}");
+            amount.Points.Clear();
+            reason.Points.Clear();
+            count.Points.Clear();
+            reasonAmount.Points.Clear();
 
             String query = "SELECT company, COUNT(company) as c FROM stats GROUP BY company desc ORDER BY c DESC";
             DataTable table = db.Select(query);
@@ -527,7 +531,7 @@ namespace Pendenzen
 
                 DataPoint dataPoint = new DataPoint();
                 dataPoint.SetValueXY($"{row[0]}\n{row[1]}", row[1]);
-                amount.Points.Add(dataPoint);
+                count.Points.Add(dataPoint);
             }
 
             query = "SELECT company, SUM(amount) as c FROM stats GROUP BY company desc ORDER BY c DESC";
@@ -537,6 +541,7 @@ namespace Pendenzen
             {
                 amount.XValueType = ChartValueType.String;
                 amount.YValueType = ChartValueType.Double;
+
                 DataPoint dataPoint = new DataPoint();
                 String label = $"{row[0]}\nCHF {Math.Round(Double.Parse(row[1].ToString()), 2)}";
                 dataPoint.SetValueXY(label, row[1]);
@@ -549,13 +554,25 @@ namespace Pendenzen
             {
                 reason.XValueType = ChartValueType.String;
                 reason.YValueType = ChartValueType.Double;
+
                 DataPoint dataPoint = new DataPoint();
-                dataPoint.SetValueXY(row[0], row[1]);
+                dataPoint.SetValueXY($"{row[0]}\n{row[1]}", row[1]);
                 reason.Points.Add(dataPoint);
             }
 
-            Debug.WriteLine(this.chart.Series[0].Points.Count);
-            
+            query = "SELECT reason, SUM(amount) as c FROM stats GROUP BY reason ORDER BY c DESC";
+            table = db.Select(query);
+            foreach (DataRow row in table.Rows)
+            {
+                reasonAmount.XValueType = ChartValueType.String;
+                reasonAmount.YValueType = ChartValueType.Double;
+
+                DataPoint dataPoint = new DataPoint();
+                String label = $"{row[0]}\nCHF {Math.Round(Double.Parse(row[1].ToString()), 2)}";
+                dataPoint.SetValueXY(label, row[1]);
+                reasonAmount.Points.Add(dataPoint);
+            }
+
         }
 
         #endregion
