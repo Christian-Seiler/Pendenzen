@@ -20,15 +20,22 @@ namespace Pendenzen
 
         private void supportButton_Click(object sender, EventArgs e)
         {
-            var url = "http://www.christianseiler.ch";
-
-            Process.Start(url);
+            open("http://www.christianseiler.ch");
         }
 
         private void bugButton_Click(object sender, EventArgs e)
         {
-            var url = "https://github.com/Christian-Seiler/Pendenzen/issues/new";
+            open("http://support.christianseiler.ch/open.php");
+        }
 
+        private void featureButton_Click(object sender, EventArgs e)
+        {
+            open("http://voice.christianseiler.ch/");
+            
+        }
+
+        private void open(String url)
+        {
             Process.Start(url);
         }
     }

@@ -31,7 +31,7 @@ namespace Pendenzen.Admin
 
         private void getReasons()
         {
-            String query = "SELECT description, department FROM reason ORDER BY department";
+            String query = "SELECT department, description FROM reason ORDER BY department";
             DataTable dataTable = db.Select(query);
             StringBuilder s = new StringBuilder();
             foreach (DataRow row in dataTable.Rows)
