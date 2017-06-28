@@ -173,6 +173,26 @@ namespace Pendenzen.Properties {
         }
         
         /// <summary>
+        ///   Sucht eine lokalisierte Zeichenfolge, die &lt;DSAKeyValue&gt;
+        ///  &lt;P&gt;
+        ///    q+Ph0Td6TtU+8rOGQRYceZfVBlgbSO7R/Cc4xbDrwOtkWDqEqEmefHOTHs3C98jDA8nj1n07FKtchygX6KXYR7dsMdSBX90UhWSXQKvOOj/H+Vci6cjhjq+VLr1IMiVonEkGfHBx1m+avB61tiJ/vm2PgldXvIJsGZAlLyblATs=
+        ///  &lt;/P&gt;
+        ///  &lt;Q&gt;
+        ///    6NShkoI9yfjWJ66PLXVnThrxCD8=
+        ///  &lt;/Q&gt;
+        ///  &lt;G&gt;
+        ///    gj/fBAaZRwf/9MXFq+lOmWoOTzZg3SCXsqnpAwemIyeqq87wwVkevCBqVk5tR2JnwpC6RSz+squHAba2ZtskSfVHzam87rSCXhEWgTzYcu/0XXuWRcj8lNq0/ZF8pVf8DjUm62+PC0DIUAFICM54ZS2bCf3LBiHTudr8SMZ1Pwo=
+        ///  &lt;/G&gt;
+        ///  &lt;Y&gt;
+        ///    N3EW/+KkhdKZHQNa2nrCdSuZ2FYpcqKzBOPU64FXPmD9Woqcnl3 [Rest der Zeichenfolge wurde abgeschnitten]&quot;; ähnelt.
+        /// </summary>
+        internal static string publicKey {
+            get {
+                return ResourceManager.GetString("publicKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Sucht eine lokalisierte Zeichenfolge, die Die Suche hat keine Einträge gefunden, bitte suche mittels anderen Keywords oder setze die Suche zurück. ähnelt.
         /// </summary>
         internal static string restoreMessagge {

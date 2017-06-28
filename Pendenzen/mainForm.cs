@@ -1,5 +1,6 @@
 ﻿using Pendenzen.Admin;
 using Pendenzen.Properties;
+using Pendenzen.Update;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +9,8 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -73,10 +76,17 @@ namespace Pendenzen
             oldTable = db.Select(query);
             issueDataView.DataSource = oldTable;
             tabControl_Selected(null, null);
-            threadStarter();
             isOn = true;
             setCompany();
             setReason();
+
+            if (updateAvailable())
+            {
+                updateButton.Text = "Updates verfügbar!";
+                updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            }
+
+            threadStarter();
         }
 
         public Dictionary<string, string> dictionary
@@ -94,6 +104,7 @@ namespace Pendenzen
                     dict.Add("Erfasser", "erfasst_von");
                     dict.Add("Sachbearbeiter", "sachbearbeiter");
                     dict.Add("Status", "state");
+                    dict.Add("Abteilung", "department");
                 }
                 if (tabControl.SelectedIndex == 1)
                 {
@@ -114,6 +125,7 @@ namespace Pendenzen
                     dict.Add("Betrag", "user");
                     dict.Add("Datum", "date");
                     dict.Add("Grund", "reason");
+                    dict.Add("Abteilung", "department");
                 }
 
                 return dict;
@@ -137,6 +149,7 @@ namespace Pendenzen
                 dict.Add("detail", "Details");
                 dict.Add("finalized", "Abgeschlossen am");
                 dict.Add("state", "Status");
+                dict.Add("department", "Abteilung");
             }
             if (tabControl.SelectedIndex == 1)
             {
@@ -156,6 +169,7 @@ namespace Pendenzen
                 dict.Add("user", "Benutzer");
                 dict.Add("date", "Datum");
                 dict.Add("reason", "Grund");
+                dict.Add("department", "Abteilung");
             }
 
                 return dict;
@@ -353,7 +367,7 @@ namespace Pendenzen
         private string createAdressQuery()
         {
             return
-                "SELECT company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
+                "SELECT company_id, company_name, company_street, company_plz, company_city, company_country, company_verkaufmail, company_einkaufmail FROM company WHERE company_verkaufkontakt = 'JA' OR company_einkaufkontakt = 'JA' ";
         }
 
         private string createQuery(string table)
@@ -402,6 +416,7 @@ namespace Pendenzen
                 return $"AND department = '{Person.getInfo()[4]}'";
             }
         }
+
         private string admin(String modifier)
         {
             if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
@@ -439,7 +454,9 @@ namespace Pendenzen
             isOn = false;
             var sortText = issueDataView.Columns[e.ColumnIndex].HeaderText;
         }
+        #endregion
 
+        #region storno
         private void setCompany()
         {
             var query = "SELECT company_id FROM company";
@@ -752,7 +769,7 @@ namespace Pendenzen
             saveFile.DefaultExt = "csv";
             saveFile.InitialDirectory = Environment.GetEnvironmentVariable("USERPROFILE");
             saveFile.Title = "Adressen exportieren unter";
-            saveFile.Filter = "Alle Dateien (*.*)|*.*";
+            saveFile.Filter = "CSV (Trennzeichen-getrennt) (*.csv)|*.csv";
             saveFile.CheckPathExists = true;
             saveFile.RestoreDirectory = true;
 
@@ -778,8 +795,7 @@ namespace Pendenzen
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            var searchKey = "";
-            dictionary.TryGetValue(searchDropBox.Text, out searchKey);
+            dictionary.TryGetValue(searchDropBox.Text, out String searchKey);
 
             if (searchDropBox.Text != "")
             {
@@ -1100,5 +1116,42 @@ namespace Pendenzen
         }
 
         #endregion
+
+        #region update
+
+        public void updateButton_Click(object sender, EventArgs e)
+        {
+            Updates updates = new Updates();
+            updates.ShowDialog();
+        }
+
+        private bool updateAvailable()
+        {
+            String address = "http://update.christianseiler.ch/allpower_pendenzen.html";
+            String key = "VERSION";
+            String data = "";
+
+            // check online for latest version
+            using (WebClient client = new WebClient())
+            {
+                data = client.DownloadString(address);
+            }
+            String keyStart = $"[{key.ToUpper()}]";
+            String keyEnd = $"[/{key.ToUpper()}]";
+            int startIndex = data.IndexOf(keyStart) + keyStart.Length;
+            int length = data.IndexOf(keyEnd) - startIndex;
+            
+            // check the current version
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            String current = fileVersionInfo.ProductVersion;
+            String latest = data.Substring(startIndex, length);
+            
+            return (new Version(latest)).CompareTo(new Version(current)) > 0 ? true : false;
+        }
+        
+        #endregion
+        
     }
 }

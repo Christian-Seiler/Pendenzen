@@ -7,3 +7,12 @@ H:\Projekte\Pendenzen\PendenzenTests\bin\Debug\MySql.Data.xml
 H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.csprojResolveAssemblyReference.cache
 H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.dll
 H:\Projekte\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.pdb
+H:\git\Pendenzen\PendenzenTests\bin\Debug\PendenzenTests.dll
+H:\git\Pendenzen\PendenzenTests\bin\Debug\PendenzenTests.pdb
+H:\git\Pendenzen\PendenzenTests\bin\Debug\Pendenzen.exe
+H:\git\Pendenzen\PendenzenTests\bin\Debug\MySql.Data.dll
+H:\git\Pendenzen\PendenzenTests\bin\Debug\Pendenzen.pdb
+H:\git\Pendenzen\PendenzenTests\bin\Debug\Pendenzen.exe.config
+H:\git\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.csprojResolveAssemblyReference.cache
+H:\git\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.dll
+H:\git\Pendenzen\PendenzenTests\obj\Debug\PendenzenTests.pdb
