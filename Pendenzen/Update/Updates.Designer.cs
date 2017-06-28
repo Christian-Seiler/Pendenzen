@@ -35,14 +35,13 @@
             this.historyText = new System.Windows.Forms.WebBrowser();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.availableVersion = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // downloadButton
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.downloadButton.Location = new System.Drawing.Point(119, 320);
+            this.downloadButton.Location = new System.Drawing.Point(130, 326);
             this.downloadButton.Name = "downloadButton";
             this.downloadButton.Size = new System.Drawing.Size(75, 23);
             this.downloadButton.TabIndex = 0;
@@ -83,7 +82,7 @@
             // 
             this.historyText.Location = new System.Drawing.Point(12, 140);
             this.historyText.Name = "historyText";
-            this.historyText.Size = new System.Drawing.Size(290, 174);
+            this.historyText.Size = new System.Drawing.Size(310, 180);
             this.historyText.TabIndex = 3;
             this.historyText.TabStop = false;
             // 
@@ -106,20 +105,11 @@
             this.availableVersion.TabIndex = 1;
             this.availableVersion.Text = "Verfügbar: 1.1";
             // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(162, 236);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(250, 250);
-            this.webBrowser1.TabIndex = 0;
-            // 
             // Updates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 355);
-            this.Controls.Add(this.webBrowser1);
+            this.ClientSize = new System.Drawing.Size(334, 361);
             this.Controls.Add(this.availableVersion);
             this.Controls.Add(this.logoPictureBox);
             this.Controls.Add(this.historyText);
@@ -145,6 +135,5 @@
         private System.Windows.Forms.WebBrowser historyText;
         private System.Windows.Forms.PictureBox logoPictureBox;
         private System.Windows.Forms.Label availableVersion;
-        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

@@ -1074,10 +1074,12 @@ namespace Pendenzen
             // updateButton
             // 
             this.updateButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.updateButton.AutoSize = true;
+            this.updateButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.updateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.updateButton.Location = new System.Drawing.Point(987, 37);
+            this.updateButton.Location = new System.Drawing.Point(949, 37);
             this.updateButton.Name = "updateButton";
-            this.updateButton.Size = new System.Drawing.Size(107, 23);
+            this.updateButton.Size = new System.Drawing.Size(145, 23);
             this.updateButton.TabIndex = 103;
             this.updateButton.Text = "Nach Updates Suchen";
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
@@ -1103,9 +1105,9 @@ namespace Pendenzen
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.searchStatusBox);
             this.HelpButton = true;
+            this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(1100, 700);
-            this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.Name = "mainForm";
             this.Text = "Pendenzen";
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();

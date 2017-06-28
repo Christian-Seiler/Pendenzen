@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Windows.Forms;
@@ -11,6 +12,7 @@ namespace Pendenzen.Update
         String address = "http://update.christianseiler.ch/allpower_pendenzen.html";
         String data;
         bool uptodate = false;
+        String latest;
 
         public Updates()
         {
@@ -25,21 +27,25 @@ namespace Pendenzen.Update
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             String current = fileVersionInfo.ProductVersion;
-            String latest = getSubstring("VERSION");
+            latest = getSubstring("VERSION");
 
             this.currentVersion.Text = $"Installiert: {current}";
             uptodate = (new Version(latest)).CompareTo(new Version(current)) > 0 ? false : true;
             availableVersion.Text = !uptodate ? $"Verfügbar: {latest}" : $"Die neuste Version ist installiert.";
+            if (uptodate)
+            {
+                downloadButton.Enabled = false;
+            }
         }
 
         public void setHistory()
         {
-            historyText.Text = "<html>" + getSubstring("HISTORY") + "</html>";
+            historyText.DocumentText = "<html>" + getSubstring("HISTORY") + "</html>";
         }
 
-        public String setDownloadURL()
+        public Uri setDownloadURL()
         {
-            return getSubstring("URL");
+            return new Uri(getSubstring("URL"));
         }
 
         private String getData()
@@ -63,10 +69,16 @@ namespace Pendenzen.Update
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            String address = setDownloadURL();
+            Uri address = setDownloadURL();
             using (WebClient client = new WebClient())
             {
-                client.DownloadFile(address, "pendenzen.msi");
+                downloadButton.Enabled = false;
+                String path = Path.GetTempPath();
+                client.DownloadFileAsync(address, $"{path}/Pendenzen-{latest}.msi");
+                
+
+
+
             }
         }
     }
