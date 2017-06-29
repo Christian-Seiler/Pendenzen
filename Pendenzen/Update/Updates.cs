@@ -9,7 +9,7 @@ namespace Pendenzen.Update
 {
     public partial class Updates : Form
     {
-        String address = "http://update.christianseiler.ch/allpower_pendenzen.html";
+        String address = "http://update.christianseiler.ch/update.php?id=allpower_pendenzen";
         String data;
         bool uptodate = false;
         String latest;

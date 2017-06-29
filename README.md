@@ -4,8 +4,12 @@
 TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
 ## Version 
-* Version 1.5.0 (unstable)
-* Version 1.4.2 (stable)
+* Version 1.5.0 (stable)
+
+## Changelog
+**1.5.0**
+* New Versions are now indicated with an Update Function
+* New View for controll and statistics of annulated orders
 
 ## Contact
 #### Christian Seiler Services
