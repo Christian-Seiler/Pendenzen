@@ -13,6 +13,7 @@ namespace Pendenzen.Update
         String data;
         bool uptodate = false;
         String latest;
+        String path;
 
         public Updates()
         {
@@ -69,17 +70,56 @@ namespace Pendenzen.Update
 
         private void downloadButton_Click(object sender, EventArgs e)
         {
-            Uri address = setDownloadURL();
-            using (WebClient client = new WebClient())
+            if (downloadButton.Text == "Download")
             {
-                downloadButton.Enabled = false;
-                String path = Path.GetTempPath();
-                client.DownloadFileAsync(address, $"{path}/Pendenzen-{latest}.msi");
-                
-
-
-
+                Uri address = setDownloadURL();
+                using (WebClient client = new WebClient())
+                {
+                    downloadButton.Enabled = false;
+                    path = $"{Path.GetTempPath()}/Pendenzen-{latest}.msi";
+                    client.DownloadProgressChanged += downloadProgressChanged;
+                    client.DownloadFileCompleted += downloadFileCompleted;
+                    client.DownloadFileAsync(address, path);
+                }
             }
+            if (downloadButton.Text == "Schliessen")
+            {
+                this.Close();
+            }
+        }
+
+        private void downloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
+            if (startInstaller())
+            {
+                File.Open(path, FileMode.Open);
+                Application.Exit();
+            }
+            cleanUp();
+        }
+
+        private void downloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            Double bytesIn = Double.Parse(e.BytesReceived.ToString());
+            Double bytesTotal = Double.Parse(e.TotalBytesToReceive.ToString());
+            progressBar.Value = e.ProgressPercentage;
+        }
+
+        private bool startInstaller()
+        {
+            DialogResult result = MessageBox.Show("Jetzt installieren?", "Update bereit", MessageBoxButtons.OKCancel);
+            if(result == DialogResult.OK)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void cleanUp()
+        {
+            downloadButton.Text = "Schliessen";
+            downloadButton.Enabled = true;
+            File.Delete(path);
         }
     }
 }
