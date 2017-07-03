@@ -255,6 +255,7 @@
             this.departmentLabel.Size = new System.Drawing.Size(51, 13);
             this.departmentLabel.TabIndex = 16;
             this.departmentLabel.Text = "Abteilung";
+            this.departmentLabel.Visible = false;
             // 
             // departmentBox
             // 
@@ -263,6 +264,7 @@
             this.departmentBox.Name = "departmentBox";
             this.departmentBox.Size = new System.Drawing.Size(100, 21);
             this.departmentBox.TabIndex = 17;
+            this.departmentBox.Visible = false;
             // 
             // AddIssue
             // 

@@ -4,7 +4,7 @@ namespace Pendenzen
 {
     class Query
     {
-        public static string Admin()
+        public static string admin()
         {
             if (!Person.isAdmin())
             {
@@ -13,7 +13,7 @@ namespace Pendenzen
             return "";
         }
 
-        public static string Admin(String modifier)
+        public static string admin(String modifier)
         {
             if (!Person.isAdmin())
             {
@@ -22,7 +22,7 @@ namespace Pendenzen
             return "";
         }
 
-        public static string Department(string department)
+        public static string department(string department)
         {
             if (Person.isAdmin() && department != "")
             {
@@ -31,7 +31,7 @@ namespace Pendenzen
             return "";
         }
 
-        public static string Department(String department, String modifier)
+        public static string department(String department, String modifier)
         {
             if (Person.isAdmin() && department != "")
             {
@@ -40,7 +40,7 @@ namespace Pendenzen
             return "";
         }
 
-        public static string Ending(String order)
+        public static string ending(String order)
         {
             return $" ORDER BY idpendenz {order}";
         }

@@ -38,6 +38,56 @@ namespace Pendenzen
             return list;
         }
 
+        public static string username()
+        {
+            return getInfo()[0];
+        }
+
+        public static string username(string id)
+        {
+            return getInfo(id)[0];
+        }
+
+        public static string givenname()
+        {
+            return getInfo()[1];
+        }
+
+        public static string givenname(string id)
+        {
+            return getInfo(id)[1];
+        }
+
+        public static string familyname()
+        {
+            return getInfo()[2];
+        }
+
+        public static string familyname(string id)
+        {
+            return getInfo(id)[2];
+        }
+
+        public static string mail()
+        {
+            return getInfo()[3];
+        }
+
+        public static string mail(string id)
+        {
+            return getInfo(id)[3];
+        }
+
+        public static string department()
+        {
+            return getInfo()[4];
+        }
+
+        public static string department(string id)
+        {
+            return getInfo(id)[4];
+        }
+
         public static bool isAdmin()
         {
             string deparetment = getInfo()[4];

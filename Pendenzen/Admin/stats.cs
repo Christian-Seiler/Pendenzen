@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pendenzen
@@ -13,6 +6,7 @@ namespace Pendenzen
     public partial class Stats : Form
     {
         DBConnect db = new DBConnect();
+        bool isAdmin = Person.isAdmin();
 
         public Stats()
         {
@@ -36,26 +30,20 @@ namespace Pendenzen
 
         private string dept()
         {
-            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
+            if (isAdmin)
             {
                 return "aller Abteilungen";
             }
-            else
-            {
-                return $"{Person.getInfo()[4]}";
-            }
+            return $"{Person.getInfo()[4]}";
         }
 
         private string admin()
         {
-            if (Person.getInfo()[4] == "Informatik" || Person.getInfo()[4] == "GL")
-            {
-                return "";
-            }
-            else
+            if (!isAdmin)
             {
                 return $"AND department = '{Person.getInfo()[4]}'";
             }
+            return "";
         }
 
         private void closeButton_Click(object sender, EventArgs e)

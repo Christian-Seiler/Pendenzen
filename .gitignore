@@ -47,8 +47,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
+
 */bin/
 */obj/
-/.vs/
-/.vscode/
-/Output/
+.vs/
+.vscode/
+Output/

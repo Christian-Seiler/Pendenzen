@@ -37,7 +37,9 @@ namespace Pendenzen
             this.supportButton = new System.Windows.Forms.Button();
             this.bugButton = new System.Windows.Forms.Button();
             this.featureButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // productNameLabel
@@ -52,9 +54,8 @@ namespace Pendenzen
             // 
             // versionLabel
             // 
-            this.versionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(13, 126);
+            this.versionLabel.Location = new System.Drawing.Point(13, 123);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(63, 13);
             this.versionLabel.TabIndex = 1;
@@ -62,10 +63,10 @@ namespace Pendenzen
             // 
             // copyrightLabel
             // 
-            this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.copyrightLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.copyrightLabel.AutoSize = true;
-            this.copyrightLabel.Location = new System.Drawing.Point(13, 144);
+            this.copyrightLabel.Location = new System.Drawing.Point(13, 141);
             this.copyrightLabel.Name = "copyrightLabel";
             this.copyrightLabel.Size = new System.Drawing.Size(50, 13);
             this.copyrightLabel.TabIndex = 2;
@@ -87,7 +88,7 @@ namespace Pendenzen
             // 
             this.supportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.supportButton.Location = new System.Drawing.Point(68, 230);
+            this.supportButton.Location = new System.Drawing.Point(68, 282);
             this.supportButton.Name = "supportButton";
             this.supportButton.Size = new System.Drawing.Size(144, 23);
             this.supportButton.TabIndex = 4;
@@ -99,7 +100,7 @@ namespace Pendenzen
             // 
             this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bugButton.Location = new System.Drawing.Point(68, 200);
+            this.bugButton.Location = new System.Drawing.Point(68, 252);
             this.bugButton.Name = "bugButton";
             this.bugButton.Size = new System.Drawing.Size(144, 23);
             this.bugButton.TabIndex = 5;
@@ -111,7 +112,7 @@ namespace Pendenzen
             // 
             this.featureButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.featureButton.Location = new System.Drawing.Point(68, 171);
+            this.featureButton.Location = new System.Drawing.Point(68, 223);
             this.featureButton.Name = "featureButton";
             this.featureButton.Size = new System.Drawing.Size(144, 23);
             this.featureButton.TabIndex = 6;
@@ -119,12 +120,25 @@ namespace Pendenzen
             this.featureButton.UseVisualStyleBackColor = true;
             this.featureButton.Click += new System.EventHandler(this.featureButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::Pendenzen.Properties.Resources.logo_css;
+            this.pictureBox1.Location = new System.Drawing.Point(13, 157);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(254, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(284, 267);
+            this.ClientSize = new System.Drawing.Size(284, 319);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.featureButton);
             this.Controls.Add(this.supportButton);
             this.Controls.Add(this.logoPicturebox);
@@ -139,6 +153,7 @@ namespace Pendenzen
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "Info";
             ((System.ComponentModel.ISupportInitialize)(this.logoPicturebox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +168,6 @@ namespace Pendenzen
         private System.Windows.Forms.Button supportButton;
         private System.Windows.Forms.Button bugButton;
         private System.Windows.Forms.Button featureButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

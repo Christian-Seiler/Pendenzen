@@ -13,7 +13,6 @@ namespace Pendenzen
         private readonly string _company;
         private readonly string _document;
         private readonly DateTime _due;
-        private readonly int _id;
         private readonly string _reference;
         private readonly string _responsible;
         private readonly string _state;
@@ -27,7 +26,6 @@ namespace Pendenzen
         public modifyIssue(int id)
         {
             InitializeComponent();
-            _id = id;
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             var dataTable = db.Select(query);
             
@@ -54,6 +52,7 @@ namespace Pendenzen
             _due = Convert.ToDateTime(list[7]);
             _state = list[10];
             _abteilung = list[11];
+            abteilungLabel.Text = "Abteilung: " + list[11];
 
             changeIssueLabel.Text = $"Pendenz #{id} bearbeiten";
             creatorLabel.Text = $"Erfasser: {list[5]}";

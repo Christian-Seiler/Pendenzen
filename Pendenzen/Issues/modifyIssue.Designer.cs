@@ -55,6 +55,7 @@ namespace Pendenzen
             this.helpTextBox = new System.Windows.Forms.RichTextBox();
             this.openFilesButton = new System.Windows.Forms.Button();
             this.detailsFirmaButton = new System.Windows.Forms.Button();
+            this.abteilungLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // changeIssueLabel
@@ -312,12 +313,22 @@ namespace Pendenzen
             this.detailsFirmaButton.UseVisualStyleBackColor = true;
             this.detailsFirmaButton.Click += new System.EventHandler(this.detailsFirmaButton_Click);
             // 
+            // abteilungLabel
+            // 
+            this.abteilungLabel.AutoSize = true;
+            this.abteilungLabel.Location = new System.Drawing.Point(141, 54);
+            this.abteilungLabel.Name = "abteilungLabel";
+            this.abteilungLabel.Size = new System.Drawing.Size(62, 13);
+            this.abteilungLabel.TabIndex = 27;
+            this.abteilungLabel.Text = "Abteilung: x";
+            // 
             // modifyIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(645, 494);
+            this.Controls.Add(this.abteilungLabel);
             this.Controls.Add(this.detailsFirmaButton);
             this.Controls.Add(this.openFilesButton);
             this.Controls.Add(this.helpTextBox);
@@ -379,5 +390,6 @@ namespace Pendenzen
         private RichTextBox helpTextBox;
         private Button openFilesButton;
         private Button detailsFirmaButton;
+        private Label abteilungLabel;
     }
 }

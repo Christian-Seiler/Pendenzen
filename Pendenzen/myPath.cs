@@ -24,28 +24,21 @@ namespace Pendenzen
                     break;
             }
 
-            var path = "";
 
             switch (abteilung)
             {
                 case "Einkauf":
                     // K:\Einkauf\Lieferanten\Inland\AAA\Korrespondenz
-                    path = $@"K:\Einkauf\Lieferanten\{folder}\{company}\Korrespondenz";
-                    break;
+                    return $@"K:\Einkauf\Lieferanten\{folder}\{company}\Korrespondenz";
                 case "Verkauf":
                     // K:\Verkauf\Kunden\Inland\AAA\Korrespondenz
-                    path = $@"K:\Verkauf\Kunden\{folder}\{company}\Korrespondenz";
-                    break;
+                    return $@"K:\Verkauf\Kunden\{folder}\{company}\Korrespondenz";
                 case "Buchhaltung":
                     // K:\Buchhaltung\Firmen\Inland\AAA
-                    path = $@"K:\Buchhaltung\Firmen\{folder}\{company}";
-                    break;
+                    return $@"K:\Buchhaltung\Firmen\{folder}\{company}";
                 default:
-                    path = "-1";
-                    break;
+                return "-1";
             }
-            Console.WriteLine(path);
-            return path;
         }
     }
 }
