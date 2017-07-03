@@ -13,6 +13,16 @@ namespace Pendenzen
         public AddIssue()
         {
             InitializeComponent();
+            if (Person.isAdmin())
+            {
+                departmentLabel.Visible = true;
+                departmentBox.Visible = true;
+                foreach (String d in Departments.getList())
+                {
+                    departmentBox.Items.Add(d);
+                }
+            }
+
             setCompanyBox();
 
             creatorLabel.Text = $"Erfasser: {Person.getInfo()[1]} {Person.getInfo()[2]}";
@@ -50,7 +60,14 @@ namespace Pendenzen
             var sachbearbeiter = responsibleTextBox.Text.ToUpper();
             var due = duePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
             var details = detailsText;
-            string department = Person.getInfo()[4];
+            string department = "";
+            if (Person.isAdmin() && departmentBox.Text != "")
+            {
+                department = departmentBox.Text;
+            } else
+            {
+                department = Person.getInfo()[4];
+            }
 
             checkEntries();
             if (_error == false)

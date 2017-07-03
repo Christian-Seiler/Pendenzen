@@ -48,6 +48,8 @@
             this.companyBox = new System.Windows.Forms.ComboBox();
             this.helpTextBox = new System.Windows.Forms.RichTextBox();
             this.abteilungLabel = new System.Windows.Forms.Label();
+            this.departmentLabel = new System.Windows.Forms.Label();
+            this.departmentBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // newIssueLabel
@@ -245,11 +247,30 @@
             this.abteilungLabel.TabIndex = 15;
             this.abteilungLabel.Text = "Abteilung: Werkstatt";
             // 
-            // addIssue
+            // departmentLabel
+            // 
+            this.departmentLabel.AutoSize = true;
+            this.departmentLabel.Location = new System.Drawing.Point(113, 143);
+            this.departmentLabel.Name = "departmentLabel";
+            this.departmentLabel.Size = new System.Drawing.Size(51, 13);
+            this.departmentLabel.TabIndex = 16;
+            this.departmentLabel.Text = "Abteilung";
+            // 
+            // departmentBox
+            // 
+            this.departmentBox.FormattingEnabled = true;
+            this.departmentBox.Location = new System.Drawing.Point(116, 157);
+            this.departmentBox.Name = "departmentBox";
+            this.departmentBox.Size = new System.Drawing.Size(100, 21);
+            this.departmentBox.TabIndex = 17;
+            // 
+            // AddIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(436, 406);
+            this.Controls.Add(this.departmentBox);
+            this.Controls.Add(this.departmentLabel);
             this.Controls.Add(this.abteilungLabel);
             this.Controls.Add(this.helpTextBox);
             this.Controls.Add(this.errorLabel);
@@ -273,7 +294,7 @@
             this.Icon = global::Pendenzen.Properties.Resources.favicon;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "addIssue";
+            this.Name = "AddIssue";
             this.Text = "Neue Pendenz";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -302,5 +323,7 @@
         private System.Windows.Forms.ComboBox companyBox;
         private System.Windows.Forms.RichTextBox helpTextBox;
         private System.Windows.Forms.Label abteilungLabel;
+        private System.Windows.Forms.Label departmentLabel;
+        private System.Windows.Forms.ComboBox departmentBox;
     }
 }

@@ -148,9 +148,10 @@
     <Compile Include="Admin\addReasons.Designer.cs">
       <DependentUpon>addReasons.cs</DependentUpon>
     </Compile>
-    <Compile Include="DatabaseRegistry.cs" />
     <Compile Include="DBConnect.cs" />
+    <Compile Include="Departments.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="Query.cs" />
     <Compile Include="Security\RSA.cs" />
     <Compile Include="Security\Serializer.cs" />
     <Compile Include="MakeConnection.cs" />

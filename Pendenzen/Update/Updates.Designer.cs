@@ -43,9 +43,9 @@
             // 
             this.downloadButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.downloadButton.Location = new System.Drawing.Point(130, 382);
+            this.downloadButton.Location = new System.Drawing.Point(130, 386);
             this.downloadButton.Name = "downloadButton";
-            this.downloadButton.Size = new System.Drawing.Size(75, 23);
+            this.downloadButton.Size = new System.Drawing.Size(100, 23);
             this.downloadButton.TabIndex = 0;
             this.downloadButton.Text = "Download";
             this.downloadButton.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(12, 124);
+            this.label5.Location = new System.Drawing.Point(12, 139);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(46, 13);
             this.label5.TabIndex = 5;
@@ -85,9 +85,9 @@
             this.historyText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.historyText.Location = new System.Drawing.Point(12, 140);
+            this.historyText.Location = new System.Drawing.Point(12, 155);
             this.historyText.Name = "historyText";
-            this.historyText.Size = new System.Drawing.Size(310, 220);
+            this.historyText.Size = new System.Drawing.Size(335, 209);
             this.historyText.TabIndex = 3;
             this.historyText.TabStop = false;
             // 
@@ -114,16 +114,16 @@
             // 
             this.progressBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar.Location = new System.Drawing.Point(12, 366);
+            this.progressBar.Location = new System.Drawing.Point(12, 370);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(310, 10);
+            this.progressBar.Size = new System.Drawing.Size(335, 10);
             this.progressBar.TabIndex = 6;
             // 
             // Updates
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 417);
+            this.ClientSize = new System.Drawing.Size(359, 421);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.availableVersion);
             this.Controls.Add(this.logoPictureBox);

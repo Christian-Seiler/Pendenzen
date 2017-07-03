@@ -133,6 +133,9 @@ namespace Pendenzen
             this.invoice = new System.Windows.Forms.TextBox();
             this.sendenButton = new System.Windows.Forms.Button();
             this.updateButton = new System.Windows.Forms.Button();
+            this.departmentBox = new System.Windows.Forms.ComboBox();
+            this.departmentLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
             this.menuStrip.SuspendLayout();
@@ -547,6 +550,7 @@ namespace Pendenzen
             this.companyTab.Controls.Add(this.streetLabel);
             this.companyTab.Controls.Add(this.companyLabel);
             this.companyTab.Controls.Add(this.idLabel);
+            this.companyTab.Controls.Add(this.menuStrip1);
             this.companyTab.Location = new System.Drawing.Point(4, 22);
             this.companyTab.Name = "companyTab";
             this.companyTab.Padding = new System.Windows.Forms.Padding(3);
@@ -1084,12 +1088,41 @@ namespace Pendenzen
             this.updateButton.Text = "Nach Updates Suchen";
             this.updateButton.Click += new System.EventHandler(this.updateButton_Click);
             // 
+            // departmentBox
+            // 
+            this.departmentBox.Location = new System.Drawing.Point(200, 140);
+            this.departmentBox.Name = "departmentBox";
+            this.departmentBox.Size = new System.Drawing.Size(121, 21);
+            this.departmentBox.TabIndex = 104;
+            this.departmentBox.Visible = false;
+            this.departmentBox.SelectedIndexChanged += new System.EventHandler(this.departmentBox_SelectedIndexChanged);
+            // 
+            // departmentLabel
+            // 
+            this.departmentLabel.AutoSize = true;
+            this.departmentLabel.Location = new System.Drawing.Point(197, 124);
+            this.departmentLabel.Name = "departmentLabel";
+            this.departmentLabel.Size = new System.Drawing.Size(51, 13);
+            this.departmentLabel.TabIndex = 105;
+            this.departmentLabel.Text = "Abteilung";
+            this.departmentLabel.Visible = false;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(3, 3);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1082, 24);
+            this.menuStrip1.TabIndex = 57;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1102, 662);
+            this.Controls.Add(this.departmentLabel);
+            this.Controls.Add(this.departmentBox);
             this.Controls.Add(this.updateButton);
             this.Controls.Add(this.resetButton);
             this.Controls.Add(this.autoUpdate);
@@ -1215,5 +1248,8 @@ namespace Pendenzen
         private ToolStripMenuItem storniToolStripMenuItem;
         private ToolStripMenuItem neuerStornogrundToolStripMenuItem;
         private Button updateButton;
+        private ComboBox departmentBox;
+        private Label departmentLabel;
+        private MenuStrip menuStrip1;
     }
 }

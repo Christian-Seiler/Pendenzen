@@ -14,7 +14,6 @@ namespace Pendenzen
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             new MakeConnection();
-           // Application.Run(new mainForm());
         }
     }
 }

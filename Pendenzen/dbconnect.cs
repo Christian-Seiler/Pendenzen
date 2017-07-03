@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Diagnostics;
 
 namespace Pendenzen
 {
@@ -120,6 +121,7 @@ namespace Pendenzen
         //Select statement
         public DataTable Select(string query)
         {
+            Debug.WriteLine(query);
             // Open connection
             if (OpenConnection())
             {

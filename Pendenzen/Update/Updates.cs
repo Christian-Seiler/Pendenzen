@@ -13,6 +13,7 @@ namespace Pendenzen.Update
         String data;
         bool uptodate = false;
         String latest;
+        String lastAvailable;
         String path;
 
         public Updates()
@@ -23,19 +24,40 @@ namespace Pendenzen.Update
             setHistory();
         }
 
+        public bool supportIsValid()
+        {
+            switch (getSubstring("SUPPORT"))
+            {
+                case "valid":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        
         public void setVersion()
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             String current = fileVersionInfo.ProductVersion;
             latest = getSubstring("VERSION");
+            lastAvailable = getSubstring("LATEST");
 
             this.currentVersion.Text = $"Installiert: {current}";
-            uptodate = (new Version(latest)).CompareTo(new Version(current)) > 0 ? false : true;
-            availableVersion.Text = !uptodate ? $"Verfügbar: {latest}" : $"Die neuste Version ist installiert.";
-            if (uptodate)
+
+            bool newOutOfSupport = (new Version(latest)).CompareTo(new Version(lastAvailable)) < 0 ? true : false;
+            if (newOutOfSupport)
             {
-                downloadButton.Enabled = false;
+                availableVersion.Text = "Es ist eine neue Version verfügbar.\n Jetzt den Support verlängern.";
+                downloadButton.Text = "Support verlängern";
+            } else
+            {
+                uptodate = (new Version(latest)).CompareTo(new Version(current)) > 0 ? false : true;
+                availableVersion.Text = !uptodate ? $"Verfügbar: {latest}" : $"Die neuste Version ist installiert.";
+                if (uptodate)
+                {
+                    downloadButton.Enabled = false;
+                }
             }
         }
 
@@ -81,8 +103,10 @@ namespace Pendenzen.Update
                     client.DownloadFileCompleted += downloadFileCompleted;
                     client.DownloadFileAsync(address, path);
                 }
-            }
-            if (downloadButton.Text == "Schliessen")
+            } else if (downloadButton.Text == "Support verlängern")
+            {
+                String url = getSubstring("RENEW");
+            } else if (downloadButton.Text == "Schliessen")
             {
                 this.Close();
             }

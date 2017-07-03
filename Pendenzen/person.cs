@@ -37,5 +37,19 @@ namespace Pendenzen
 
             return list;
         }
+
+        public static bool isAdmin()
+        {
+            string deparetment = getInfo()[4];
+            switch (deparetment)
+            {
+                case "Informatik":
+                    return true;
+                case "GL":
+                    return true;
+                default:
+                    return false;
+            }
+        }
     }
 }
