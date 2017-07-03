@@ -3,6 +3,10 @@ using System.IO;
 using System.Windows.Forms;
 using System.Security;
 using Pendenzen.Security;
+using System.Net;
+using System.Data;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace Pendenzen
 {
@@ -12,97 +16,30 @@ namespace Pendenzen
         {
             if (new DatabaseRegistry().valuesAreSet())
             {
-                //if (validateLicenseFile()) {
-                    DBConnect db = new DBConnect();
-                    if (db.Open())
+                DBConnect db = new DBConnect();
+                if (db.Open())
+                {
+                    String guid = db.Select(query).Rows[0].ItemArray[0].ToString();
+                    String app = "Pendenzen";
+                    String version = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+                    String query = "SELECT AdminOption FROM admin WHERE idadmin = 'guid'";
+                    String url = "http://update.christianseiler.ch/stats.php?id="+ guid + "&app=" + app + "&v=" + version;
+
+                    using (WebClient c = new WebClient())
                     {
-                        Application.Run(new mainForm());
+                        c.DownloadString(url);
                     }
-                    else
-                    {
-                        MessageBox.Show("Cannot connect to server. Please contact administrator");
-                    }
-                //}
+                    Application.Run(new mainForm());
+                }
+                else
+                {
+                    MessageBox.Show("Cannot connect to server. Please contact administrator");
+                }
             }
             else
             {
 
             }
         }
-
-        internal static bool validateLicenseFile()
-        {
-            try
-            {
-                // reserve a license object:
-                License license = null;
-
-                // get the public key from internal resource:
-                String publicKey = Properties.Resources.publicKey;
-
-                // work out the expected license file-name:
-                String licenseFile = "\\\\srv01\\SYSVOL\\allpower.local\\license\\pendenzen.lic";
-                //String licenseFile = Application.LocalUserAppDataPath + "\\" + Environment.UserName + "_user.lic";
-
-                // does the license file exist?
-                if (File.Exists(licenseFile))
-                {
-                    // load the license:
-                    license = License.Load(licenseFile);
-                }
-                else
-                {
-                    // prompt the user for a license file:
-                    OpenFileDialog dlg = new OpenFileDialog();
-
-                    // setup a dialog;
-                    dlg.Filter = "User License Files (*.lic)|*.lic";
-                    dlg.Title = "Select License File";
-
-                    if (dlg.ShowDialog() == DialogResult.OK)
-                    {
-                        try
-                        {
-                            // copy the license file into the sysvol license directory:
-                            File.Copy(dlg.FileName, licenseFile);
-
-                            // if it made it here, load it:
-                            if (File.Exists(licenseFile))
-                            {
-                                license = License.Load(licenseFile);
-                            }
-                        }
-                        catch
-                        {
-                            // can't copy the file?.. load the original:
-                            license = License.Load(dlg.FileName);
-                        }
-                    }
-                }
-                if (license != null)
-                {
-                    // validate the signature on the license with the message contents, and the public key:
-                    LicenseAuthorization.ValidateLicense(license, publicKey);
-
-                    // if we get here, the license is valid;
-                    return true;
-                }
-                else
-                {
-                    // no license file...
-                    MessageBox.Show("License File Not Supplied!", "License Check");
-                    return false;
-                }
-            }
-            catch (SecurityException se)
-            {
-                // display the reason for the license check failure:
-                MessageBox.Show(se.Message, "License Check");
-            }
-
-            // return false...invalid license.
-            return false;
-        }
-
     }
 }

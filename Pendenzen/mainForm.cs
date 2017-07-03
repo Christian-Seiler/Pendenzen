@@ -1127,7 +1127,7 @@ namespace Pendenzen
 
         private bool updateAvailable()
         {
-            String address = "http://update.christianseiler.ch/update.php?id=allpower_pendenzen";
+            String address = "http://update.christianseiler.ch/?id=allpower_pendenzen";
             String key = "VERSION";
             String data = "";
 

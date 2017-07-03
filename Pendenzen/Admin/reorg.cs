@@ -56,13 +56,8 @@ namespace Pendenzen
         private bool authenticate()
         {
             query = $"SELECT AdminOption FROM admin WHERE idadmin = 'pass'";
-            var passTable = db.Select(query);
-            var passRow = passTable.Rows[0];
-            var passCell = passRow.ItemArray;
-
-            var pass = passCell[0].ToString();
-
-
+            String pass = db.Select(query).Rows[0].ItemArray[0].ToString();
+            
             if (crypt.encrypt(passwordBox.Text) == pass)
                 return true;
             return false;
