@@ -10,6 +10,7 @@ namespace Pendenzen
 {
     public partial class modifyIssue : Form
     {
+        private readonly int _id;
         private readonly string _company;
         private readonly string _document;
         private readonly DateTime _due;
@@ -25,6 +26,7 @@ namespace Pendenzen
 
         public modifyIssue(int id)
         {
+            _id = id;
             InitializeComponent();
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             var dataTable = db.Select(query);

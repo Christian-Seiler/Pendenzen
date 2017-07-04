@@ -6,9 +6,7 @@ namespace Pendenzen
     {
         public MakeConnection()
         {
-
-            DBConnect db = new DBConnect();
-            if (db.Open())
+            if (new DBConnect().Open())
             {
                 Application.Run(new mainForm());
             }
