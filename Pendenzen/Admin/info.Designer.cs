@@ -88,7 +88,7 @@ namespace Pendenzen
             // 
             this.supportButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.supportButton.Location = new System.Drawing.Point(68, 282);
+            this.supportButton.Location = new System.Drawing.Point(68, 314);
             this.supportButton.Name = "supportButton";
             this.supportButton.Size = new System.Drawing.Size(144, 23);
             this.supportButton.TabIndex = 4;
@@ -100,7 +100,7 @@ namespace Pendenzen
             // 
             this.bugButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.bugButton.Location = new System.Drawing.Point(68, 252);
+            this.bugButton.Location = new System.Drawing.Point(68, 284);
             this.bugButton.Name = "bugButton";
             this.bugButton.Size = new System.Drawing.Size(144, 23);
             this.bugButton.TabIndex = 5;
@@ -112,7 +112,7 @@ namespace Pendenzen
             // 
             this.featureButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.featureButton.Location = new System.Drawing.Point(68, 223);
+            this.featureButton.Location = new System.Drawing.Point(68, 255);
             this.featureButton.Name = "featureButton";
             this.featureButton.Size = new System.Drawing.Size(144, 23);
             this.featureButton.TabIndex = 6;
@@ -125,7 +125,7 @@ namespace Pendenzen
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::Pendenzen.Properties.Resources.logo_css;
-            this.pictureBox1.Location = new System.Drawing.Point(13, 157);
+            this.pictureBox1.Location = new System.Drawing.Point(13, 181);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(254, 50);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -137,7 +137,7 @@ namespace Pendenzen
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(284, 319);
+            this.ClientSize = new System.Drawing.Size(284, 351);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.featureButton);
             this.Controls.Add(this.supportButton);
