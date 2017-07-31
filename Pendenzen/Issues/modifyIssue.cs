@@ -22,10 +22,12 @@ namespace Pendenzen
 
         private string changesText;
         private readonly DBConnect db = new DBConnect();
+        private int _id;
 
         public modifyIssue(int id)
         {
             InitializeComponent();
+            _id = id;
             string query = $"SELECT * FROM pendenz WHERE idpendenz = {id}";
             var dataTable = db.Select(query);
             

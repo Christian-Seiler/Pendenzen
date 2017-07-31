@@ -117,6 +117,7 @@ namespace Pendenzen.Update
             if (startInstaller())
             {
                 File.Open(path, FileMode.Open);
+                sendStats();
                 Application.Exit();
             }
             cleanUp();
@@ -144,6 +145,20 @@ namespace Pendenzen.Update
             downloadButton.Text = "Schliessen";
             downloadButton.Enabled = true;
             File.Delete(path);
+        }
+
+        private void sendStats()
+        {
+            String query = "SELECT AdminOption FROM admin WHERE idadmin = 'guid'";
+            String guid = new DBConnect().Select(query).Rows[0].ItemArray[0].ToString();
+            String app = "Pendenzen Updater";
+            String version = FileVersionInfo.GetVersionInfo(Assembly.GetExecutingAssembly().Location).ProductVersion;
+            String url = "http://update.christianseiler.ch/stats.php?id=" + guid + "&app=" + app + "&v=" + version;
+            Debug.WriteLine(url);
+            using (WebClient c = new WebClient())
+            {
+                c.DownloadString(url);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Drawing;
+﻿using System.ComponentModel;
 using System.Drawing.Printing;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
@@ -10,7 +10,7 @@ namespace Pendenzen
         /// <summary>
         /// Erforderliche Designervariable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Verwendete Ressourcen bereinigen.

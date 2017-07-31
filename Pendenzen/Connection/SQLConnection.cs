@@ -5,8 +5,8 @@ using System.Diagnostics;
 
 namespace Pendenzen
 {
-    public class DBConnect
-    {
+   public class SQLConnection
+   {
         private MySqlConnection connection;
         private string database;
         private string password;
@@ -14,11 +14,11 @@ namespace Pendenzen
         private string uid;
 
         //Constructor
-        public DBConnect()
+        public SQLConnection()
         {
             Initialize();
         }
-
+        
         //Initialize values
         private void Initialize()
         {
@@ -26,10 +26,10 @@ namespace Pendenzen
             database = "pendenzen";
             uid = "pendenzen";
             password = "pendenzen";
+
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                                database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
-
             connection = new MySqlConnection(connectionString);
         }
 
@@ -37,8 +37,7 @@ namespace Pendenzen
         {
             return OpenConnection();
         }
-
-
+        
         //open connection to database
         private bool OpenConnection()
         {
@@ -59,7 +58,6 @@ namespace Pendenzen
                     case 0:
                         MessageBox.Show("Cannot connect to server.  Contact administrator");
                         break;
-
                     case 1045:
                         MessageBox.Show("Invalid username/password, please try again");
                         break;
@@ -99,79 +97,74 @@ namespace Pendenzen
         {
             if (OpenConnection())
             {
-                var cmd = new MySqlCommand();
-                cmd.CommandText = query;
-                cmd.Connection = connection;
-                cmd.ExecuteNonQuery();
-                CloseConnection();
-            }
-        }
-
-        //Delete statement
-        public void Delete(string query)
-        {
-            if (OpenConnection())
-            {
                 var cmd = new MySqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 CloseConnection();
             }
         }
 
-        //Select statement
-        public DataTable Select(string query)
-        {
-            Debug.WriteLine(query);
-            // Open connection
+            //Delete statement
+            public void Delete(string query)
+            {
             if (OpenConnection())
             {
-                // Create Command
                 var cmd = new MySqlCommand(query, connection);
-
-                // Create a data reader and Execute the command
-                var adapter = new MySqlDataAdapter();
-                adapter.SelectCommand = cmd;
-                var dTable = new DataTable();
-                adapter.Fill(dTable);
-
-                //close connection
+                cmd.ExecuteNonQuery();
                 CloseConnection();
-
-                //return DataTable to be displayed
-                return dTable;
             }
-            return null;
         }
 
-        //Count statement
-        public int Count(string query)
-        {
-            var Count = -1;
-
-            //Open Connection
-            if (OpenConnection())
+            //Select statement
+            public DataTable Select(string query)
             {
-                // Create Command
-                var cmd = new MySqlCommand(query, connection);
-                //ExecuteScalar will return one Value
-                Count = int.Parse(cmd.ExecuteScalar() + "");
-                //close connection
+                Debug.WriteLine(query);
+                // Open connection
+                if (OpenConnection())
+                {
+                    // Create Command
+                    var cmd = new MySqlCommand(query, connection);
+
+                    // Create a data reader and Execute the command
+                    var adapter = new MySqlDataAdapter();
+                    adapter.SelectCommand = cmd;
+                    var dTable = new DataTable();
+                    adapter.Fill(dTable);
+
+                    //close connection
                 CloseConnection();
-                //return List to be displayed
 
-                return Count;
+                    //return DataTable to be displayed
+                    return dTable;
+                }
+                return null;
             }
-            return Count;
-        }
 
-        //Backup
-        public void Backup()
-        {
-        }
+            //Count statement
+            public int Count(string query)
+            {
+                var count = -1;
 
-        //Restore
-        public void Restore()
-        {
-        }
+                //Open Connection
+                if (OpenConnection())
+                {
+                    // Create Command
+                    var cmd = new MySqlCommand(query, connection);
+                    //ExecuteScalar will return one Value
+                    count = int.Parse(cmd.ExecuteScalar() + "");
+                    //close connection
+                    CloseConnection();
+                }
+                return count;
+            }
+
+            //Backup
+            public void Backup()
+            {
+            }
+
+       //Restore
+       public void Restore()
+       {
+       }
     }
 }

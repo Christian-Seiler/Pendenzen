@@ -9,6 +9,10 @@ namespace Pendenzen
     {
         public static string getID()
         {
+            if (Constants.VERSION == "DEBUG")
+            {
+                return "SEC";
+            }
             return WindowsIdentity.GetCurrent().Name.Split('\\').Last();
         }
 
@@ -19,22 +23,30 @@ namespace Pendenzen
         
         public static List<string> getInfo(string id)
         {
-            DirectoryEntry entry = new DirectoryEntry("LDAP://allpower.local", "intranet", "saarcos!50");
-            DirectorySearcher search = new DirectorySearcher(entry);
-
-            search.Filter = $"(&(objectClass=user)(samAccountName={id}))";
-            search.SearchScope = SearchScope.Subtree;
-
             List<string> list = new List<string>();
 
-            SearchResult result = search.FindOne();
+            if (Constants.VERSION == "DEBUG")
+            {
+                list.Add(getID());
+                list.Add(Constants.TESTERNAME);
+                list.Add(Constants.TESTERSURNAME);
+                list.Add(Constants.TESTERMAIL);
+                list.Add(Constants.TESTERDEPARTMENT);
+            } else
+            {
+                DirectoryEntry entry = new DirectoryEntry("LDAP://allpower.local", "intranet", "saarcos!50");
+                DirectorySearcher search = new DirectorySearcher(entry);
 
-            list.Add(result.Properties["samAccountName"][0].ToString());
-            list.Add(result.Properties["givenName"][0].ToString());
-            list.Add(result.Properties["sn"][0].ToString());
-            list.Add(result.Properties["mail"][0].ToString());
-            list.Add(result.Properties["distinguishedname"][0].ToString().Split(',')[1].Split('=').Last());
+                search.Filter = $"(&(objectClass=user)(samAccountName={id}))";
+                search.SearchScope = SearchScope.Subtree;
+                SearchResult result = search.FindOne();
 
+                list.Add(result.Properties["samAccountName"][0].ToString());
+                list.Add(result.Properties["givenName"][0].ToString());
+                list.Add(result.Properties["sn"][0].ToString());
+                list.Add(result.Properties["mail"][0].ToString());
+                list.Add(result.Properties["distinguishedname"][0].ToString().Split(',')[1].Split('=').Last());
+            }
             return list;
         }
 
