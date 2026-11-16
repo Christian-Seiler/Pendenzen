@@ -1,11 +1,11 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "baseBranches": [
+  "baseBranchPatterns": [
     "main"
   ],
   "extends": [
     "config:recommended",
-    "npm:unpublishSafe",
+    "security:minimumReleaseAgeNpm",
     "schedule:daily",
     "schedule:automergeNonOfficeHours",
     ":automergeLinters",
@@ -28,7 +28,9 @@
   "automergeStrategy": "squash",
   "commitBodyTable": true,
   "configMigration": true,
-  "dependencyDashboardAutoclose": true,
+  "dependencyDashboard": {
+    "autoclose": true
+  },
   "internalChecksFilter": "strict",
   "minimumReleaseAge": "3 days",
   "osvVulnerabilityAlerts": true,
